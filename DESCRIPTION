@@ -1,12 +1,21 @@
 Package: normfluodbf
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: FLUOstar .dbf dirty data to a clean normalized data frame
+Version: 1.0
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person("Tingwei", "Adeck", , "awesome.tingwei@outlook.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0009-0009-7450-8863"))
+Description: Converts a FLUOstar .dbf file into a normalized data frame, ready for analysis
+License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Imports: 
+    data.table,
+    foreign,
+    tidyr
+Depends: 
+    R (>= 2.10)
+LazyData: true
