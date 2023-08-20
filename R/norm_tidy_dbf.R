@@ -79,6 +79,7 @@ min_max_norm <- function(x){
 #' @return Normalized dataframe with a Time and Cycle_No column
 #'
 #' @export
+#' @describe description
 #'
 #' @examples dbf_list <- system.file("extdata", package = "normfluodbf") |> list.files()
 #' normalized_dbf <- norm_tidy_dbf(file= "C:/Users/GrandProf/Downloads/Repos_4cleanup/Repositories_AP7/normfluodbf/data-raw/liposomes_214.dbf")
