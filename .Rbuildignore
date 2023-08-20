@@ -6,3 +6,6 @@
 ^cran-comments\.md$
 ^grateful-refs\.bib$
 ^data-raw$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
