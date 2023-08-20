@@ -20,7 +20,6 @@ Normalized dataframe with a Time and Cycle_No column
 Normalize a tidy dbf data frame. Specific to FLUOstar dirty dbf files. Version 2 will also address .dat files.
 }
 \examples{
-dbf_list <- system.file("extdata", package = "normfluodbf") |> list.files()
-normalized_dbf <- norm_tidy_dbf(file= "C:/Users/GrandProf/Downloads/Repos_4cleanup/Repositories_AP7/normfluodbf/data-raw/liposomes_214.dbf")
+\dontrun{normalized_dbf <- norm_tidy_dbf(file= "C:/Users/GrandProf/Downloads/Repos_4cleanup/Repositories_AP7/normfluodbf/data-raw/liposomes_214.dbf")}
 
 }
