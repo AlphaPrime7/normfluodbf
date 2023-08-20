@@ -85,8 +85,8 @@ min_max_norm <- function(x){
 #' @examples
 #' require(gh)
 #' qurl = "https://raw.github.com/AlphaPrime7/normfluodbf/main/data-raw/liposomes_214.dbf"
-#' raw_dbf <- gh(paste0('GET ', qurl), .destfile = tmp, .overwrite = TRUE)
-#' normalized_dbf <- norm_tidy_dbf(file= raw_dbf)
+#' gh(paste0('GET ', qurl), .destfile = tmp, .overwrite = TRUE)
+#' normalized_dbf <- norm_tidy_dbf(file= tmp)
 #'
 norm_tidy_dbf <- function(file = NULL, fun = NA, ...){
 
