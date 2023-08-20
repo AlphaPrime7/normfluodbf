@@ -81,7 +81,7 @@ min_max_norm <- function(x){
 #' @export
 #'
 #' @examples
-#' fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf")
+#' fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
 #' normalized_dbf <- norm_tidy_dbf(file=fpath)
 norm_tidy_dbf <- function(file = NULL, fun = NA, ...){
 
