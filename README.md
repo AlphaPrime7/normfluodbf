@@ -22,6 +22,10 @@ You can install the development version of normfluodbf from
 ``` r
 # install.packages("devtools")
 devtools::install_github("AlphaPrime7/normfluodbf")
+
+#Once the package makes CRAN
+install.packages("normfluodbf")
+library(normfluodbf)
 ```
 
 ## Example
