@@ -75,17 +75,13 @@ min_max_norm <- function(x){
 #' @import data.table
 #' @import tidyr
 #' @import foreign
-#' @import gh
 #'
 #' @return Normalized dataframe with a Time and Cycle_No column
 #'
 #' @export
 #'
 #' @examples
-#' require(gh)
-#' qurl = "https://raw.github.com/AlphaPrime7/normfluodbf/main/data-raw/liposomes_214.dbf"
-#' gh(paste0('GET ', qurl), .destfile = paste0(getwd(),"/data-raw/tmp"), .overwrite = TRUE)
-#' normalized_dbf <- norm_tidy_dbf(file= paste0(getwd(),"/data-raw/tmp"))
+#' normalized_dbf <- norm_tidy_dbf(file="C:/Users/GrandProf/Downloads/Repos_4cleanup/Repositories_AP7/normfluodbf/data-raw/liposomes_214.dbf")
 #'
 norm_tidy_dbf <- function(file = NULL, fun = NA, ...){
 
