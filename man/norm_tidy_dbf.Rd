@@ -22,7 +22,7 @@ Normalize a tidy dbf data frame. Specific to FLUOstar dirty dbf files. Version 2
 \examples{
 require(gh)
 qurl = "https://raw.github.com/AlphaPrime7/normfluodbf/main/data-raw/liposomes_214.dbf"
-gh(paste0('GET ', qurl), .destfile = "data-raw/tmp.dbf", .overwrite = TRUE)
+gh(paste0('GET ', qurl), .destfile = "~/data-raw/tmp.dbf", .overwrite = TRUE)
 normalized_dbf <- norm_tidy_dbf(file= tmp.dbf)
 
 }
