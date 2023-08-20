@@ -15,7 +15,7 @@ generic_identifier(numrows, col_name)
 A new single column data frame with the desired attribute added.
 }
 \description{
-Title: A generic identifier similar to unique identifier but end users supply a column name.
+A function that creates a column 1:nrow(df) and steps by 1 but gives you the option to use any column name.
 }
 \examples{
 generic_identifier(40,col_name="Cycle_No")

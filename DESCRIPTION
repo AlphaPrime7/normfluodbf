@@ -2,10 +2,10 @@ Package: normfluodbf
 Title: FLUOstar .dbf dirty data to a clean normalized data frame
 Version: 1.0
 Authors@R: 
-    person("Tingwei", "Adeck", , "awesome.tingwei@outlook.com", role = c("aut", "cre"),
+    person(given = "Tingwei", family = "Adeck", email = "awesome.tingwei@outlook.com", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0009-7450-8863"))
-Description: Converts a FLUOstar .dbf file into a normalized data frame, ready for analysis
-License: GPL (>= 3)
+Description: Converts a FLUOstar .dbf file into a normalized data frame, ready for analysis.
+License: GPL-3 + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3

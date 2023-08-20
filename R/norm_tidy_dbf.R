@@ -1,4 +1,7 @@
 #' Title: A modified unique identifier function for FLUOstar normalized data
+#' @description
+#' Package creates a column called Cycle_Number and adds to the cleaned dbf data frame
+#'
 #' @author Tingwei Adeck
 #' @param df A data frame with n number of rows
 #'
@@ -23,6 +26,9 @@ unique_identifier <- function(df){
 }
 
 #' Title: A generic identifier similar to unique identifier but end users supply a column name.
+#' @description
+#' A function that creates a column 1:nrow(df) and steps by 1 but gives you the option to use any column name.
+#'
 #' @author Tingwei Adeck
 #'
 #' @param numrows The number of rows in a data frame of interest (nrows(df) can be used).
@@ -58,6 +64,9 @@ min_max_norm <- function(x){
 }
 
 #' Title: Tidy and Normalize .dbf files obtained from experiments using the FLUOstar microplate reader.
+#' @description
+#' Normalize a tidy dbf data frame. Specific to FLUOstar dirty dbf files. Version 2 will also address .dat files.
+#'
 #'
 #' @param file A string ("x.dbf) or path directly pointing to a .dbf file
 #' @param fun A variable defined as NA, used for boolean expressions
@@ -71,12 +80,10 @@ min_max_norm <- function(x){
 #'
 #' @export
 #'
-#' @examples normalized_dbf <- norm_tidy_dbf(file="liposomes_214.dbf")
+#' @examples dbf_list <- system.file("extdata", package = "normfluodbf") |> list.files()
+#' normalized_dbf <- norm_tidy_dbf(file= "C:/Users/GrandProf/Downloads/Repos_4cleanup/Repositories_AP7/normfluodbf/data-raw/liposomes_214.dbf")
+#'
 norm_tidy_dbf <- function(file = NULL, fun = NA, ...){
-
-  library(data.table)
-  library(tidyr)
-  library(foreign)
 
   if(!is.null(file)){
     x <- foreign::read.dbf(file=file, as.is = F)
@@ -99,7 +106,7 @@ norm_tidy_dbf <- function(file = NULL, fun = NA, ...){
 
   nofun <- is.na(fun)
   dirty_time <- y[,1]
-  dbf_time_column <- data.frame() #can be a matrix wrapped into a df
+  dbf_time_column <- data.frame()
   for(i in dirty_time){
     if(is.na(i) != nofun && i != "t"){
       dbf_time_column <- rbind(dbf_time_column,i)
@@ -119,4 +126,3 @@ norm_tidy_dbf <- function(file = NULL, fun = NA, ...){
 
   return(unique_identifier(y))
 }
-use_test(liposomes_214.dbf)
