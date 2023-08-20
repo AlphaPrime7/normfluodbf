@@ -16,8 +16,7 @@ Imports:
     data.table,
     foreign,
     tidyr,
-    tibble,
-    gh
+    tibble
 Depends: 
     R (>= 2.10)
 LazyData: true
