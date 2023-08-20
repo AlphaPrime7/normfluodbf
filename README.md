@@ -1,3 +1,5 @@
+Tingwei Adeck
+August 20, 2023
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -23,11 +25,51 @@ devtools::install_github("AlphaPrime7/normfluodbf")
 ```
 
 ## Example
-Original versions of the program entailed two-steps meaning using the foreign package to read the dbf file as seen in the data folder then applying normfluodbf to normalize the data. This version focused on achieving normalized data in a single step because WHY NOT?
 
-This is an example of a one step solution to converting a .dbf file into a normalized file:
+This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(normfluodbf)
 ## normalized_data <- normfluodbf("liposomes_214.dbf")
 ```
+
+## R packages used
+
+- tidyr
+- data.table
+- foreign
+
+# References
+
+(Dowle and Srinivasan 2023) (R Core Team 2022) (Wickham et al. 2019)
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+
+<div id="ref-datatable" class="csl-entry">
+
+Dowle, Matt, and Arun Srinivasan. 2023.
+*<span class="nocase">data.table</span>: Extension of
+“<span class="nocase">data.frame</span>”*.
+<https://CRAN.R-project.org/package=data.table>.
+
+</div>
+
+<div id="ref-foreign" class="csl-entry">
+
+R Core Team. 2022. *<span class="nocase">foreign</span>: Read Data
+Stored by “Minitab,” “S,” “SAS,” “SPSS,” “Stata,” “Systat,” “Weka,”
+“<span class="nocase">dBase</span>,” ...*
+<https://CRAN.R-project.org/package=foreign>.
+
+</div>
+
+<div id="ref-tidyverse" class="csl-entry">
+
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy
+D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019.
+“Welcome to the <span class="nocase">tidyverse</span>.” *Journal of Open
+Source Software* 4 (43): 1686. <https://doi.org/10.21105/joss.01686>.
+
+</div>
+
+</div>

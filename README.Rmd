@@ -1,5 +1,8 @@
 ---
+author: Tingwei Adeck
+date: '`r format(Sys.time(), "%B %d, %Y")`'
 output: github_document
+bibliography: grateful-refs.bib
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -37,3 +40,14 @@ This is a basic example which shows you how to solve a common problem:
 library(normfluodbf)
 ## normalized_data <- normfluodbf("liposomes_214.dbf")
 ```
+
+## R packages used
+- tidyr
+- data.table
+- foreign
+
+# References
+[@datatable]
+[@foreign]
+[@tidyverse]
+
