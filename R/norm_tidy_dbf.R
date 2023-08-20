@@ -81,9 +81,8 @@ min_max_norm <- function(x){
 #' @export
 #'
 #' @examples
-#' normalized_dbf <- norm_tidy_dbf(file="C:/Users/GrandProf/Downloads/Repos_4cleanup/Repositories_AP7/normfluodbf/data-raw/liposomes_214.dbf")
-#' download.file("https://raw.github.com/AlphaPrime7/normfluodbf/main/data-raw/liposomes_214.dbf", destfile = paste0(getwd(), sep = "/", "tmp"), method = "libcurl")
-#' norm_tidy_dbf(paste0(getwd(), sep = "/", "tmp"))
+#' fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf")
+#' normalized_dbf <- norm_tidy_dbf(file=fpath)
 norm_tidy_dbf <- function(file = NULL, fun = NA, ...){
 
   if(!is.null(file)){
