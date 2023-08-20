@@ -75,6 +75,7 @@ min_max_norm <- function(x){
 #' @import data.table
 #' @import tidyr
 #' @import foreign
+#' @import gh
 #'
 #' @return Normalized dataframe with a Time and Cycle_No column
 #'
