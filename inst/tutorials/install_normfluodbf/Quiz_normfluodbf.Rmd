@@ -1,0 +1,83 @@
+---
+title: "Quiz on normfluodbf"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Who is the author of this package?
+
+### Hint: starts with T
+
+```{r quiz}
+quiz(
+  question("Who is the author of the normfluodbf package?",
+    answer("Tingwei", correct = TRUE),
+    answer("Hadley"),
+    answer("Amina"),
+    answer("Tesla")
+  ))
+```
+
+## What is the format of the file that goes into the normfluodbf function?
+
+### Hint: Its dbf
+
+```{r quiz}
+quiz(
+  question("What is the format of the file that goes into norm_tidy_dbf?",
+    answer("dbf", correct = TRUE),
+    answer("dat"),
+    answer("csv"),
+    answer("tsv")
+  ))
+```
+
+
+## How many functions are found in the package?
+
+### Hint: Its 4
+
+```{r quiz}
+quiz(
+  question("How many functions are found in the package?",
+    answer("4", correct = TRUE),
+    answer("3"),
+    answer("2"),
+    answer("1")
+  ))
+```
+
+
+## Which is the main function in the package?
+
+### Hint: Its norm_tidy_dbf
+
+```{r quiz}
+quiz(
+  question("Which is the main function in the package?",
+    answer("min_max_norm"),
+    answer("generic_identifier"),
+    answer("norm_tidy_dbf", correct = TRUE),
+    answer("unique_identifier")
+  ))
+```
+
+## What is the output to the main function?
+
+### Hint: Its a Normalized data frame
+
+```{r quiz}
+quiz(
+  question("Which is the main function in the package?",
+    answer("Data frame"),
+    answer("Vector"),
+    answer("Normalized data frame", correct = TRUE),
+    answer("unique data")
+  ))
+```

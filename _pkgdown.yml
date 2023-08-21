@@ -1,14 +1,46 @@
-url: https://pkgdown.r-lib.org
+title: normfluordbf
+url: ~
 development:
   destination: webdev
   version_label: danger
 template:
   bootstrap: 5
-  bootswatch: materia
+  bootswatch: flatly
 navbar:
-  title: "normfluordbf"
-  icon: ion-person
-  href: index.html
+  title: "Get Started"
+  icon: fa-home fa-lg
+  href: normfluodbf.html
   type: inverse
   left:
+    - text: "How To"
+      icon: fa-person-circle-question
+      menu:
+        - text: "Installation"
+          href: articles/install_normfluodbf.html
+        - text: "Input"
+          href: articles/input.html
+        - text: "Output and Analysis"
+          href: articles/out_analysis.html
+  right:
+    - icon: fa-github fa-lg
+      href: https://github.com/AlphaPrime7
+    - icon: fa-linkedin
+      href: https://www.linkedin.com/in/tingwei-adeck-52b963164/
+    - icon: fa-envelope
+      href: mailto:awesome.tingwei@outlook.com
+
+reference:
+  - title: Exported functions
+    desc: Functions exported by normfluodbf
+    contents:
+      - '`unique_identifier`'
+      - '`generic_identifier`'
+      - '`min_max_norm`'
+      - '`norm_tidy_dbf`'
+
+footer:
+  structure:
+    left: normfluodbf
+    right: [Tingwei Adeck, lega]
+
 

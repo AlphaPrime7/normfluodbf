@@ -1,5 +1,5 @@
 ---
-title: "normfluodbf"
+title: "normfluodbf: An R package for processing dirty dbf files"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{normfluodbf}
@@ -27,26 +27,19 @@ GUI enthusiasts should await the already developed App still in beta stage. In t
 * The normfluodbf package exists to make the purging and normalization seamless and in a single step.
 * Simply use the norm_tidy_dbf function on a file of interest and a normalized data frame is returned.
 
-## Calling the package
-```{r setup}
-#before CRAN acceptance
-install.packages("remotes") #if not present
-library(remotes)
-remotes::install_remote
+## What the future holds
+* An extension of the package to clean dirty dat files
+* Fine tuning the Shiny App
+* Continue to learn and solve other problems (huge interest in Genome wide associaiton studies)
 
-#From CRAN when the package is accepted
-install.packages("normfluodbf")
-library(normfluodbf)
+## Functions Included
+```{r}
+unique_identifier()
+generic_identifier()
+min_max_norm()
+norm_tidy_dbf()
 ```
 
-## Accessing test files 
-```{r setup}
-#External files for use in testing the package
-dir(system.file("extdata", package = "normfluodbf"))
+The package is developed and maintained by Tingwei Adeck.
 
-#to choose a single file to test the package
-system.file("extdata", data_object, package = "normfluodbf", mustWork = TRUE)
-#Example
-raw_dbf <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
-normfluodbf::norm_tidy_dbf(raw_dbf)
-```
+
