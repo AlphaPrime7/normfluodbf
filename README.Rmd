@@ -17,8 +17,6 @@ knitr::opts_chunk$set(
 ```
 
 # normfluodbf
-
-<!-- badges: start -->
 <!-- badges: end -->
 
 The goal of normfluodbf is to normalize fluorescence data obtained from liposome flux assay experiments via the FLUOstar microplate reader. Input or source file is a .dbf file that is not ready for analysis without processing through normfluodbf. There is a ShinyApp for this as well.
@@ -42,13 +40,14 @@ This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
 library(normfluodbf)
-## normalized_data <- normfluodbf("liposomes_214.dbf")
+normalized_data <- normfluodbf("liposomes_214.dbf")
 ```
 
 ## R packages used
 - tidyr
 - data.table
 - foreign
+- tibble
 
 # References
 [@datatable]

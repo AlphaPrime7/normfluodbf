@@ -1,9 +1,12 @@
 ^normfluodbf\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
-
 ^README\.Rmd$
 ^cran-comments\.md$
 ^grateful-refs\.bib$
 ^data-raw$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^vignettes/articles$
 

@@ -1,0 +1,32 @@
+title: normfluodbf
+url: ~
+template:
+ bootstrap: 5
+ #bootswatch: cyborg
+ theme: arrow-dark
+ #theme: breeze-light
+ bslib:
+  code-bg: "#2b2b2b"
+  pkgdown-nav-height: 75px
+  bg: "#202123"
+  fg: "#B8BCC2"
+  primary: "#306cc9"
+  #base_font: {google: "Roboto"}
+  #heading_font: {google: "Roboto Slab"}
+  #code_font: {google: "JetBrains Mono"}
+
+  #bootstrap: 5
+  #bootswatch: flatly
+  #bslib:
+    #pkgdown-nav-height: 100px
+
+navbar:
+  type: inverse
+  left:
+    - icon: fa-home
+      href: index.html
+      text: "Get Started"
+
+
+
+

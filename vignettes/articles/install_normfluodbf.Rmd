@@ -1,0 +1,26 @@
+---
+title: "Install normfluodbf"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Installing the package
+```{r setup, eval=FALSE}
+# Install from Github
+install.packages("remotes") #if not present
+library(remotes)
+remotes::install_github("AlphaPrime7/normfluodbf")
+
+#Install locally from source
+library(remotes)
+remotes::install_local("normfluodbf_1.0.tar.gz")
+
+#From CRAN based on availability
+install.packages("normfluodbf")
+library(normfluodbf)
+```

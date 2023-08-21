@@ -33,12 +33,4 @@ GUI enthusiasts should await the already developed App still in beta stage. In t
 * Fine tuning the Shiny App
 * Continue to learn and solve other problems (huge interest in Genome wide associaiton studies)
 
-## Functions Included
-```{r}
-unique_identifier()
-generic_identifier()
-min_max_norm()
-norm_tidy_dbf()
-```
 
-The package is developed and maintained by Tingwei Adeck.
