@@ -1,0 +1,14 @@
+url: https://pkgdown.r-lib.org
+development:
+  destination: webdev
+  version_label: danger
+template:
+  bootstrap: 5
+  bootswatch: materia
+navbar:
+  title: "normfluordbf"
+  icon: ion-person
+  href: index.html
+  type: inverse
+  left:
+
