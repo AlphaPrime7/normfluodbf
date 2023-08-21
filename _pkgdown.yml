@@ -6,50 +6,5 @@ development:
 template:
   bootstrap: 5
   bootswatch: flatly
-navbar:
-  title: "Get Started"
-  icon: fa-home fa-lg
-  href: normfluodbf.html
-  type: inverse
-  left:
-    - text: "How To"
-      icon: fa-person-circle-question
-      menu:
-        - text: "Installation"
-          href: articles/install_normfluodbf.html
-        - text: "Input"
-          href: articles/input.html
-        - text: "Output and Analysis"
-          href: articles/out_analysis.html
-  right:
-    - icon: fa-github fa-lg
-      href: https://github.com/AlphaPrime7
-    - icon: fa-linkedin
-      href: https://www.linkedin.com/in/tingwei-adeck-52b963164/
-    - icon: fa-envelope
-      href: mailto:awesome.tingwei@outlook.com
-
-reference:
-  - title: Exported functions
-    desc: Functions exported by normfluodbf
-    contents:
-      - '`unique_identifier`'
-      - '`generic_identifier`'
-      - '`min_max_norm`'
-      - '`norm_tidy_dbf`'
-  - title: Exported data sets
-    desc: Data sets available for lay loading
-    contents:
-      - '`liposomes_214`'
-      - '`liposomes_215`'
-      - '`liposomes_216`'
-      - '`liposomes_218`'
-      - '`liposomes_221`'
-      - '`liposomes_227`'
-
-footer:
-  structure:
-    left: normfluodbf
-    right: [Tingwei Adeck, lega]
 
 
