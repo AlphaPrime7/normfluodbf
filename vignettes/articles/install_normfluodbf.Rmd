@@ -1,5 +1,9 @@
 ---
 title: "normfluodbf installation Instructions"
+tags: []
+output:
+  html_document:
+    toc: true
 ---
 
 ```{r, include = FALSE}
