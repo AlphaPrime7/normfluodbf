@@ -1,3 +1,6 @@
+destination: docs
+
+
 reference:
   - title: Exported functions
     desc: Functions exported by normfluodbf
