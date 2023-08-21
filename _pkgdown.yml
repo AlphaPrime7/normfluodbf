@@ -1,8 +1,11 @@
-title: normfluodbf
+#title: normfluodbf #title here no need to title navbar
 url: ~
+development:
+  #destination: docs #its all going into the doc folder
+  version_label: danger #gives syntax highlights to the version number
 template:
  bootstrap: 5
- #bootswatch: cyborg
+ #bootswatch: cyborg #others are materia, flatly etc
  theme: arrow-dark
  #theme: breeze-light
  bslib:
@@ -20,12 +23,43 @@ template:
   #bslib:
     #pkgdown-nav-height: 100px
 
+#navbar:
+  #structure:
+    #left:  [intro, reference, articles, news]
+    #right: [search, github]
+
 navbar:
+  title: "normfluodbf 1.1" #dummy title, pkgdown determines the page title based on the pre-release
   type: inverse
   left:
     - icon: fa-home
-      href: index.html
+      href: articles/landing_redirect.html
       text: "Get Started"
+    - icon: fa-question
+      text: "How To"
+      menu:
+      -  icon: fa-code
+         text: "Installation"
+         href: articles/install_redirect.html
+
+      -  icon: fa-code
+         text:  "Input"
+         href: articles/input_redirect.html
+
+      -  icon: fa-code
+         text: "Output and Analysis"
+         href: articles/example_redirect.html
+  structure:
+    right: [reference,NEWS, github, email, Linkedin]
+  components:
+    email:
+      icon: fa-envelope
+      href: mailto:awesome.tingwei@outlook.com
+    Linkedin:
+      icon: fa-linkedin
+      href: https://www.linkedin.com/in/tingwei-adeck-52b963164/
+
+
 
 
 

@@ -11,6 +11,6 @@ An object of class \code{data.frame} with 29 rows and 52 columns.
 liposomes_227
 }
 \description{
-FLUOstar .dbf file in wide format and unable to use to data analysis.
+FLUOstar .dbf file in wide format and unable to use for data analysis.
 }
 \keyword{datasets}
