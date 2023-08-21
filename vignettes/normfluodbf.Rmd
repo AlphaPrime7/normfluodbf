@@ -1,5 +1,5 @@
 ---
-title: "normfluodbf: An R package for processing dirty dbf files"
+title: "normfluodbf"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{normfluodbf}
@@ -13,6 +13,7 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
+
 ## What is normfluodbf?
 The normfluodbf package is named rightfully after its function as a dirty dbf wrangler and normalizer in a single step. In plain terms, the main function norm_tiy_dbf alongside its helper functions are supplied a dirty dbf file and in a single step, a normalized data frame is returned that can be saved as a csv for analysis in excel or continued analysis in R.
 
@@ -41,5 +42,3 @@ norm_tidy_dbf()
 ```
 
 The package is developed and maintained by Tingwei Adeck.
-
-
