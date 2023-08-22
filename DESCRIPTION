@@ -1,6 +1,6 @@
 Package: normfluodbf
-Title: fluostar .dbf dirty data to a clean normalized data frame
-Version: 1.3
+Title: Fluostar .dbf Dirty Data to a Clean Normalized Data Frame
+Version: 1.4
 Authors@R: 
     c(person(given = "Tingwei", family = "Adeck", role = c("aut", "cre"), email = "awesome.tingwei@outlook.com"), person(given = "Tingwei", role = "cph", 
            comment = c(ORCID = "0009-0009-7450-8863")))
