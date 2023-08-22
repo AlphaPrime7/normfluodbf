@@ -73,6 +73,16 @@
     </a>
   </div>
 </li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--news">
+    <span class="fa fa-newspaper"></span>
+     
+    News
+  </a>
+  <div class="dropdown-menu" aria-labelledby="dropdown--news">
+    <a class="dropdown-item" href="../news/index.html">Version 1.0 (Pre-release)</a>
+  </div>
+</li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -124,19 +134,12 @@
 <div class="section level2">
 <h2 id="what-is-normfluodbf">What is normfluodbf?<a class="anchor" aria-label="anchor" href="#what-is-normfluodbf"></a>
 </h2>
-<p>The normfluodbf package is named rightfully after its function as a
-dirty dbf wrangler and normalizer in a single step. In plain terms, the
-main function norm_tiy_dbf alongside its helper functions are supplied a
-dirty dbf file and in a single step, a normalized data frame is returned
-that can be saved as a csv for analysis in excel or continued analysis
-in R.</p>
-</div>
-<div class="section level2">
-<h2 id="normfluodbf-shiny-app">normfluodbf Shiny App<a class="anchor" aria-label="anchor" href="#normfluodbf-shiny-app"></a>
-</h2>
-<p>GUI enthusiasts should await the already developed App still in beta
-stage. In the mean time R users should use R or Rstudio for analyzing
-these files.</p>
+<p>The <a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link"><code>{normfluodbf}</code></a>
+package is named rightfully after its function as a dirty dbf wrangler
+and normalizer, in a single step. In plain terms, the main function
+norm_tiy_dbf alongside its helper functions are supplied a dirty dbf
+file and in a single step, a normalized data frame is returned that can
+be saved as a csv for analysis in excel or continued analysis in R.</p>
 </div>
 <div class="section level2">
 <h2 id="package-context">Package Context<a class="anchor" aria-label="anchor" href="#package-context"></a>
@@ -146,7 +149,7 @@ these files.</p>
 use of physics concepts, specifically fluorescence in understanding
 biophysical properties of biological components (cells, DNA, RNA,
 proteins etc.).</li>
-<li>The dbf files that triggered the creation of this package are
+<li>The dbf files that triggered the creation of this package were
 obtained from experiments dubbed “Liposome Flux Assays” that seek to
 understand the electrophysiological properties of ion channels.</li>
 <li>Liposome flux assays are often conducted in a FLUOstar Omega
@@ -154,13 +157,14 @@ microplate reader that outputs results in dat or dbf extensions.
 Unfortunately both file types derived from these flux assays are dirty
 (not from corruption) hence requiring some purging before meaningful
 analyses can be conducted.</li>
-<li>The second concern with the output from microplate reader is that
-data obtained from different sample types (test, negative, positive) can
-only be analyzed on a sliding scale without normalization.</li>
-<li>The normfluodbf package exists to make the purging and normalization
-seamless and in a single step.</li>
+<li>The second concern with the output from the microplate reader is
+that data obtained from different sample types (test, negative,
+positive) can only be analyzed on a sliding scale without
+normalization.</li>
+<li>The normfluodbf package exists to make purging and normalization of
+data seamless and in a single step.</li>
 <li>Simply use the norm_tidy_dbf function on a file of interest and a
-normalized data frame is returned.</li>
+normalized data frame is returned (EASY RIGHT!).</li>
 </ul>
 </div>
 <div class="section level2">
@@ -168,9 +172,6 @@ normalized data frame is returned.</li>
 </h2>
 <ul>
 <li>An extension of the package to clean dirty dat files</li>
-<li>Fine tuning the Shiny App</li>
-<li>Continue to learn and solve other problems (huge interest in Genome
-wide associaiton studies)</li>
 </ul>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

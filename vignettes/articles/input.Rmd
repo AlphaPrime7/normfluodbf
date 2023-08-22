@@ -11,10 +11,10 @@ knitr::opts_chunk$set(
 
 ## Accessing test files 
 ```{r setup, eval=FALSE}
-#External files for use in testing the package
+#External files for use in testing the package.
 dir(system.file("extdata", package = "normfluodbf"))
 
-#to choose a single file to test the package
+#Choose a single file to test the package
 system.file("extdata", data_object, package = "normfluodbf", mustWork = TRUE)
 
 #Example

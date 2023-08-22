@@ -73,6 +73,16 @@
     </a>
   </div>
 </li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--news">
+    <span class="fa fa-newspaper"></span>
+     
+    News
+  </a>
+  <div class="dropdown-menu" aria-labelledby="dropdown--news">
+    <a class="dropdown-item" href="../news/index.html">Version 1.0 (Pre-release)</a>
+  </div>
+</li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -125,10 +135,10 @@
 <h2 id="accessing-test-files">Accessing test files<a class="anchor" aria-label="anchor" href="#accessing-test-files"></a>
 </h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#pick one file from the bunch</span></span>
+<code class="sourceCode R"><span><span class="co">#Pick one file from the bunch</span></span>
 <span><span class="va">raw_dbf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"liposomes_214.dbf"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span>, mustWork <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co">#pass the file through the function</span></span>
+<span><span class="co">#Pass the file through the function</span></span>
 <span><span class="va">norm_dbf</span> <span class="op">&lt;-</span> <span class="fu">normfluodbf</span><span class="fu">::</span><span class="fu"><a href="../reference/norm_tidy_dbf.html">norm_tidy_dbf</a></span><span class="op">(</span><span class="va">raw_dbf</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">#Analyze post-normalization (based on liposomes_214.dbf)</span></span>

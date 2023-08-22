@@ -29,18 +29,22 @@ navbar:
     - icon: fa-code
       text: Output and Analysis
       href: articles/example_redirect.html
+  - icon: fa-newspaper
+    text: News
+    menu:
+    - text: Version 1.0 (Pre-release)
+      href: news/index.html
+
   structure:
     right:
     - reference
-    - NEWS
     - github
-    - email
+    - mail
     - Linkedin
   components:
-    email:
+    mail:
       icon: fa-envelope
       href: mailto:awesome.tingwei@outlook.com
     Linkedin:
       icon: fa-linkedin
       href: https://www.linkedin.com/in/tingwei-adeck-52b963164/
-

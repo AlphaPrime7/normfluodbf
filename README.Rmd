@@ -24,15 +24,16 @@ knitr::opts_chunk$set(
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html) 
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://github.com/AlphaPrime7/normfluodbf)
 [![test-coverage](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/test-coverage.yaml)
+[![R-CMD-check](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/R-CMD-check.yaml)
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/AlphaPrime7/normfluodbf/graphs/commit-activity)
 
 
-The goal of [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) is to normalize fluorescence data obtained from liposome flux assay experiments via the FLUOstar microplate reader. Input or source file is a .dbf file that is not ready for analysis without processing through {normfluodbf}. There is a ShinyApp for this as well.
+The goal of [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) is to normalize fluorescence data obtained from liposome flux assay experiments via the FLUOstar micro plate reader. The Input file is a .dbf file that requires cleaning and normalization using [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf), before insightful analysis can be conducted. .
 
 ## &darr; Installation
 
-You can install the development version of normfluodbf from [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) with:
+The development version of  [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) can be installed as illustrated below:
 
 ``` {r, eval = FALSE}
 install.packages("devtools")
@@ -46,7 +47,7 @@ library(normfluodbf)
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which illustrates package usage:
 
 ```{r example, eval=F}
 library(normfluodbf)
@@ -54,11 +55,13 @@ liposomes_214 <- system.file("extdata", "liposomes_214.dbf", package = "normfluo
 normalized_data <- normfluodbf(liposomes_214)
 ```
 
-## R packages used
+## R packages Imported
 - tidyr
 - data.table
 - foreign
 - tibble
+
+Vist [`{my page}`](https://alphaprime7.github.io/normfluodbf/articles/normfluodbf.html) for details on the concept behind the project.
 
 # References
 [@datatable]

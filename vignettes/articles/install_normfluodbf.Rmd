@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
 install.packages("remotes") #if not present
 library(remotes)
 remotes::install_github("AlphaPrime7/normfluodbf")
+pak::pak("AlphaPrime7/normfluodbf")
 
 #Install locally from source
 library(remotes)

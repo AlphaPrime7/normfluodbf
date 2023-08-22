@@ -11,10 +11,10 @@ knitr::opts_chunk$set(
 
 ## Accessing test files 
 ```{r setup, eval=FALSE}
-#pick one file from the bunch
+#Pick one file from the bunch
 raw_dbf <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
 
-#pass the file through the function
+#Pass the file through the function
 norm_dbf <- normfluodbf::norm_tidy_dbf(raw_dbf)
 
 #Analyze post-normalization (based on liposomes_214.dbf)

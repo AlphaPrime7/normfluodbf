@@ -6,3 +6,5 @@
 ^grateful-refs\.bib$
 ^data-raw$
 
+^\.github$
+^CODE_OF_CONDUCT\.md$
