@@ -1,0 +1,28 @@
+Package: normfluodbf
+Title: fluostar .dbf dirty data to a clean normalized data frame
+Version: 1.0
+Authors@R: 
+    c(person(given = "Tingwei", family = "Adeck", role = c("aut", "cre"), email = "awesome.tingwei@outlook.com"), person(given = "Tingwei", role = "cph", 
+           comment = c(ORCID = "0009-0009-7450-8863")))
+Description: Converts a FLUOstar .dbf file into a normalized data frame, ready for analysis.
+License: GPL-3 + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Suggests: 
+    knitr,
+    learnr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Imports: 
+    data.table,
+    foreign,
+    tidyr,
+    tibble
+Depends: 
+    R (>= 2.10)
+LazyData: true
+URL: https://github.com/AlphaPrime7/normfluodbf, https://alphaprime7.github.io/normfluodbf/
+BugReports: https://github.com/AlphaPrime7/normfluodbf/issues
+VignetteBuilder: knitr
