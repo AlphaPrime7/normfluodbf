@@ -1,56 +1,41 @@
-#title: normfluodbf #title here no need to title navbar
-url: https://alphaprime7.github.io/
+url: https://alphaprime7.github.io/normfluodbf/
 development:
-  #destination: docs #its all going into the doc folder
-  version_label: danger #gives syntax highlights to the version number
+  version_label: danger
 template:
- bootstrap: 5
- #bootswatch: cyborg #others are materia, flatly etc
- theme: arrow-dark
- #theme: breeze-light
- bslib:
-  code-bg: "#2b2b2b"
-  pkgdown-nav-height: 75px
-  bg: "#202123"
-  fg: "#B8BCC2"
-  primary: "#306cc9"
-  #base_font: {google: "Roboto"}
-  #heading_font: {google: "Roboto Slab"}
-  #code_font: {google: "JetBrains Mono"}
-
-  #bootstrap: 5
-  #bootswatch: flatly
-  #bslib:
-    #pkgdown-nav-height: 100px
-
-#navbar:
-  #structure:
-    #left:  [intro, reference, articles, news]
-    #right: [search, github]
-
+  bootstrap: 5
+  theme: arrow-dark
+  bslib:
+    code-bg: '#2b2b2b'
+    pkgdown-nav-height: 75px
+    bg: '#202123'
+    fg: '#B8BCC2'
+    primary: '#306cc9'
 navbar:
-  title: "normfluodbf 1.1" #dummy title, pkgdown determines the page title based on the pre-release
+  title: normfluodbf 1.1
   type: inverse
   left:
-    - icon: fa-home
-      href: articles/landing_redirect.html
-      text: "Get Started"
-    - icon: fa-question
-      text: "How To"
-      menu:
-      -  icon: fa-code
-         text: "Installation"
-         href: articles/install_redirect.html
-
-      -  icon: fa-code
-         text:  "Input"
-         href: articles/input_redirect.html
-
-      -  icon: fa-code
-         text: "Output and Analysis"
-         href: articles/example_redirect.html
+  - icon: fa-home
+    href: articles/landing_redirect.html
+    text: Get Started
+  - icon: fa-question
+    text: How To
+    menu:
+    - icon: fa-code
+      text: Installation
+      href: articles/install_redirect.html
+    - icon: fa-code
+      text: Input
+      href: articles/input_redirect.html
+    - icon: fa-code
+      text: Output and Analysis
+      href: articles/example_redirect.html
   structure:
-    right: [reference,NEWS, github, email, Linkedin]
+    right:
+    - reference
+    - NEWS
+    - github
+    - email
+    - Linkedin
   components:
     email:
       icon: fa-envelope
@@ -58,9 +43,4 @@ navbar:
     Linkedin:
       icon: fa-linkedin
       href: https://www.linkedin.com/in/tingwei-adeck-52b963164/
-
-
-
-
-
 

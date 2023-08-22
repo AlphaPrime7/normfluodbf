@@ -23,6 +23,6 @@ Imports:
 Depends: 
     R (>= 2.10)
 LazyData: true
-URL: https://github.com/AlphaPrime7/normfluodbf
+URL: https://github.com/AlphaPrime7/normfluodbf, https://alphaprime7.github.io/normfluodbf/
 BugReports: https://github.com/AlphaPrime7/normfluodbf/issues
 VignetteBuilder: knitr
