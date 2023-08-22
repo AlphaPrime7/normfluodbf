@@ -1,0 +1,36 @@
+---
+title: "normfluodbf"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{normfluodbf}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## What is normfluodbf?
+The normfluodbf package is named rightfully after its function as a dirty dbf wrangler and normalizer in a single step. In plain terms, the main function norm_tiy_dbf alongside its helper functions are supplied a dirty dbf file and in a single step, a normalized data frame is returned that can be saved as a csv for analysis in excel or continued analysis in R.
+
+## normfluodbf Shiny App
+GUI enthusiasts should await the already developed App still in beta stage. In the mean time R users should use R or Rstudio for analyzing these files.
+
+## Package Context
+* Biologists that conduct research across the USA can attest to the use of physics concepts, specifically fluorescence in understanding biophysical properties of biological components (cells, DNA, RNA, proteins etc.). 
+* The dbf files that triggered the creation of this package are obtained from experiments dubbed "Liposome Flux Assays" that seek to understand the electrophysiological properties of ion channels.
+* Liposome flux assays are often conducted in a FLUOstar Omega microplate reader that outputs results in dat or dbf extensions. Unfortunately both file types derived from these flux assays are dirty (not from corruption) hence requiring some purging before meaningful analyses can be conducted.
+* The second concern with the output from microplate reader is that data obtained from different sample types (test, negative, positive) can only be analyzed on a sliding scale without normalization.
+* The normfluodbf package exists to make the purging and normalization seamless and in a single step.
+* Simply use the norm_tidy_dbf function on a file of interest and a normalized data frame is returned.
+
+## What the future holds
+* An extension of the package to clean dirty dat files
+* Fine tuning the Shiny App
+* Continue to learn and solve other problems (huge interest in Genome wide associaiton studies)
+
+
