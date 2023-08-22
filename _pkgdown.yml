@@ -1,5 +1,5 @@
 #title: normfluodbf #title here no need to title navbar
-url: ~
+url: https://alphaprime7.github.io/
 development:
   #destination: docs #its all going into the doc folder
   version_label: danger #gives syntax highlights to the version number
