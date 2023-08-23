@@ -5,7 +5,7 @@ Authors@R:
     c(person(given = "Tingwei", family = "Adeck", role = c("aut", "cre"), email = "awesome.tingwei@outlook.com"), person(given = "Tingwei", family = "Adeck", role=c("cph"), 
            comment = c(ORCID = "0009-0009-7450-8863")))
 Description: Converts a FLUOstar .dbf file into a normalized data frame, ready for analysis.
-License: MIT
+License: MIT + LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
