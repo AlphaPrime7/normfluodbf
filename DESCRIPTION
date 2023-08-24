@@ -1,10 +1,10 @@
 Package: normfluodbf
-Title: Clean and Normalize FLUOstar DBF Extension Data
+Title: Cleans and Normalizes 'FLUOstar' 'DBF' Files
 Version: 1.4.2
 Authors@R: 
     c(person(given = "Tingwei", family = "Adeck", role = c("aut", "cre"), email = "awesome.tingwei@outlook.com"), person(given = "normfluodbf authors", role=c("cph"), 
            comment = c(ORCID = "0009-0009-7450-8863")))
-Description: Converts a FLUOstar .dbf file into a normalized data frame, ready for analysis.
+Description: Converts a 'FLUOstar' 'DBF' File into a Normalized Data Frame, Ready for Analysis.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
