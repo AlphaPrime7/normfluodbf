@@ -25,11 +25,12 @@ knitr::opts_chunk$set(
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://github.com/AlphaPrime7/normfluodbf)
 [![test-coverage](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/test-coverage.yaml)
 [![R-CMD-check](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/R-CMD-check.yaml)
-[![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[![license](https://img.shields.io/badge/MIT-License?label=license
+)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/AlphaPrime7/normfluodbf/graphs/commit-activity)
 
 
-The goal of [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) is to normalize fluorescence data obtained from liposome flux assay experiments via the FLUOstar micro plate reader. The Input file is a .dbf file that requires cleaning and normalization using [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf), before insightful analysis can be conducted. .
+The goal of [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) is to normalize fluorescence data obtained from liposome flux assay experiments via the FLUOstar micro plate reader. The Input file is a .dbf file that requires cleaning and normalization using [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf), before insightful analysis can be conducted.
 
 ## &darr; Installation
 
@@ -61,7 +62,7 @@ normalized_data <- normfluodbf(liposomes_214)
 - foreign
 - tibble
 
-Vist [`{my page}`](https://alphaprime7.github.io/normfluodbf/articles/normfluodbf.html) for details on the concept behind the project.
+Visit [`{my page}`](https://alphaprime7.github.io/normfluodbf/articles/normfluodbf.html) for details on the concept behind the project.
 
 # References
 [@datatable]
