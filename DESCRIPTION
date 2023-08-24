@@ -1,5 +1,5 @@
 Package: normfluodbf
-Title: Fluostar .dbf Dirty Data to a Clean Normalized Data Frame
+Title: Clean and Normalize FLUOstar DBF Extension Data
 Version: 1.4.1
 Authors@R: 
     c(person(given = "Tingwei", family = "Adeck", role = c("aut", "cre"), email = "awesome.tingwei@outlook.com"), person(given = "normfluodbf authors", role=c("cph"), 
