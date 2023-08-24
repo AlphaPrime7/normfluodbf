@@ -39,7 +39,7 @@ normalized_data <- normfluodbf(liposomes_214)
 -   foreign
 -   tibble
 
-Vist [`{my page}`](https://alphaprime7.github.io/normfluodbf/articles/normfluodbf.html) for details on the concept behind the project.
+Visit [`{my page}`](https://alphaprime7.github.io/normfluodbf/articles/normfluodbf.html) for details on the concept behind the project.
 
 # References
 
