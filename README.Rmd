@@ -29,6 +29,7 @@ knitr::opts_chunk$set(
 [![license](https://img.shields.io/badge/MIT-License?label=license
 )](https://mit-license.org/)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/AlphaPrime7/normfluodbf/graphs/commit-activity)
+[![CRAN status](https://www.r-pkg.org/badges/version/normfluodbf)](https://CRAN.R-project.org/package=normfluodbf)
 
 
 The goal of [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) is to normalize fluorescence data obtained from liposome flux assay experiments via the FLUOstar micro plate reader. The Input file is a .dbf file that requires cleaning and normalization using [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf), before insightful analysis can be conducted.
