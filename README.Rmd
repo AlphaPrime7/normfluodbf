@@ -37,6 +37,9 @@ Status](https://www.repostatus.org/badges/latest/wip.svg)](https://github.com/Al
 [![CRAN
 status](https://www.r-pkg.org/badges/version/normfluodbf)](https://CRAN.R-project.org/package=normfluodbf)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/normfluodbf?color=yellow)](https://cran.r-project.org/package=normfluodbf)
+[![](http://cranlogs.r-pkg.org/badges/last-month/normfluodbf?color=green)](https://cran.r-project.org/package=normfluodbf)
+[![](http://cranlogs.r-pkg.org/badges/last-week/normfluodbf?color=yellow)](https://cran.r-project.org/package=normfluodbf)
+
 
 The goal of
 [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) is to
