@@ -1,6 +1,6 @@
 #' Title: A modified unique identifier function for FLUOstar normalized data
 #' @description
-#' Package creates a column called Cycle_Number and adds to the cleaned dbf data frame
+#' The function creates a column called Cycle_Number and adds to the cleaned dbf data frame
 #'
 #' @author Tingwei Adeck
 #' @param df A data frame with n number of rows
