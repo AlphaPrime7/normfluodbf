@@ -7,7 +7,7 @@
 comma_cleaner(comma_df)
 }
 \arguments{
-\item{df}{A dirty data frame (numeric values have commas at the end) with n number of rows}
+\item{comma_df}{A dirty data frame (numeric values have commas at the end) with n number of rows}
 }
 \value{
 A new data frame with commas at the end of numbers taken out

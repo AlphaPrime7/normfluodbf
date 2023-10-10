@@ -40,7 +40,6 @@ status](https://www.r-pkg.org/badges/version/normfluodbf)](https://CRAN.R-projec
 [![](http://cranlogs.r-pkg.org/badges/last-month/normfluodbf?color=green)](https://cran.r-project.org/package=normfluodbf)
 [![](http://cranlogs.r-pkg.org/badges/last-week/normfluodbf?color=yellow)](https://cran.r-project.org/package=normfluodbf)
 
-
 The goal of
 [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) is to
 normalize fluorescence data obtained from liposome flux assay
@@ -82,7 +81,6 @@ normalized_data <- normfluodbf(liposomes_214)
 -   foreign
 -   tibble
 -   dplyr
-
 
 Visit
 [`{my page}`](https://alphaprime7.github.io/normfluodbf/articles/normfluodbf.html)

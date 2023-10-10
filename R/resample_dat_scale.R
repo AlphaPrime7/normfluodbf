@@ -7,7 +7,6 @@
 #' @param tnp Stands for test,negative,positive (sample types); the number should match the number of sample types in the plate reader even if repeating a sample type
 #' @param cycles The number of cycles chosen by the researcher. In the case of this package 40 is the standard but ensure to have the right number of samples
 #'
-#' @import data.table
 #'
 #' @return A new data frame with attributes matching the number of sample types and tuples matching the number of cycles. In short it returns delineated samples.
 #' @export
@@ -38,7 +37,7 @@ resample_dat_scale <- function(df, tnp, cycles){
 
   big_data = do.call(rbind, j_vect)
   big_data = as.data.frame(big_data)
-  big_data_t = transpose(l=big_data)
+  big_data_t = data.table::transpose(l=big_data)
 
   suppressWarnings(return(big_data_t))
 }

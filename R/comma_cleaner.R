@@ -4,7 +4,7 @@
 #' The resulting data frame is a cleaned data frame with numeric values.
 #'
 #' @author Tingwei Adeck
-#' @param df A dirty data frame (numeric values have commas at the end) with n number of rows
+#' @param comma_df A dirty data frame (numeric values have commas at the end) with n number of rows
 #'
 #'
 #' @return A new data frame with commas at the end of numbers taken out

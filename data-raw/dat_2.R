@@ -1,0 +1,1 @@
+write.table(ldat2, file = "data-raw/dat_1.dat")

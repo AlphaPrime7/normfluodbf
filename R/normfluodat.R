@@ -8,8 +8,9 @@
 #' @param cycles The number of cycles chosen by the researcher. In the case of this package 40 is the standard but ensure to have the right number of samples
 #' @param rows_used A character vector of the rows used, eg n = c('A','B','C')
 #' @param cols_used  A numeric vector of the columns used, eg m = c(2,4,6)
-#'
-#' @import data.table
+#' @import utils
+#' @import stats
+#' @importFrom data.table transpose
 #'
 #' @return A normalized data frame with the x-variable (Cycle_No), ready for analysis
 #' @export

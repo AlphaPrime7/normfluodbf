@@ -1,5 +1,5 @@
 Tingwei Adeck
-September 23, 2023
+October 10, 2023
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -64,6 +64,7 @@ normalized_data <- normfluodbf(liposomes_214)
 - data.table
 - foreign
 - tibble
+- dplyr
 
 Visit
 [`{my page}`](https://alphaprime7.github.io/normfluodbf/articles/normfluodbf.html)
