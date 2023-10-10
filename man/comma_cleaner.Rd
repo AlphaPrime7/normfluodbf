@@ -13,7 +13,7 @@ comma_cleaner(comma_df)
 A new data frame with commas at the end of numbers taken out
 }
 \description{
-The function takes a a dirty data frame (comma_df) derived from either the clean_odddat or clean_evendat functions.
+The function takes a dirty data frame (comma_df) derived from either the clean_odddat or clean_evendat functions.
 The resulting data frame is a cleaned data frame with numeric values.
 }
 \note{

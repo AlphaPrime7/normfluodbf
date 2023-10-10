@@ -13,7 +13,7 @@ clean_odddat(df)
 A new data frame with most impurities taken out; See the example
 }
 \description{
-The function takes a a dirty data frame and returns a clean data frame with the only exception being that most values in the returned data frame have commas at the end
+The function takes a dirty data frame and returns a clean data frame with the only exception being that most values in the returned data frame have commas at the end
 The data frame that goes into the function comes from reading dat files from FLUOstar experiments
 See the example code
 }

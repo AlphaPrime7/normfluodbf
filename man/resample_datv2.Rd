@@ -2,7 +2,7 @@
 % Please edit documentation in R/resample_datv2.R
 \name{resample_datv2}
 \alias{resample_datv2}
-\title{Title: A function to extract sample types from the 120 tuples data cleaned data frame.}
+\title{Title: A function to extract sample types from the long-form (120 tuples) data cleaned data frame.}
 \usage{
 resample_datv2(df, tnp, cycles)
 }
@@ -12,8 +12,6 @@ resample_datv2(df, tnp, cycles)
 \item{tnp}{Stands for test,negative,positive (sample types); the number should match the number of sample types in the plate reader even if repeating a sample type}
 
 \item{cycles}{The number of cycles chosen by the researcher. In the case of this package 40 is the standard but ensure to have the right number of samples}
-
-\item{samples_per_tnp}{An optional parameter thought to be useful but had no use based on the approach taken to solve this problem; Will be useful in future functions}
 }
 \value{
 A new data frame with attributes matching the number of sample types and tuples matching the number of cycles. In short it returns delineated samples.
@@ -25,6 +23,7 @@ The function is well thought and accounts for almost any scenario.
 }
 \note{
 This function is a subordinate function and prototype that turned out very useful.
+Syntax modifications present for educational and learning purposes on my part-note taking. One parameter has been taken out compared to resample_dat().
 }
 \examples{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
@@ -33,8 +32,8 @@ comma_dat <- clean_odddat(dat1_df)
 nocomma_dat <- comma_cleaner(comma_dat)
 col1 <- nocomma_dat[,1]
 col1_80 <- nocomma_dat[c(1:80),1] #just for fun assume 2 samples only
-samples_delineated <- resample_dat(col1, tnp=3, cycles=40)
-two_sample_test <- resample_dat(col1_80, tnp = 2, cycles = 40, samples_per_tnp = 12)
+samples_delineated <- resample_datv2(col1, tnp=3, cycles=40)
+two_sample_test <- resample_datv2(col1_80, tnp = 2, cycles = 40, samples_per_tnp = 12)
 }
 \author{
 Tingwei Adeck
