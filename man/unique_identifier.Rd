@@ -13,7 +13,7 @@ unique_identifier(df)
 A new data frame with the Cycle_Number attribute added.
 }
 \description{
-Package creates a column called Cycle_Number and adds to the cleaned dbf data frame
+The function creates a column called Cycle_Number and adds to the cleaned dbf data frame
 }
 \note{
 The FLUOstar microplate reader runs in cycles with the number of cycles determined
