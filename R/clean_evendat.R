@@ -21,6 +21,6 @@ clean_evendat <- function(df){
     if(i %in% skip_values) next
     df[c(k+i,i),] <- NA
   }
-  df <- na.omit(df)
+  df <- stats::na.omit(df)
   return(df)
 }

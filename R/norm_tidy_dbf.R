@@ -72,7 +72,7 @@ min_max_norm <- function(x){
 #' @param fun A variable defined as NA, used for boolean expressions
 #' @param ... A sequence of dots
 #'
-#' @import data.table
+#' @importFrom data.table transpose
 #' @import tidyr
 #' @import foreign
 #'

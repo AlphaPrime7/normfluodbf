@@ -4,8 +4,8 @@
 #'
 #' @author Tingwei Adeck
 #' @param df A clean data frame obtained from the large scale delineation of samples.
-#' @param rows_used A character vector representing the plate rows used; eg ru <- c('A','B','C')
-#' @param cols_used A numeric vector representing the plate columns used; eg cu <- c(1,2,3,4). keep as null if all the columns were used.
+#' @param rows_used A character vector representing the plate rows used; eg ru <- c('A','B','C'). can be used in sequence or out of sequence.
+#' @param cols_used A numeric vector representing the plate columns used; eg cu <- c(1,2,3,4). keep as null if all the columns were used or columns are used in sequence.
 #'
 #'
 #' @return Returns column names that will be added to the normalized data frame that contains all samples

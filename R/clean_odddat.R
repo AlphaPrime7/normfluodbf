@@ -7,7 +7,6 @@
 #' @author Tingwei Adeck
 #' @param df A data frame with n number of rows
 #'
-#' @import dplyr
 #'
 #' @return A new data frame with most impurities taken out; See the example
 #' @export
@@ -27,7 +26,7 @@ clean_odddat <- function(df){
       }
     }
   }
-  nona_rows_df <- na.omit(df)
+  nona_rows_df <- stats::na.omit(df)
 
   for (i in 1:nrow(nona_rows_df)){
     for (j in 1:ncol(nona_rows_df)){
@@ -37,7 +36,7 @@ clean_odddat <- function(df){
     }
   }
 
-  comma_df <- nona_rows_df %>% select_if(~ !any(is.na(.)))
+  comma_df <- nona_rows_df %>% dplyr::select_if(~ !any(is.na(.)))
 
   return(comma_df)
 }

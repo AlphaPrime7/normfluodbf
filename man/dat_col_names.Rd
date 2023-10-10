@@ -9,9 +9,9 @@ dat_col_names(df, rows_used = NULL, cols_used = NULL)
 \arguments{
 \item{df}{A clean data frame obtained from the large scale delineation of samples.}
 
-\item{rows_used}{A character vector representing the plate rows used; eg ru <- c('A','B','C')}
+\item{rows_used}{A character vector representing the plate rows used; eg ru <- c('A','B','C'). can be used in sequence or out of sequence.}
 
-\item{cols_used}{A numeric vector representing the plate columns used; eg cu <- c(1,2,3,4). keep as null if all the columns were used.}
+\item{cols_used}{A numeric vector representing the plate columns used; eg cu <- c(1,2,3,4). keep as null if all the columns were used or columns are used in sequence.}
 }
 \value{
 Returns column names that will be added to the normalized data frame that contains all samples
