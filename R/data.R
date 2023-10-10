@@ -42,3 +42,18 @@ NULL
 #'
 #'
 "liposomes_227"
+
+#' dat_1.
+#'
+#' FLUOstar .dat files used for creation of the update and unusable for data immediate data analysis.
+#'
+#'
+"dat_1"
+
+#' dat_2.
+#'
+#' FLUOstar .dat files used for creation of the update and unusable for data immediate data analysis.
+#'
+#'
+"dat_2"
+

@@ -81,6 +81,8 @@ normalized_data <- normfluodbf(liposomes_214)
 -   data.table
 -   foreign
 -   tibble
+-   dplyr
+
 
 Visit
 [`{my page}`](https://alphaprime7.github.io/normfluodbf/articles/normfluodbf.html)
