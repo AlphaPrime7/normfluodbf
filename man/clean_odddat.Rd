@@ -21,12 +21,9 @@ See the example code
 This function should work on all types of Fluostar dat files (unlike the clean_evendat() function).
 }
 \examples{
-fpath1 <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
-fpath2 <- system.file("extdata", "dat_2.dat", package = "normfluodbf", mustWork = TRUE)
-dat1_df <- read.table(file=fpath1)
-dat2_df <- read.table(file=fpath2)
-partial_cleaned_dat1 <- clean_odddat(dat1_df)
-partial_cleaned_dat1 <- clean_odddat(dat1_df)
+fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+dat_df <- read.table(file=fpath)
+partial_cleaned_dat <- clean_odddat(dat_df)
 }
 \author{
 Tingwei Adeck

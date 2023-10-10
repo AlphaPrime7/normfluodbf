@@ -16,29 +16,23 @@
 #'
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
-#' comma_dat <- clean_odddat(dat1_df)
+#' comma_dat <- clean_odddat(dat_df)
 #' nocomma_dat <- comma_cleaner(comma_dat)
+#' nocomma_dat <- as.data.frame(nocomma_dat)
 #' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
-#' resampled_norm <- as.data.frame(lapply(resampled_scaled[1:ncol(resampled_scaled)], min_max_norm))
-#' n <- c('A','B','C')
-#' sample_col_names <- dat_col_names(resampled_scaled, n) # i used all columns so col_used = NULL
-#' sample_col_names_norm <- dat_col_names(resampled_norm, n)
-#' sample_col_names_spec <- dat_col_names(resampled_scale, n, c(2,4)) #impractical example using the resampled_scale but the output of this function should match your experimental setup
+#' n = c('A','B','C')
+#' sample_col_names <- dat_col_names(resampled_scaled, n , cols_used = NULL) # i used all columns so col_used = NULL
 dat_col_names <- function(df, rows_used = NULL, cols_used= NULL){
   col_names <- c()
   if(is.null(cols_used)){
-    for(j in n){
-      for(i in 1:ncol(df)){
-        col_names <- c(col_names, paste0(n,i))
-      }
+    for(i in 1:ncol(df)){
+      col_names <- c(col_names, paste0(rows_used,i)) #j was n
     }
     return(col_names[1:ncol(df)])
   } else {
-    for(j in n){
-      for(i in cols_used){
-        col_names <- c(col_names, paste0(n,i))
-      }
+    for(i in cols_used){
+      col_names <- c(col_names, paste0(rows_used,i))
     }
-    return(col_names[1:(length(cols_used)*length(n))])
+    return(col_names[1:(length(cols_used)*length(rows_used))])
   }
 }

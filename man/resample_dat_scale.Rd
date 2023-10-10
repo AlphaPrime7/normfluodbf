@@ -26,9 +26,12 @@ As a matter of fact, this function is modified to produce the parent or main fun
 \examples{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
-comma_dat <- clean_odddat(dat1_df)
+comma_dat <- clean_odddat(dat_df)
 nocomma_dat <- comma_cleaner(comma_dat)
 resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
+}
+\seealso{
+\code{\link[=resample_dat]{resample_dat()}}, \code{\link[=resample_datv2]{resample_datv2()}} and \code{\link[=dat_col_names]{dat_col_names()}}
 }
 \author{
 Tingwei Adeck

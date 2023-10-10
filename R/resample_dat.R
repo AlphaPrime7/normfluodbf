@@ -18,12 +18,11 @@
 #'
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
-#' comma_dat <- clean_odddat(dat1_df)
+#' comma_dat <- clean_odddat(dat_df)
 #' nocomma_dat <- comma_cleaner(comma_dat)
-#' col1 <- nocomma_dat[,1]
-#' col1_80 <- nocomma_dat[c(1:80),1] #just for fun assume 2 samples only
-#' samples_delineated <- resample_dat(col1, tnp=3, cycles=40)
-#' two_sample_test <- resample_dat(col1_80, tnp = 2, cycles = 40, samples_per_tnp = 12)
+#' col_1 <- nocomma_dat[,1]
+#' col_1 <- as.data.frame(col_1)
+#' samples_delineated <- resample_dat(col_1, tnp=3, cycles=40)
 resample_dat <- function(df, tnp, cycles, samples_per_tnp=NULL){
 
   type_size <- c(1:tnp)

@@ -27,14 +27,12 @@ A function that takes the setup excel file from the user should be part of the n
 \examples{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
-comma_dat <- clean_odddat(dat1_df)
+comma_dat <- clean_odddat(dat_df)
 nocomma_dat <- comma_cleaner(comma_dat)
+nocomma_dat <- as.data.frame(nocomma_dat)
 resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
-resampled_norm <- as.data.frame(lapply(resampled_scaled[1:ncol(resampled_scaled)], min_max_norm))
-n <- c('A','B','C')
-sample_col_names <- dat_col_names(resampled_scaled, n) # i used all columns so col_used = NULL
-sample_col_names_norm <- dat_col_names(resampled_norm, n)
-sample_col_names_spec <- dat_col_names(resampled_scale, n, c(2,4)) #impractical example using the resampled_scale but the output of this function should match your experimental setup
+n = c('A','B','C')
+sample_col_names <- dat_col_names(resampled_scaled, n , cols_used = NULL) # i used all columns so col_used = NULL
 }
 \author{
 Tingwei Adeck
