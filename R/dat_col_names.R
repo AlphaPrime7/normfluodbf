@@ -21,7 +21,7 @@
 #' nocomma_dat <- as.data.frame(nocomma_dat)
 #' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 #' n = c('A','B','C')
-#' sample_col_names <- dat_col_names(resampled_scaled, n , cols_used = NULL) # i used all columns so col_used = NULL
+#' sample_col_names <- dat_col_names(resampled_scaled, n , cols_used = NULL) # i used all columns (in sequence) so col_used = NULL
 dat_col_names <- function(df, rows_used = NULL, cols_used= NULL){
   col_names <- c()
   if(is.null(cols_used)){
