@@ -1,20 +1,22 @@
-#' Title: Tidy and Normalize .dbf files obtained from experiments using the FLUOstar microplate reader.
+#' Title: Cleans and Normalizes ".dbf" files obtained from experiments using the FLUOstar microplate reader.
 #' @description
-#' Normalize a tidy dbf data frame. Specific to FLUOstar dirty dbf files. Version 2 will also address .dat files.
+#' Input the path to a ".dbf" file obtained from the FLUOstar microplate (usually a 96-well microplate) reader; this function will create a data frame, clean the data frame, normalize the data frame, append a "Cycle_Number" column and return a data frame that is ready for analysis.
+#' Most importantly, this function is a single_step function.
+#' Also, the function can be extended to other ".dbf" files if they follow the format for which this function was designed; this is totally at the users' discretion.
 #'
 #'
-#' @param file A string ("x.dbf) or path directly pointing to a .dbf file
-#' @param fun A variable defined as NA, used for boolean expressions
-#' @param ... A sequence of dots
+#' @param file A string ("liposomes_xxx.dbf") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dbf" file, from FLUOstar experiments.
+#' @param fun A variable defined as NA, used for boolean expressions or manipulation.
+#' @param ... A container object that can be used to capture extra variables if needed.
 #'
 #' @importFrom data.table transpose
 #' @import tidyr
 #' @import foreign
 #'
-#' @return Normalized dataframe with a Time and Cycle_No column
+#' @return A normalized data frame with an appended "Cycle_Number" attribute.
 #'
 #' @export
-#' @note Simply renaming norm_tidy_dbf to a name that I like more. Users can continue with the old name but this is a better name in my opinion.
+#' @note Re-nomenclature of norm_tidy_dbf to a more appropriate name that facilitates function utilization. Users can continue with the old name ("norm_tidy_dbf") but this is a better name in my opinion.
 #'
 #' @examples
 #' fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
