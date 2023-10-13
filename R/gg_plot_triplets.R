@@ -18,14 +18,18 @@
 #' @note This function is not very modular so use with caution. It should work just fine in most cases but here for demonstration.
 #'
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+#' fpath_dbf <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
 #' n <- c('A','B','C')
 #' normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40, n)
+#' normalized_dbf_scale100 <- normfluordbf(file=fpath_dbf, norm_scale = 'hundred')
 #' yvars <- c("A1","B1","C1")
+#' yvars_dbf <- c('A01','A02','A03')
 #' xvar <- c("Cycle_Number")
 #' color <- c("Test","Negative Control","Positive Control")
 #' xl <- c(0,40)
 #' yl <- c(0,1)
 #' gg_plot_triplets(normalized_fluo_dat,x=xvar,y_list=yvars,xlim=xl,ylim=yl)
+#' gg_plot_triplets(normalized_dbf_scale100,x=xvar,y_list=yvars_dbf,xlim=xl,ylim=yl)
 
 gg_plot_triplets <- function(df, x, y_list, xlim, ylim){
   ggplot(df, aes(x=.data[[x[1]]])) +
