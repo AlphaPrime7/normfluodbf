@@ -21,7 +21,7 @@
 #' fpath_dbf <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
 #' n <- c('A','B','C')
 #' normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40, n)
-#' normalized_dbf_scale100 <- normfluordbf(file=fpath_dbf, norm_scale = 'hundred')
+#' normalized_dbf_scale100 <- norm_tidy_dbf(file=fpath_dbf, norm_scale = 'hundred')
 #' yvars <- c("A1","B1","C1")
 #' yvars_dbf <- c('A01','A02','A03')
 #' xvar <- c("Cycle_Number")
