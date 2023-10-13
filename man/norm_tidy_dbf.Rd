@@ -33,7 +33,7 @@ Also, the function can be extended to other ".dbf" files if they follow the form
 }
 \note{
 Re-nomenclature of norm_tidy_dbf to a more appropriate name that facilitates function utilization. Users can continue with the old name ("norm_tidy_dbf") but this is a better name in my opinion.
-It is important to know that if the user chooses to log transform the data then the program defaults to a min_max normalization with range between 0 and 1.
+The default dbf normalization technique outputs values in the 0-1 range. The user needs to specify different aesthetics if they are used to seeing their plots on a different range.
 }
 \examples{
 fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
