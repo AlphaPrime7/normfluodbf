@@ -4,16 +4,14 @@
 \alias{normfluordbf}
 \title{Title: Cleans and Normalizes ".dbf" files obtained from experiments using the FLUOstar microplate reader.}
 \usage{
-normfluordbf(
-  file = NULL,
-  norm_method = NULL,
-  transformed = NULL,
-  fun = NA,
-  ...
-)
+normfluordbf(file = NULL, norm_scale = NULL, transformed = NULL, fun = NA, ...)
 }
 \arguments{
 \item{file}{A string ("liposomes_xxx.dbf") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dbf" file, from FLUOstar experiments.}
+
+\item{norm_scale}{This parameter can taken in 'hundred', 'one', or 'z-score' which denotes the normalization type; Initialized as NULL.}
+
+\item{transformed}{This parameter can take in 'log' which denotes a logarithmic box-cox transformation; Initialized as NULL.}
 
 \item{fun}{A variable defined as NA, used for boolean expressions or manipulation.}
 

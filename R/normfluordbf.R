@@ -6,6 +6,8 @@
 #'
 #'
 #' @param file A string ("liposomes_xxx.dbf") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dbf" file, from FLUOstar experiments.
+#' @param norm_scale This parameter can taken in 'hundred', 'one', or 'z-score' which denotes the normalization type; Initialized as NULL.
+#' @param transformed This parameter can take in 'log' which denotes a logarithmic box-cox transformation; Initialized as NULL.
 #' @param fun A variable defined as NA, used for boolean expressions or manipulation.
 #' @param ... A container object that can be used to capture extra variables if needed.
 #'
@@ -22,7 +24,7 @@
 #' fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
 #' normalized_dbf <- normfluordbf(file=fpath)
 
-normfluordbf <- function(file = NULL, norm_method = NULL, transformed = NULL, fun = NA, ...){
+normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun = NA, ...){
 
   if(!is.null(file)){
     x <- foreign::read.dbf(file=file, as.is = F)
