@@ -38,8 +38,9 @@ xvar <- c("Cycle_Number")
 color <- c("Test","Negative Control","Positive Control")
 xl <- c(0,40)
 yl <- c(0,1)
+yl_dbf <- c(0,100)
 gg_plot_triplets(normalized_fluo_dat,x=xvar,y_list=yvars,xlim=xl,ylim=yl)
-gg_plot_triplets(normalized_dbf_scale100,x=xvar,y_list=yvars_dbf,xlim=xl,ylim=yl)
+gg_plot_triplets(normalized_dbf_scale100,x=xvar,y_list=yvars_dbf,xlim=xl,ylim=yl_dbf)
 }
 \author{
 Tingwei Adeck
