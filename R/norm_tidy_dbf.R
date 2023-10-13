@@ -151,7 +151,7 @@ log_transformation <- function(x){
 
 norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun = NA, ...){
 
-  if(!is.null(file)){
+  if(!is.null(file) && is.null(norm_scale) && is.null(transformed)){
     x <- foreign::read.dbf(file=file, as.is = F)
     y <- data.table::transpose(l=x)
     rownames(y) <- colnames(x)
