@@ -2,21 +2,21 @@
 % Please edit documentation in R/norm_tidy_dbf.R
 \name{min_max_norm}
 \alias{min_max_norm}
-\title{Title: Min-Max normalization of attributes that require normalization}
+\title{Title: A function that performs Min-Max normalization(0-1 range) of attributes that require normalization}
 \usage{
 min_max_norm(x)
 }
 \arguments{
-\item{x}{A single value from an attribute passed in the function for normalization.}
+\item{x}{Column or attribute values passed into the min-max normalization function}
 }
 \value{
-A normalized value (value between 1 and 0)
+A normalized value (between 0 and 1) when used as a standalone function, or a normalized attribute(s) when used with lapply.
 }
 \description{
-Title: Min-Max normalization of attributes that require normalization
+Title: A function that performs Min-Max normalization(0-1 range) of attributes that require normalization
 }
 \note{
-lapply is needed to apply the function across several columns in a data set.
+The lapply function is required to apply the function across several columns in a data set.
 }
 \examples{
 test_df <- as.data.frame(c(seq(40)))

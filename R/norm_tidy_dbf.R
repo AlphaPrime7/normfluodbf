@@ -45,45 +45,107 @@ generic_identifier <- function(numrows, col_name){
   return(df)
 }
 
-#' Title: Min-Max normalization of attributes that require normalization
+#' Title: A function that performs Min-Max normalization(0-1 range) of attributes that require normalization
 #'
 #' @author Tingwei Adeck (Adapted from Statology)
-#' @param x A single value from an attribute passed in the function for normalization.
+#' @param x Column or attribute values passed into the min-max normalization function
 #'
-#' @return A normalized value (value between 1 and 0)
+#' @return A normalized value (between 0 and 1) when used as a standalone function, or a normalized attribute(s) when used with lapply.
 #' @export
-#' @note lapply is needed to apply the function across several columns in a data set.
+#' @note The lapply function is required to apply the function across several columns in a data set.
 #'
 #'
 #' @examples test_df <- as.data.frame(c(seq(40)))
 #' colnames(test_df) <- "test"
 #' test_df_norm <- lapply(test_df[1:ncol(test_df)], min_max_norm)
 #' @references https://www.statology.org/how-to-normalize-data-in-r/
+
 min_max_norm <- function(x){
   (x - min(x)) / (max(x) - min(x))
 }
 
-#' Title: Tidy and Normalize .dbf files obtained from experiments using the FLUOstar microplate reader.
+#' Title: A function that performs Min-Max normalization (0-100 range) of attributes that require normalization
+#'
+#' @author Tingwei Adeck
+#' @param x Column or attribute values passed into the min-max normalization function
+#'
+#' @return A normalized value (between 0 and 100) when used as a standalone function, or a normalized attribute(s) when used with lapply.
+#' @export
+#' @note The lapply function is required to apply the function across several columns in a data set.
+#'
+#'
+#' @examples test_df <- as.data.frame(c(seq(40)))
+#' colnames(test_df) <- "test"
+#' test_df_norm <- lapply(test_df[1:ncol(test_df)], min_max_norm_percent)
+#' @references https://www.statology.org/how-to-normalize-data-in-r/
+
+min_max_norm_percent <- function(x){
+  ((x - min(x)) / (max(x) - min(x))) * 100
+}
+
+#' Title: A function that performs Z-score standardization (or normalization) of attributes
+#'
+#' @author Tingwei Adeck
+#' @param x Column or attribute values passed into the Z-standardization function
+#'
+#' @return Attribute(s) with values that have mean 0 and standard deviation 1
+#' @export
+#' @note The lapply function is required to apply the function across several columns in a data set.
+#'
+#'
+#' @examples test_df <- as.data.frame(c(seq(40)))
+#' colnames(test_df) <- "test"
+#' test_df_norm <- lapply(test_df[1:ncol(test_df)], norm_z)
+#' @references https://www.statology.org/how-to-normalize-data-in-r/
+
+norm_z <- function(x){
+  (x - mean(x)) / sd(x,na.rm = F)
+}
+
+#' Title: A function that performs log transformation of data
+#'
+#' @author Tingwei Adeck
+#' @param x Column or attribute values passed into the Z-standardization function
+#'
+#' @return Log transformed attributes
+#' @export
+#' @note The lapply function is required to apply the function across several columns in a data set.
+#'
+#'
+#' @examples test_df <- as.data.frame(c(seq(40)))
+#' colnames(test_df) <- "test"
+#' test_df_norm <- lapply(test_df[1:ncol(test_df)], log_transformation)
+#' @references https://www.statology.org/how-to-normalize-data-in-r/
+
+log_transformation <- function(x){
+  log(x)
+}
+
+#' Title: Cleans and Normalizes ".dbf" files obtained from experiments using the FLUOstar microplate reader.
 #' @description
-#' Normalize a tidy dbf data frame. Specific to FLUOstar dirty dbf files. Version 2 will also address .dat files.
+#' Input the path to a ".dbf" file obtained from the FLUOstar microplate (usually a 96-well microplate) reader; this function will create a data frame, clean the data frame, normalize the data frame, append a "Cycle_Number" column and return a data frame that is ready for analysis.
+#' Most importantly, this function is a single_step function.
+#' Also, the function can be extended to other ".dbf" files if they follow the format for which this function was designed; this is totally at the users' discretion.
 #'
 #'
-#' @param file A string ("x.dbf) or path directly pointing to a .dbf file
-#' @param fun A variable defined as NA, used for boolean expressions
-#' @param ... A sequence of dots
+#' @param file A string ("liposomes_xxx.dbf") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dbf" file, from FLUOstar experiments.
+#' @param fun A variable defined as NA, used for boolean expressions or manipulation.
+#' @param ... A container object that can be used to capture extra variables if needed.
 #'
 #' @importFrom data.table transpose
 #' @import tidyr
 #' @import foreign
 #'
-#' @return Normalized dataframe with a Time and Cycle_No column
+#' @return A normalized data frame with an appended "Cycle_Number" attribute.
 #'
 #' @export
+#' @note Re-nomenclature of norm_tidy_dbf to a more appropriate name that facilitates function utilization. Users can continue with the old name ("norm_tidy_dbf") but this is a better name in my opinion.
 #'
 #' @examples
 #' fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
-#' normalized_dbf <- norm_tidy_dbf(file=fpath)
-norm_tidy_dbf <- function(file = NULL, fun = NA, ...){
+#' normalized_dbf <- normfluordbf(file=fpath)
+
+norm_tidy_dbf <- function(file = NULL, norm_method = NULL, transformed = NULL, fun = NA, ...){
 
   if(!is.null(file)){
     x <- foreign::read.dbf(file=file, as.is = F)

@@ -4,7 +4,13 @@
 \alias{normfluordbf}
 \title{Title: Cleans and Normalizes ".dbf" files obtained from experiments using the FLUOstar microplate reader.}
 \usage{
-normfluordbf(file = NULL, fun = NA, ...)
+normfluordbf(
+  file = NULL,
+  norm_method = NULL,
+  transformed = NULL,
+  fun = NA,
+  ...
+)
 }
 \arguments{
 \item{file}{A string ("liposomes_xxx.dbf") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dbf" file, from FLUOstar experiments.}

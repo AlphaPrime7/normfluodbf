@@ -21,7 +21,8 @@
 #' @examples
 #' fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
 #' normalized_dbf <- normfluordbf(file=fpath)
-normfluordbf <- function(file = NULL, fun = NA, ...){
+
+normfluordbf <- function(file = NULL, norm_method = NULL, transformed = NULL, fun = NA, ...){
 
   if(!is.null(file)){
     x <- foreign::read.dbf(file=file, as.is = F)
