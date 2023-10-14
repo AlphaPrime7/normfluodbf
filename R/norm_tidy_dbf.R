@@ -119,7 +119,7 @@ norm_z <- function(x){
 #' test_df_norm <- lapply(test_df[1:ncol(test_df)], decimal_scaling)
 #' @references https://www.statology.org/how-to-normalize-data-in-r/
 
-decimal_sacling <- function(x){
+decimal_scaling <- function(x){
   max_abs <- max(abs(x))
   power <- ceiling(log10(max_abs))
   x/(10^power)
