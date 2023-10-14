@@ -175,8 +175,14 @@ log_transformation <- function(x){
 #'
 #' @examples
 #' fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
-#' normalized_dbf <- norm_tidy_dbf(file=fpath)
+#' normalized_dbf_default <- norm_tidy_dbf(file=fpath)
 #' normalized_dbf_scale100 <- norm_tidy_dbf(file=fpath, norm_scale = 'hundred')
+#' xvar <- c("Cycle_Number")
+#' yvars_dbf <- c("A01","A02","A03")
+#' color <- c("Test","Negative Control","Positive Control")
+#' xl <- c(0,40)
+#' yl_dbf <- c(0,100)
+#' gg_plot_triplets(normalized_dbf_scale100,x=xvar,y_list=yvars_dbf,xlim=xl,ylim=yl_dbf)
 
 norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun = NA, ...){
 

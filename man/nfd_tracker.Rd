@@ -4,7 +4,7 @@
 \alias{nfd_tracker}
 \title{Title: Normfluodbf tracker}
 \usage{
-nfd_tracker(period = NULL, plot = NULL)
+nfd_tracker(package, period = NULL, plot = NULL)
 }
 \arguments{
 \item{period}{takes 'last-month' or 'last-week'; default is NULL}
@@ -21,7 +21,7 @@ A simple tracker for the package. A fun addition to the package.
 The tracker is not modular so only works for normfluodbf hence in the package
 }
 \examples{
-nfd_tracker(period = 'last-month', plot = 'cum')
+nfd_tracker(package = 'normfluodbf', period = 'last-month', plot = 'cum')
 }
 \author{
 Tingwei Adeck
