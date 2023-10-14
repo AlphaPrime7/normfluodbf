@@ -39,10 +39,85 @@ Badges](https://img.shields.io/badge/badges-awesome-green.svg)](https://github.c
 The goal of
 [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) is to
 normalize fluorescence data obtained from liposome flux assay
-experiments via the FLUOstar micro plate reader. The Input file is a
-.dbf file that requires cleaning and normalization using
-[`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf), before
-insightful analysis can be conducted.
+experiments (the package can be extended to other experimental data from
+similar instruments but this must be done at the users’ discretion) via
+the FLUOstar micro plate reader (usually a 96-well micropplate). The
+package now consists of three functions (norm_tidy_dbf, normfluordbf &
+normfluodat) capable of normalizing ‘.dbf’ or ‘.dat’ files that require
+cleaning and normalization using
+[`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf). The
+cleansed data can then be used for insightful data analysis and
+visualization of results which can then be useful in the public
+dissemination of scientific knowledge. This package falls in line with
+principles of the inventor that focuses on public dissemination of
+scientific knowledge and making it accessible to people of varying
+backgrounds.
+
+# Experimental setup-Standard
+
+| Sample_Type (TNP) | 96  | 1        | 2        | 3        | 4        | 5        | 6        | 7        | 8        | 9        | 10       | 11       | 12       |
+|:------------------|:----|:---------|:---------|:---------|:---------|:---------|:---------|:---------|:---------|:---------|:---------|:---------|:---------|
+| Test              | A   | X1       | X2       | X3       | X4       | X5       | X6       | X7       | X8       | X9       | X10      | X11      | X12      |
+| Negative          | B   | X13      | X14      | X15      | X16      | X17      | X18      | X19      | X20      | X21      | X22      | X23      | X24      |
+| Positive          | C   | X25      | X26      | X27      | X28      | X29      | X30      | X31      | X32      | X33      | X34      | X35      | X36      |
+|                   | D   |          |          |          |          |          |          |          |          |          |          |          |          |
+|                   | E   |          |          |          |          |          |          |          |          |          |          |          |          |
+|                   | F   |          |          |          |          |          |          |          |          |          |          |          |          |
+|                   | G   |          |          |          |          |          |          |          |          |          |          |          |          |
+|                   | H   |          |          |          |          |          |          |          |          |          |          |          |          |
+| Concentration     |     | 2 $\mu$M | 2 $\mu$M | 2 $\mu$M | 3 $\mu$M | 3 $\mu$M | 3 $\mu$M | 4 $\mu$M | 4 $\mu$M | 4 $\mu$M | 5 $\mu$M | 5 $\mu$M | 5 $\mu$M |
+
+<figure>
+<img src="original_exp_setup.png" alt="Standard Experimental Setup" />
+<figcaption aria-hidden="true">Standard Experimental Setup</figcaption>
+</figure>
+
+- The above image is the standard setup for experiments using the 96
+  well plate. My case was specific to liposome flux assays (LFAs) but
+  the assumption is that most experimental setups should follow the
+  design above.
+
+- Instances where the standard procedure is followed entails that the
+  researcher can benefit from tracking the data in a single column after
+  cleanup which will be illustrated.
+
+| Sample_Type | Cycle_No | Machine_data_verbose | machine_data_numeric |
+|:------------|:---------|:---------------------|:---------------------|
+| Test        | 1        | A1                   | 1                    |
+| Negative    | 1        | B1                   | 2                    |
+| Positive    | 1        | C1                   | 3                    |
+| Test        | 2        | A1                   | 4                    |
+| Negative    | 2        | B1                   | 5                    |
+| Positive    | 2        | C1                   | 6                    |
+| Test        | 40       | A1                   | …118                 |
+| Negative    | 40       | B1                   | …119                 |
+| Positive    | 40       | C1                   | …120                 |
+
+- For all three samples, the data derived from the instrument comprises
+  of 120 tuples (rows), and this can be plotted as a single comlumn vs
+  cycle number (1:n), were n = number of cycles, in this case 40 cycles.
+  The machine (is dumb) and reads this sequentially so the column has
+  120 tuples or rows as shown above.
+
+- The final product in the standard procedure is shown below and the
+  package update for dat files provides a normalized version of this
+  data as the final output.
+
+| A1 (Test) | B1 (Negative) | C1 (Positive) | Cycle_No |
+|:----------|:--------------|:--------------|:---------|
+| A1        | B1            | C1            | 1        |
+| A1        | B1            | C1            | 2        |
+| A1        | B1            | C1            | 3        |
+| A1        | B1            | C1            | 4        |
+| A1        | B1            | C1            | 5        |
+| A1        | B1            | C1            | 6        |
+| A1        | B1            | C1            | …38      |
+| A1        | B1            | C1            | …39      |
+| A1        | B1            | C1            | …40      |
+
+- Violation of the standard setup does not violate this algorithm but it
+  becomes the researchers responsibility to keep track of any deviations
+  to avoid wrong experimental results.
 
 ## ↓ Installation
 
