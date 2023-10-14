@@ -65,7 +65,7 @@ The package now consists of three functions (norm_tidy_dbf, normfluordbf & normf
 | | F |  |  |  |  |  |  |  |  |  |  |  |  
 | | G |  |  |  |  |  |  |  |  |  |  |  |  
 | | H |  |  |  |  |  |  |  |  |  |  |  |  
-| Concentration |  | 2 $\mu$M | 2 $\mu$M | 2 $\mu$M | 3 $\mu$M | 3 $\mu$M | 3 $\mu$M |4 $ \mu $M | 4 $\mu$M | 4 $\mu$M | 5 $\mu$M  | 5 $\mu$M | 5 $\mu$M 
+| Concentration |  | 2 $\mu$ M | 2 $\mu$ M | 2 $\mu$ M | 3 $\mu$ M | 3 $\mu$ M | 3 $\mu$ M |4 $\mu$ M | 4 $\mu$ M | 4 $\mu$ M | 5 $\mu$ M  | 5 $\mu$ M | 5 $\mu$ M 
 
 ![Standard Experimental Setup](original_exp_setup.png)
 
