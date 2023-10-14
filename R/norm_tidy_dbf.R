@@ -168,7 +168,10 @@ log_transformation <- function(x){
 #' The default dbf normalization technique outputs values in the 0-1 range. The user needs to specify different aesthetics if they are used to seeing their plots on a different range.
 #' The function accounts for nine conditions and there is an active quest to find a better way to write this.
 #' Please NOTE that decimal scaling is a sliding scale and so should yield unwanted results.
-#' Please Note that the user must specify the norm_scale if they also want to specify log transformation(transformed argument0.
+#' Please Note that the user must specify the norm_scale if they also want to specify log transformation(transformed argument).
+#' Backward compatibility is maintained and so there should be no issues with using the package the way the user was used to.
+#' The last NOTE is that if the user has no real clue how to analyze their data and just inputs a link to the dbf file, the program returns a 0-1 scale normalized data frame.
+#'
 #'
 #' @examples
 #' fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
