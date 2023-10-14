@@ -5,6 +5,7 @@
 #' @import cranlogs
 #'
 #' @author Tingwei Adeck
+#' @param package package name as string (example: package = 'normfluodbf')
 #' @param period takes 'last-month' or 'last-week'; default is NULL
 #' @param plot takes 'cum' or 'daily'; default is null
 #'

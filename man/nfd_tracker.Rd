@@ -7,6 +7,8 @@
 nfd_tracker(package, period = NULL, plot = NULL)
 }
 \arguments{
+\item{package}{package name as string (example: package = 'normfluodbf')}
+
 \item{period}{takes 'last-month' or 'last-week'; default is NULL}
 
 \item{plot}{takes 'cum' or 'daily'; default is null}
