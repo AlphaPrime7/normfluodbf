@@ -167,7 +167,7 @@ log_transformation <- function(x){
 #' @note Re-nomenclature of norm_tidy_dbf to a more appropriate name that facilitates function utilization. Users can continue with the old name ("norm_tidy_dbf") but this is a better name in my opinion.
 #' The default dbf normalization technique outputs values in the 0-1 range. The user needs to specify different aesthetics if they are used to seeing their plots on a different range.
 #' The function accounts for nine conditions and there is an active quest to find a better way to write this.
-#' Please NOTE that decimal scaling is a sliding scale (hypothesized) and so should yield unwanted results.
+#' Please NOTE that decimal scaling is a sliding scale and so should yield unwanted results.
 #' Please Note that the user must specify the norm_scale if they also want to specify log transformation(transformed argument0.
 #'
 #' @examples
