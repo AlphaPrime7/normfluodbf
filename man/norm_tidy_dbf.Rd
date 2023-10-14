@@ -15,7 +15,7 @@ norm_tidy_dbf(
 \arguments{
 \item{file}{A string ("liposomes_xxx.dbf") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dbf" file, from FLUOstar experiments.}
 
-\item{norm_scale}{This parameter can taken in 'hundred', 'one', or 'z-score' which denotes the normalization type; Initialized as NULL.}
+\item{norm_scale}{This parameter can taken in 'hundred', 'one', 'z-score' or decimal, which denotes the normalization type; Initialized as NULL.}
 
 \item{transformed}{This parameter can take in 'log' which denotes a logarithmic box-cox transformation; Initialized as NULL.}
 
@@ -34,9 +34,12 @@ Also, the function can be extended to other ".dbf" files if they follow the form
 \note{
 Re-nomenclature of norm_tidy_dbf to a more appropriate name that facilitates function utilization. Users can continue with the old name ("norm_tidy_dbf") but this is a better name in my opinion.
 The default dbf normalization technique outputs values in the 0-1 range. The user needs to specify different aesthetics if they are used to seeing their plots on a different range.
+The function accounts for nine conditions and there is an active quest to find a better way to write this.
+Please NOTE that decimal scaling is a sliding scale (hypothesized) and so should yield unwanted results.
+Please Note that the user must specify the norm_scale if they also want to specify log transformation(transformed argument0.
 }
 \examples{
 fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
-normalized_dbf <- normfluordbf(file=fpath)
-normalized_dbf_scale100 <- normfluordbf(file=fpath, norm_scale = 'hundred')
+normalized_dbf <- norm_tidy_dbf(file=fpath)
+normalized_dbf_scale100 <- norm_tidy_dbf(file=fpath, norm_scale = 'hundred')
 }

@@ -102,6 +102,29 @@ norm_z <- function(x){
   (x - mean(x)) / sd(x)
 }
 
+#' Title: A function that performs decimal scaling (not normalization) of attributes
+#'
+#' @author Tingwei Adeck
+#' @param x Column or attribute values passed into the decimal scaling function
+#'
+#' @return Attribute(s) with values that have the decimal place moved to facilitate machine learning
+#' @export
+#' @note The lapply function is required to apply the function across several columns in a data set.
+#' This is NOT a normalization function because the data still exist on a sliding scale.
+#' This function is here for demonstration purposes and should be used for exercise as it is here for educational purposes for the inventor of the package.
+#'
+#'
+#' @examples test_df <- as.data.frame(c(seq(40)))
+#' colnames(test_df) <- "test"
+#' test_df_norm <- lapply(test_df[1:ncol(test_df)], decimal_scaling)
+#' @references https://www.statology.org/how-to-normalize-data-in-r/
+
+decimal_sacling <- function(x){
+  max_abs <- max(abs(x))
+  power <- ceiling(log10(max_abs))
+  x/(10^power)
+}
+
 #' Title: A function that performs log transformation of data
 #'
 #' @author Tingwei Adeck
@@ -129,7 +152,7 @@ log_transformation <- function(x){
 #'
 #'
 #' @param file A string ("liposomes_xxx.dbf") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dbf" file, from FLUOstar experiments.
-#' @param norm_scale This parameter can taken in 'hundred', 'one', or 'z-score' which denotes the normalization type; Initialized as NULL.
+#' @param norm_scale This parameter can taken in 'hundred', 'one', 'z-score' or decimal, which denotes the normalization type; Initialized as NULL.
 #' @param transformed This parameter can take in 'log' which denotes a logarithmic box-cox transformation; Initialized as NULL.
 #' @param fun A variable defined as NA, used for boolean expressions or manipulation.
 #' @param ... A container object that can be used to capture extra variables if needed.
@@ -143,11 +166,14 @@ log_transformation <- function(x){
 #' @export
 #' @note Re-nomenclature of norm_tidy_dbf to a more appropriate name that facilitates function utilization. Users can continue with the old name ("norm_tidy_dbf") but this is a better name in my opinion.
 #' The default dbf normalization technique outputs values in the 0-1 range. The user needs to specify different aesthetics if they are used to seeing their plots on a different range.
+#' The function accounts for nine conditions and there is an active quest to find a better way to write this.
+#' Please NOTE that decimal scaling is a sliding scale (hypothesized) and so should yield unwanted results.
+#' Please Note that the user must specify the norm_scale if they also want to specify log transformation(transformed argument0.
 #'
 #' @examples
 #' fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
-#' normalized_dbf <- normfluordbf(file=fpath)
-#' normalized_dbf_scale100 <- normfluordbf(file=fpath, norm_scale = 'hundred')
+#' normalized_dbf <- norm_tidy_dbf(file=fpath)
+#' normalized_dbf_scale100 <- norm_tidy_dbf(file=fpath, norm_scale = 'hundred')
 
 norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun = NA, ...){
 
@@ -156,7 +182,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
   if(is.null(file)){
     warning("please enter a string for the .dbf file you want to normalize")
 
-  } else if(!is.null(file) && norm_scale == 'hundred'){
+  } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'hundred'){
 
     y <- data.table::transpose(l=x)
     rownames(y) <- colnames(x)
@@ -193,7 +219,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     return(unique_identifier(y))
 
-  } else if (!is.null(file) && norm_scale == 'one'){
+  } else if (!is.null(file) && !is.null(norm_scale) && norm_scale == 'one'){
 
     y <- data.table::transpose(l=x)
     rownames(y) <- colnames(x)
@@ -230,7 +256,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     return(unique_identifier(y))
 
-  } else if(!is.null(file) && norm_scale == 'z-score'){
+  } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'z-score'){
 
     y <- data.table::transpose(l=x)
     rownames(y) <- colnames(x)
@@ -267,7 +293,44 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     return(unique_identifier(y))
 
-  } else if(!is.null(file) && norm_scale == 'one' && transformed == 'log'){
+  } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'decimal'){
+
+    y <- data.table::transpose(l=x)
+    rownames(y) <- colnames(x)
+    colnames(y) <- rownames(x)
+    colnames(y) <- paste0("a",rownames(x))
+
+    sample_col_names<- vector("list")
+    nofun <- is.na(fun)
+    for(j in y[1,]){
+      if(is.na(j) != nofun){
+        sample_col_names <- c(sample_col_names,j)
+      }
+    }
+
+    nofun <- is.na(fun)
+    dirty_time <- y[,1]
+    dbf_time_column <- data.frame()
+    for(i in dirty_time){
+      if(is.na(i) != nofun && i != "t"){
+        dbf_time_column <- rbind(dbf_time_column,i)
+      }
+    }
+    colnames(dbf_time_column) <- c('Time')
+
+    y[1:3,] <- NA
+    y <- y %>% drop_na()
+    y <- y[,-(1:2)]
+    y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
+    y <- as.data.frame(lapply(y[1:ncol(y)], decimal_sacling))
+    colnames(y) <- sample_col_names
+    y <- cbind(y,dbf_time_column)
+    y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
+    y["Time"] = y[,"Time"] + 30
+
+    return(unique_identifier(y))
+
+  } else if(!is.null(file) && !is.null(norm_scale) && !is.null(transformed) && norm_scale == 'one' && transformed == 'log'){
 
     y <- data.table::transpose(l=x)
     rownames(y) <- colnames(x)
@@ -305,7 +368,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     return(unique_identifier(y))
 
-  } else if(!is.null(file) && norm_scale == 'hundred' && transformed == 'log'){
+  } else if(!is.null(file) && !is.null(norm_scale) && !is.null(transformed) && norm_scale == 'hundred' && transformed == 'log'){
 
     y <- data.table::transpose(l=x)
     rownames(y) <- colnames(x)
@@ -343,7 +406,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     return(unique_identifier(y))
 
-  } else if(!is.null(file) && norm_scale == 'z-score' && transformed == 'log'){
+  } else if(!is.null(file) && !is.null(norm_scale) && !is.null(transformed) && norm_scale == 'z-score' && transformed == 'log'){
 
     y <- data.table::transpose(l=x)
     rownames(y) <- colnames(x)
@@ -381,7 +444,45 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     return(unique_identifier(y))
 
-  } else if (!is.null(file) && is.null(norm_scale) && is.null(transformed)){
+  } else if(!is.null(file) && !is.null(norm_scale) && !is.null(transformed) && norm_scale == 'decimal' && transformed == 'log'){
+
+    y <- data.table::transpose(l=x)
+    rownames(y) <- colnames(x)
+    colnames(y) <- rownames(x)
+    colnames(y) <- paste0("a",rownames(x))
+
+    sample_col_names<- vector("list")
+    nofun <- is.na(fun)
+    for(j in y[1,]){
+      if(is.na(j) != nofun){
+        sample_col_names <- c(sample_col_names,j)
+      }
+    }
+
+    nofun <- is.na(fun)
+    dirty_time <- y[,1]
+    dbf_time_column <- data.frame()
+    for(i in dirty_time){
+      if(is.na(i) != nofun && i != "t"){
+        dbf_time_column <- rbind(dbf_time_column,i)
+      }
+    }
+    colnames(dbf_time_column) <- c('Time')
+
+    y[1:3,] <- NA
+    y <- y %>% drop_na()
+    y <- y[,-(1:2)]
+    y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
+    y <- as.data.frame(lapply(y[1:ncol(y)], log_transformation))
+    y <- as.data.frame(lapply(y[1:ncol(y)], decimal_sacling))
+    colnames(y) <- sample_col_names
+    y <- cbind(y,dbf_time_column)
+    y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
+    y["Time"] = y[,"Time"] + 30
+
+    return(unique_identifier(y))
+
+  } else if (!is.null(file)){
 
     y <- data.table::transpose(l=x)
     rownames(y) <- colnames(x)
