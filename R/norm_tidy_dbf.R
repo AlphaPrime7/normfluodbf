@@ -214,6 +214,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
   y <- y %>% drop_na()
   y <- y[,-(1:2)]
   y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
+  fluor_threshold_check(y) #just polite friendly advise for the future
 
   if(is.null(file)){
     warning("please enter a string for the .dbf file you want to normalize")

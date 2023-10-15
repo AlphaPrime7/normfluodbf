@@ -4,7 +4,12 @@
 \alias{dat_col_names}
 \title{Title: A function to obtain attribute names for experimental samples}
 \usage{
-dat_col_names(df, rows_used = NULL, cols_used = NULL)
+dat_col_names(
+  df,
+  rows_used = NULL,
+  cols_used = NULL,
+  user_specific_labels = NULL
+)
 }
 \arguments{
 \item{df}{A clean data frame obtained from the large scale delineation of samples.}
@@ -12,6 +17,8 @@ dat_col_names(df, rows_used = NULL, cols_used = NULL)
 \item{rows_used}{A character vector representing the plate rows used; eg ru <- c('A','B','C'). can be used in sequence or out of sequence.}
 
 \item{cols_used}{A numeric vector representing the plate columns used; eg cu <- c(1,2,3,4). keep as null if all the columns were used or columns are used in sequence.}
+
+\item{user_specific_labels}{A character vector with specific sample labels based on the plate setup}
 }
 \value{
 Returns column names that will be added to the normalized data frame that contains all samples
@@ -23,6 +30,8 @@ The function takes a clean data frame, data on the experiment and returns the co
 This function is a subordinate function and follows a sequence of actions. In this package, this function cannot be used as a standalone.
 Also, some work is needed here on the part of the user because i have no access to their setup file.
 A function that takes the setup excel file from the user should be part of the next update to prevent the user from doing much work.
+The program is always going to need rows_used. The user can choose to specify columns used but typically if things are in sequence then everything should be fine.
+The extreme case is an extreme unorthodox plate (hard to know when this will happen) and then the user must either specify rows used directly or the user is given a prompt by R to input rows used.
 }
 \examples{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
@@ -32,7 +41,7 @@ nocomma_dat <- comma_cleaner(comma_dat)
 nocomma_dat <- as.data.frame(nocomma_dat)
 resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 n = c('A','B','C')
-sample_col_names <- dat_col_names(resampled_scaled, n , cols_used = NULL) # i used all columns (in sequence) so col_used = NULL
+sample_col_names <- dat_col_names(resampled_scaled, n , cols_used = NULL, user_specific_labels = NULL) # i used all columns (in sequence) so col_used = NULL
 }
 \author{
 Tingwei Adeck

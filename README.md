@@ -1,12 +1,12 @@
 Tingwei Adeck
-October 14, 2023
+October 15, 2023
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # normfluodbf <img src="man/figures/logo.png" align="right" width="180"/>
 
 [![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/AlphaPrime7/normfluodbf)
-[![Demandez moi n’importe quoi
+[![Demandez moi n'importe quoi
 !](https://img.shields.io/badge/Demandez%20moi-n'%20importe%20quoi-1abc9c.svg)](mailto:awesome.tingwei@outlook.com)
 [![Ask Me Anything
 !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](mailto:awesome.tingwei@outlook.com)
@@ -195,9 +195,62 @@ backgrounds.
   the data at the level of control needed by the researcher and how
   savvy they are with these types of experiments.
 
-## FUNCTIONS
+## Extreme Non-Standard Cases
 
-### SUBORDINATE FUNCTIONS
+- These cases really have no issue except they present a problem when
+  trying to label columns correctly and by correctly one just means
+  matching column names to their locations on the plate.
+
+- A fine little solution to that is provoking some user input or thought
+  process (not as punishement) but more like you get to put some work in
+  if you have an extreme case (especially one you designed).
+
+| Sample_Type (TNP) | 96  | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 10  | 11  | 12  |
+|:------------------|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
+| Test              | A   | X1  |     | X3  | X4  |     |     |     |     |     |     |     |     |
+| Negative          | B   |     |     |     |     |     |     |     |     |     |     |     |     |
+| Positive          | C   | X25 |     |     | X28 | X29 |     |     |     |     |     |     |     |
+|                   | D   |     |     |     |     |     |     |     |     |     |     |     |     |
+|                   | E   |     |     |     |     |     |     |     |     |     |     |     |     |
+|                   | F   |     |     |     |     |     |     |     |     |     |     |     |     |
+|                   | G   |     |     |     |     |     |     |     |     |     |     |     |     |
+|                   | H   |     |     |     |     |     |     |     |     |     |     |     |     |
+
+- As can be seen from the table above, the naming of columns there from
+  a programming point presents some challenges and so the user must know
+  exactly what they were trying to achieve or correct if they performed
+  such an experiment. The user might have run out of room and made some
+  mistakes or they might just be nervous (bad health nervous) as the
+  inventor was when he first tried these experiments. Whatever can lead
+  to this scenario entails the user will be prompted to enter some
+  information in R, in order to arrive at the right column labels.
+
+- This means the user can either enter the labels directly using the
+  user_specific_labels parameter or the user can input the rows_used and
+  cols_used while keeping the user_specific_labels param blank (in
+  general terms with no worry of specifying columns yet); the program
+  will then prompt the user to choose and type column labels based on
+  their cols_used and rows_used input; alternatively the user can input
+  user_specific_labels as a character vector and that should match the
+  number of samples in the plate or on file (digitally) and that will
+  then create a column names that will be applied to the cleaned data
+  frame.
+
+- NOTE: this is for extreme extreme cases (when samples are placed in
+  the plate out of sequence).
+
+- Rough draft documentation so this will be a slow burn as I read
+  through, the aim is not to loose ideas as I take the project to
+  maturity. These are the final stages so I am soon progressing to other
+  projects.
+
+## QC Implemented
+
+- QC well implemented
+
+## Functions
+
+### Subordinate Functions
 
 - remove_na_seqdat() OR clean_evendat()
 - remove_na_nonseqdat() OR clean_odddat()
@@ -207,11 +260,11 @@ backgrounds.
 - dat_col_names()
 - unique_identifier()
 
-### PARENT FUNCTION
+### Parent Function
 
 - normfluodat()
 
-### VISUALIZER
+### Visualizer
 
 - gg_plot_triplets()
 

@@ -26,12 +26,7 @@
 
 normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun = NA, ...){
 
-  if(!is.null(file)){
-    x <- foreign::read.dbf(file=file, as.is = F)
-  } else {
-    warning("please enter a string for the .dbf file you want to normalize")
-  }
-
+  x <- foreign::read.dbf(file=file, as.is = F)
   y <- data.table::transpose(l=x)
   rownames(y) <- colnames(x)
   colnames(y) <- rownames(x)
@@ -59,11 +54,122 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
   y <- y %>% drop_na()
   y <- y[,-(1:2)]
   y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
-  y <- as.data.frame(lapply(y[1:ncol(y)], min_max_norm))
-  colnames(y) <- sample_col_names
-  y <- cbind(y,dbf_time_column)
-  y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
-  y["Time"] = y[,"Time"] + 30
+  fluor_threshold_check(y) #just polite friendly QC
 
-  return(unique_identifier(y))
+  if(is.null(file)){
+    warning("please enter a string for the .dbf file you want to normalize")
+
+  } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'raw'){
+
+    if(is.null(transformed)){
+      colnames(y) <- sample_col_names
+      y <- cbind(y,dbf_time_column)
+      y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
+      y["Time"] = y[,"Time"] + 30
+      return(unique_identifier(y))
+
+    } else{
+      colnames(y) <- sample_col_names
+      y <- cbind(y,dbf_time_column)
+      y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
+      y["Time"] = y[,"Time"] + 30
+      return(unique_identifier(y))
+    }
+
+  } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'one'){
+
+    if(is.null(transformed)){
+      y <- as.data.frame(lapply(y[1:ncol(y)], min_max_norm))
+      y <- as.data.frame(lapply(y[1:ncol(y)], roundfluor))
+      colnames(y) <- sample_col_names
+      y <- cbind(y,dbf_time_column)
+      y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
+      y["Time"] = y[,"Time"] + 30
+      return(unique_identifier(y))
+
+    } else {
+      y <- as.data.frame(lapply(y[1:ncol(y)], log_transformation))
+      y <- as.data.frame(lapply(y[1:ncol(y)], min_max_norm))
+      y <- as.data.frame(lapply(y[1:ncol(y)], roundfluor))
+      colnames(y) <- sample_col_names
+      y <- cbind(y,dbf_time_column)
+      y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
+      y["Time"] = y[,"Time"] + 30
+      return(unique_identifier(y))
+    }
+
+  } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'hundred'){
+
+    if(is.null(transformed)){
+      y <- as.data.frame(lapply(y[1:ncol(y)], min_max_norm_percent))
+      y <- as.data.frame(lapply(y[1:ncol(y)], roundfluor))
+      colnames(y) <- sample_col_names
+      y <- cbind(y,dbf_time_column)
+      y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
+      y["Time"] = y[,"Time"] + 30
+      return(unique_identifier(y))
+
+    } else {
+      y <- as.data.frame(lapply(y[1:ncol(y)], log_transformation))
+      y <- as.data.frame(lapply(y[1:ncol(y)], min_max_norm_percent))
+      y <- as.data.frame(lapply(y[1:ncol(y)], roundfluor))
+      colnames(y) <- sample_col_names
+      y <- cbind(y,dbf_time_column)
+      y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
+      y["Time"] = y[,"Time"] + 30
+      return(unique_identifier(y))
+    }
+  } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'z-score'){
+
+    if(is.null(transformed)){
+      y <- as.data.frame(lapply(y[1:ncol(y)], norm_z))
+      y <- as.data.frame(lapply(y[1:ncol(y)], roundfluor))
+      colnames(y) <- sample_col_names
+      y <- cbind(y,dbf_time_column)
+      y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
+      y["Time"] = y[,"Time"] + 30
+      return(unique_identifier(y))
+
+    } else {
+      y <- as.data.frame(lapply(y[1:ncol(y)], log_transformation))
+      y <- as.data.frame(lapply(y[1:ncol(y)], norm_z))
+      y <- as.data.frame(lapply(y[1:ncol(y)], roundfluor))
+      colnames(y) <- sample_col_names
+      y <- cbind(y,dbf_time_column)
+      y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
+      y["Time"] = y[,"Time"] + 30
+      return(unique_identifier(y))
+    }
+  } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'decimal'){
+
+      if(is.null(transformed)){
+        y <- as.data.frame(lapply(y[1:ncol(y)], decimal_scaling))
+        y <- as.data.frame(lapply(y[1:ncol(y)], roundfluor))
+        colnames(y) <- sample_col_names
+        y <- cbind(y,dbf_time_column)
+        y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
+        y["Time"] = y[,"Time"] + 30
+        return(unique_identifier(y))
+
+      } else{
+        y <- as.data.frame(lapply(y[1:ncol(y)], log_transformation))
+        y <- as.data.frame(lapply(y[1:ncol(y)], decimal_scaling))
+        y <- as.data.frame(lapply(y[1:ncol(y)], roundfluor))
+        colnames(y) <- sample_col_names
+        y <- cbind(y,dbf_time_column)
+        y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
+        y["Time"] = y[,"Time"] + 30
+        return(unique_identifier(y))
+      }
+
+  } else if (!is.null(file)){
+
+    y <- as.data.frame(lapply(y[1:ncol(y)], min_max_norm))
+    y <- as.data.frame(lapply(y[1:ncol(y)], roundfluor))
+    colnames(y) <- sample_col_names
+    y <- cbind(y,dbf_time_column)
+    y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
+    y["Time"] = y[,"Time"] + 30
+    return(unique_identifier(y))
+  }
 }

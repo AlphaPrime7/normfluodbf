@@ -8,6 +8,7 @@
 #' @param cycles The number of cycles chosen by the researcher. In the case of this package 40 is the standard but ensure to have the right number of samples
 #' @param rows_used A character vector of the rows used, eg n = c('A','B','C')
 #' @param cols_used  A numeric vector of the columns used, eg m = c(2,4,6)
+#' @param user_specific_labels A character vector with specific sample labels based on the plate setup
 #'
 #' @import utils
 #' @import stats
@@ -15,12 +16,13 @@
 #' @return A normalized data frame with the x-variable (Cycle_No), ready for analysis
 #' @export
 #' @note This is the MAIN function and stands alone but is dependent on the subordinate functions. If the user understands what they are doing this is all they need.
+#' The user should use the user_specific_labels parameter for naming variables if they have an extreme unorthodox experimental setup.
 #'
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' n <- c('A','B','C')
 #' normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40, n)
 
-normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL){
+normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL){
 
   df <- utils::read.table(dat) #dat becomes df
   df <- clean_odddat(df)
@@ -44,6 +46,7 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL){
   cleaned_dat = do.call(rbind, j_vect)
   cleaned_dat = as.data.frame(cleaned_dat)
   cleaned_dat_t = data.table::transpose(l=cleaned_dat)
+  fluor_threshold_check(cleaned_dat_t) #QC check, should not stop the flow, just polite friendly advice
 
   #normalize
   cleaned_dat_t <- as.data.frame(lapply(cleaned_dat_t[1:ncol(cleaned_dat_t)], min_max_norm))
@@ -51,7 +54,8 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL){
   #name the columns
   ru = rows_used
   cu = cols_used
-  sample_col_names <- dat_col_names(cleaned_dat_t, ru, cu)
+  usl = user_specific_labels
+  sample_col_names <- dat_col_names(cleaned_dat_t, ru, cu, usl)
   colnames(cleaned_dat_t) <- sample_col_names
 
   #add unique_id
