@@ -248,6 +248,18 @@ backgrounds.
 
 - QC well implemented
 
+## Potential Loopholes
+
+- Giving the researcher some work when the design is super wonky. I
+  woould love to think of plate designs but I know I tempered with mine
+  so unsure how that can be coded.
+
+- The project has reached maturity and so is behind the scenes closed.
+  The documentation will be slow burn to avoid errors and to take in all
+  that has been learnt and hopefully the update sent to CRAN in a couple
+  of weeks or even less. Hope the inventor can stick to the plan of 1
+  document a day and stay PATIENT in that process.
+
 ## Functions
 
 ### Subordinate Functions
