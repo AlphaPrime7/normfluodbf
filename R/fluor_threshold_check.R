@@ -23,9 +23,9 @@
 fluor_threshold_check <- function(clean_df){
   for(i in 1:nrow(clean_df)){
     for(j in 1:ncol(clean_df)){
-      if(clean_df[i,j] >= (2^16) && !is.null(clean_df[i,j])){
-        print("yikes, one or more of your fluorescence values is greater than 2^16(65536), watchout for very high fluorescence in your next experimental design")
-        print(paste('column:', j , 'row:', i))
+      if( (clean_df[i,j] >= 2^16) || (clean_df[i,j] <= 2^11 ) && !is.null(clean_df[i,j]) ){
+        print(emo::ji("face"), "YIKES, some values are >65536 or <2048, Possible Experimental Error")
+        print(paste('Values violate thresholds - POSSIBLE NOISE','column:', j , 'row:', i))
       }
     }
   }
