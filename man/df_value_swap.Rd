@@ -28,5 +28,4 @@ comma_dat <- clean_odddat(dat_df)
 nocomma_dat <- comma_cleaner(comma_dat)
 resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 nofunions <- df_value_swap(resampled_scaled, 2, 2, 2^16)
-fluor_threshold_check(resampled_scaled)
 }

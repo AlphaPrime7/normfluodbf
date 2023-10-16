@@ -7,7 +7,6 @@
 #' @param col_num column number for replacement value insertion
 #' @param replacement_value value used to replace original df value at chosen location
 #'
-#' @import emojifont
 #'
 #' @return Return a data frame with a swapped value.
 #'
@@ -20,8 +19,6 @@
 #' nocomma_dat <- comma_cleaner(comma_dat)
 #' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 #' nofunions <- df_value_swap(resampled_scaled, 2, 2, 2^16)
-#
-#' fluor_threshold_check(resampled_scaled)
 
 df_value_swap <- function(df, row_num, col_num, replacement_value){
   for(i in 1:nrow(df)){
