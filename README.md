@@ -246,7 +246,7 @@ backgrounds.
 
 ## QC Implemented
 
-- QC well implemented
+- QC well implemented (with some fun emojis from emojifont)
 
 ## Potential Loopholes
 

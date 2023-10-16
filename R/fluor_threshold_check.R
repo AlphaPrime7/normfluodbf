@@ -6,6 +6,8 @@
 #'
 #' @param clean_df A cleaned dat or dbf file
 #'
+#' @import emojifont
+#'
 #' @return A polite warning message for the researchers next experimental design and the rows and columns with problem values.
 #'
 #' @export
@@ -21,10 +23,12 @@
 #' fluor_threshold_check(resampled_scaled)
 
 fluor_threshold_check <- function(clean_df){
+  load.emojifont(font = "EmojiOne.ttf")
   for(i in 1:nrow(clean_df)){
     for(j in 1:ncol(clean_df)){
       if( (clean_df[i,j] >= 2^16) || (clean_df[i,j] <= 2^11 ) && !is.null(clean_df[i,j]) ){
-        print(emo::ji("face"), "YIKES, some values are >65536 or <2048, Possible Experimental Error")
+        print(c(emoji('pig'), emoji('camel')))
+        print("YIKES, some values are >65536 or <2048, Possible Experimental Error")
         print(paste('Values violate thresholds - POSSIBLE NOISE','column:', j , 'row:', i))
       }
     }
