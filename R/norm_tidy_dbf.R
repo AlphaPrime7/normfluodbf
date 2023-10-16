@@ -231,6 +231,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
   } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'hundred'){
 
     y <- as.data.frame(lapply(y[1:ncol(y)], min_max_norm_percent))
+    y <- as.data.frame(lapply(y[1:ncol(y)], roundfluor))
     colnames(y) <- sample_col_names
     y <- cbind(y,dbf_time_column)
     y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
@@ -241,6 +242,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
   } else if (!is.null(file) && !is.null(norm_scale) && norm_scale == 'one'){
 
     y <- as.data.frame(lapply(y[1:ncol(y)], min_max_norm))
+    y <- as.data.frame(lapply(y[1:ncol(y)], roundfluor))
     colnames(y) <- sample_col_names
     y <- cbind(y,dbf_time_column)
     y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
@@ -251,6 +253,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
   } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'z-score'){
 
     y <- as.data.frame(lapply(y[1:ncol(y)], norm_z))
+    y <- as.data.frame(lapply(y[1:ncol(y)], roundfluor))
     colnames(y) <- sample_col_names
     y <- cbind(y,dbf_time_column)
     y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
@@ -261,6 +264,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
   } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'decimal'){
 
     y <- as.data.frame(lapply(y[1:ncol(y)], decimal_scaling))
+    y <- as.data.frame(lapply(y[1:ncol(y)], roundfluor))
     colnames(y) <- sample_col_names
     y <- cbind(y,dbf_time_column)
     y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
@@ -281,6 +285,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     y <- as.data.frame(lapply(y[1:ncol(y)], log_transformation))
     y <- as.data.frame(lapply(y[1:ncol(y)], min_max_norm))
+    y <- as.data.frame(lapply(y[1:ncol(y)], roundfluor))
     colnames(y) <- sample_col_names
     y <- cbind(y,dbf_time_column)
     y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
@@ -292,6 +297,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     y <- as.data.frame(lapply(y[1:ncol(y)], log_transformation))
     y <- as.data.frame(lapply(y[1:ncol(y)], min_max_norm_percent))
+    y <- as.data.frame(lapply(y[1:ncol(y)], roundfluor))
     colnames(y) <- sample_col_names
     y <- cbind(y,dbf_time_column)
     y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
@@ -303,6 +309,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     y <- as.data.frame(lapply(y[1:ncol(y)], log_transformation))
     y <- as.data.frame(lapply(y[1:ncol(y)], norm_z))
+    y <- as.data.frame(lapply(y[1:ncol(y)], roundfluor))
     colnames(y) <- sample_col_names
     y <- cbind(y,dbf_time_column)
     y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
@@ -314,6 +321,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     y <- as.data.frame(lapply(y[1:ncol(y)], log_transformation))
     y <- as.data.frame(lapply(y[1:ncol(y)], decimal_scaling))
+    y <- as.data.frame(lapply(y[1:ncol(y)], roundfluor))
     colnames(y) <- sample_col_names
     y <- cbind(y,dbf_time_column)
     y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
@@ -324,6 +332,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
   } else if (!is.null(file)){
 
     y <- as.data.frame(lapply(y[1:ncol(y)], min_max_norm))
+    y <- as.data.frame(lapply(y[1:ncol(y)], roundfluor))
     colnames(y) <- sample_col_names
     y <- cbind(y,dbf_time_column)
     y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
