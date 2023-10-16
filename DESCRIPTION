@@ -24,6 +24,7 @@ Imports:
     ggplot2,
     cranlogs,
     ggthemes,
+    emojifont
 Depends: 
     R (>= 2.10)
 LazyData: true
