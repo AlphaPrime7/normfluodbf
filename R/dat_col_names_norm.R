@@ -1,0 +1,46 @@
+#' Title: A function to obtain attribute names for experimental samples
+#' @description
+#' The function takes a clean data frame, data on the experiment and returns the column names that match the FLUOstar plate reader.
+#'
+#' @author Tingwei Adeck
+#' @param df A clean data frame obtained from the large scale delineation of samples.
+#' @param rows_used A character vector representing the plate rows used; eg ru <- c('A','B','C'). can be used in sequence or out of sequence.
+#' @param start start position of loading sample
+#' @param end end position of loading sample
+#' @param in_sequence yes or no to indicate if loading in sequence from start position
+#'
+#'
+#' @return Returns column names that will be added to the normalized data frame that contains all samples
+#' @export
+#' @note This function is a subordinate function and follows a sequence of actions. In this package, this function cannot be used as a standalone.
+#' Also, some work is needed here on the part of the user because i have no access to their setup file.
+#' A function that takes the setup excel file from the user should be part of the next update to prevent the user from doing much work.
+#' The program is always going to need rows_used. The user can choose to specify columns used but typically if things are in sequence then everything should be fine.
+#' The extreme case is an extreme unorthodox plate (hard to know when this will happen) and then the user must either specify rows used directly or the user is given a prompt by R to input rows used.
+#'
+#' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+#' dat_df <- read.table(file=fpath)
+#' comma_dat <- clean_odddat(dat_df)
+#' nocomma_dat <- comma_cleaner(comma_dat)
+#' nocomma_dat <- as.data.frame(nocomma_dat)
+#' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
+#' n = c('A','B','C')
+#' sample_col_names <- dat_col_names_norm(resampled_scaled, n, start=1 , end=12, in_sequence = 'yes') # i used all columns (in sequence) so col_used = NULL
+#' dat_col_names_norm(resampled_scaled,n,1,12,'no')
+
+dat_col_names_norm <- function(df, rows_used = NULL, start = NULL, end = NULL, in_sequence= NULL){
+
+  col_names <- c()
+
+  if(!is.null(rows_used) && start < end &&  !is.null(end) && in_sequence == 'yes'){
+    cols_used = c(start:end)
+    for(i in cols_used){
+      col_names <- c(col_names, paste0(rows_used,i)) #normal (left to right start at position 1 of plate (A1))
+    }
+    return(col_names[1:ncol(df)])
+
+  } else {
+    print('you must enter a character vector of rows used, and other parameters')
+  }
+
+}

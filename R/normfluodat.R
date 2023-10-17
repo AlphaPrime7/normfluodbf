@@ -55,7 +55,7 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
   ru = rows_used
   cu = cols_used
   usl = user_specific_labels
-  sample_col_names <- dat_col_names(cleaned_dat_t, ru, cu, usl)
+  sample_col_names <- dat_col_names_prime(cleaned_dat_t, ru, cu, usl)
   colnames(cleaned_dat_t) <- sample_col_names
 
   #add unique_id
