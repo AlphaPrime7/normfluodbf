@@ -30,7 +30,7 @@ normfluordbf_legacy <- function(file = NULL, fun = NA, ...){
   if(!is.null(file)){
     x <- foreign::read.dbf(file=file, as.is = F)
   } else {
-    warning("please enter a string for the .dbf file you want to normalize")
+    warning("please enter a string or path for the .dbf file you want to normalize")
   }
 
   y <- data.table::transpose(l=x)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/norm_tidy_dbf.R
 \name{norm_tidy_dbf}
 \alias{norm_tidy_dbf}
-\title{Title: Cleans and Normalizes ".dbf" files obtained from experiments using the FLUOstar microplate reader.}
+\title{Title: Cleans and Normalizes ".dbf" data files obtained from experiments using the FLUOstar Omega (Ω) microplate reader (from BMG LABTECH).}
 \usage{
 norm_tidy_dbf(
   file = NULL,
@@ -13,41 +13,54 @@ norm_tidy_dbf(
 )
 }
 \arguments{
-\item{file}{A string ("liposomes_xxx.dbf") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dbf" file, from FLUOstar experiments.}
+\item{file}{A string ("liposomes_xxx.dbf") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dbf" file.}
 
-\item{norm_scale}{This parameter can taken in 'raw', hundred', 'one', 'z-score' or 'decimal', which denotes the normalization type; Initialized as NULL.}
+\item{norm_scale}{This parameter takes sub-parameters: 'raw’ , hundred’ , 'one’ , 'z-score' , or 'decimal’ , which denotes the normalization type or scale; The parameter is initialized as NULL.}
 
-\item{transformed}{This parameter can take in 'log' which denotes a logarithmic box-cox transformation; Initialized as NULL.}
+\item{transformed}{This parameter takes input 'log', which denotes a logarithmic box-cox transformation; Initialized as NULL.}
 
-\item{fun}{A variable defined as NA, used for boolean expressions or manipulation.}
+\item{fun}{A parameter defined as NA is used for Boolean expressions or manipulation.}
 
-\item{...}{A container object that can be used to capture extra variables if needed.}
+\item{...}{An abstract placeholder or container parameter that can be used to capture extra variables if needed.}
 }
 \value{
 A normalized data frame with an appended "Cycle_Number" attribute.
 }
 \description{
-Input the path to a ".dbf" file obtained from the FLUOstar microplate (usually a 96-well microplate) reader; this function will create a data frame, clean the data frame, normalize the data frame, append a "Cycle_Number" column and return a data frame that is ready for analysis.
-Most importantly, this function is a single_step function.
-Also, the function can be extended to other ".dbf" files if they follow the format for which this function was designed; this is totally at the users' discretion.
+The simplest function utilization scenario entails an input of the path to a ".dbf" file obtained from the FLUOstar microplate (usually a 96-well microplate) reader;
+In a single step, this function will create a data frame, clean the data frame, normalize the data frame, append a "Cycle_Number" attribute,
+perform an adjustment to the “time” attribute and return a data frame that is ready for analysis.
+Since the initial publication of this package, several changes have been made to improve the user experience and to give the user more options to fine-tune the output from the package to meet the users’ aesthetic needs.
+Users who decide to move past the simplest utility scenario have been given more options to customize the output based on the users’ needs.
+Notably, several normalization sub-parameters have been provided in the package which yields different outputs based on what the user is used to seeing.
+Just as the FLUOstar instrument is built to handle an array of assays,
+this function is designed to be multi-dimensional (meaning it can handle data with the same DBF extension from other assay types),
+on the condition that the data from assay types other than liposome flux assays follow the same data format this package was designed to handle.
+Of course, users of this package are advised to pre-analyze DBF files from other assay types to ensure they are compliant with this package (compliance in this scenario is simple meaning DBF files from other assays should be like DBF files from liposome flux assays).
 }
 \note{
-Re-nomenclature of norm_tidy_dbf to a more appropriate name that facilitates function utilization. Users can continue with the old name ("norm_tidy_dbf") but this is a better name in my opinion.
-The default dbf normalization technique outputs values in the 0-1 range. The user needs to specify different aesthetics if they are used to seeing their plots on a different range.
-The function accounts for nine conditions and there is an active quest to find a better way to write this.
-Please NOTE that decimal scaling is a sliding scale and so should yield unwanted results.
-Please Note that the user must specify the norm_scale if they also want to specify log transformation(transformed argument).
-Backward compatibility is maintained and so there should be no issues with using the package the way the user was used to.
-The last NOTE is that if the user has no real clue how to analyze their data and just inputs a link to the dbf file, the program returns a 0-1 scale normalized data frame.
+The default normalization sub-parameter outputs values in the 0-1 range.
+Unless a “norm_scale” level is specified by the user, the default output is in the 0-1 range.
+The “norm_scale” sub-parameter “decimal” is a machine-learning tool and should be avoided;
+it also provides no advantage for basic research analysis as its output operates on a sliding scale just like the raw data.
+Logarithmic transformation provides a minuscule advantage in data analysis and could/should be avoided.
+Backward compatibility is maintained in all updates, so there should be no issues with using the package the way the user was used to.
+The favorite "norm_scale" level is "z-score" since it divides the axis into negative and positive, thus facilitating interpretation.
 }
 \examples{
 fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
 normalized_dbf_default <- norm_tidy_dbf(file=fpath)
 normalized_dbf_scale100 <- norm_tidy_dbf(file=fpath, norm_scale = 'hundred')
+normalized_dbf_scalez <- norm_tidy_dbf(file=fpath, norm_scale = 'z-score')
 xvar <- c("Cycle_Number")
 yvars_dbf <- c("A01","A02","A03")
-color <- c("Test","Negative Control","Positive Control")
 xl <- c(0,40)
-yl_dbf <- c(0,100)
-gg_plot_triplets(normalized_dbf_scale100,x=xvar,y_list=yvars_dbf,xlim=xl,ylim=yl_dbf)
+yl_scale100 <- c(0,100)
+yl_default <- c(0,1)
+yl_z <- c(3,-3)
+color <- c("Test","Negative Control","Positive Control")
+gg_plot_triplets(normalized_dbf_scale100,x=xvar,y_list=yvars_dbf,xlim=xl,ylim=yl_scale100)
+}
+\seealso{
+\code{\link[=normfluordbf]{normfluordbf()}}, \code{\link[=normfluordbf_legacy]{normfluordbf_legacy()}}, \code{\link[=normfluodat]{normfluodat()}}
 }

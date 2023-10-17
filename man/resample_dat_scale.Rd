@@ -31,7 +31,7 @@ nocomma_dat <- comma_cleaner(comma_dat)
 resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 }
 \seealso{
-\code{\link[=resample_dat]{resample_dat()}}, \code{\link[=resample_datv2]{resample_datv2()}} and \code{\link[=dat_col_names]{dat_col_names()}}
+\code{\link[=resample_dat]{resample_dat()}}, \code{\link[=resample_datv2]{resample_datv2()}}
 }
 \author{
 Tingwei Adeck
