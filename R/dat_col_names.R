@@ -25,11 +25,12 @@
 #' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 #' n = c('A','B','C')
 #' sample_col_names <- dat_col_names(resampled_scaled, n , cols_used = NULL, user_specific_labels = NULL) # i used all columns (in sequence) so col_used = NULL
+
 dat_col_names <- function(df, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL){
   col_names <- c()
 
-  if(!is.null(user_specific_labels) && is.null(rows_used) && is.null(cols_used)){
-    return(user_specific_labels)
+  if(!is.null(user_specific)){
+    return(user_specific)
 
   } else if(is.null(cols_used) && !is.null(rows_used)){
     for(i in 1:ncol(df)){
@@ -41,16 +42,6 @@ dat_col_names <- function(df, rows_used = NULL, cols_used= NULL, user_specific_l
     for(i in cols_used){
       col_names <- c(col_names, paste0(rows_used,i))
     }
-    print(col_names[1:(length(cols_used)*length(rows_used))])
-
-    if(is.null(user_specific_labels)){
-      print('From the printed above list enter the columns used; must match the number of samples used in the plate;')
-      choose_cols_used=scan(what=character(), n=ncol(df))
-      print(choose_cols_used) #the user should make sure this is right
-      return(as.vector(choose_cols_used))
-    } else{
-      return(user_specific_labels)
-    }
-
+    return(col_names[1:ncol(df)])
   }
 }
