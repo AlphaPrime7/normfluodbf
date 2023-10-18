@@ -43,7 +43,7 @@ dat_col_names_prime <- function(df, rows_used = NULL, cols_used= NULL, user_spec
     }
     return(col_names[1:ncol(df)])
 
-  } else if(!is.null(rows_used) && !is.null(cols_used) && ncol(df) == length(cols_used)*length(rows_used) && length(cols_used) == length(normal_sequence) ){
+  } else if(!is.null(rows_used) && !is.null(cols_used) && ncol(df) == length(cols_used)*length(rows_used) && length(cols_used) <= length(normal_sequence) ){
 
     for(i in cols_used){
       col_names <- c(col_names, paste0(rows_used,i))
