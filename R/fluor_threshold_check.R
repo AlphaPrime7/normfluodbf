@@ -33,7 +33,7 @@ fluor_threshold_check <- function(clean_df){
   load.emojifont(font = "EmojiOne.ttf")
   for(i in 1:nrow(clean_df)){
     for(j in 1:ncol(clean_df)){
-      if( (clean_df[i,j] >= 2^16) || (clean_df[i,j] <= 2^11 ) && !is.null(clean_df[i,j]) ){
+      if( (clean_df[i,j] >= 2^15) || (clean_df[i,j] <= 2^11 ) && !is.null(clean_df[i,j]) ){
         print(c(emoji('pig'), emoji('camel')))
         print("YIKES, some values are >65536 or <2048, Possible Experimental Error-Check this in future experiments")
         print(paste('Values violate thresholds - POSSIBLE NOISE','column:', j , 'row:', i))
