@@ -4,12 +4,12 @@
 #'
 #' @author Tingwei Adeck
 #'
-#' @param packages A dbf list (usually list.files() if dbf files are found in the pwd)
+#' @param dbf_list A dbf list (usually list.files() if dbf files are found in the pwd)
 #'
 #' @return Returns DBF data frames to the R environment
 #' @export
 #'
-#' @seealso [check_dbfs_pwd()]
+#' @seealso [check_dbfs_pwd()], [read_dats()]
 #'
 #' @examples read_dbfs(list.files())
 

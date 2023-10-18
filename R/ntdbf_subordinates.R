@@ -42,6 +42,7 @@ unique_identifier <- function(df){
 #' @export
 #'
 #' @examples generic_identifier(40,col_name="Cycle_No")
+
 generic_identifier <- function(numrows, col_name){
   vect <- seq(numrows)
   df <- as.data.frame(vect)

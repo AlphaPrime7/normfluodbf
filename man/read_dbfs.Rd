@@ -7,7 +7,7 @@
 read_dbfs(dbf_list)
 }
 \arguments{
-\item{packages}{A dbf list (usually list.files() if dbf files are found in the pwd)}
+\item{dbf_list}{A dbf list (usually list.files() if dbf files are found in the pwd)}
 }
 \value{
 Returns DBF data frames to the R environment
@@ -19,7 +19,7 @@ A function that facilitates reading multiple dbfs at once (Some lazy loading)
 read_dbfs(list.files())
 }
 \seealso{
-\code{\link[=check_dbfs_pwd]{check_dbfs_pwd()}}
+\code{\link[=check_dbfs_pwd]{check_dbfs_pwd()}}, \code{\link[=read_dats]{read_dats()}}
 }
 \author{
 Tingwei Adeck
