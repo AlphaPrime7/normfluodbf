@@ -2,7 +2,7 @@
 % Please edit documentation in R/ntdbf_subordinates.R
 \name{unique_identifier}
 \alias{unique_identifier}
-\title{Title: A function to append a unique identifier attribute to any data frame}
+\title{Title: A function to append a unique identifier attribute to any data frame within the normfluodbf package.}
 \usage{
 unique_identifier(df)
 }
@@ -14,7 +14,7 @@ A data frame with the Cycle_Number attribute appended to the end of the data fra
 }
 \description{
 The function in the context of normfluodbf creates an attribute called Cycle_Number
-and appends this attribute to the cleaned or wrangled data frame derived from the dirty DBF file
+and appends this attribute to the cleaned or wrangled data frame derived from the dirty DBF file.
 }
 \note{
 The function operates in a closed system,

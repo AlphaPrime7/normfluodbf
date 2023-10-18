@@ -1,7 +1,7 @@
-#' Title: A function to append a unique identifier attribute to any data frame
+#' Title: A function to append a unique identifier attribute to any data frame within the normfluodbf package.
 #' @description
 #' The function in the context of normfluodbf creates an attribute called Cycle_Number
-#' and appends this attribute to the cleaned or wrangled data frame derived from the dirty DBF file
+#' and appends this attribute to the cleaned or wrangled data frame derived from the dirty DBF file.
 #'
 #' @author Tingwei Adeck
 #'
