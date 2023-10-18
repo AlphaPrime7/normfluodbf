@@ -1,21 +1,25 @@
-#' Title: A modified unique identifier function for FLUOstar normalized data
+#' Title: A function to append a unique identifier attribute to any data frame
 #' @description
-#' The function creates a column called Cycle_Number and adds to the cleaned dbf data frame
+#' The function in the context of normfluodbf creates an attribute called Cycle_Number
+#' and appends this attribute to the cleaned or wrangled data frame derived from the dirty DBF file
 #'
 #' @author Tingwei Adeck
-#' @param df A data frame with n number of rows
 #'
-#' @return A new data frame with the Cycle_Number attribute added.
+#' @param df A data frame with 1:n number of rows
+#'
+#' @return A data frame with the Cycle_Number attribute appended to the end of the data frame.
 #' @export
-#' @note The FLUOstar microplate reader runs in cycles with the number of cycles determined
-#' by the experimenter. This function essentially counts the number of cycles and is a subordinate
-#' function to the main function norm_tidy_dbf(). Also the function can be used as a standalone but the
-#' only limitation is the column name will be Cycle_Number.
-#' For a more generic version of this program, use the generic_identifier included.
+#'
+#' @seealso [normfluodat()], [norm_tidy_dbf()], [normfluordbf()], [generic_identifier()]
+#'
+#' @note The function operates in a closed system,
+#' meaning it is primarily designed to work with this package ONLY.
+#' Other use cases are simply a coincidence.
 #'
 #' @examples test_df <- as.data.frame(c(seq(40)))
 #' colnames(test_df) <- "test"
 #' unique_identifier(test_df)
+
 unique_identifier <- function(df){
   for(i in 1:nrow(df)){
     x <- 0
