@@ -2,10 +2,13 @@
 
 export(check_dbfs_pwd)
 export(clean_evendat)
+export(clean_odd_cc)
 export(clean_odddat)
 export(comma_cleaner)
 export(dat_col_names)
 export(dat_col_names_norm)
+export(dat_col_names_optimus)
+export(dat_col_names_optimusLite)
 export(dat_col_names_prime)
 export(decimal_scaling)
 export(df_value_swap)

@@ -21,7 +21,7 @@ clean_odddat <- function(df){
   special_chars <- c('-,','-' )
   for (i in 1:nrow(df)){
     for (j in 1:ncol(df)){
-      if(special_chars[1] %in% df[i,] && special_chars[2] %in% df[i,]){
+      if(special_chars[1] %in% df[i,j] || special_chars[2] %in% df[i,j]){
         df[i,j] <- NA
       }
     }

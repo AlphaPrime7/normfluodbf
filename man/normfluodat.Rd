@@ -10,7 +10,8 @@ normfluodat(
   cycles,
   rows_used = NULL,
   cols_used = NULL,
-  user_specific_labels = NULL
+  user_specific_labels = NULL,
+  read_direction = NULL
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ normfluodat(
 \item{cols_used}{A numeric vector of the columns used, eg m = c(2,4,6)}
 
 \item{user_specific_labels}{A character vector with specific sample labels based on the plate setup}
+
+\item{read_direction}{User can leave null for machine up-down read OR 'horizontal' for machine left-right read}
 }
 \value{
 A normalized data frame with the x-variable (Cycle_No), ready for analysis
@@ -39,7 +42,7 @@ The user should use the user_specific_labels parameter for naming variables if t
 \examples{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 n <- c('A','B','C')
-normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40, n)
+normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40, n, read_direction = 'vertical')
 }
 \author{
 Tingwei Adeck

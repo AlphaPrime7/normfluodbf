@@ -9,6 +9,7 @@
 #' @param rows_used A character vector of the rows used, eg n = c('A','B','C')
 #' @param cols_used  A numeric vector of the columns used, eg m = c(2,4,6)
 #' @param user_specific_labels A character vector with specific sample labels based on the plate setup
+#' @param read_direction User can leave null for machine up-down read OR 'horizontal' for machine left-right read
 #'
 #' @import utils
 #' @import stats
@@ -20,14 +21,14 @@
 #'
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' n <- c('A','B','C')
-#' normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40, n)
+#' normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40, n, read_direction = 'vertical')
 
-normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL){
+normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL){
+
+  library(data.table)
 
   df <- utils::read.table(dat) #dat becomes df
-  df <- clean_odddat(df)
-  df <- comma_cleaner(df)
-  df <- as.data.frame(df)
+  df <- clean_odd_cc(df)
 
   col_list <- c()
   for(i in 1:ncol(df)){
@@ -46,7 +47,8 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
   cleaned_dat = do.call(rbind, j_vect)
   cleaned_dat = as.data.frame(cleaned_dat)
   cleaned_dat_t = data.table::transpose(l=cleaned_dat)
-  fluor_threshold_check(cleaned_dat_t) #QC check, should not stop the flow, just polite friendly advice
+  cleaned_dat_t <- cleaned_dat_t %>% select_if(~ !any(is.na(.)))
+  check_max_fluor(cleaned_dat_t)
 
   #normalize
   cleaned_dat_t <- as.data.frame(lapply(cleaned_dat_t[1:ncol(cleaned_dat_t)], min_max_norm))
@@ -55,13 +57,12 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
   ru = rows_used
   cu = cols_used
   usl = user_specific_labels
-  sample_col_names <- dat_col_names_prime(cleaned_dat_t, ru, cu, usl)
+  rd = read_direction
+  sample_col_names <- dat_col_names_optimus(cleaned_dat_t, ru, cu, usl, rd)
   colnames(cleaned_dat_t) <- sample_col_names
 
   #add unique_id
   cleaned_dat_t <-unique_identifier(cleaned_dat_t)
 
-  suppressWarnings(return(cleaned_dat_t))
+  return(cleaned_dat_t)
 }
-
-
