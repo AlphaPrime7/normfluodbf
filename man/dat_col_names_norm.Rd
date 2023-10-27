@@ -44,7 +44,7 @@ nocomma_dat <- comma_cleaner(comma_dat)
 nocomma_dat <- as.data.frame(nocomma_dat)
 resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 n = c('A','B','C')
-sample_col_names <- dat_col_names_norm(resampled_scaled, n, start=1 , end=12, in_sequence = 'yes') # i used all columns (in sequence) so col_used = NULL
+sample_col_names <- dat_col_names_norm(resampled_scaled, n, start=1 , end=12, in_sequence = 'yes')
 dat_col_names_norm(resampled_scaled,n,1,12,'no')
 }
 \author{

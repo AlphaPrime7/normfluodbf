@@ -20,8 +20,9 @@
 package_trackeR <- function(packages){
 
   dl <- dlstats::cran_stats(c(packages))
+  dl_df <- as_tibble(dl)
 
-  plot <- ggplot(dl,
+  plot <- ggplot(dl_df,
                  aes(end, downloads, group=package)) +
     geom_line(aes(color=package),linetype="dashed") +
     geom_point(aes(shape=package, color=package)) +

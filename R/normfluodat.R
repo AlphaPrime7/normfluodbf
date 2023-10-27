@@ -26,8 +26,6 @@
 
 normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL){
 
-  library(data.table)
-
   df <- utils::read.table(dat) #dat becomes df
   df <- clean_odd_cc(df)
 
@@ -49,7 +47,7 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
   cleaned_dat = as.data.frame(cleaned_dat)
   cleaned_dat_t = data.table::transpose(l=cleaned_dat)
   cleaned_dat_t <- cleaned_dat_t %>% dplyr::select_if(~ !any(is.na(.)))
-  check_max_fluor(cleaned_dat_t)
+  fluor_threshold_check(cleaned_dat_t)
 
   #normalize
   cleaned_dat_t <- as.data.frame(lapply(cleaned_dat_t[1:ncol(cleaned_dat_t)], min_max_norm))
