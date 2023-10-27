@@ -30,12 +30,11 @@
 #' fluor_threshold_check(resampled_scaled)
 
 fluor_threshold_check <- function(clean_df){
-  library(emojifont)
   load.emojifont(font = "EmojiOne.ttf")
   for(i in 1:nrow(clean_df)){
     for(j in 1:ncol(clean_df)){
       if( (clean_df[i,j] >= 2^15) || (clean_df[i,j] <= 2^11 ) && !is.null(clean_df[i,j]) ){
-        message(c(emojifont::emoji('pig'), emojifont::emoji('camel')))
+        message(c(emoji('pig'), emoji('camel')))
         message("YIKES, one or more of your fluorescence values is greater than 2^16(65536) or less than 2^11(2048), watchout for very high fluorescence or very low in your next experimental design")
         message(paste('these values are either too high or low and can lead to NOISE','column:', j , 'row:', i))
       }

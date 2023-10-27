@@ -13,6 +13,7 @@
 #'
 #' @import utils
 #' @import stats
+#' @importFrom data.table transpose
 #'
 #' @return A normalized data frame with the x-variable (Cycle_No), ready for analysis
 #' @export
@@ -47,7 +48,7 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
   cleaned_dat = do.call(rbind, j_vect)
   cleaned_dat = as.data.frame(cleaned_dat)
   cleaned_dat_t = data.table::transpose(l=cleaned_dat)
-  cleaned_dat_t <- cleaned_dat_t %>% select_if(~ !any(is.na(.)))
+  cleaned_dat_t <- cleaned_dat_t %>% dplyr::select_if(~ !any(is.na(.)))
   check_max_fluor(cleaned_dat_t)
 
   #normalize

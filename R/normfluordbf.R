@@ -12,6 +12,7 @@
 #' @param ... A container object that can be used to capture extra variables if needed.
 #'
 #' @importFrom data.table transpose
+#' @import data.table
 #' @import tidyr
 #' @import foreign
 #'
