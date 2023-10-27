@@ -11,7 +11,9 @@
 #'
 #' @seealso [check_dbfs_pwd()], [read_dats()]
 #'
-#' @examples read_dbfs(list.files())
+#' @examples
+#' fpath <- system.file("extdata", package = "normfluodbf", mustWork = TRUE)
+#' read_dbfs(fpath)
 
 read_dbfs <- function(dbf_list){
 

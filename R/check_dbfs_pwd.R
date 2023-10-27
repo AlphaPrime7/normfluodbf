@@ -10,7 +10,9 @@
 #' @export
 #'
 #'
-#' @examples check_dbf(getwd())
+#' @examples
+#' fpath <- system.file("extdata", package = "normfluodbf", mustWork = TRUE)
+#' check_dbfs_pwd(fpath)
 
 check_dbfs_pwd <- function(pathstring){
   if(length(list.files(path = pathstring, pattern = "\\.dbf$")) > 0) {

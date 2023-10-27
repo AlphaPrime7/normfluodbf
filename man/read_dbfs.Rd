@@ -16,7 +16,8 @@ Returns DBF data frames to the R environment
 A function that facilitates reading multiple dbfs at once (Some lazy loading)
 }
 \examples{
-read_dbfs(list.files())
+fpath <- system.file("extdata", package = "normfluodbf", mustWork = TRUE)
+read_dbfs(fpath)
 }
 \seealso{
 \code{\link[=check_dbfs_pwd]{check_dbfs_pwd()}}, \code{\link[=read_dats]{read_dats()}}

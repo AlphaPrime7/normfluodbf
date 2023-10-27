@@ -16,7 +16,8 @@ A list of DBF files if present in the pwd OR a caution to find a folder with DBF
 The function checks for the presence of DBF files in a directory OR demands that the user migrates to one.
 }
 \examples{
-check_dbf(getwd())
+fpath <- system.file("extdata", package = "normfluodbf", mustWork = TRUE)
+check_dbfs_pwd(fpath)
 }
 \author{
 Adopted: Tingwei Adeck

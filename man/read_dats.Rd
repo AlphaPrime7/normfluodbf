@@ -16,7 +16,8 @@ Returns DAT data frames to the R environment
 A function that facilitates reading multiple DAT files at once (Some lazy loading)
 }
 \examples{
-read_dats(list.files())
+fpath <- system.file("extdata", package = "normfluodbf", mustWork = TRUE)
+read_dats(fpath)
 }
 \seealso{
 \code{\link[=read_dbfs]{read_dbfs()}}

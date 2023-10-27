@@ -9,6 +9,8 @@
 #' @param user_specific_labels A character vector with specific sample labels based on the plate setup
 #' @param read_direction User can leave null (vertical) for machine up-down read OR 'horizontal' for machine left-right read
 #'
+#' @import stringr
+#'
 #'
 #' @return Returns column names that will be added to the normalized data frame that contains all samples
 #' @export
