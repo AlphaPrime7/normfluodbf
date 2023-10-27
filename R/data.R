@@ -57,3 +57,10 @@ NULL
 #'
 "dat_2"
 
+#' dat_3.
+#'
+#' FLUOstar .dat files used for creation of the update and unusable for data immediate data analysis. 
+#' This file is unique because it validates a major bug fix to ensure that users get the right output.
+#'
+"dat_3"
+

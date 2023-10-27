@@ -15,9 +15,9 @@
 #' @note This function is superior to clean_odddat().
 #'
 #' @examples
-#' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+#' fpath <- system.file("extdata", "dat_3.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
-#' partial_cleaned_dat <- clean_odddat(dat_df)
+#' partial_cleaned_dat <- clean_odd_cc(dat_df)
 
 clean_odd_cc <- function(df){
 
