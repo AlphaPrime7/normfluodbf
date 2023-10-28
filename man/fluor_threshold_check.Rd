@@ -22,13 +22,6 @@ fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork =
 dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odd_cc(dat_df)
 resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
-resampled_scaled[1,1] <- 2^16
-for(i in 1:ncol(resampled_scaled)){
-for(j in 1:nrow(resampled_scaled)){
-if(i ==2 && j ==2){
-resampled_scaled[j,i] <- 2^16
-}
-}
-}
+resampled_scaled <- resampled_scaled[,c(1:4)]
 fluor_threshold_check(resampled_scaled)
 }
