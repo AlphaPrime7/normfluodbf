@@ -15,9 +15,10 @@
 #' @examples
 #' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
-#' partial_cleaned_dat <- clean_odddat(dat_df)
+#' partial_cleaned_dat <- clean_odddat_optimus(dat_df)
 
-clean_odddat <- function(df){
+clean_odddat_optimus <- function(df){
+
   special_chars <- c('-,','-' )
   for (i in 1:nrow(df)){
     for (j in 1:ncol(df)){
@@ -26,17 +27,11 @@ clean_odddat <- function(df){
       }
     }
   }
-  nona_rows_df <- stats::na.omit(df)
+  na_df <- df
 
-  for (i in 1:nrow(nona_rows_df)){
-    for (j in 1:ncol(nona_rows_df)){
-      if(special_chars[1] %in% nona_rows_df[,j] || special_chars[2] %in% nona_rows_df[,j]){
-        nona_rows_df[i,j] <- NA
-      }
-    }
-  }
+  comma_df <- na_df
+  nocomma_df <- comma_cleaner(comma_df)
+  nocomma_df <- nocomma_df[rowSums(is.na(nocomma_df)) != ncol(nocomma_df), ]
 
-  comma_df <- nona_rows_df %>% dplyr::select_if(~ !any(is.na(.)))
-
-  return(comma_df)
+  return(nocomma_df)
 }
