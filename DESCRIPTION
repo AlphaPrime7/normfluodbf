@@ -21,8 +21,6 @@ Imports:
     tidyr,
     tibble,
     dplyr,
-    ggplot2,
-    cranlogs,
     emojifont,
     stats,
     stringr
