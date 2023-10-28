@@ -27,7 +27,7 @@
 normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL){
 
   df <- utils::read.table(dat) #dat becomes df
-  df <- clean_odd_cc(df)
+  df <- clean_odddat_optimus(df)
 
   col_list <- c()
   for(i in 1:ncol(df)){

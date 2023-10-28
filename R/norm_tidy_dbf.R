@@ -1,6 +1,6 @@
-#' Title: Cleans and Normalizes ".dbf" data files obtained from experiments using the FLUOstar Omega (Ω) microplate reader (from BMG LABTECH).
+#' Title: Cleans and Normalizes DBF files obtained from experiments using the FLUOstar Omega (Ω) microplate reader (from BMG LABTECH).
 #' @description
-#' The simplest function utilization scenario entails an input of the path to a ".dbf" file obtained from the FLUOstar microplate (usually a 96-well microplate) reader;
+#' The simplest function utilization scenario entails an input of the path to a DBF file obtained from the FLUOstar microplate (usually a 96-well microplate) reader;
 #' In a single step, this function will create a data frame, clean the data frame, normalize the data frame, append a "Cycle_Number" attribute,
 #' perform an adjustment to the “time” attribute and return a data frame that is ready for analysis.
 #' Since the initial publication of this package, several changes have been made to improve the user experience and to give the user more options to fine-tune the output from the package to meet the users’ aesthetic needs.

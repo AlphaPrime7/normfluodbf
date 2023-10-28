@@ -25,7 +25,6 @@ Imports:
     cranlogs,
     ggthemes,
     emojifont,
-    dlstats,
     stats,
     stringr
 Depends: 
