@@ -19,7 +19,7 @@ Status](https://www.repostatus.org/badges/latest/active.svg)](https://github.com
 Status](https://www.repostatus.org/badges/latest/wip.svg)](https://github.com/AlphaPrime7/normfluodbf_ShinyApp/graphs/contributors)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![PRs
-Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://github.com/AlphaPrime7/normfluodbf)
 [![THANK
 YOU](https://img.shields.io/badge/THANK-YOU-ff69b4.svg)](mailto:awesome.tingwei@outlook.com)
