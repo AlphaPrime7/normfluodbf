@@ -24,7 +24,7 @@
 #'
 #' @return A normalized data frame with an appended "Cycle_Number" attribute.
 #'
-#' @seealso [normfluordbf()], [normfluordbf_legacy()], [normfluodat()]
+#' @seealso [normfluordbf()], [normfluodat()]
 #'
 #' @export
 #' @note
@@ -41,14 +41,6 @@
 #' normalized_dbf_default <- norm_tidy_dbf(file=fpath)
 #' normalized_dbf_scale100 <- norm_tidy_dbf(file=fpath, norm_scale = 'hundred')
 #' normalized_dbf_scalez <- norm_tidy_dbf(file=fpath, norm_scale = 'z-score')
-#' xvar <- c("Cycle_Number")
-#' yvars_dbf <- c("A01","A02","A03")
-#' xl <- c(0,40)
-#' yl_scale100 <- c(0,100)
-#' yl_default <- c(0,1)
-#' yl_z <- c(3,-3)
-#' color <- c("Test","Negative Control","Positive Control")
-#' gg_plot_triplets(normalized_dbf_scale100,x=xvar,y_list=yvars_dbf,xlim=xl,ylim=yl_scale100)
 
 norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun = NA, ...){
 

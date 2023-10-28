@@ -29,8 +29,7 @@ This function is a subordinate function and prototype that turned out very usefu
 \examples{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
-comma_dat <- clean_odddat(dat_df)
-nocomma_dat <- comma_cleaner(comma_dat)
+nocomma_dat <- clean_odd_cc(dat_df)
 col_1 <- nocomma_dat[,1]
 col_1 <- as.data.frame(col_1)
 samples_delineated <- resample_dat(col_1, tnp=3, cycles=40)

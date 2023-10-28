@@ -22,8 +22,7 @@ This function is a subordinate function and follows a sequence of actions. In th
 \examples{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
-comma_dat <- clean_odddat(dat_df)
-nocomma_dat <- comma_cleaner(comma_dat)
+nocomma_dat <- comma_cleaner(dat_df)
 }
 \author{
 Tingwei Adeck

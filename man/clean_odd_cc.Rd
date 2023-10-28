@@ -27,7 +27,7 @@ dat_df <- read.table(file=fpath)
 partial_cleaned_dat <- clean_odd_cc(dat_df)
 }
 \seealso{
-\code{\link[=clean_odddat]{clean_odddat()}}, \code{\link[=clean_evendat]{clean_evendat()}}, \code{\link[=normfluodat]{normfluodat()}}
+\code{\link[=normfluodat]{normfluodat()}}
 }
 \author{
 Tingwei Adeck

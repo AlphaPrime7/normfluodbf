@@ -52,15 +52,7 @@ fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mu
 normalized_dbf_default <- norm_tidy_dbf(file=fpath)
 normalized_dbf_scale100 <- norm_tidy_dbf(file=fpath, norm_scale = 'hundred')
 normalized_dbf_scalez <- norm_tidy_dbf(file=fpath, norm_scale = 'z-score')
-xvar <- c("Cycle_Number")
-yvars_dbf <- c("A01","A02","A03")
-xl <- c(0,40)
-yl_scale100 <- c(0,100)
-yl_default <- c(0,1)
-yl_z <- c(3,-3)
-color <- c("Test","Negative Control","Positive Control")
-gg_plot_triplets(normalized_dbf_scale100,x=xvar,y_list=yvars_dbf,xlim=xl,ylim=yl_scale100)
 }
 \seealso{
-\code{\link[=normfluordbf]{normfluordbf()}}, \code{\link[=normfluordbf_legacy]{normfluordbf_legacy()}}, \code{\link[=normfluodat]{normfluodat()}}
+\code{\link[=normfluordbf]{normfluordbf()}}, \code{\link[=normfluodat]{normfluodat()}}
 }

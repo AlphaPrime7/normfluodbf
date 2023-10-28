@@ -11,7 +11,7 @@
 #'
 #' @return A new data frame with NAs retained.
 #' @export
-#' @seealso [clean_odddat()], [clean_evendat()], [normfluodat()]
+#' @seealso [normfluodat()]
 #' @note This function is superior to clean_odddat().
 #'
 #' @examples
