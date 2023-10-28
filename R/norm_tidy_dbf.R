@@ -1,4 +1,4 @@
-#' Title: Cleans and Normalizes DBF files obtained from experiments using the FLUOstar Omega (Ω) microplate reader (from BMG LABTECH).
+#' Title: Cleans and Normalizes DBF files obtained from experiments using the FLUOstar Omega microplate reader (from BMG LABTECH).
 #' @description
 #' The simplest function utilization scenario entails an input of the path to a DBF file obtained from the FLUOstar microplate (usually a 96-well microplate) reader;
 #' In a single step, this function will create a data frame, clean the data frame, normalize the data frame, append a "Cycle_Number" attribute,

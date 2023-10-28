@@ -2,7 +2,7 @@
 % Please edit documentation in R/norm_tidy_dbf.R
 \name{norm_tidy_dbf}
 \alias{norm_tidy_dbf}
-\title{Title: Cleans and Normalizes DBF files obtained from experiments using the FLUOstar Omega (Ω) microplate reader (from BMG LABTECH).}
+\title{Title: Cleans and Normalizes DBF files obtained from experiments using the FLUOstar Omega microplate reader (from BMG LABTECH).}
 \usage{
 norm_tidy_dbf(
   file = NULL,
