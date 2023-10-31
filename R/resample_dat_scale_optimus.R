@@ -17,27 +17,34 @@
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odd_cc(dat_df)
-#' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
-resample_dat_scale <- function(df, tnp, cycles){
+#' resampled_scaled <- resample_dat_scale_optimus(nocomma_dat, tnp=3, cycles=40)
 
-  col_list <- c()
+resample_dat_scale_optimus <- function(df, tnp, cycles){
+
+  type_size <- c(1:tnp) #k is now nseq(same kinda thing)
+
+
+  sample_df <- data.frame()
+  final_df <- matrix(ncol = cycles)
+
   for(i in 1:ncol(df)){
-    n <- "a"
-    col_list <- c(col_list,assign(paste0(n, i), as.data.frame(df[,i])) )
+    nseq <- c(1:tnp)
+
+    for (j in 1:(nrow(df)/tnp)){
+
+      insert_row = df[nseq,i]
+      sample_df[j,type_size] <- rbind(insert_row, sample_df)
+      increment_n = tnp
+      nseq <- nseq + increment_n
+
+    }
+    final_df <- cbind(final_df, sample_df)
+    final_df <- final_df[ , colSums(is.na(final_df))==0]
+    colnames(final_df) <- NULL
+    rownames(final_df) <- c(1:cycles)
+    final_df <- as.data.frame(final_df)
+
   }
-
-  j_vect <- c()
-  for(j in col_list){
-    j <- as.data.frame(j)
-    j_resampled <- resample_dat(j, tnp = tnp, cycles = cycles)
-    j_dfs <- as.data.frame(j_resampled)
-    j_vect <- c(j_vect, j_dfs)
-  }
-
-  big_data = do.call(rbind, j_vect)
-  big_data = as.data.frame(big_data)
-  big_data_t = data.table::transpose(l=big_data)
-  big_data_t <- big_data_t %>% dplyr::select_if(~ !any(is.na(.)))
-
-  return(big_data_t)
+  #return(sample_df)
+  return(final_df)
 }

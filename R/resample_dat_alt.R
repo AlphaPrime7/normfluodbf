@@ -21,26 +21,26 @@
 #' nocomma_dat <- clean_odd_cc(dat_df)
 #' col_1 <- nocomma_dat[,1]
 #' col_1 <- as.data.frame(col_1)
-#' samples_delineated <- resample_dat(col_1, tnp=3, cycles=40)
+#' samples_delineated <- resample_dat_alt(col_1, tnp=3, cycles=40)
 
-resample_dat <- function(df, tnp, cycles, samples_per_tnp=NULL){
+resample_dat_alt <- function(df, tnp, cycles, samples_per_tnp=NULL){
 
-  type_size <- c(1:tnp)
-  k <- c(1:tnp)
+  k <- c(1:ncol(df))
+  type_size <- c(1:ncol(df))
 
   resulting_df <- data.frame()
   for (i in 1:(nrow(df)/tnp)){
 
-    colnames(resulting_df) = NULL
     insert_row = df[k,]
-    colnames(insert_row) = NULL
 
     resulting_df[i,type_size] <- rbind(insert_row, resulting_df)
 
-    increment = tnp
-    k <- k + increment
+    increment_k = tnp
+    k <- k + increment_k
 
+    colnames(resulting_df) <- NULL
 
   }
   return(resulting_df)
 }
+

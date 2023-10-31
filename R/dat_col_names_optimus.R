@@ -30,7 +30,7 @@
 dat_col_names_optimus <- function(df, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL){
 
   if(is.null(rows_used)){
-    warning('user must enter rows_used which is a character vector with length == tnp')
+    warning('user must enter rows_used which is a character vector with length == tnp') #need to change to 1:ncol(df)
   }
 
   col_names <- c()

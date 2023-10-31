@@ -38,9 +38,7 @@
 #'
 #' @examples
 #' fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
-#' normalized_dbf_default <- norm_tidy_dbf(file=fpath)
-#' normalized_dbf_scale100 <- norm_tidy_dbf(file=fpath, norm_scale = 'hundred')
-#' normalized_dbf_scalez <- norm_tidy_dbf(file=fpath, norm_scale = 'z-score')
+#' normalized_dbf_default <- norm_tidy_dbf(file=fpath, norm_scale = 'raw')
 
 norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun = NA, ...){
 
