@@ -83,19 +83,12 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
       df <- resample_dat_scale_optimus(df, tnp = tnp, cycles = cycles)
       fluor_threshold_check(df)
-      df <- as.data.frame(lapply(df[1:ncol(df)], as.numeric))
-
-      #name the columns
-      ru = rows_used
-      cu = cols_used
-      usl = user_specific_labels
-      rd = read_direction
-      sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd) #need an adjustment
-      colnames(df) <- sample_col_names
+      df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
+      df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
       #add unique_id
       df <-unique_identifier(df)
-
+      colnames(df) <- c(1:(ncol(df)-1))
       return(df)
 
     }
@@ -149,17 +142,9 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
       df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
       df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-      #name the columns
-      ru = rows_used
-      cu = cols_used
-      usl = user_specific_labels
-      rd = read_direction
-      sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
-      colnames(df) <- sample_col_names
-
       #add unique_id
       df <-unique_identifier(df)
-
+      colnames(df) <- c(1:(ncol(df)-1))
       return(df)
 
     }
@@ -209,20 +194,12 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
       df <- resample_dat_scale_optimus(df, tnp = tnp, cycles = cycles)
       fluor_threshold_check(df)
-      df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm_percent))
+      df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
       df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
-
-      #name the columns
-      ru = rows_used
-      cu = cols_used
-      usl = user_specific_labels
-      rd = read_direction
-      sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
-      colnames(df) <- sample_col_names
 
       #add unique_id
       df <-unique_identifier(df)
-
+      colnames(df) <- c(1:(ncol(df)-1))
       return(df)
 
     }
@@ -272,20 +249,12 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
       df <- resample_dat_scale_optimus(df, tnp = tnp, cycles = cycles)
       fluor_threshold_check(df)
-      df <- as.data.frame(lapply(df[1:ncol(df)], norm_z))
+      df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
       df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
-
-      #name the columns
-      ru = rows_used
-      cu = cols_used
-      usl = user_specific_labels
-      rd = read_direction
-      sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
-      colnames(df) <- sample_col_names
 
       #add unique_id
       df <-unique_identifier(df)
-
+      colnames(df) <- c(1:(ncol(df)-1))
       return(df)
 
     }
@@ -336,20 +305,12 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
       df <- resample_dat_scale_optimus(df, tnp = tnp, cycles = cycles)
       fluor_threshold_check(df)
-      df <- as.data.frame(lapply(df[1:ncol(df)], decimal_scaling))
+      df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
       df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
-
-      #name the columns
-      ru = rows_used
-      cu = cols_used
-      usl = user_specific_labels
-      rd = read_direction
-      sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
-      colnames(df) <- sample_col_names
 
       #add unique_id
       df <-unique_identifier(df)
-
+      colnames(df) <- c(1:(ncol(df)-1))
       return(df)
 
     }
@@ -399,21 +360,13 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
     } else{
 
       df <- resample_dat_scale_optimus(df, tnp = tnp, cycles = cycles)
-      fluor_threshold_check(df) #needs to be changed in pkg
+      fluor_threshold_check(df)
       df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
       df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-      #name the columns
-      ru = rows_used
-      cu = cols_used
-      usl = user_specific_labels
-      rd = read_direction
-      sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
-      colnames(df) <- sample_col_names
-
       #add unique_id
       df <-unique_identifier(df)
-
+      colnames(df) <- c(1:(ncol(df)-1))
       return(df)
 
     }
