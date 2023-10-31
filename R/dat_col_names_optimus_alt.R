@@ -25,14 +25,12 @@
 #' nocomma_dat <- clean_odd_cc(dat_df)
 #' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 #' n = c('A','B','C')
-#' sample_col_names <- dat_col_names_optimus(resampled_scaled, n)
+#' sample_col_names <- dat_col_names_optimus_alt(resampled_scaled, n)
 
-dat_col_names_optimus <- function(df, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL){
+dat_col_names_optimus_alt <- function(df, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL){
 
   if(is.null(rows_used)){
-    message('User is advised to input a vector of rows used')
-    colnames_noru <- c(1:ncol(df))
-    return(colnames_noru)
+    warning('user must enter rows_used which is a character vector with length == tnp')
   }
 
   col_names <- c()

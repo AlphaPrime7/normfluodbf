@@ -22,8 +22,7 @@ resample_dat_scale <- function(df, tnp, cycles){
 
   col_list <- c()
   for(i in 1:ncol(df)){
-    n <- "a"
-    col_list <- c(col_list,assign(paste0(n, i), as.data.frame(df[,i])) )
+    col_list <- c( col_list, as.data.frame(df[,i]) )
   }
 
   j_vect <- c()

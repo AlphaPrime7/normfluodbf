@@ -10,6 +10,7 @@
 #' @param cols_used  A numeric vector of the columns used, eg m = c(2,4,6)
 #' @param user_specific_labels A character vector with specific sample labels based on the plate setup
 #' @param read_direction User can leave null for machine up-down read OR 'horizontal' for machine left-right read
+#' @param norm_scale The normalization scale
 #'
 #' @import utils
 #' @import stats
@@ -29,7 +30,7 @@
 
 normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL, norm_scale = NULL){
 
-  df <- read.table(dat)
+  df <- utils::read.table(dat)
   #df <- clean_odd_cc(df)
   df <- clean_odddat_optimus(df)
   fluor_threshold_check_na(df)
@@ -426,9 +427,17 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
       df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
       df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
+      #name columns
+      ru = rows_used
+      cu = cols_used
+      usl = user_specific_labels
+      rd = read_direction
+      sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
+      colnames(df) <- sample_col_names
+
       #add unique_id
       df <-unique_identifier(df)
-      colnames(df) <- c(1:(ncol(df)-1))
+      #colnames(df) <- c(1:(ncol(df)-1))
 
       return(df)
 
@@ -439,9 +448,17 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
       df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
       df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
+      #name columns
+      ru = rows_used
+      cu = cols_used
+      usl = user_specific_labels
+      rd = read_direction
+      sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
+      colnames(df) <- sample_col_names
+
       #add unique_id
       df <-unique_identifier(df)
-      colnames(df) <- c(1:(ncol(df)-1))
+      #colnames(df) <- c(1:(ncol(df)-1))
 
       return(df)
 
@@ -452,9 +469,17 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
       df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
       df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
+      #name columns
+      ru = rows_used
+      cu = cols_used
+      usl = user_specific_labels
+      rd = read_direction
+      sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
+      colnames(df) <- sample_col_names
+
       #add unique_id
       df <-unique_identifier(df)
-      colnames(df) <- c(1:(ncol(df)-1))
+      #colnames(df) <- c(1:(ncol(df)-1))
 
       return(df)
 
