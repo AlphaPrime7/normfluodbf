@@ -8,6 +8,8 @@ fluor_threshold_check_raw(clean_df, fun = NA)
 }
 \arguments{
 \item{clean_df}{A cleaned dat or dbf file}
+
+\item{fun}{Used for boolean expressions}
 }
 \value{
 A polite warning message for the researchers next experimental design and the rows and columns with problem values.

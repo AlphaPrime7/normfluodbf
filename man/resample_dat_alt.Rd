@@ -34,6 +34,9 @@ col_1 <- nocomma_dat[,1]
 col_1 <- as.data.frame(col_1)
 samples_delineated <- resample_dat_alt(col_1, tnp=3, cycles=40)
 }
+\seealso{
+\code{\link[=resample_dat]{resample_dat()}}
+}
 \author{
 Tingwei Adeck
 }

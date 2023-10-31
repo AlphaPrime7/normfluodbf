@@ -5,6 +5,7 @@
 #' The inventor of this program made a similar mistake when he began these experiments.
 #'
 #' @param clean_df A cleaned dat or dbf file
+#' @param fun Used for boolean expressions
 #'
 #' @import emojifont
 #'
@@ -22,7 +23,7 @@
 #' fluor_threshold_check(resampled_scaled)
 
 fluor_threshold_check <- function(clean_df, fun = NA){
-  library(emojifont)
+
   load.emojifont(font = "EmojiOne.ttf")
 
   nofun <- is.na(fun)
@@ -48,6 +49,7 @@ fluor_threshold_check <- function(clean_df, fun = NA){
 #' The inventor of this program made a similar mistake when he began these experiments.
 #'
 #' @param clean_df A cleaned dat or dbf file
+#' @param fun Used for boolean expressions
 #'
 #' @import emojifont
 #'
@@ -63,7 +65,7 @@ fluor_threshold_check <- function(clean_df, fun = NA){
 #' fluor_threshold_check_na(nocomma_dat)
 
 fluor_threshold_check_na <- function(clean_df, fun = NA){
-  library(emojifont)
+
   load.emojifont(font = "EmojiOne.ttf")
 
   nofun <- is.na(fun)
@@ -87,6 +89,7 @@ fluor_threshold_check_na <- function(clean_df, fun = NA){
 #' The inventor of this program made a similar mistake when he began these experiments.
 #'
 #' @param clean_df A cleaned dat or dbf file
+#' @param fun Used for boolean expressions
 #'
 #' @import emojifont
 #'
@@ -102,7 +105,7 @@ fluor_threshold_check_na <- function(clean_df, fun = NA){
 #' fluor_threshold_check_raw(nocomma_dat)
 
 fluor_threshold_check_raw <- function(clean_df, fun = NA){
-  library(emojifont)
+
   load.emojifont(font = "EmojiOne.ttf")
 
   nofun <- is.na(fun)

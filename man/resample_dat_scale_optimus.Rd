@@ -30,7 +30,7 @@ nocomma_dat <- clean_odd_cc(dat_df)
 resampled_scaled <- resample_dat_scale_optimus(nocomma_dat, tnp=3, cycles=40)
 }
 \seealso{
-\code{\link[=resample_dat]{resample_dat()}}
+\code{\link[=resample_dat_scale_alt]{resample_dat_scale_alt()}}
 }
 \author{
 Tingwei Adeck

@@ -12,7 +12,7 @@
 #' @export
 #' @note This function is the pre-requisite to the parent or main function of the update.
 #' As a matter of fact, this function is modified to produce the parent or main function.
-#' @seealso [resample_dat()]
+#' @seealso [resample_dat_scale_optimus()], [resample_dat_scale_alt()]
 #'
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)

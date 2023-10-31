@@ -20,9 +20,12 @@
 #' @note This is the MAIN function and stands alone but is dependent on the subordinate functions. If the user understands what they are doing this is all they need.
 #' The user should use the user_specific_labels parameter for naming variables if they have an extreme unorthodox experimental setup.
 #'
+#' @seealso [normfluordbf()], [normfluodat_base]
+#'
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' n <- c('A','B','C')
 #' normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40, n, read_direction = 'vertical')
+#' #' normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40)
 
 normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL, norm_scale = NULL){
 

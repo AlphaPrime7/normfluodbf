@@ -15,6 +15,7 @@
 #' @return A new data frame with attributes matching the number of sample types and tuples matching the number of cycles. In short it returns delineated samples.
 #' @export
 #' @note This function is a subordinate function and prototype that turned out very useful.
+#' @seealso [resample_dat_alt()]
 #'
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)

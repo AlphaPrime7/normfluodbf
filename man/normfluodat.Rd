@@ -60,9 +60,13 @@ The user should use the user_specific_labels parameter for naming variables if t
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 n <- c('A','B','C')
 normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40, n, read_direction = 'vertical')
+#' normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40)
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 n <- c('A','B','C')
 normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40, n, read_direction = 'vertical')
+}
+\seealso{
+\code{\link[=normfluordbf]{normfluordbf()}}, \link{normfluodat_base}
 }
 \author{
 Tingwei Adeck
