@@ -20,7 +20,7 @@
 #' @note This is the MAIN function and stands alone but is dependent on the subordinate functions. If the user understands what they are doing this is all they need.
 #' The user should use the user_specific_labels parameter for naming variables if they have an extreme unorthodox experimental setup.
 #'
-#' @seealso [normfluordbf()], [normfluodat_base()]
+#' @seealso [normfluordbf()]
 #'
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' n <- c('A','B','C')

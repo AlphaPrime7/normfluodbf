@@ -66,7 +66,7 @@ n <- c('A','B','C')
 normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40, n, read_direction = 'vertical')
 }
 \seealso{
-\code{\link[=normfluordbf]{normfluordbf()}}, \code{\link[=normfluodat_base]{normfluodat_base()}}
+\code{\link[=normfluordbf]{normfluordbf()}}
 }
 \author{
 Tingwei Adeck
