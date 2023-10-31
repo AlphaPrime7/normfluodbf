@@ -29,9 +29,10 @@
 
 dat_col_names_optimus <- function(df, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL){
 
+  colnames_noru <- c(1:ncol(df))
+
   if(is.null(rows_used)){
     message('User is advised to input a vector of rows used')
-    colnames_noru <- c(1:ncol(df))
     return(colnames_noru)
   }
 
@@ -60,6 +61,8 @@ dat_col_names_optimus <- function(df, rows_used = NULL, cols_used= NULL, user_sp
       col_names_sort <- stringr::str_sort(col_names_sort, decreasing = F, na_last = T, locale = 'en', numeric = T)
       message('check data frame for NA column names or last sample column with unmatched or isolated samples')
       return(col_names_sort[1:ncol(df)])
+    } else{
+      return(colnames_noru)
     }
 
   } else if(!is.null(rows_used) && !is.null(cols_used) && ncol(df) == length(cols_used)*length(rows_used) && length(cols_used) <= length(normal_sequence) ){
@@ -72,6 +75,8 @@ dat_col_names_optimus <- function(df, rows_used = NULL, cols_used= NULL, user_sp
     } else if(read_direction == 'horizontal'){
       col_names_sort <- stringr::str_sort(col_names, decreasing = F, na_last = T, locale = 'en', numeric = T)
       return(col_names_sort[1:ncol(df)])
+    } else{
+      return(colnames_noru)
     }
   } else if(is.null(user_specific_labels) || ncol(df) < length(cols_used)*length(rows_used) && length(cols_used) < length(normal_sequence) ){
     if(ncol(df) > length(cols_used)*length(rows_used)){
@@ -91,8 +96,10 @@ dat_col_names_optimus <- function(df, rows_used = NULL, cols_used= NULL, user_sp
         print('From the printed above list enter the columns used; must match the sample positions on the plate;')
         choose_cols_used=scan(what=character(), n=ncol(df))
         print(choose_cols_used)
-      }else{
+      }else if(!is.null(user_specific_labels)){
         return(user_specific_labels)
+      } else {
+        return(colnames_noru)
       }
 
     }else {
@@ -112,8 +119,10 @@ dat_col_names_optimus <- function(df, rows_used = NULL, cols_used= NULL, user_sp
         print('From the printed above list enter the columns used; must match the sample positions on the plate;')
         choose_cols_used=scan(what=character(), n=ncol(df))
         print(choose_cols_used)
-      }else{
+      }else if(!is.null(user_specific_labels)){
         return(user_specific_labels)
+      } else {
+        return(colnames_noru)
       }
     }
 
