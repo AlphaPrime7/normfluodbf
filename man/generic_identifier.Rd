@@ -2,23 +2,23 @@
 % Please edit documentation in R/ntdbf_subordinates.R
 \name{generic_identifier}
 \alias{generic_identifier}
-\title{Title: A generic identifier similar to unique identifier but end users supply a column name.}
+\title{Title: A function to append a generic identifier attribute to any data frame, but users supply a name for said attribute.}
 \usage{
 generic_identifier(numrows, col_name)
 }
 \arguments{
-\item{numrows}{The number of rows in a data frame of interest (nrows(df) can be used).}
+\item{numrows}{The number of rows the user intends to have in the created data frame.}
 
-\item{col_name}{The desired column name for the column.}
+\item{col_name}{The desired attribute name.}
 }
 \value{
-A new single column data frame with the desired attribute added.
+A user-named single attribute data frame with nrow = numrows.
 }
 \description{
-A function that creates a column 1:nrow(df) and steps by 1 but gives you the option to use any column name.
+A function that creates an attribute of seq(numrows) with a step size of 1, where the user provides the attribute name.
 }
 \examples{
-generic_identifier(40,col_name="Cycle_No")
+generic_identifier(40, col_name="Cycle_No")
 }
 \author{
 Tingwei Adeck

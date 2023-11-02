@@ -29,19 +29,19 @@ unique_identifier <- function(df){
   return(df)
 }
 
-#' Title: A generic identifier similar to unique identifier but end users supply a column name.
+#' Title: A function to append a generic identifier attribute to any data frame, but users supply a name for said attribute.
 #' @description
-#' A function that creates a column 1:nrow(df) and steps by 1 but gives you the option to use any column name.
+#'A function that creates an attribute of seq(numrows) with a step size of 1, where the user provides the attribute name.
 #'
 #' @author Tingwei Adeck
 #'
-#' @param numrows The number of rows in a data frame of interest (nrows(df) can be used).
-#' @param col_name The desired column name for the column.
+#' @param numrows The number of rows the user intends to have in the created data frame.
+#' @param col_name The desired attribute name.
 #'
-#' @return A new single column data frame with the desired attribute added.
+#' @return A user-named single attribute data frame with nrow = numrows.
 #' @export
 #'
-#' @examples generic_identifier(40,col_name="Cycle_No")
+#' @examples generic_identifier(40, col_name="Cycle_No")
 
 generic_identifier <- function(numrows, col_name){
   vect <- seq(numrows)
