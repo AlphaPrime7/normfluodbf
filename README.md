@@ -1,5 +1,5 @@
 Tingwei Adeck
-October 28, 2023
+November 02, 2023
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -303,7 +303,7 @@ This is a basic example which illustrates package usage:
 ``` r
 library(normfluodbf)
 liposomes_214 <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf")
-normalized_data <- normfluodbf(liposomes_214)
+normalized_data <- norm_tidy_dbf(liposomes_214)
 ```
 
 ## R packages Imported
