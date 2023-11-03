@@ -2,26 +2,27 @@
 % Please edit documentation in R/ntdbf_subordinates.R
 \name{min_max_norm_percent}
 \alias{min_max_norm_percent}
-\title{Title: A function that performs Min-Max normalization (0-100 range) of attributes that require normalization}
+\title{Title: Min-Max normalization on a 0-100 scale.}
 \usage{
 min_max_norm_percent(x)
 }
 \arguments{
-\item{x}{Column or attribute values passed into the min-max normalization function}
+\item{x}{Attribute value(s).}
 }
 \value{
-A normalized value (between 0 and 100) when used as a standalone function, or a normalized attribute(s) when used with lapply.
+A normalized value (between 0 and 100) when applied to a single value or a normalized attribute with values between 0 and 100.
 }
 \description{
-Title: A function that performs Min-Max normalization (0-100 range) of attributes that require normalization
+Title: Min-Max normalization on a 0-100 scale.
 }
 \note{
-The lapply function is required to apply the function across several columns in a data set.
+The lapply function is required to apply this function across several attributes.
 }
 \examples{
 test_df <- as.data.frame(c(seq(40)))
 colnames(test_df) <- "test"
 test_df_norm <- lapply(test_df[1:ncol(test_df)], min_max_norm_percent)
+
 }
 \references{
 https://www.statology.org/how-to-normalize-data-in-r/

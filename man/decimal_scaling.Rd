@@ -2,23 +2,23 @@
 % Please edit documentation in R/ntdbf_subordinates.R
 \name{decimal_scaling}
 \alias{decimal_scaling}
-\title{Title: A function that performs decimal scaling (not normalization) of attributes}
+\title{Title: A decimal scaling function (a machine learning tool).}
 \usage{
 decimal_scaling(x)
 }
 \arguments{
-\item{x}{Column or attribute values passed into the decimal scaling function}
+\item{x}{Attribute value(s).}
 }
 \value{
-Attribute(s) with values that have the decimal place moved to facilitate machine learning
+A decimal scaled value when applied to a single value or a decimal scaled attribute(s).
 }
 \description{
-Title: A function that performs decimal scaling (not normalization) of attributes
+Title: A decimal scaling function (a machine learning tool).
 }
 \note{
-The lapply function is required to apply the function across several columns in a data set.
-This is NOT a normalization function because the data still exist on a sliding scale.
-This function is here for demonstration purposes and should be used for exercise as it is here for educational purposes for the inventor of the package.
+The lapply function is required to apply this function across several attributes.
+This is NOT a normalization function, so data obtained from the decimal scaling function
+exists on a sliding scale and SHOULD NOT be used for meaningful analysis.
 }
 \examples{
 test_df <- as.data.frame(c(seq(40)))

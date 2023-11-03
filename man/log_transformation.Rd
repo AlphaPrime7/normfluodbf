@@ -2,26 +2,27 @@
 % Please edit documentation in R/ntdbf_subordinates.R
 \name{log_transformation}
 \alias{log_transformation}
-\title{Title: A function that performs log transformation of data}
+\title{Title: A log transformation function.}
 \usage{
 log_transformation(x)
 }
 \arguments{
-\item{x}{Column or attribute values passed into the Z-standardization function}
+\item{x}{Attribute value(s).}
 }
 \value{
-Log transformed attributes
+A log-transformed value when applied to a single value or an attribute with log-transformed values.
 }
 \description{
-Title: A function that performs log transformation of data
+Title: A log transformation function.
 }
 \note{
-The lapply function is required to apply the function across several columns in a data set.
+The lapply function is required to apply this function across several attributes.
 }
 \examples{
 test_df <- as.data.frame(c(seq(40)))
 colnames(test_df) <- "test"
 test_df_norm <- lapply(test_df[1:ncol(test_df)], log_transformation)
+
 }
 \references{
 https://www.statology.org/how-to-normalize-data-in-r/

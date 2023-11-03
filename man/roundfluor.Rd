@@ -2,18 +2,18 @@
 % Please edit documentation in R/ntdbf_subordinates.R
 \name{roundfluor}
 \alias{roundfluor}
-\title{Title: Round attribute elements or attributes}
+\title{Title: A value rounding function.}
 \usage{
 roundfluor(x)
 }
 \arguments{
-\item{x}{An attribute element that needs to be rounded up}
+\item{x}{Attribute value(s).}
 }
 \value{
-A rounded up element OR a rounded up attribute when assisted by lapply
+A rounded value with three decimal places when applied to a single value or an attribute with log-transformed values.
 }
 \description{
-Round an attribute element or attribute.
+Round attribute values to three decimal places.
 }
 \examples{
 test_df <- as.data.frame(c(seq(40)))

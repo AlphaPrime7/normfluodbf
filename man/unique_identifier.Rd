@@ -7,7 +7,7 @@
 unique_identifier(df)
 }
 \arguments{
-\item{df}{A data frame with 1:n number of rows}
+\item{df}{A data frame with 1:n number of rows.}
 }
 \value{
 A data frame with the Cycle_Number attribute appended to the end of the data frame.

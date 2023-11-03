@@ -2,26 +2,27 @@
 % Please edit documentation in R/ntdbf_subordinates.R
 \name{norm_z}
 \alias{norm_z}
-\title{Title: A function that performs Z-score standardization (or normalization) of attributes}
+\title{Title: Z-score standardization or normalization function.}
 \usage{
 norm_z(x)
 }
 \arguments{
-\item{x}{Column or attribute values passed into the Z-standardization function}
+\item{x}{Attribute value(s).}
 }
 \value{
-Attribute(s) with values that have mean 0 and standard deviation 1
+A standardized value (Z = N (0,1)) when applied to a single value or a standardized attribute with values (Z = N (0,1)).
 }
 \description{
-Title: A function that performs Z-score standardization (or normalization) of attributes
+Title: Z-score standardization or normalization function.
 }
 \note{
-The lapply function is required to apply the function across several columns in a data set.
+The lapply function is required to apply this function across several attributes.
 }
 \examples{
 test_df <- as.data.frame(c(seq(40)))
 colnames(test_df) <- "test"
 test_df_norm <- lapply(test_df[1:ncol(test_df)], norm_z)
+
 }
 \references{
 https://www.statology.org/how-to-normalize-data-in-r/
