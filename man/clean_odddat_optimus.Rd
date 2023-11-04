@@ -2,28 +2,28 @@
 % Please edit documentation in R/clean_odddat_optimus.R
 \name{clean_odddat_optimus}
 \alias{clean_odddat_optimus}
-\title{Title: A function to partially clean dat files from FLuostar experiments}
+\title{Title: DAT file data frame cleaner.}
 \usage{
 clean_odddat_optimus(df)
 }
 \arguments{
-\item{df}{A data frame with n number of rows}
+\item{df}{A dirty data frame obtained from the FLUOstar DAT file.}
 }
 \value{
-A new data frame with most impurities taken out; See the example
+A clean data frame with clean NA values retained.
 }
 \description{
-The function takes a dirty data frame and returns a clean data frame with the only exception being that most values in the returned data frame have commas at the end
-The data frame that goes into the function comes from reading dat files from FLUOstar experiments
-See the example code
-}
-\note{
-This function should work on all types of Fluostar dat files (unlike the clean_evendat() function).
+The function takes the dirty data frame obtained from reading the FLUOstar DAT file, applies an original
+algorithm that inserts NAs in place of the special characters, and then applies a function called
+comma_cleaner() to the dirty data frame for the removal of commas, and finally, rows with NAs only are removed.
 }
 \examples{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
 partial_cleaned_dat <- clean_odddat_optimus(dat_df)
+}
+\seealso{
+\code{\link[=comma_cleaner]{comma_cleaner()}}, \code{\link[=clean_odd_cc]{clean_odd_cc()}}
 }
 \author{
 Tingwei Adeck
