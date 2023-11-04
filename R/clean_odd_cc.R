@@ -1,23 +1,26 @@
-#' Title: A function to completely clean dat files from FLuostar experiments
+#' Title: DAT file data frame cleaner.
+#'
 #' @description
-#' The function takes a dirty data frame and returns a clean data frame.
-#' The function takes care of more QC concerns not seen in previous cleaning functions.
-#' The function accounts for possible machine data formatting when users skip wells by
-#' retaining NA values, which ensures that the user does not loose samples in data analysis.
+#' The function takes the dirty data frame obtained from reading
+#' the FLUOstar DAT file and applies a function called comma_cleaner() to the dirty data frame,
+#' which automatically inserts NAs in place of the special characters, and rows with NAs only are removed.
 #'
 #' @author Tingwei Adeck
-#' @param df A data frame with n number of rows
+#'
+#' @param df A dirty data frame obtained from the FLUOstar DAT file.
 #'
 #'
-#' @return A new data frame with NAs retained.
+#' @return A clean data frame with clean NA values retained.
+#'
 #' @export
-#' @seealso [normfluodat()]
-#' @note This function is superior to clean_odddat().
+#'
+#' @seealso [comma_cleaner()], [clean_odddat_optimus()]
+#'
 #'
 #' @examples
 #' fpath <- system.file("extdata", "dat_3.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
-#' partial_cleaned_dat <- clean_odd_cc(dat_df)
+#' cleaned_dat <- clean_odd_cc(dat_df)
 
 clean_odd_cc <- function(df){
 

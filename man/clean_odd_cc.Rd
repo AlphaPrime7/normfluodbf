@@ -2,32 +2,28 @@
 % Please edit documentation in R/clean_odd_cc.R
 \name{clean_odd_cc}
 \alias{clean_odd_cc}
-\title{Title: A function to completely clean dat files from FLuostar experiments}
+\title{Title: DAT file data frame cleaner.}
 \usage{
 clean_odd_cc(df)
 }
 \arguments{
-\item{df}{A data frame with n number of rows}
+\item{df}{A dirty data frame obtained from the FLUOstar DAT file.}
 }
 \value{
-A new data frame with NAs retained.
+A clean data frame with clean NA values retained.
 }
 \description{
-The function takes a dirty data frame and returns a clean data frame.
-The function takes care of more QC concerns not seen in previous cleaning functions.
-The function accounts for possible machine data formatting when users skip wells by
-retaining NA values, which ensures that the user does not loose samples in data analysis.
-}
-\note{
-This function is superior to clean_odddat().
+The function takes the dirty data frame obtained from reading
+the FLUOstar DAT file and applies a function called comma_cleaner() to the dirty data frame,
+which automatically inserts NAs in place of the special characters, and rows with NAs only are removed.
 }
 \examples{
 fpath <- system.file("extdata", "dat_3.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
-partial_cleaned_dat <- clean_odd_cc(dat_df)
+cleaned_dat <- clean_odd_cc(dat_df)
 }
 \seealso{
-\code{\link[=normfluodat]{normfluodat()}}
+\code{\link[=comma_cleaner]{comma_cleaner()}}, \code{\link[=clean_odddat_optimus]{clean_odddat_optimus()}}
 }
 \author{
 Tingwei Adeck
