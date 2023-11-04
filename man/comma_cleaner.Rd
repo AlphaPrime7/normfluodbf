@@ -2,27 +2,27 @@
 % Please edit documentation in R/comma_cleaner.R
 \name{comma_cleaner}
 \alias{comma_cleaner}
-\title{Title: A function to remove unwanted commas in a partially cleaned data frame}
+\title{Title: Comma Cleaner function.}
 \usage{
 comma_cleaner(comma_df)
 }
 \arguments{
-\item{comma_df}{A dirty data frame (numeric values have commas at the end) with n number of rows}
+\item{comma_df}{A dirty data frame obtained from the FLUOstar DAT file.}
 }
 \value{
-A new data frame with commas at the end of numbers taken out
+A clean data frame with numeric no-comma values for attribute(s).
 }
 \description{
-The function takes a dirty data frame (comma_df) derived from either the clean_odddat or clean_evendat functions.
-The resulting data frame is a cleaned data frame with numeric values.
-}
-\note{
-This function is a subordinate function and follows a sequence of actions. In this package, this function cannot be used as a standalone.
+This modular function, in the context of this package, is responsible for removing commas
+from attribute(s) values. Removal of commas facilitates the conversion of attributes into the numeric class.
 }
 \examples{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
 nocomma_dat <- comma_cleaner(dat_df)
+}
+\seealso{
+\code{\link[=clean_odd_cc]{clean_odd_cc()}}, \code{\link[=clean_odddat_optimus]{clean_odddat_optimus()}}
 }
 \author{
 Tingwei Adeck
