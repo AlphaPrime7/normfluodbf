@@ -3,6 +3,7 @@
 export(clean_odd_cc)
 export(clean_odddat_optimus)
 export(comma_cleaner)
+export(dat_col_names_horizontal)
 export(dat_col_names_optimus)
 export(dat_col_names_prime)
 export(dat_col_names_rigid)

@@ -1,36 +1,61 @@
-#' Title: A function to obtain attribute names for experimental samples
+#' Title: Attribute(s) naming function.
+#'
 #' @description
-#' The function takes a clean data frame, data on the experiment and returns the column names that match the FLUOstar plate reader.
+#' This function is used to name attribute(s).
+#' Attribute(s) names, in this case, are equivalent to the well labels found on the microplate reader.
+#' An attribute for a sample loaded into row A - column 1 will be named A1.
+#' In short, the function takes a clean data frame and returns attribute names
+#' that match the FLUOstar plate layout often presented as an Excel file.
 #'
 #' @author Tingwei Adeck
-#' @param df A clean data frame obtained from the large scale delineation of samples.
-#' @param rows_used A character vector representing the plate rows used; eg ru <- c('A','B','C'). can be used in sequence or out of sequence.
-#' @param cols_used A numeric vector representing the plate columns used; eg cu <- c(1,2,3,4). keep as null if all the columns were used or columns are used in sequence.
-#' @param user_specific_labels A character vector with specific sample labels based on the plate setup
-#' @param read_direction User can leave null (vertical) for machine up-down read OR 'horizontal' for machine left-right read
+#'
+#' @param df A data frame that requires attribute labels.
+#' @param rows_used A character vector indicating the rows or tuples used on the microplate (usually a 96-well microplate). Initialized as NULL.
+#' @param cols_used A numeric vector indicating the plate columns or attributes used. Initialized as NULL.
+#' @param user_specific_labels A character vector where the user manually enters the used microplate wells based on the FLUOstar plate layout.
+#' @param read_direction A string input with two choices, “vertical” or “horizontal.”
+#' The user indicates “vertical” if the user intends to have a final data frame
+#' with samples arranged as sample type triplets (A1, B1, C1, A1, B1, C1)
+#' OR “horizontal” if the user intends to have a final data frame with samples
+#' arranged as clusters per sample type (A1, A2, A3, B1, B2, B3).
 #'
 #' @import stringr
 #'
+#' @return Returns a character vector of attribute(s) names for the normalized data frame.
 #'
-#' @return Returns column names that will be added to the normalized data frame that contains all samples
 #' @export
-#' @note This function is a subordinate function and follows a sequence of actions. In this package, this function cannot be used as a standalone.
-#' Also, some work is needed here on the part of the user because i have no access to their setup file.
-#' A function that takes the setup excel file from the user should be part of the next update to prevent the user from doing much work.
-#' The program is always going to need rows_used. The user can choose to specify columns used but typically if things are in sequence then everything should be fine.
-#' The extreme case is an extreme unorthodox plate (hard to know when this will happen) and then the user must either specify rows used directly or the user is given a prompt by R to input rows used.
+#'
+#' @note Users are advised to input rows used but won’t be penalized for not doing so.
+#' If the user provides the rows used, then attribute names are generated for the user.
+#' The user must check to ensure that the names match the microplate layout.
+#'
+#' The user can leave the columns used as NULL if the user loaded samples from column 1 and did so in sequence.
+#' If the user fails to load in sequence from the first position, then the user must provide a numeric vector of columns used.
+#'
+#' For instance, where the user skips columns, the user will be prompted to interact
+#' with the program in order to ensure the final data frame has the correct attribute names.
+#'
+#' The user can bypass the rows used and columns used parameters
+#' if the user supplies a manually created character vector of the wells used in an experiment.
+#'
+#' The read direction parameter is used to determine the presentation of the samples in the final data frame.
+#'
+#'
+#' @seealso [dat_col_names_optimus()]
+#'
+#' @note This naming function only returns a character vector hence the rigid suffix.
 #'
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odd_cc(dat_df)
 #' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 #' n = c('A','B','C')
-#' sample_col_names <- dat_col_names_rigid(resampled_scaled, n)
+#' sample_col_names <- dat_col_names_optimus(resampled_scaled, n)
 
 dat_col_names_rigid <- function(df, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL){
 
   if(is.null(rows_used)){
-    warning('user must enter rows_used which is a character vector with length == tnp')
+    warning('The user is advised to input a character vector of rows used')
   }
 
   col_names <- c()
@@ -49,14 +74,14 @@ dat_col_names_rigid <- function(df, rows_used = NULL, cols_used= NULL, user_spec
       col_names <- c(col_names, paste0(rows_used,i))
     }
     if(is.null(read_direction) || read_direction == 'vertical'){
-      message('check data frame for NA column or last sample column names with unmatched or isolated samples')
+      message('Check the data frame for correct attribute names AND attributes without names')
       return(col_names[1:ncol(df)])
     } else if(read_direction == 'horizontal'){
       for(i in 1:(ncol(df)/length(rows_used)) ){
         col_names_sort <- c(col_names_sort, paste0(rows_used,i))
       }
       col_names_sort <- stringr::str_sort(col_names_sort, decreasing = F, na_last = T, locale = 'en', numeric = T)
-      message('check data frame for NA column names or last sample column with unmatched or isolated samples')
+      message('Check the data frame for correct attribute names AND attributes without names')
       return(col_names_sort[1:ncol(df)])
     }
 
@@ -73,20 +98,20 @@ dat_col_names_rigid <- function(df, rows_used = NULL, cols_used= NULL, user_spec
     }
   } else if(is.null(user_specific_labels) || ncol(df) < length(cols_used)*length(rows_used) && length(cols_used) < length(normal_sequence) ){
     if(ncol(df) > length(cols_used)*length(rows_used)){
-      message('number of columns exceeds users estimate; try leaving the cols_used blank')
+      message('The number of columns exceeds the users estimate')
       for(i in cols_used){
         col_names <- c(col_names, paste0(rows_used,i))
       }
       if(is.null(user_specific_labels) && is.null(read_direction) || read_direction == 'vertical'){
         print(col_names[1:ncol(df)] )
-        print('From the printed above list enter the columns used; must match the sample positions on the plate;')
+        message('From the list printed above, enter the columns used based on your microplate layout;')
         choose_cols_used=scan(what=character(), n=ncol(df))
         print(choose_cols_used)
         return(as.vector(choose_cols_used))
       } else if(is.null(user_specific_labels) && !is.null(read_direction) && read_direction == 'horizontal'){
         col_names_sort <- stringr::str_sort(col_names, decreasing = F, na_last = T, locale = 'en', numeric = T)
         print(col_names_sort[1:ncol(df)] )
-        print('From the printed above list enter the columns used; must match the sample positions on the plate;')
+        message('From the list printed above, enter the columns used based on your microplate layout;')
         choose_cols_used=scan(what=character(), n=ncol(df))
         print(choose_cols_used)
       }else{
@@ -94,20 +119,20 @@ dat_col_names_rigid <- function(df, rows_used = NULL, cols_used= NULL, user_spec
       }
 
     }else {
-      message('number of columns is lower than the users estimate; select the columns used from the list below')
+      message('The number of columns is less than the users estimate')
       for(i in cols_used){
         col_names <- c(col_names, paste0(rows_used,i))
       }
       if(is.null(user_specific_labels) && is.null(read_direction) || read_direction == 'vertical'){
         print(col_names[1:(length(cols_used)*length(rows_used))])
-        print('From the printed above list enter the columns used; must match the sample positions on the plate;')
+        message('From the list printed above, enter the columns used based on your microplate layout;')
         choose_cols_used=scan(what=character(), n=ncol(df))
         print(choose_cols_used)
         return(as.vector(choose_cols_used))
       } else if(is.null(user_specific_labels) && !is.null(read_direction) && read_direction == 'horizontal'){
         col_names_sort <- stringr::str_sort(col_names, decreasing = F, na_last = T, locale = 'en', numeric = T)
         print(col_names_sort[1:(length(cols_used)*length(rows_used))])
-        print('From the printed above list enter the columns used; must match the sample positions on the plate;')
+        message('From the list printed above, enter the columns used based on your microplate layout;')
         choose_cols_used=scan(what=character(), n=ncol(df))
         print(choose_cols_used)
       }else{

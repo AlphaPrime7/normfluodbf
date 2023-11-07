@@ -1,21 +1,25 @@
-#' Title: A function to obtain attribute names for experimental samples
+#' Title: Attribute(s) naming function.
+#'
 #' @description
-#' The function takes a clean data frame, data on the experiment and returns the column names that match the FLUOstar plate reader.
+#' This function is used to name attribute(s).
+#' Attribute(s) names, in this case, are equivalent to the well labels found on the microplate reader.
+#' An attribute for a sample loaded into row A - column 1 will be named A1.
+#' In short, the function takes a clean data frame and returns attribute names
+#' that match the FLUOstar plate layout often presented as an Excel file.
+#'
 #'
 #' @author Tingwei Adeck
-#' @param df A clean data frame obtained from the large scale delineation of samples.
-#' @param rows_used A character vector representing the plate rows used; eg ru <- c('A','B','C'). can be used in sequence or out of sequence.
-#' @param cols_used A numeric vector representing the plate columns used; eg cu <- c(1,2,3,4). keep as null if all the columns were used or columns are used in sequence.
-#' @param user_specific_labels A character vector with specific sample labels based on the plate setup
 #'
+#' @param df A data frame that requires attribute labels.
+#' @param rows_used A character vector indicating the rows or tuples used on the microplate (usually a 96-well microplate). Initialized as NULL.
+#' @param cols_used A numeric vector indicating the plate columns or attributes used. Initialized as NULL.
+#' @param user_specific_labels A character vector where the user manually enters the used microplate wells based on the FLUOstar plate layout.
 #'
-#' @return Returns column names that will be added to the normalized data frame that contains all samples
+#' @return Returns a character vector of attribute(s) names for the normalized data frame.
+#'
 #' @export
-#' @note This function is a subordinate function and follows a sequence of actions. In this package, this function cannot be used as a standalone.
-#' Also, some work is needed here on the part of the user because i have no access to their setup file.
-#' A function that takes the setup excel file from the user should be part of the next update to prevent the user from doing much work.
-#' The program is always going to need rows_used. The user can choose to specify columns used but typically if things are in sequence then everything should be fine.
-#' The extreme case is an extreme unorthodox plate (hard to know when this will happen) and then the user must either specify rows used directly or the user is given a prompt by R to input rows used.
+#'
+#' @seealso [normfluodat_base()]
 #'
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
@@ -25,6 +29,14 @@
 #' sample_col_names <- dat_col_names_prime(resampled_scaled, n)
 
 dat_col_names_prime <- function(df, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL){
+
+  colnames_noru <- c(1:ncol(df))
+
+  if(is.null(rows_used)){
+    message('The user is advised to input a character vector of rows used')
+    return(colnames_noru)
+  }
+
   col_names <- c()
   if(!is.null(cols_used)){
     normal_sequence = c(min(cols_used):max(cols_used))
@@ -37,7 +49,7 @@ dat_col_names_prime <- function(df, rows_used = NULL, cols_used= NULL, user_spec
 
   } else if(is.null(cols_used)){
     for(i in 1:ncol(df)){
-      col_names <- c(col_names, paste0(rows_used,i)) #normal (left to right start at position 1 of plate (A1))
+      col_names <- c(col_names, paste0(rows_used,i))
     }
     return(col_names[1:ncol(df)])
 
@@ -54,7 +66,7 @@ dat_col_names_prime <- function(df, rows_used = NULL, cols_used= NULL, user_spec
     }
     if(is.null(user_specific_labels)){
       print(col_names[1:(length(cols_used)*length(rows_used))])
-      print('From the printed above list enter the columns used; must match the sample positions on the plate;')
+      message('From the list printed above, enter the columns used based on your microplate layout;')
       choose_cols_used=scan(what=character(), n=ncol(df))
       print(choose_cols_used)
       return(as.vector(choose_cols_used))
