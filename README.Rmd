@@ -480,7 +480,7 @@ normalized_data_1_1 <- normfluodat(dat1, tnp = 3, cycles = 40)
 -   Users can expect to get some amazing visualizations using this
     function.
 -   Here are some visualizations from my seminar on this topic. These
-    were not done with base R.
+    were done with base R.
 
 <img src="man/figures/tnp3.png" align="left" width="320"/>
 <img src="man/figures/tnp5.png" align="right" width="320"/>
