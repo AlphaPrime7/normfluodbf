@@ -98,20 +98,15 @@ The development version of
 installed as illustrated below:
 
 ```{r, eval = FALSE}
-install.packages("devtools")
 devtools::install_github("AlphaPrime7/normfluodbf")
 ```
 
 ```{r, eval = FALSE}
-install.packages("pak")
 pak::pak("AlphaPrime7/normfluodbf")
 ```
 
 ```{r}
-install.packages("remotes")
-library(remotes)
 remotes::install_github("AlphaPrime7/normfluodbf")
-pak::pak("AlphaPrime7/normfluodbf")
 ```
 
 ## CRAN Version
