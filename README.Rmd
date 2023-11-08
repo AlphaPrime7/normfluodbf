@@ -2,7 +2,7 @@
 author: Tingwei Adeck
 date: '`r format(Sys.time(), "%B %d, %Y")`'
 output: github_document
-bibliography: grateful-refs.bib
+bibliography: gratefulgod.bib
 editor_options: 
   markdown: 
     wrap: 72
@@ -497,4 +497,4 @@ normalized_data_1_1 <- normfluodat(dat1, tnp = 3, cycles = 40)
 
 # References
 
-[@datatable] [@foreign] [@tidyverse]
+[@R-data.table] [@R-dplyr] [@R-emojifont] [@R-foreign] [@R-ggplot2] [@R-ggthemes] [@R-stringr] [@R-tibble] [@R-tidyr]

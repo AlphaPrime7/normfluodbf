@@ -479,34 +479,76 @@ normalized_data_1_1 <- normfluodat(dat1, tnp = 3, cycles = 40)
 
 # References
 
-(Dowle and Srinivasan 2023) (R Core Team 2022) (Wickham et al. 2019)
+(Dowle and Srinivasan 2023) (Wickham, François, et al. 2023) (Yu 2021)
+(R Core Team 2022) (Wickham, Chang, et al. 2023) (Arnold 2021) (Wickham
+2022) (Müller and Wickham 2023) (Wickham, Vaughan, and Girlich 2023)
 
 <div id="refs" class="references csl-bib-body hanging-indent">
 
-<div id="ref-datatable" class="csl-entry">
+<div id="ref-R-ggthemes" class="csl-entry">
 
-Dowle, Matt, and Arun Srinivasan. 2023.
-*<span class="nocase">data.table</span>: Extension of
-“<span class="nocase">data.frame</span>”*.
-<https://CRAN.R-project.org/package=data.table>.
+Arnold, Jeffrey B. 2021. *Ggthemes: Extra Themes, Scales and Geoms for
+Ggplot2*. <https://github.com/jrnold/ggthemes>.
 
 </div>
 
-<div id="ref-foreign" class="csl-entry">
+<div id="ref-R-data.table" class="csl-entry">
 
-R Core Team. 2022. *<span class="nocase">foreign</span>: Read Data
-Stored by “Minitab,” “S,” “SAS,” “SPSS,” “Stata,” “Systat,” “Weka,”
-“<span class="nocase">dBase</span>,” ...*
-<https://CRAN.R-project.org/package=foreign>.
+Dowle, Matt, and Arun Srinivasan. 2023. *Data.table: Extension of
+‘Data.frame‘*. <https://CRAN.R-project.org/package=data.table>.
 
 </div>
 
-<div id="ref-tidyverse" class="csl-entry">
+<div id="ref-R-tibble" class="csl-entry">
 
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy
-D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019.
-“Welcome to the <span class="nocase">tidyverse</span>.” *Journal of Open
-Source Software* 4 (43): 1686. <https://doi.org/10.21105/joss.01686>.
+Müller, Kirill, and Hadley Wickham. 2023. *Tibble: Simple Data Frames*.
+<https://CRAN.R-project.org/package=tibble>.
+
+</div>
+
+<div id="ref-R-foreign" class="csl-entry">
+
+R Core Team. 2022. *Foreign: Read Data Stored by Minitab, s, SAS, SPSS,
+Stata, Systat, Weka, dBase, ...*
+<https://svn.r-project.org/R-packages/trunk/foreign/>.
+
+</div>
+
+<div id="ref-R-stringr" class="csl-entry">
+
+Wickham, Hadley. 2022. *Stringr: Simple, Consistent Wrappers for Common
+String Operations*. <https://CRAN.R-project.org/package=stringr>.
+
+</div>
+
+<div id="ref-R-ggplot2" class="csl-entry">
+
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen,
+Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey
+Dunnington. 2023. *Ggplot2: Create Elegant Data Visualisations Using the
+Grammar of Graphics*. <https://CRAN.R-project.org/package=ggplot2>.
+
+</div>
+
+<div id="ref-R-dplyr" class="csl-entry">
+
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis
+Vaughan. 2023. *Dplyr: A Grammar of Data Manipulation*.
+<https://CRAN.R-project.org/package=dplyr>.
+
+</div>
+
+<div id="ref-R-tidyr" class="csl-entry">
+
+Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. *Tidyr:
+Tidy Messy Data*. <https://CRAN.R-project.org/package=tidyr>.
+
+</div>
+
+<div id="ref-R-emojifont" class="csl-entry">
+
+Yu, Guangchuang. 2021. *Emojifont: Emoji and Font Awesome in Graphics*.
+<https://github.com/GuangchuangYu/emojifont>.
 
 </div>
 
