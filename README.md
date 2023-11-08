@@ -91,49 +91,6 @@ pak::pak("AlphaPrime7/normfluodbf")
 
 ``` r
 remotes::install_github("AlphaPrime7/normfluodbf")
-#> Downloading GitHub repo AlphaPrime7/normfluodbf@HEAD
-#> rlang     (1.1.1 -> 1.1.2) [CRAN]
-#> lifecycle (1.0.3 -> 1.0.4) [CRAN]
-#> utf8      (1.2.3 -> 1.2.4) [CRAN]
-#> vctrs     (0.6.3 -> 0.6.4) [CRAN]
-#> fansi     (1.0.4 -> 1.0.5) [CRAN]
-#> labeling  (0.4.2 -> 0.4.3) [CRAN]
-#> withr     (2.5.0 -> 2.5.2) [CRAN]
-#> gtable    (0.3.3 -> 0.3.4) [CRAN]
-#> ggplot2   (3.4.3 -> 3.4.4) [CRAN]
-#> dplyr     (1.1.2 -> 1.1.3) [CRAN]
-#> Installing 10 packages: rlang, lifecycle, utf8, vctrs, fansi, labeling, withr, gtable, ggplot2, dplyr
-#> Installing packages into 'C:/Users/GrandProf/AppData/Local/Temp/Rtmpamk2kC/temp_libpath3600613975d0'
-#> (as 'lib' is unspecified)
-#> 
-#>   There is a binary version available but the source version is later:
-#>           binary source needs_compilation
-#> lifecycle  1.0.3  1.0.4             FALSE
-#> 
-#> package 'rlang' successfully unpacked and MD5 sums checked
-#> package 'utf8' successfully unpacked and MD5 sums checked
-#> package 'vctrs' successfully unpacked and MD5 sums checked
-#> package 'fansi' successfully unpacked and MD5 sums checked
-#> package 'labeling' successfully unpacked and MD5 sums checked
-#> package 'withr' successfully unpacked and MD5 sums checked
-#> package 'gtable' successfully unpacked and MD5 sums checked
-#> package 'ggplot2' successfully unpacked and MD5 sums checked
-#> package 'dplyr' successfully unpacked and MD5 sums checked
-#> 
-#> The downloaded binary packages are in
-#>  C:\Users\GrandProf\AppData\Local\Temp\RtmpghHEH1\downloaded_packages
-#> installing the source package 'lifecycle'
-#> ── R CMD build ─────────────────────────────────────────────────────────────────
-#>          checking for file 'C:\Users\GrandProf\AppData\Local\Temp\RtmpghHEH1\remotes1d3c55bb61f2\AlphaPrime7-normfluodbf-9b5b65e/DESCRIPTION' ...  ✔  checking for file 'C:\Users\GrandProf\AppData\Local\Temp\RtmpghHEH1\remotes1d3c55bb61f2\AlphaPrime7-normfluodbf-9b5b65e/DESCRIPTION'
-#>       ─  preparing 'normfluodbf': (1.2s)
-#>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
-#>       ─  checking for LF line-endings in source and make files and shell scripts
-#>       ─  checking for empty or unneeded directories
-#>       ─  building 'normfluodbf_1.4.3.9000.tar.gz'
-#>      
-#> 
-#> Installing package into 'C:/Users/GrandProf/AppData/Local/Temp/Rtmpamk2kC/temp_libpath3600613975d0'
-#> (as 'lib' is unspecified)
 ```
 
 ## CRAN Version
@@ -167,10 +124,6 @@ install_local("normfluodbf_1.4.3.9000.tar.gz")
 ``` r
 library(remotes)
 remotes::install_local("normfluodbf_1.4.3.9000.tar.gz")
-#> Warning in normalizePath(path.expand(path), winslash, mustWork):
-#> path[1]="normfluodbf_1.4.3.9000.tar.gz": The system cannot find the file
-#> specified
-#> Error : Could not copy `C:\Users\GrandProf\Downloads\Repos_4cleanup\Repositories_AP7\Active\normfluodbf\normfluodbf_1.4.3.9000.tar.gz` to `C:\Users\GRANDP~1\AppData\Local\Temp\RtmpghHEH1\file1d3c678c3369`
 ```
 
 # Use Scenarios

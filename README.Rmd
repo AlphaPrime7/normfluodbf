@@ -105,7 +105,7 @@ devtools::install_github("AlphaPrime7/normfluodbf")
 pak::pak("AlphaPrime7/normfluodbf")
 ```
 
-```{r}
+```{r, eval = FALSE}
 remotes::install_github("AlphaPrime7/normfluodbf")
 ```
 
@@ -137,7 +137,7 @@ library(devtools)
 install_local("normfluodbf_1.4.3.9000.tar.gz")
 ```
 
-```{r}
+```{r, eval = FALSE}
 library(remotes)
 remotes::install_local("normfluodbf_1.4.3.9000.tar.gz")
 ```
