@@ -5,11 +5,14 @@ title: "Input: Example Data sets"
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.path = "man/figures",
+  out.width = "100%"
 )
 ```
 
-## Accessing test files 
+## Accessing test DBF files
+
 ```{r setup, eval=FALSE}
 #External files for use in testing the package.
 dir(system.file("extdata", package = "normfluodbf"))
@@ -19,6 +22,23 @@ system.file("extdata", data_object, package = "normfluodbf", mustWork = TRUE)
 
 #Example
 raw_dbf <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
+
 #pass the file through the function
-normfluodbf::norm_tidy_dbf(raw_dbf)
+normfluodbf::norm_tidy_dbf(raw_dbf, norm_scale = 'z-score')
+```
+
+## Accessing test DAT files
+
+```{r setup, eval=FALSE}
+#External files for use in testing the package.
+dir(system.file("extdata", package = "normfluodbf"))
+
+#Choose a single file to test the package
+system.file("extdata", data_object, package = "normfluodbf", mustWork = TRUE)
+
+#Example
+raw_dat <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+
+#pass the file through the function
+normfluodbf::normfluodat(raw_dat, tnp = 3, cycles = 40, norm_scale = 'hundred')
 ```

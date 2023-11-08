@@ -1,107 +1,354 @@
-Tingwei Adeck
-November 02, 2023
+Tingwei Adeck November 08, 2023
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # normfluodbf <img src="man/figures/logo.png" align="right" width="180"/>
 
 [![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/AlphaPrime7/normfluodbf)
-[![Demandez moi n'importe quoi
-!](https://img.shields.io/badge/Demandez%20moi-n'%20importe%20quoi-1abc9c.svg)](mailto:awesome.tingwei@outlook.com)
-[![Ask Me Anything
-!](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](mailto:awesome.tingwei@outlook.com)
+
+[![Demandez moi n\'importe quoi !](https://img.shields.io/badge/Demandez%20moi-n'%20importe%20quoi-1abc9c.svg)](mailto:awesome.tingwei@outlook.com)
+
+[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](mailto:awesome.tingwei@outlook.com)
+
 [![made-with-R](https://img.shields.io/badge/Made%20with-Rstudio-1f425f.svg)](https://www.rstudio.com/categories/rstudio-ide/)
-[![Project
-status](https://www.repostatus.org/badges/latest/concept.svg)](https://github.com/AlphaPrime7/normfluodbf/commits)
-[![Project
-Status](https://www.repostatus.org/badges/latest/active.svg)](https://github.com/AlphaPrime7/normfluodbf/commits)
-[![Project
-Status](https://www.repostatus.org/badges/latest/wip.svg)](https://github.com/AlphaPrime7/normfluodbf_ShinyApp/graphs/contributors)
+
+[![Project status](https://www.repostatus.org/badges/latest/concept.svg)](https://github.com/AlphaPrime7/normfluodbf/commits)
+
+[![Project Status](https://www.repostatus.org/badges/latest/active.svg)](https://github.com/AlphaPrime7/normfluodbf/commits)
+
+[![Project Status](https://www.repostatus.org/badges/latest/wip.svg)](https://github.com/AlphaPrime7/normfluodbf_ShinyApp/graphs/contributors)
+
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
-[![PRs
-Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
+
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
+
 [![saythanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://github.com/AlphaPrime7/normfluodbf)
-[![THANK
-YOU](https://img.shields.io/badge/THANK-YOU-ff69b4.svg)](mailto:awesome.tingwei@outlook.com)
+
+[![THANK YOU](https://img.shields.io/badge/THANK-YOU-ff69b4.svg)](mailto:awesome.tingwei@outlook.com)
+
 [![test-coverage](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/test-coverage.yaml)
+
 [![R-CMD-check](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/R-CMD-check.yaml)
+
 [![pages-build-deployment](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/pages/pages-build-deployment)
+
 [![license](https://img.shields.io/badge/MIT-License?label=license)](https://mit-license.org/)
+
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/AlphaPrime7/normfluodbf/graphs/commit-activity)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/normfluodbf)](https://CRAN.R-project.org/package=normfluodbf)
+
+[![CRAN status](https://www.r-pkg.org/badges/version/normfluodbf)](https://CRAN.R-project.org/package=normfluodbf)
+
 [![](http://cranlogs.r-pkg.org/badges/grand-total/normfluodbf?color=yellow)](https://cran.r-project.org/package=normfluodbf)
+
 [![](http://cranlogs.r-pkg.org/badges/last-month/normfluodbf?color=green)](https://cran.r-project.org/package=normfluodbf)
+
 [![](http://cranlogs.r-pkg.org/badges/last-week/normfluodbf?color=yellow)](https://cran.r-project.org/package=normfluodbf)
-[![Awesome
-Badges](https://img.shields.io/badge/badges-awesome-green.svg)](https://github.com/Naereen/badges)
 
-The goal of
-[`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) is to
-normalize fluorescence data obtained from liposome flux assay
-experiments (the package can be extended to other experimental data from
-similar instruments but this must be done at the users’ discretion) via
-the FLUOstar micro plate reader (usually a 96-well micropplate). The
-package now consists of three functions (norm_tidy_dbf, normfluordbf &
-normfluodat) capable of normalizing ‘.dbf’ or ‘.dat’ files that require
-cleaning and normalization using
-[`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf). The
-cleansed data can then be used for insightful data analysis and
-visualization of results which can then be useful in the public
-dissemination of scientific knowledge. This package falls in line with
-principles of the inventor that focuses on public dissemination of
-scientific knowledge and making it accessible to people of varying
-backgrounds.
+[![Awesome Badges](https://img.shields.io/badge/badges-awesome-green.svg)](https://github.com/Naereen/badges)
 
-# Experimental setup-Standard
+# Introduction
 
-| Sample_Type (TNP) | 96  | 1         | 2         | 3         | 4         | 5         | 6         | 7         | 8         | 9         | 10        | 11        | 12        |
-|:------------------|:----|:----------|:----------|:----------|:----------|:----------|:----------|:----------|:----------|:----------|:----------|:----------|:----------|
-| Test              | A   | X1        | X2        | X3        | X4        | X5        | X6        | X7        | X8        | X9        | X10       | X11       | X12       |
-| Negative          | B   | X13       | X14       | X15       | X16       | X17       | X18       | X19       | X20       | X21       | X22       | X23       | X24       |
-| Positive          | C   | X25       | X26       | X27       | X28       | X29       | X30       | X31       | X32       | X33       | X34       | X35       | X36       |
-|                   | D   |           |           |           |           |           |           |           |           |           |           |           |           |
-|                   | E   |           |           |           |           |           |           |           |           |           |           |           |           |
-|                   | F   |           |           |           |           |           |           |           |           |           |           |           |           |
-|                   | G   |           |           |           |           |           |           |           |           |           |           |           |           |
-|                   | H   |           |           |           |           |           |           |           |           |           |           |           |           |
-| Concentration     |     | 2 $\mu$ M | 2 $\mu$ M | 2 $\mu$ M | 3 $\mu$ M | 3 $\mu$ M | 3 $\mu$ M | 4 $\mu$ M | 4 $\mu$ M | 4 $\mu$ M | 5 $\mu$ M | 5 $\mu$ M | 5 $\mu$ M |
+[`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) is used to clean and normalize DBF and DAT files obtained from liposome flux assay experiments performed with the FLUOstar microplate reader. The expectation is this package is not limited to this assay type but other assay types performed with the same instrument. The final data frames obtained from this package are ready for insightful data analysis and for the creation of amazing visuals (using ggplot2) that help in making scientific deductions or making presentations to project stakeholders. This project firmly represents my core belief in the public dissemination of scientific information. My convictions on this idea of public dissemination were driven by the book "What Mad Pursuit" by Francis Crick. Visit [`{my page}`](https://alphaprime7.github.io/normfluodbf/articles/normfluodbf.html) for details on the concept behind the project.
 
-<figure>
-<img src="original_exp_setup.png" alt="Standard Experimental Setup" />
-<figcaption aria-hidden="true">Standard Experimental Setup</figcaption>
-</figure>
+# ↓ Installation
 
-- The above image is the standard setup for experiments using the 96
-  well plate. My case was specific to liposome flux assays (LFAs) but
-  the assumption is that most experimental setups should follow the
-  design above.
+## Developmental Version
 
-- Instances where the standard procedure is followed entails that the
-  researcher can benefit from tracking the data in a single column after
-  cleanup which will be illustrated.
+The development version of [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) can be installed as illustrated below:
 
-| Sample_Type | Cycle_No | Machine_data_verbose | machine_data_numeric |
-|:------------|:---------|:---------------------|:---------------------|
-| Test        | 1        | A1                   | 1                    |
-| Negative    | 1        | B1                   | 2                    |
-| Positive    | 1        | C1                   | 3                    |
-| Test        | 2        | A1                   | 4                    |
-| Negative    | 2        | B1                   | 5                    |
-| Positive    | 2        | C1                   | 6                    |
-| Test        | 40       | A1                   | …118                 |
-| Negative    | 40       | B1                   | …119                 |
-| Positive    | 40       | C1                   | …120                 |
+``` r
+install.packages("devtools")
+devtools::install_github("AlphaPrime7/normfluodbf")
+```
 
-- For all three samples, the data derived from the instrument comprises
-  of 120 tuples (rows), and this can be plotted as a single comlumn vs
-  cycle number (1:n), were n = number of cycles, in this case 40 cycles.
-  The machine (is dumb) and reads this sequentially so the column has
-  120 tuples or rows as shown above.
+``` r
+install.packages("pak")
+pak::pak("AlphaPrime7/normfluodbf")
+```
 
-- The final product in the standard procedure is shown below and the
-  package update for dat files provides a normalized version of this
-  data as the final output.
+``` r
+install.packages("remotes")
+#> Installing package into 'C:/Users/GrandProf/AppData/Local/Temp/Rtmpamk2kC/temp_libpath36001dde2fa4'
+#> (as 'lib' is unspecified)
+#> package 'remotes' successfully unpacked and MD5 sums checked
+#> 
+#> The downloaded binary packages are in
+#>  C:\Users\GrandProf\AppData\Local\Temp\RtmpG8kv5w\downloaded_packages
+library(remotes)
+#> Warning: package 'remotes' was built under R version 4.3.2
+remotes::install_github("AlphaPrime7/normfluodbf")
+#> Downloading GitHub repo AlphaPrime7/normfluodbf@HEAD
+#> rlang     (1.1.1 -> 1.1.2) [CRAN]
+#> lifecycle (1.0.3 -> 1.0.4) [CRAN]
+#> utf8      (1.2.3 -> 1.2.4) [CRAN]
+#> fansi     (1.0.4 -> 1.0.5) [CRAN]
+#> labeling  (0.4.2 -> 0.4.3) [CRAN]
+#> withr     (2.5.0 -> 2.5.2) [CRAN]
+#> vctrs     (0.6.3 -> 0.6.4) [CRAN]
+#> gtable    (0.3.3 -> 0.3.4) [CRAN]
+#> ggplot2   (3.4.3 -> 3.4.4) [CRAN]
+#> dplyr     (1.1.2 -> 1.1.3) [CRAN]
+#> Installing 10 packages: rlang, lifecycle, utf8, fansi, labeling, withr, vctrs, gtable, ggplot2, dplyr
+#> Installing packages into 'C:/Users/GrandProf/AppData/Local/Temp/Rtmpamk2kC/temp_libpath36001dde2fa4'
+#> (as 'lib' is unspecified)
+#> 
+#>   There is a binary version available but the source version is later:
+#>           binary source needs_compilation
+#> lifecycle  1.0.3  1.0.4             FALSE
+#> 
+#> package 'rlang' successfully unpacked and MD5 sums checked
+#> package 'utf8' successfully unpacked and MD5 sums checked
+#> package 'fansi' successfully unpacked and MD5 sums checked
+#> package 'labeling' successfully unpacked and MD5 sums checked
+#> package 'withr' successfully unpacked and MD5 sums checked
+#> package 'vctrs' successfully unpacked and MD5 sums checked
+#> package 'gtable' successfully unpacked and MD5 sums checked
+#> package 'ggplot2' successfully unpacked and MD5 sums checked
+#> package 'dplyr' successfully unpacked and MD5 sums checked
+#> 
+#> The downloaded binary packages are in
+#>  C:\Users\GrandProf\AppData\Local\Temp\RtmpG8kv5w\downloaded_packages
+#> installing the source package 'lifecycle'
+#> ── R CMD build ─────────────────────────────────────────────────────────────────
+#>          checking for file 'C:\Users\GrandProf\AppData\Local\Temp\RtmpG8kv5w\remotes76781946601b\AlphaPrime7-normfluodbf-ba795b4/DESCRIPTION' ...  ✔  checking for file 'C:\Users\GrandProf\AppData\Local\Temp\RtmpG8kv5w\remotes76781946601b\AlphaPrime7-normfluodbf-ba795b4/DESCRIPTION'
+#>       ─  preparing 'normfluodbf': (1.2s)
+#>    checking DESCRIPTION meta-information ...     checking DESCRIPTION meta-information ...   ✔  checking DESCRIPTION meta-information
+#>       ─  checking for LF line-endings in source and make files and shell scripts
+#>       ─  checking for empty or unneeded directories
+#>       ─  building 'normfluodbf_1.4.3.9000.tar.gz'
+#>      
+#> 
+#> Installing package into 'C:/Users/GrandProf/AppData/Local/Temp/Rtmpamk2kC/temp_libpath36001dde2fa4'
+#> (as 'lib' is unspecified)
+pak::pak("AlphaPrime7/normfluodbf")
+#> 
+#> ✔ Updated metadata database: 5.09 MB in 15 files.
+#> ℹ Updating metadata database✔ Updating metadata database ... done
+#>  
+#> → Will install 26 packages.
+#> → Will download 26 CRAN packages (39.14 MB).
+#> + cli            3.6.1  [dl] (1.34 MB)
+#> + colorspace     2.1-0  [dl] (2.63 MB)
+#> + data.table     1.14.8 [dl] (2.29 MB)
+#> + emojifont      0.5.5  [dl] (3.64 MB)
+#> + farver         2.1.1  [dl] (1.51 MB)
+#> + generics       0.1.3  [dl] (80.28 kB)
+#> + glue           1.6.2  [dl] (162.61 kB)
+#> + isoband        0.2.7  [dl] (1.97 MB)
+#> + magrittr       2.0.3  [dl] (226.88 kB)
+#> + munsell        0.5.0  [dl] (244.60 kB)
+#> + pillar         1.9.0  [dl] (659.33 kB)
+#> + pkgconfig      2.0.3  [dl] (22.37 kB)
+#> + proto          1.0.0  [dl] (472.38 kB)
+#> + purrr          1.0.2  [dl] (498.77 kB)
+#> + R6             2.5.1  [dl] (84.31 kB)
+#> + RColorBrewer   1.1-3  [dl] (56.07 kB)
+#> + scales         1.2.1  [dl] (615.64 kB)
+#> + showtext       0.9-6  [dl] (311.12 kB)
+#> + showtextdb     3.0    [dl] (2.01 MB)
+#> + stringi        1.7.12 [dl] (14.22 MB)
+#> + stringr        1.5.0  [dl] (317.97 kB)
+#> + sysfonts       0.8.8  [dl] (2.29 MB)
+#> + tibble         3.2.1  [dl] (690.95 kB)
+#> + tidyr          1.3.0  [dl] (1.28 MB)
+#> + tidyselect     1.2.0  [dl] (224.08 kB)
+#> + viridisLite    0.4.2  [dl] (1.30 MB)
+#> ℹ Getting 26 pkgs (39.14 MB)
+#> ✔ Got RColorBrewer 1.1-3 (i386+x86_64-w64-mingw32) (56.07 kB)
+#> ✔ Got R6 2.5.1 (i386+x86_64-w64-mingw32) (84.32 kB)
+#> ✔ Got cli 3.6.1 (x86_64-w64-mingw32) (1.34 MB)
+#> ✔ Got data.table 1.14.8 (x86_64-w64-mingw32) (2.29 MB)
+#> ✔ Got colorspace 2.1-0 (x86_64-w64-mingw32) (2.63 MB)
+#> ✔ Got isoband 0.2.7 (x86_64-w64-mingw32) (1.97 MB)
+#> ✔ Got emojifont 0.5.5 (i386+x86_64-w64-mingw32) (3.64 MB)
+#> ✔ Got farver 2.1.1 (x86_64-w64-mingw32) (1.51 MB)
+#> ✔ Got purrr 1.0.2 (x86_64-w64-mingw32) (498.65 kB)
+#> ✔ Got pillar 1.9.0 (i386+x86_64-w64-mingw32) (659.37 kB)
+#> ✔ Got generics 0.1.3 (i386+x86_64-w64-mingw32) (80.36 kB)
+#> ✔ Got showtext 0.9-6 (x86_64-w64-mingw32) (311.10 kB)
+#> ✔ Got tidyselect 1.2.0 (i386+x86_64-w64-mingw32) (224.25 kB)
+#> ✔ Got viridisLite 0.4.2 (i386+x86_64-w64-mingw32) (1.30 MB)
+#> ✔ Got tibble 3.2.1 (x86_64-w64-mingw32) (690.82 kB)
+#> ✔ Got proto 1.0.0 (i386+x86_64-w64-mingw32) (472.37 kB)
+#> ✔ Got glue 1.6.2 (x86_64-w64-mingw32) (162.65 kB)
+#> ✔ Got pkgconfig 2.0.3 (i386+x86_64-w64-mingw32) (22.34 kB)
+#> ✔ Got stringr 1.5.0 (i386+x86_64-w64-mingw32) (318.42 kB)
+#> ✔ Got munsell 0.5.0 (i386+x86_64-w64-mingw32) (244.80 kB)
+#> ✔ Got showtextdb 3.0 (i386+x86_64-w64-mingw32) (2.01 MB)
+#> ✔ Got magrittr 2.0.3 (x86_64-w64-mingw32) (226.81 kB)
+#> ✔ Got tidyr 1.3.0 (x86_64-w64-mingw32) (1.28 MB)
+#> ✔ Got scales 1.2.1 (i386+x86_64-w64-mingw32) (614.48 kB)
+#> ✔ Got sysfonts 0.8.8 (x86_64-w64-mingw32) (2.29 MB)
+#> ✔ Got stringi 1.7.12 (x86_64-w64-mingw32) (14.22 MB)
+#> ✔ Installed R6 2.5.1  (712ms)
+#> ✔ Installed RColorBrewer 1.1-3  (805ms)
+#> ✔ Installed cli 3.6.1  (912ms)
+#> ✔ Installed emojifont 0.5.5  (927ms)
+#> ✔ Installed farver 2.1.1  (950ms)
+#> ✔ Installed generics 0.1.3  (985ms)
+#> ✔ Installed glue 1.6.2  (1s)
+#> ✔ Installed isoband 0.2.7  (1000ms)
+#> ✔ Installed munsell 0.5.0  (950ms)
+#> ✔ Installed pkgconfig 2.0.3  (945ms)
+#> ✔ Installed magrittr 2.0.3  (1.2s)
+#> ✔ Installed pillar 1.9.0  (1.2s)
+#> ✔ Installed proto 1.0.0  (1.3s)
+#> ✔ Installed purrr 1.0.2  (1.4s)
+#> ✔ Installed data.table 1.14.8  (2s)
+#> ✔ Installed colorspace 2.1-0  (2s)
+#> ✔ Installed scales 1.2.1  (863ms)
+#> ✔ Installed showtext 0.9-6  (854ms)
+#> ✔ Installed showtextdb 3.0  (903ms)
+#> ✔ Installed stringr 1.5.0  (813ms)
+#> ✔ Installed sysfonts 0.8.8  (771ms)
+#> ✔ Installed stringi 1.7.12  (935ms)
+#> ✔ Installed tibble 3.2.1  (794ms)
+#> ✔ Installed tidyr 1.3.0  (849ms)
+#> ✔ Installed tidyselect 1.2.0  (740ms)
+#> ✔ Installed viridisLite 0.4.2  (663ms)
+#> ✔ 1 pkg + 42 deps: kept 11, added 26, dld 26 (39.14 MB) [19.1s]
+```
+
+## CRAN Version
+
+The CRAN version of [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) can be installed as illustrated below:
+
+``` r
+install.packages("normfluodbf")
+library(normfluodbf)
+```
+
+## Local Installation
+
+-   Visit the [`{normfluodbf_builds}`](https://github.com/AlphaPrime7/normfluodbf_builds) to download the zip files into your desired directory.
+-   This repository will be updated with the latest accepted CRAN version when possible.
+
+``` r
+install.packages("normfluodbf_1.4.3.9000.tar.gz", repos = NULL, type = "source")
+```
+
+``` r
+library(devtools)
+install_local("normfluodbf_1.4.3.9000.tar.gz")
+```
+
+``` r
+library(remotes)
+remotes::install_local("normfluodbf_1.4.3.9000.tar.gz")
+#> Warning in normalizePath(path.expand(path), winslash, mustWork):
+#> path[1]="normfluodbf_1.4.3.9000.tar.gz": The system cannot find the file
+#> specified
+#> Error : Could not copy `C:\Users\GrandProf\Downloads\Repos_4cleanup\Repositories_AP7\Active\normfluodbf\normfluodbf_1.4.3.9000.tar.gz` to `C:\Users\GRANDP~1\AppData\Local\Temp\RtmpG8kv5w\file76783aca5f6e`
+```
+
+# Use Scenarios
+
+## DBF Files Case-Study
+
+-   Here examples are presented on how this package handles DBF files.
+
+### Backward Compatible Function
+
+-   This methodology is grandfathered for initial adopters of normfluodbf.
+-   Package illustration with DBF files:
+
+``` r
+#library(normfluodbf)
+liposomes_214 <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf")
+normalized_data <- norm_tidy_dbf(liposomes_214, norm_scale = 'hundred')
+```
+
+### New Function
+
+-   This next methodology provides easier syntax and I prefer this function name over the function name above.
+
+``` r
+library(normfluodbf)
+liposomes_214 <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf")
+normalized_data <- normfluordbf(liposomes_214)
+```
+
+## DAT Files Case-Study
+
+### Advanced Function
+
+-   This methodology was provided as a minor update in normfluodbf 1.4.3.9000.
+-   This update was significantly bigger than expected and should have been a major update but by definition when backward compatibility is maintained with the previous version, it should be considered a minor update.
+-   These three parameters are a MUST for this function to work.
+
+``` r
+library(normfluodbf)
+dat1 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
+normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
+```
+
+### Base Function
+
+-   This next methodology is the base version of the function above. This methodology has less features than the function above.
+
+``` r
+library(normfluodbf)
+dat2 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
+normalized_data <- normfluordat(dat2, tnp = 3, cycles = 40)
+```
+
+-   Please note that the examples above indicate the simplest scenarios as these functions have more features than presented in here.
+
+## Advanced Features Illustration
+
+### DBF Normalization Procedures
+
+``` r
+library(normfluodbf)
+liposomes_214 <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf")
+normalized_data <- norm_tidy_dbf(liposomes_214, norm_scale = 'one')
+normalized_data100 <- norm_tidy_dbf(liposomes_214, norm_scale = 'hundred')
+normalized_dataz <- norm_tidy_dbf(liposomes_214, norm_scale = 'z-score')
+
+# The user can add a transformation parameter
+normalized_datazt <- norm_tidy_dbf(liposomes_214, norm_scale = 'z-score', transformed = 'log')
+```
+
+``` r
+library(normfluodbf)
+liposomes_214 <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf")
+normalized_data <- normfluordbf(liposomes_214, norm_scale = 'one')
+normalized_data100 <- normfluordbf(liposomes_214, norm_scale = 'hundred')
+normalized_dataz <- normfluordbf(liposomes_214, norm_scale = 'z-score')
+
+# The user can add a transformation parameter
+normalized_datazt <- normfluordbf(liposomes_214, norm_scale = 'z-score', transformed = 'log'
+```
+
+### DAT Advanced Procedures
+
+#### Using The rows_used parameter
+
+-   This parameter is used alone when the user loaded samples from column 1 and in sequence.
+-   The default read direction is vertical.
+-   If the cols_used parameter is not provided, the program will assume the user loaded from column 1 and did so in sequence. Attribute names will be added to the final data frame based on this assumption.
+
+``` r
+library(normfluodbf)
+dat25 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
+n1 <- c('A','B','C')
+normalized_data16 <- normfluodat(dat2, tnp = 3, cycles = 40, n)
+```
+
+-   Pay attention to the illustrations below. The setup below represents a standard experimental setup.
+
+| Sample_Type (TNP) | 96  | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 10  | 11  | 12  |
+|:------------------|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
+| Test              | A   | X1  | X2  | X3  | X4  | X5  | X6  | X7  | X8  | X9  | X10 | X11 | X12 |
+| Negative          | B   | X13 | X14 | X15 | X16 | X17 | X18 | X19 | X20 | X21 | X22 | X23 | X24 |
+| Positive          | C   | X25 | X26 | X27 | X28 | X29 | X30 | X31 | X32 | X33 | X34 | X35 | X36 |
+|                   | D   |     |     |     |     |     |     |     |     |     |     |     |     |
+|                   | E   |     |     |     |     |     |     |     |     |     |     |     |     |
+|                   | F   |     |     |     |     |     |     |     |     |     |     |     |     |
+|                   | G   |     |     |     |     |     |     |     |     |     |     |     |     |
+|                   | H   |     |     |     |     |     |     |     |     |     |     |     |     |
+
+-   The default or vertical read direction means the final data frame is presented in the format below.
 
 | A1 (Test) | B1 (Negative) | C1 (Positive) | Cycle_No |
 |:----------|:--------------|:--------------|:---------|
@@ -111,99 +358,45 @@ backgrounds.
 | A1        | B1            | C1            | 4        |
 | A1        | B1            | C1            | 5        |
 | A1        | B1            | C1            | 6        |
-| A1        | B1            | C1            | …38      |
-| A1        | B1            | C1            | …39      |
-| A1        | B1            | C1            | …40      |
+| A1        | B1            | C1            | ...38    |
+| A1        | B1            | C1            | ...39    |
+| A1        | B1            | C1            | ...40    |
 
-- Violation of the standard setup does not violate this algorithm but it
-  becomes the researchers responsibility to keep track of any deviations
-  to avoid wrong experimental results.
+#### Using The rows_used and cols_used parameter
 
-# Experimental setup-Non-Standard
+-   The cols_used parameter is only used when the rows_used parameter is used.
+-   The cols_used parameter is especially relevant when the user DOES NOT lead samples from column 1.
+-   The default read direction is vertical as indicated earlier.
 
-| Sample_Type   | 96  | Test      | Negative  | Positive  | 4         | 5         | 6         | 7         | 8         | 9         | 10        | 11        | 12        |
-|:--------------|:----|:----------|:----------|:----------|:----------|:----------|:----------|:----------|:----------|:----------|:----------|:----------|:----------|
-|               | A   | X1        | X2        | X3        | X4        | X5        | X6        | X7        | X8        | X9        | X10       | X11       | X12       |
-|               | B   | X13       | X14       | X15       | X16       | X17       | X18       | X19       | X20       | X21       | X22       | X23       | X24       |
-|               | C   | X25       | X26       | X27       | X28       | X29       | X30       | X31       | X32       | X33       | X34       | X35       | X36       |
-|               | D   |           |           |           |           |           |           |           |           |           |           |           |           |
-|               | E   |           |           |           |           |           |           |           |           |           |           |           |           |
-|               | F   |           |           |           |           |           |           |           |           |           |           |           |           |
-|               | G   |           |           |           |           |           |           |           |           |           |           |           |           |
-|               | H   |           |           |           |           |           |           |           |           |           |           |           |           |
-| Concentration |     | 2 $\mu$ M | 2 $\mu$ M | 2 $\mu$ M | 3 $\mu$ M | 3 $\mu$ M | 3 $\mu$ M | 4 $\mu$ M | 4 $\mu$ M | 4 $\mu$ M | 5 $\mu$ M | 5 $\mu$ M | 5 $\mu$ M |
+``` r
+library(normfluodbf)
+dat2_4 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
+n <- c('A','B','C')
+c <- c(5,6,7)
+normalized_data_15 <- normfluodat(dat2, tnp = 3, cycles = 40, rows_used=n, cols_used=c)
+```
 
-- The above image is the non-standard setup for experiments using the 96
-  well plate. This case was specific to liposome flux assays (LFAs) but
-  the assumption is that most experimental setups should follow the
-  standard setup originally discussed.
+| A5 (Test) | B5 (Negative) | C5 (Positive) | Cycle_No |
+|:----------|:--------------|:--------------|:---------|
+| A5        | B5            | C6            | 1        |
+| A5        | B5            | C6            | 2        |
+| A5        | B5            | C6            | 3        |
 
-- Fun fact, as a young student myself in a relatively toxic lab (better
-  than other labs but still not healthy for the average person), I did
-  not use the standard experimental setup in my first experiments and
-  this entailed that the data could not eaily be analyzed.
+#### Using The user_specific_labels parameter
 
-- This package update benefits the lab weirdo most but this is not a “Go
-  ahead and be weird” card but rather an approach that accounts for the
-  weakest link. The Advice is “USE THE STANDARD EXPERIMENTAL SETUP”.
+-   If the user provides the user_specific_labels parameter then they CANNOT use the rows_used and cols_used parameter together OR the rows_used parameter alone. It is a trade-off where the user either lets the program generate column names for them or the user decides to take CONTROL and do it themselves.
+-   This user_specific_labels parameter is a proactive move from the user if the user had a complicated experimental setup that can lead to wrong attribute names.
 
-- The machine (is dumb) and reads this sequentially so the column has
-  120 tuples or rows as shown below. However, NOTICE in this case that
-  the researcher cannot get away with just plotting a 120 tuple column
-  because the same sample type is represented per column as seen below.
+``` r
+library(normfluodbf)
+dat2_3 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
+manual_cols_3 <- c('A1','B1','C1')
+normalized_data_1_4 <- normfluodat(dat2, tnp = 3, cycles = 40, user_specific_labels = manual_cols)
+```
 
-- Notice that unlike the standard case, a researcher cannot plot the 120
-  tuples column(s) and get final results because the data does not
-  follow the standard experimental setup. These type of researchers
-  benefit the most from this package. The machine scans through columns
-  and so in the standard case, the machine accounted for all 3 sample
-  types per plate column scanned BUT in the non-standard setup the
-  machine accounts for a single sample type per plate column scanned.
+-   Hypothetically, if the user uses the rows and columns indicated in the examples in [Using The rows_used and cols_used parameter](#Using%20The%20rows_used%20and%20cols_used%20parameter) but skips some wells, then the user can simply go ahead and use the user_specific_labels to add the correct column names for the final data frame.
 
-| Sample_Type | Cycle_No | Machine_data_verbose | machine_data_numeric |
-|:------------|:---------|:---------------------|:---------------------|
-| Test-1      | 1        | A1                   | 1                    |
-| Test-2      | 1        | B1                   | 2                    |
-| Test-3      | 1        | C1                   | 3                    |
-| Test-1      | 2        | A1                   | 4                    |
-| Test-2      | 2        | B1                   | 5                    |
-| Test-3      | 2        | C1                   | 6                    |
-| Test-1      | 40       | A1                   | …118                 |
-| Test-2      | 40       | B1                   | …119                 |
-| Test-3      | 40       | C1                   | …120                 |
-
-| A1 (Test-1) | B1 (Test-2) | C1 (Test-3) | Cycle_No |
-|:------------|:------------|:------------|:---------|
-| A1          | B1          | C1          | 1        |
-| A1          | B1          | C1          | 2        |
-| A1          | B1          | C1          | 3        |
-| A1          | B1          | C1          | 4        |
-| A1          | B1          | C1          | 5        |
-| A1          | B1          | C1          | 6        |
-| A1          | B1          | C1          | …38      |
-| A1          | B1          | C1          | …39      |
-| A1          | B1          | C1          | …40      |
-
-- The data provided by the package update is a normalized version of the
-  data below. This is where researchers have more control of the data
-  since they deviated from the standard procedure. Also ‘norm_tidy_dbf’
-  also provides the same level of control that this update for dat files
-  provides.
-
-- Violation of the standard setup benefits from the final product of
-  this package although several functions will be provided to deal with
-  the data at the level of control needed by the researcher and how
-  savvy they are with these types of experiments.
-
-## Extreme Non-Standard Cases
-
-- These cases really have no issue except they present a problem when
-  trying to label columns correctly and by correctly one just means
-  matching column names to their locations on the plate.
-
-- A fine little solution to that is provoking some user input or thought
-  process (not as punishement) but more like you get to put some work in
-  if you have an extreme case (especially one you designed).
+-   However, if the scenario above occurs where the user indicates 9 wells should be used but the program detects fewer than 9 samples, then the program will inform the user and ask the user to choose from a list of column names. Illustration below:
 
 | Sample_Type (TNP) | 96  | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 10  | 11  | 12  |
 |:------------------|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
@@ -213,142 +406,156 @@ backgrounds.
 |                   | D   |     |     |     |     |     |     |     |     |     |     |     |     |
 |                   | E   |     |     |     |     |     |     |     |     |     |     |     |     |
 |                   | F   |     |     |     |     |     |     |     |     |     |     |     |     |
+
+#### Using The read_direction parameter
+
+-   As indicated in all the previous examples, the default read direction is vertical and I have provided illustrations in the form of tables that shows the expected outcome.
+-   The read_direction can be indicated explicitly as vertical or left as NULL but must be indicated explicitly as horizontal to obtain a different outcome.
+
+``` r
+library(normfluodbf)
+dat2_1 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
+manual_cols_2 <- c('A1','B1','C1')
+normalized_data_1_3 <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction = 'horizontal')
+```
+
+| Sample_Type (TNP) | 96  | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 10  | 11  | 12  |
+|:------------------|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
+| Test              | A   | X1  | X2  | X3  | X4  | X5  | X6  | X7  | X8  | X9  | X10 | X11 | X12 |
+| Negative          | B   | X13 | X14 | X15 | X16 | X17 | X18 | X19 | X20 | X21 | X22 | X23 | X24 |
+| Positive          | C   | X25 | X26 | X27 | X28 | X29 | X30 | X31 | X32 | X33 | X34 | X35 | X36 |
+|                   | D   |     |     |     |     |     |     |     |     |     |     |     |     |
+|                   | E   |     |     |     |     |     |     |     |     |     |     |     |     |
+|                   | F   |     |     |     |     |     |     |     |     |     |     |     |     |
 |                   | G   |     |     |     |     |     |     |     |     |     |     |     |     |
 |                   | H   |     |     |     |     |     |     |     |     |     |     |     |     |
 
-- As can be seen from the table above, the naming of columns there from
-  a programming point presents some challenges and so the user must know
-  exactly what they were trying to achieve or correct if they performed
-  such an experiment. The user might have run out of room and made some
-  mistakes or they might just be nervous (bad health nervous) as the
-  inventor was when he first tried these experiments. Whatever can lead
-  to this scenario entails the user will be prompted to enter some
-  information in R, in order to arrive at the right column labels.
+-   The horizontal read direction means the final data frame is presented in the format below.
 
-- This means the user can either enter the labels directly using the
-  user_specific_labels parameter or the user can input the rows_used and
-  cols_used while keeping the user_specific_labels param blank (in
-  general terms with no worry of specifying columns yet); the program
-  will then prompt the user to choose and type column labels based on
-  their cols_used and rows_used input; alternatively the user can input
-  user_specific_labels as a character vector and that should match the
-  number of samples in the plate or on file (digitally) and that will
-  then create a column names that will be applied to the cleaned data
-  frame.
+| A1 (Test) | A2 (Test) | A3 (Test) | Cycle_No |
+|:----------|:----------|:----------|:---------|
+| A1        | A2        | A3        | 1        |
+| A1        | A2        | A3        | 2        |
+| A1        | A2        | A3        | 3        |
+| A1        | A2        | A3        | 4        |
+| A1        | A2        | A3        | 5        |
+| A1        | A2        | A3        | 6        |
+| A1        | A2        | A3        | ...38    |
+| A1        | A2        | A3        | ...39    |
+| A1        | A2        | A3        | ...40    |
 
-- NOTE: this is for extreme extreme cases (when samples are placed in
-  the plate out of sequence).
+#### Using The norm_scale parameter
 
-- Rough draft documentation so this will be a slow burn as I read
-  through, the aim is not to loose ideas as I take the project to
-  maturity. These are the final stages so I am soon progressing to other
-  projects.
-
-## QC Implemented
-
-- QC well implemented (with some fun emojis from emojifont)
-
-## Potential Loopholes
-
-- Giving the researcher some work when the design is super wonky. I
-  woould love to think of plate designs but I know I tempered with mine
-  so unsure how that can be coded.
-
-- The project has reached maturity and so is behind the scenes closed.
-  The documentation will be slow burn to avoid errors and to take in all
-  that has been learnt and hopefully the update sent to CRAN in a couple
-  of weeks or even less. Hope the inventor can stick to the plan of 1
-  document a day and stay PATIENT in that process.
-
-## Functions
-
-### Subordinate Functions
-
-- remove_na_seqdat() OR clean_evendat()
-- remove_na_nonseqdat() OR clean_odddat()
-- comma_cleaner()
-- resample_dat() or resample_datv2()
-- min_max_norm()
-- dat_col_names()
-- unique_identifier()
-
-### Parent Function
-
-- normfluodat()
-
-### Visualizer
-
-- gg_plot_triplets()
-
-## ↓ Installation
-
-The development version of
-[`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) can be
-installed as illustrated below:
-
-``` r
-install.packages("devtools")
-devtools::install_github("AlphaPrime7/normfluodbf")
-pak::pak("AlphaPrime7/normfluodbf")
-
-#Once the package makes CRAN
-install.packages("normfluodbf")
-library(normfluodbf)
-```
-
-## Example
-
-This is a basic example which illustrates package usage:
+-   Just like the DBF procedure, I have provided a few options for normalization scales.
+-   My favorite is the z-score scale as it provides more clarity in thinking about the results.
 
 ``` r
 library(normfluodbf)
-liposomes_214 <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf")
-normalized_data <- norm_tidy_dbf(liposomes_214)
+dat2 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
+manual_cols_1 <- c('A1','B1','C1')
+normalized_data_1_2 <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction = 'horizontal', norm_scale = 'hundred')
 ```
 
-## R packages Imported
+## The Non-standard Experimental Setup
 
-- tidyr
-- data.table
-- foreign
-- tibble
-- dplyr
+-   Below is a look at the non-standard experimental setup.
 
-Visit
-[`{my page}`](https://alphaprime7.github.io/normfluodbf/articles/normfluodbf.html)
-for details on the concept behind the project.
+| Sample_Type | 96  | Test | Negative | Positive | 4   | 5   | 6   | 7   | 8   | 9   | 10  | 11  | 12  |
+|:------------|:----|:-----|:---------|:---------|:----|:----|:----|:----|:----|:----|:----|:----|:----|
+|             | A   | X1   | X2       | X3       | X4  | X5  | X6  | X7  | X8  | X9  | X10 | X11 | X12 |
+|             | B   | X13  | X14      | X15      | X16 | X17 | X18 | X19 | X20 | X21 | X22 | X23 | X24 |
+|             | C   | X25  | X26      | X27      | X28 | X29 | X30 | X31 | X32 | X33 | X34 | X35 | X36 |
+|             | D   |      |          |          |     |     |     |     |     |     |     |     |     |
+|             | E   |      |          |          |     |     |     |     |     |     |     |     |     |
+|             | F   |      |          |          |     |     |     |     |     |     |     |     |     |
+|             | G   |      |          |          |     |     |     |     |     |     |     |     |     |
+|             | H   |      |          |          |     |     |     |     |     |     |     |     |     |
+
+-   Below we take a look at what the machine sees.
+
+| Sample_Type | Cycle_No | Machine_data_verbose | machine_data_numeric |
+|:------------|:---------|:---------------------|:---------------------|
+| Test-1      | 1        | A1                   | 1                    |
+| Test-2      | 1        | B1                   | 2                    |
+| Test-3      | 1        | C1                   | 3                    |
+| Test-1      | 2        | A1                   | 4                    |
+| Test-2      | 2        | B1                   | 5                    |
+| Test-3      | 2        | C1                   | 6                    |
+| Test-1      | 40       | A1                   | ...118               |
+| Test-2      | 40       | B1                   | ...119               |
+| Test-3      | 40       | C1                   | ...120               |
+
+-   A keen observation below is that the vertical read direction in the program or package yields a final data frame that conceptually looks like the horizontal read direction with the test samples clustered as in the illustration below.
+-   Using the non-standard setup simply affects attribute naming conventions otherwise everything should be fine.
+
+| A1 (Test-1) | B1 (Test-2) | C1 (Test-3) | Cycle_No |
+|:------------|:------------|:------------|:---------|
+| A1          | B1          | C1          | 1        |
+| A1          | B1          | C1          | 2        |
+| A1          | B1          | C1          | 3        |
+| A1          | B1          | C1          | 4        |
+| A1          | B1          | C1          | 5        |
+| A1          | B1          | C1          | 6        |
+| A1          | B1          | C1          | ...38    |
+| A1          | B1          | C1          | ...39    |
+| A1          | B1          | C1          | ...40    |
+
+-   Below is just a quick illustration of the non-standard setup. This setup does not change anything about the algorithms but simply showcases how naming conventions will reverse if the experimenter deviates from the commonly used path.
+
+## Fail Safe DAT Procedure
+
+-   As indicated earlier, the code chunk below is the simplest use case for this function.
+-   AHOI, the user gets a data frame with the samples perfectly separated but with NO attribute names.
+-   Very important to mention this point twice.
+
+``` r
+library(normfluodbf)
+dat1_1 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
+normalized_data_1_1 <- normfluodat(dat1, tnp = 3, cycles = 40)
+```
+
+## Quality Control (QC)
+
+-   Experimental issues should be investigated at very high or very low fluorescence values.
+
+-   The most common experimental issues arise when ACMA concentrations are out of the tolerated range. Based on my experience, ACMA concentrations between 2 and 5 Micromolar will suffice to get fluorescence values within the tolerance threshold.
+
+-   ACMA concentrations as low as 0.2 Micromolar or as high as 20 Micromolar have proven problematic based on my research experience. These ACMA concentrations have proven NOISY and provide the basis for determining the noise-signal regions.
+
+-   Another issue linked to the FLUOstar instrument revolves around setting the right "gain" to ensure the right level of sensitivity in machine readings. A very high "gain" setting results in increased machine sensitivity even at the right ACMA concentrations and vice versa. In short, we want the machine to be primed to read exactly what we feed it, no more, no less.
+
+-   This program boasts of a quality control function to help new researchers avoid pitfalls that can mar their experience performing experiments.
+
+-   Within this package, a QC function is designed to check that fluorescence values do not exceed the upper limit (2\^15 or 32768) OR fall below the lower limit (2\^11 or 2048). Fluorescence values that exceed these thresholds are considered noisy and can lead to incorrect interpretation of analysis results.
+
+## Visualization
+
+-   This time around, the package has a visualization function that is build on ggplot2.
+-   Users can expect to get some amazing visualizations using this function.
+-   Here are some visualizations from my seminar on this topic. These were not done with base R.
+
+<img src="man/figures/tnp3.png" align="left" width="320"/> <img src="man/figures/tnp5.png" align="right" width="320"/>
+
+## Epilogue
+
+-   It was interesting getting this package to maturity.
+-   Users are advised to default to the simplest use cases if they find the learning curve (LC) for the package too steep.
+-   I am almost certain there is always something to improve but I can say this package is officially complete based on the project scope.
 
 # References
 
 (Dowle and Srinivasan 2023) (R Core Team 2022) (Wickham et al. 2019)
 
-<div id="refs" class="references csl-bib-body hanging-indent">
+::: {#refs .references .csl-bib-body .hanging-indent}
+::: {#ref-datatable .csl-entry}
+Dowle, Matt, and Arun Srinivasan. 2023. [*data.table*]{.nocase}*: Extension of "[data.frame]{.nocase}"*. <https://CRAN.R-project.org/package=data.table>.
+:::
 
-<div id="ref-datatable" class="csl-entry">
+::: {#ref-foreign .csl-entry}
+R Core Team. 2022. [*foreign*]{.nocase}*: Read Data Stored by "Minitab," "S," "SAS," "SPSS," "Stata," "Systat," "Weka," "[dBase]{.nocase}," ...* <https://CRAN.R-project.org/package=foreign>.
+:::
 
-Dowle, Matt, and Arun Srinivasan. 2023.
-*<span class="nocase">data.table</span>: Extension of
-“<span class="nocase">data.frame</span>”*.
-<https://CRAN.R-project.org/package=data.table>.
-
-</div>
-
-<div id="ref-foreign" class="csl-entry">
-
-R Core Team. 2022. *<span class="nocase">foreign</span>: Read Data
-Stored by “Minitab,” “S,” “SAS,” “SPSS,” “Stata,” “Systat,” “Weka,”
-“<span class="nocase">dBase</span>,” ...*
-<https://CRAN.R-project.org/package=foreign>.
-
-</div>
-
-<div id="ref-tidyverse" class="csl-entry">
-
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy
-D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019.
-“Welcome to the <span class="nocase">tidyverse</span>.” *Journal of Open
-Source Software* 4 (43): 1686. <https://doi.org/10.21105/joss.01686>.
-
-</div>
-
-</div>
+::: {#ref-tidyverse .csl-entry}
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D'Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. "Welcome to the [tidyverse]{.nocase}." *Journal of Open Source Software* 4 (43): 1686. <https://doi.org/10.21105/joss.01686>.
+:::
+:::
