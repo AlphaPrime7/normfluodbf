@@ -136,6 +136,35 @@ liposomes_214 <- system.file("extdata", "liposomes_214.dbf", package = "normfluo
 normalized_data <- normfluordbf(liposomes_214)
 ```
 
+### Advanced Features Illustration
+
+- The next section elaborates on the new features added for handling DBF
+  files.
+
+### DBF Normalization Procedures
+
+``` r
+library(normfluodbf)
+liposomes_214 <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf")
+normalized_data <- norm_tidy_dbf(liposomes_214, norm_scale = 'one')
+normalized_data100 <- norm_tidy_dbf(liposomes_214, norm_scale = 'hundred')
+normalized_dataz <- norm_tidy_dbf(liposomes_214, norm_scale = 'z-score')
+
+# The user can add a transformation parameter
+normalized_datazt <- norm_tidy_dbf(liposomes_214, norm_scale = 'z-score', transformed = 'log')
+```
+
+``` r
+library(normfluodbf)
+liposomes_214 <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf")
+normalized_data <- normfluordbf(liposomes_214, norm_scale = 'one')
+normalized_data100 <- normfluordbf(liposomes_214, norm_scale = 'hundred')
+normalized_dataz <- normfluordbf(liposomes_214, norm_scale = 'z-score')
+
+# The user can add a transformation parameter
+normalized_datazt <- normfluordbf(liposomes_214, norm_scale = 'z-score', transformed = 'log')
+```
+
 ## DAT Files Case-Study
 
 ### Advanced Function
@@ -168,33 +197,10 @@ normalized_data <- normfluordat(dat2, tnp = 3, cycles = 40)
 - Please note that the examples above indicate the simplest scenarios as
   these functions have more features than presented in here.
 
-## Advanced Features Illustration
-
-### DBF Normalization Procedures
-
-``` r
-library(normfluodbf)
-liposomes_214 <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf")
-normalized_data <- norm_tidy_dbf(liposomes_214, norm_scale = 'one')
-normalized_data100 <- norm_tidy_dbf(liposomes_214, norm_scale = 'hundred')
-normalized_dataz <- norm_tidy_dbf(liposomes_214, norm_scale = 'z-score')
-
-# The user can add a transformation parameter
-normalized_datazt <- norm_tidy_dbf(liposomes_214, norm_scale = 'z-score', transformed = 'log')
-```
-
-``` r
-library(normfluodbf)
-liposomes_214 <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf")
-normalized_data <- normfluordbf(liposomes_214, norm_scale = 'one')
-normalized_data100 <- normfluordbf(liposomes_214, norm_scale = 'hundred')
-normalized_dataz <- normfluordbf(liposomes_214, norm_scale = 'z-score')
-
-# The user can add a transformation parameter
-normalized_datazt <- normfluordbf(liposomes_214, norm_scale = 'z-score', transformed = 'log')
-```
-
 ### DAT Advanced Procedures
+
+- The next sections elaborate on the built-in features for handling DAT
+  files.
 
 #### Using The rows_used parameter
 
@@ -457,6 +463,14 @@ normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
   exceed these thresholds are considered noisy and can lead to incorrect
   interpretation of analysis results.
 
+- The images presented below represent results obtained when experiments
+  are conducted within the noise region. The X-axis is actually
+  “Cycle_No” but seemed to have been mislabeled due to the tedious
+  nature of my previous coding approach.
+
+<img src="man/figures/noise02.png" align="left" width="320"/>
+<img src="man/figures/noise20.png" align="right" width="333"/>
+
 ## Visualization
 
 - This time around, the package has a visualization function that is
@@ -464,7 +478,8 @@ normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
 - Users can expect to get some amazing visualizations using this
   function.
 - Here are some visualizations from my seminar on this topic. These were
-  done with base R.
+  done with base R and the images represent the results obtained when
+  experiments are conducted within the signal region.
 
 <img src="man/figures/tnp3.png" align="left" width="320"/>
 <img src="man/figures/tnp5.png" align="right" width="320"/>
