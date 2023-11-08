@@ -126,7 +126,7 @@ remotes::install_local("normfluodbf_1.4.3.9000.tar.gz")
 
 # Use Scenarios
 
-## DBF Files Case-Study
+## DBF Files Case-Study <img src="man/figures/dbf.png" align="right" width="40"/>
 
 -   Here examples are presented on how this package handles DBF files.
 
@@ -182,7 +182,7 @@ normalized_dataz <- normfluordbf(liposomes_214, norm_scale = 'z-score')
 normalized_datazt <- normfluordbf(liposomes_214, norm_scale = 'z-score', transformed = 'log')
 ```
 
-## DAT Files Case-Study
+## DAT Files Case-Study <img src="man/figures/dat.png" align="right" width="40"/>
 
 ### Advanced Function
 
@@ -387,7 +387,7 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction = '
 -   Below is a look at the non-standard experimental setup.
 
 | Sample_Type | 96  | Test | Negative | Positive | 4   | 5   | 6   | 7   | 8   | 9   | 10  | 11  | 12  |
-|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
+|:------------|:----|:-----|:---------|:---------|:----|:----|:----|:----|:----|:----|:----|:----|:----|
 |             | A   | X1   | X2       | X3       | X4  | X5  | X6  | X7  | X8  | X9  | X10 | X11 | X12 |
 |             | B   | X13  | X14      | X15      | X16 | X17 | X18 | X19 | X20 | X21 | X22 | X23 | X24 |
 |             | C   | X25  | X26      | X27      | X28 | X29 | X30 | X31 | X32 | X33 | X34 | X35 | X36 |

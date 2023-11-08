@@ -110,7 +110,7 @@ remotes::install_local("normfluodbf_1.4.3.9000.tar.gz")
 
 # Use Scenarios
 
-## DBF Files Case-Study
+## DBF Files Case-Study <img src="man/figures/dbf.png" align="right" width="40"/>
 
 - Here examples are presented on how this package handles DBF files.
 
@@ -165,7 +165,7 @@ normalized_dataz <- normfluordbf(liposomes_214, norm_scale = 'z-score')
 normalized_datazt <- normfluordbf(liposomes_214, norm_scale = 'z-score', transformed = 'log')
 ```
 
-## DAT Files Case-Study
+## DAT Files Case-Study <img src="man/figures/dat.png" align="right" width="40"/>
 
 ### Advanced Function
 
