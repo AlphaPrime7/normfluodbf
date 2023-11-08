@@ -40,7 +40,6 @@ resample_dat <- function(df, tnp, cycles){
 
     increment = tnp
     k <- k + increment
-
   }
   return(resulting_df)
 }

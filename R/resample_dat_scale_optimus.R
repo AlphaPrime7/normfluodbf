@@ -52,6 +52,6 @@ resample_dat_scale_optimus <- function(df, tnp, cycles){
     final_df <- as.data.frame(final_df)
 
   }
-  #return(sample_df)
+
   return(final_df)
 }
