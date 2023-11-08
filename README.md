@@ -191,7 +191,7 @@ normalized_data100 <- normfluordbf(liposomes_214, norm_scale = 'hundred')
 normalized_dataz <- normfluordbf(liposomes_214, norm_scale = 'z-score')
 
 # The user can add a transformation parameter
-normalized_datazt <- normfluordbf(liposomes_214, norm_scale = 'z-score', transformed = 'log'
+normalized_datazt <- normfluordbf(liposomes_214, norm_scale = 'z-score', transformed = 'log')
 ```
 
 ### DAT Advanced Procedures
@@ -207,8 +207,8 @@ normalized_datazt <- normfluordbf(liposomes_214, norm_scale = 'z-score', transfo
 
 ``` r
 library(normfluodbf)
-dat25 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
-n1 <- c('A','B','C')
+dat2 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
+n <- c('A','B','C')
 normalized_data16 <- normfluodat(dat2, tnp = 3, cycles = 40, n)
 ```
 
@@ -251,10 +251,10 @@ normalized_data16 <- normfluodat(dat2, tnp = 3, cycles = 40, n)
 
 ``` r
 library(normfluodbf)
-dat2_4 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
+dat2 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
 n <- c('A','B','C')
 c <- c(5,6,7)
-normalized_data_15 <- normfluodat(dat2, tnp = 3, cycles = 40, rows_used=n, cols_used=c)
+normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, rows_used=n, cols_used=c)
 ```
 
 | A5 (Test) | B5 (Negative) | C5 (Positive) | Cycle_No |
@@ -276,9 +276,9 @@ normalized_data_15 <- normfluodat(dat2, tnp = 3, cycles = 40, rows_used=n, cols_
 
 ``` r
 library(normfluodbf)
-dat2_3 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
-manual_cols_3 <- c('A1','B1','C1')
-normalized_data_1_4 <- normfluodat(dat2, tnp = 3, cycles = 40, user_specific_labels = manual_cols)
+dat2 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
+manual_cols <- c('A1','B1','C1')
+normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, user_specific_labels = manual_cols)
 ```
 
 - Hypothetically, if the user uses the rows and columns indicated in the
@@ -313,9 +313,9 @@ normalized_data_1_4 <- normfluodat(dat2, tnp = 3, cycles = 40, user_specific_lab
 
 ``` r
 library(normfluodbf)
-dat2_1 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
-manual_cols_2 <- c('A1','B1','C1')
-normalized_data_1_3 <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction = 'horizontal')
+dat2 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
+manual_cols <- c('A1','B1','C1')
+normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction = 'horizontal')
 ```
 
 | Sample_Type (TNP) | 96  | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 10  | 11  | 12  |
@@ -354,8 +354,8 @@ normalized_data_1_3 <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction
 ``` r
 library(normfluodbf)
 dat2 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
-manual_cols_1 <- c('A1','B1','C1')
-normalized_data_1_2 <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction = 'horizontal', norm_scale = 'hundred')
+manual_cols <- c('A1','B1','C1')
+normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction = 'horizontal', norm_scale = 'hundred')
 ```
 
 ## The Non-standard Experimental Setup
@@ -421,8 +421,8 @@ normalized_data_1_2 <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction
 
 ``` r
 library(normfluodbf)
-dat1_1 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
-normalized_data_1_1 <- normfluodat(dat1, tnp = 3, cycles = 40)
+dat1 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
+normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
 ```
 
 ## Quality Control (QC)
