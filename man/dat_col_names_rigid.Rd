@@ -61,7 +61,7 @@ dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odd_cc(dat_df)
 resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 n = c('A','B','C')
-sample_col_names <- dat_col_names_optimus(resampled_scaled, n)
+sample_col_names <- dat_col_names_rigid(resampled_scaled, n)
 }
 \seealso{
 \code{\link[=dat_col_names_optimus]{dat_col_names_optimus()}}

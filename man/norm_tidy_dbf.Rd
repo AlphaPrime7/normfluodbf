@@ -30,7 +30,8 @@ A normalized data frame with an appended "Cycle_Number" attribute.
 The simplest function utilization scenario entails an input of the path to a DBF file obtained from the FLUOstar microplate (usually a 96-well microplate) reader;
 In a single step, this function will create a data frame, clean the data frame, normalize the data frame, append a "Cycle_Number" attribute,
 perform an adjustment to the “time” attribute and return a data frame that is ready for analysis.
-Since the initial publication of this package, several changes have been made to improve the user experience and to give the user more options to fine-tune the output from the package to meet the users’ aesthetic needs.
+Since the initial publication of this package, several changes have been made to improve the user experience and to give the user more options
+to fine-tune the output from the package to meet the users’ aesthetic needs.
 Users who decide to move past the simplest utility scenario have been given more options to customize the output based on the users’ needs.
 Notably, several normalization sub-parameters have been provided in the package which yields different outputs based on what the user is used to seeing.
 Just as the FLUOstar instrument is built to handle an array of assays,
@@ -53,4 +54,7 @@ normalized_dbf <- norm_tidy_dbf(file=fpath, norm_scale = 'raw')
 }
 \seealso{
 \code{\link[=normfluordbf]{normfluordbf()}}, \code{\link[=normfluodat]{normfluodat()}}
+}
+\author{
+Tingwei Adeck
 }

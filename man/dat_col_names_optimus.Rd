@@ -24,8 +24,7 @@ dat_col_names_optimus(
 \item{read_direction}{A string input with two choices, “vertical” or “horizontal.”
 The user indicates “vertical” if the user intends to have a final data frame
 with samples arranged as sample type triplets (A1, B1, C1, A1, B1, C1)
-OR “horizontal” if the user intends to have a final data frame with samples
-arranged as clusters per sample type (A1, A2, A3, B1, B2, B3).}
+OR “horizontal” if the user intends to have a final data frame with samples}
 }
 \value{
 Returns a character or numeric vector of attribute(s) names for the normalized data frame.

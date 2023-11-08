@@ -1,18 +1,21 @@
-#' Title: A scaling up of the resample_dat() function
+#' Title: A function to create an attribute or column for each sample loaded into the microplate wells.
+#'
 #' @description
-#' Performs the role of the prototype resample_dat() function but it is scaled up to work on all columns in longer-form data frame.
+#' A function that takes tuples or rows consisting of several samples and perform a
+#' putative resampling to yield another data frame with a separate attribute for each
+#' sample.
 #'
 #' @author Tingwei Adeck
-#' @param df A clean data frame with n number of rows
-#' @param tnp Stands for test,negative,positive (sample types); the number should match the number of sample types in the plate reader even if repeating a sample type
-#' @param cycles The number of cycles chosen by the researcher. In the case of this package 40 is the standard but ensure to have the right number of samples
 #'
+#' @param df A clean data frame with attributes or tuples containing a mixture of samples.
+#' @param tnp A numeric value indicating the number of rows used. TNP is used as an acronym for Test, Negative, Positive.
+#' @param cycles A numeric value indicating the number of cycles selected by the user when running the FLUOstar instrument.
 #'
-#' @return A new data frame with attributes matching the number of sample types and tuples matching the number of cycles. In short it returns delineated samples.
+#' @return A new data frame where separated samples are assigned a separate attribute or column.
+#'
 #' @export
-#' @note This function is the pre-requisite to the parent or main function of the update.
-#' As a matter of fact, this function is modified to produce the parent or main function.
-#' @seealso [resample_dat_scale_optimus()]
+#'
+#' @seealso [resample_dat_alt()]
 #'
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)

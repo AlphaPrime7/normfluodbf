@@ -2,26 +2,30 @@
 % Please edit documentation in R/fluor_threshold_check.R
 \name{fluor_threshold_check_na}
 \alias{fluor_threshold_check_na}
-\title{Title: Fluorescence experiment quality control function-Check fluorescence threshold}
+\title{Title: A missing value (NA) Quality Control (QC) function.}
 \usage{
 fluor_threshold_check_na(clean_df, fun = NA)
 }
 \arguments{
-\item{clean_df}{A cleaned dat or dbf file}
+\item{clean_df}{A cleaned data frame.}
 
-\item{fun}{Used for boolean expressions}
+\item{fun}{A parameter used for Boolean expressions.}
 }
 \value{
-A polite warning message for the researchers next experimental design and the rows and columns with problem values.
+A polite warning message to the data analyst or researcher.
 }
 \description{
-Check that fluorescence does not exceed 2^16.
-Experimental design issues should be investigated at fluorescence levels this high.
-The inventor of this program made a similar mistake when he began these experiments.
+A function designed to check for missing values in a data frame.
 }
 \examples{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odd_cc(dat_df)
 fluor_threshold_check_na(nocomma_dat)
+}
+\seealso{
+\code{\link[=fluor_threshold_check]{fluor_threshold_check()}}, \code{\link[=fluor_threshold_check_raw]{fluor_threshold_check_raw()}}
+}
+\author{
+Tingwei Adeck
 }

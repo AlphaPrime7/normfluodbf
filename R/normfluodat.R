@@ -1,31 +1,40 @@
-#' Title: The root function that returns a normalized data frame with the Cycle No ready for analysis
+#' Title: Cleans normalizes DAT files obtained from experiments using the FLUOstar Omega microplate reader (from BMG LABTECH).
+#'
 #' @description
-#' Input a dat file (dat file directory) and required parameters and BOOM the researcher has a normalized data frame ripe and ready for clean analysis
+#' The simplest case scenario entails inputting the name or directory of a DAT file as a string,
+#' the number of rows denoted by the tnp (test, negative, positive) parameter,
+#' and the number of cycles (selected by the user when running the FLUOstar instrument).
+#' The program takes these three baseline parameters, performs cleaning and normalization of the DAT file,
+#' and then appends an attribute called “Cycle_Number” to the normalized data frame.
 #'
 #' @author Tingwei Adeck
-#' @param dat directory to the users FLUOstar dat file
-#' @param tnp Stands for test,negative,positive (sample types); the number should match the number of sample types in the plate reader even if repeating a sample type
-#' @param cycles The number of cycles chosen by the researcher. In the case of this package 40 is the standard but ensure to have the right number of samples
-#' @param rows_used A character vector of the rows used, eg n = c('A','B','C')
-#' @param cols_used  A numeric vector of the columns used, eg m = c(2,4,6)
-#' @param user_specific_labels A character vector with specific sample labels based on the plate setup
-#' @param read_direction User can leave null for machine up-down read OR 'horizontal' for machine left-right read
-#' @param norm_scale The normalization scale
+#'
+#' @param dat A string ("dat_1.dat") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dat" file.
+#' @param tnp A numeric value indicating the number of rows used. TNP is used as an acronym for Test, Negative, Positive.
+#' @param cycles A numeric value indicating the number of cycles selected by the user when running the FLUOstar instrument.
+#' @param rows_used A character vector of the rows used; ru = c('A','B','C').
+#' @param cols_used A numeric vector of the columns used; cu = c(1,2,3).
+#' @param user_specific_labels A character vector manually prepared by the user to denote the wells used on the microplate reader; usl = c('A1','B1','C1').
+#' @param read_direction A string input with two choices, “vertical” or “horizontal.”
+#' The user indicates “vertical” if the user intends to have a final data frame with
+#' samples arranged as sample type triplets (A1, B1, C1, A1, B1, C1) OR “horizontal”
+#' if the user intends to have a final data frame with samples arranged as clusters per sample type (A1, A2, A3, B1, B2, B3).
+#' @param norm_scale This parameter takes sub-parameters: 'raw’ , hundred’ , 'one’ , 'z-score' , or 'decimal’ ,
+#' which denotes the normalization type or scale; Initialized as NULL.
 #'
 #' @import utils
-#' @import stats
-#' @importFrom data.table transpose
 #'
-#' @return A normalized data frame with the x-variable (Cycle_No), ready for analysis
+#' @return A normalized data frame with an appended "Cycle_Number" attribute. The “Cycle_Number” attribute is the X-variable.
+#'
 #' @export
-#' @note This is the MAIN function and stands alone but is dependent on the subordinate functions. If the user understands what they are doing this is all they need.
-#' The user should use the user_specific_labels parameter for naming variables if they have an extreme unorthodox experimental setup.
 #'
-#' @seealso [normfluordbf()]
+#' @note This function is a single-step function leveraging several subordinate functions.
+#' It is assumed that the user has the 3 baseline parameters to get this function working.
+#' Users must double-check attribute names to ensure they end up with accurate results.
+#'
+#' @seealso [normfluordat()]
 #'
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
-#' n <- c('A','B','C')
-#' normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40, n, read_direction = 'vertical')
 #' #' normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40)
 
 normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL, norm_scale = NULL){

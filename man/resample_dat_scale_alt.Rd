@@ -2,26 +2,24 @@
 % Please edit documentation in R/resample_dat_scale_alt.R
 \name{resample_dat_scale_alt}
 \alias{resample_dat_scale_alt}
-\title{Title: A scaling up of the resample_dat() function}
+\title{Title: A function to create an attribute or column for each sample loaded into the microplate wells.}
 \usage{
 resample_dat_scale_alt(df, tnp, cycles)
 }
 \arguments{
-\item{df}{A clean data frame with n number of rows}
+\item{df}{A clean data frame with attributes or tuples containing a mixture of samples.}
 
-\item{tnp}{Stands for test,negative,positive (sample types); the number should match the number of sample types in the plate reader even if repeating a sample type}
+\item{tnp}{A numeric value indicating the number of rows used. TNP is used as an acronym for Test, Negative, Positive.}
 
-\item{cycles}{The number of cycles chosen by the researcher. In the case of this package 40 is the standard but ensure to have the right number of samples}
+\item{cycles}{A numeric value indicating the number of cycles selected by the user when running the FLUOstar instrument.}
 }
 \value{
-A new data frame with attributes matching the number of sample types and tuples matching the number of cycles. In short it returns delineated samples.
+A new data frame where separated samples are assigned a separate attribute or column.
 }
 \description{
-Performs the role of the prototype resample_dat() function but it is scaled up to work on all columns in longer-form data frame.
-}
-\note{
-This function is the pre-requisite to the parent or main function of the update.
-As a matter of fact, this function is modified to produce the parent or main function.
+A function that takes tuples or rows consisting of several samples and perform a
+putative resampling to yield another data frame with a separate attribute for each
+sample.
 }
 \examples{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
@@ -30,7 +28,7 @@ nocomma_dat <- clean_odd_cc(dat_df)
 resampled_scaled <- resample_dat_scale_alt(nocomma_dat, tnp=3, cycles=40)
 }
 \seealso{
-\code{\link[=resample_dat_scale_optimus]{resample_dat_scale_optimus()}}
+\code{\link[=resample_dat_alt]{resample_dat_alt()}}
 }
 \author{
 Tingwei Adeck

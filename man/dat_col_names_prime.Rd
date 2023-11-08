@@ -39,7 +39,7 @@ n = c('A','B','C')
 sample_col_names <- dat_col_names_prime(resampled_scaled, n)
 }
 \seealso{
-\code{\link[=normfluodat_base]{normfluodat_base()}}
+\code{\link[=normfluordat]{normfluordat()}}
 }
 \author{
 Tingwei Adeck

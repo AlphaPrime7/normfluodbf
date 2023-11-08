@@ -1,21 +1,20 @@
-#' Title: A function to extract sample types from the 120 tuples data cleaned data frame.
-#' @description
-#' Designed as a prototype function to take a single column from the cleaned dat data frame
-#' and return the n=3 sample types (n can be any number based on the number of sample types used) as separate attributes with n=40 tuples (n can vary based on the number of cycles ran)
-#' The function is well thought and accounts for almost any scenario.
+#' Title: A function to create an attribute or column for each sample loaded into the microplate wells.
+#'
+#' @description: Designed as a prototype function to take a single tuple or row
+#' consisting of several samples and perform a putative resampling to yield
+#' another data frame with a separate attribute for each sample.
 #'
 #' @author Tingwei Adeck
-#' @param df A clean data frame with n number of rows
-#' @param tnp Stands for test,negative,positive (sample types); the number should match the number of sample types in the plate reader even if repeating a sample type
-#' @param cycles The number of cycles chosen by the researcher. In the case of this package 40 is the standard but ensure to have the right number of samples
-#' @param samples_per_tnp An optional parameter thought to be useful but had no use based on the approach taken to solve this problem; Will be useful in future functions
 #'
+#' @param df A clean data frame with attributes or tuples containing a mixture of samples.
+#' @param tnp A numeric value indicating the number of rows used. TNP is used as an acronym for Test, Negative, Positive.
+#' @param cycles A numeric value indicating the number of cycles selected by the user when running the FLUOstar instrument.
 #'
+#' @return A new data frame where separated samples are assigned a separate attribute or column.
 #'
-#' @return A new data frame with attributes matching the number of sample types and tuples matching the number of cycles. In short it returns delineated samples.
 #' @export
-#' @note This function is a subordinate function and prototype that turned out very useful.
-#' @seealso [resample_dat()]
+#'
+#' @seealso [resample_dat_scale_alt()]
 #'
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
@@ -24,7 +23,7 @@
 #' col_1 <- as.data.frame(col_1)
 #' samples_delineated <- resample_dat_alt(col_1, tnp=3, cycles=40)
 
-resample_dat_alt <- function(df, tnp, cycles, samples_per_tnp=NULL){
+resample_dat_alt <- function(df, tnp, cycles){
 
   k <- c(1:ncol(df))
   type_size <- c(1:ncol(df))
@@ -40,7 +39,6 @@ resample_dat_alt <- function(df, tnp, cycles, samples_per_tnp=NULL){
     k <- k + increment_k
 
     colnames(resulting_df) <- NULL
-
   }
   return(resulting_df)
 }

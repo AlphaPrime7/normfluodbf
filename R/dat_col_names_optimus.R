@@ -17,7 +17,6 @@
 #' The user indicates “vertical” if the user intends to have a final data frame
 #' with samples arranged as sample type triplets (A1, B1, C1, A1, B1, C1)
 #' OR “horizontal” if the user intends to have a final data frame with samples
-#' arranged as clusters per sample type (A1, A2, A3, B1, B2, B3).
 #'
 #' @import stringr
 #'

@@ -1,9 +1,16 @@
 #' Title: Cleans and Normalizes ".dbf" files obtained from experiments using the FLUOstar microplate reader.
-#' @description
-#' Input the path to a ".dbf" file obtained from the FLUOstar microplate (usually a 96-well microplate) reader; this function will create a data frame, clean the data frame, normalize the data frame, append a "Cycle_Number" column and return a data frame that is ready for analysis.
-#' Most importantly, this function is a single_step function.
-#' Also, the function can be extended to other ".dbf" files if they follow the format for which this function was designed; this is totally at the users' discretion.
 #'
+#' @description
+#' Input the path to a ".dbf" file obtained from the FLUOstar microplate (usually a 96-well microplate) reader;
+#' this function will create a data frame, clean the data frame,
+#' normalize the data frame, append a "Cycle_Number" column and
+#' return a data frame that is ready for analysis.
+#' Most importantly, this function is a single_step function.
+#' Also, the function can be extended to other ".dbf" files if
+#' they follow the format for which this function was designed;
+#' this is totally at the users' discretion.
+#'
+#' @author Tingwei Adeck
 #'
 #' @param file A string ("liposomes_xxx.dbf") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dbf" file, from FLUOstar experiments.
 #' @param norm_scale This parameter can taken in 'hundred', 'one', or 'z-score' which denotes the normalization type; Initialized as NULL.
@@ -19,11 +26,12 @@
 #' @return A normalized data frame with an appended "Cycle_Number" attribute.
 #'
 #' @export
+#'
 #' @note Re-nomenclature of norm_tidy_dbf to a more appropriate name that facilitates function utilization. Users can continue with the old name ("norm_tidy_dbf") but this is a better name in my opinion.
 #'
 #' @examples
 #' fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
-#' normalized_dbf <- normfluordbf(file=fpath)
+#' normalized_dbf <- normfluordbf(file=fpath, norm_scale = 'raw')
 
 normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun = NA, ...){
 

@@ -19,7 +19,7 @@
 #'
 #' @export
 #'
-#' @seealso [normfluodat_base()]
+#' @seealso [normfluordat()]
 #'
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)

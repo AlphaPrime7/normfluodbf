@@ -1,9 +1,11 @@
 #' Title: Cleans and Normalizes DBF files obtained from experiments using the FLUOstar Omega microplate reader (from BMG LABTECH).
+#'
 #' @description
 #' The simplest function utilization scenario entails an input of the path to a DBF file obtained from the FLUOstar microplate (usually a 96-well microplate) reader;
 #' In a single step, this function will create a data frame, clean the data frame, normalize the data frame, append a "Cycle_Number" attribute,
 #' perform an adjustment to the “time” attribute and return a data frame that is ready for analysis.
-#' Since the initial publication of this package, several changes have been made to improve the user experience and to give the user more options to fine-tune the output from the package to meet the users’ aesthetic needs.
+#' Since the initial publication of this package, several changes have been made to improve the user experience and to give the user more options
+#' to fine-tune the output from the package to meet the users’ aesthetic needs.
 #' Users who decide to move past the simplest utility scenario have been given more options to customize the output based on the users’ needs.
 #' Notably, several normalization sub-parameters have been provided in the package which yields different outputs based on what the user is used to seeing.
 #' Just as the FLUOstar instrument is built to handle an array of assays,
@@ -11,6 +13,7 @@
 #' on the condition that the data from assay types other than liposome flux assays follow the same data format this package was designed to handle.
 #' Of course, users of this package are advised to pre-analyze DBF files from other assay types to ensure they are compliant with this package (compliance in this scenario is simple meaning DBF files from other assays should be like DBF files from liposome flux assays).
 #'
+#' @author Tingwei Adeck
 #'
 #' @param file A string ("liposomes_xxx.dbf") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dbf" file.
 #' @param norm_scale This parameter takes sub-parameters: 'raw’ , hundred’ , 'one’ , 'z-score' , or 'decimal’ , which denotes the normalization type or scale; The parameter is initialized as NULL.
