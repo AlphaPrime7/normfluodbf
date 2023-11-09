@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">normfluodbf</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.3.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +80,7 @@
     News
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdown--news">
-    <a class="dropdown-item" href="../news/index.html">Version 1.0 (Pre-release)</a>
+    <a class="dropdown-item" href="../news/index.html">Version 1.4.3.9000</a>
   </div>
 </li>
       </ul>
@@ -132,7 +132,7 @@
     
     
 <div class="section level2">
-<h2 id="accessing-test-files">Accessing test files<a class="anchor" aria-label="anchor" href="#accessing-test-files"></a>
+<h2 id="accessing-test-dbf-files">Accessing test DBF files<a class="anchor" aria-label="anchor" href="#accessing-test-dbf-files"></a>
 </h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#External files for use in testing the package.</span></span>
@@ -143,10 +143,28 @@
 <span></span>
 <span><span class="co">#Example</span></span>
 <span><span class="va">raw_dbf</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"liposomes_214.dbf"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span>, mustWork <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
 <span><span class="co">#pass the file through the function</span></span>
-<span><span class="fu">normfluodbf</span><span class="fu">::</span><span class="fu"><a href="../reference/norm_tidy_dbf.html">norm_tidy_dbf</a></span><span class="op">(</span><span class="va">raw_dbf</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">normfluodbf</span><span class="fu">::</span><span class="fu"><a href="../reference/norm_tidy_dbf.html">norm_tidy_dbf</a></span><span class="op">(</span><span class="va">raw_dbf</span>, norm_scale <span class="op">=</span> <span class="st">'z-score'</span><span class="op">)</span></span></code></pre></div>
 </div>
-  </main>
+<div class="section level2">
+<h2 id="accessing-test-dat-files">Accessing test DAT files<a class="anchor" aria-label="anchor" href="#accessing-test-dat-files"></a>
+</h2>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#External files for use in testing the package.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#Choose a single file to test the package</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="va">data_object</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span>, mustWork <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#Example</span></span>
+<span><span class="va">raw_dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dat_1.dat"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span>, mustWork <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#pass the file through the function</span></span>
+<span><span class="fu">normfluodbf</span><span class="fu">::</span><span class="fu"><a href="../reference/normfluodat.html">normfluodat</a></span><span class="op">(</span><span class="va">raw_dat</span>, tnp <span class="op">=</span> <span class="fl">3</span>, cycles <span class="op">=</span> <span class="fl">40</span>, norm_scale <span class="op">=</span> <span class="st">'hundred'</span><span class="op">)</span></span></code></pre></div>
+</div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 

@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
 ```
 
 ## Installing the package
-```{r setup, eval=FALSE}
+```{r setupinstall, eval=FALSE}
 # Install from Github
 install.packages("remotes") #if not present
 library(remotes)

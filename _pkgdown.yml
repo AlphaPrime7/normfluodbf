@@ -15,20 +15,20 @@ navbar:
   type: inverse
   left:
   - icon: fa-home
-    href: docs/articles/landing_redirect.html
+    href: articles/landing_redirect.html
     text: Get Started
   - icon: fa-question
     text: How To
     menu:
     - icon: fa-code
       text: Installation
-      href: docs/articles/install_redirect.html
+      href: articles/install_redirect.html
     - icon: fa-code
       text: Input
-      href: docs/articles/input_redirect.html
+      href: articles/input_redirect.html
     - icon: fa-code
       text: Output and Analysis
-      href: docs/articles/example_redirect.html
+      href: articles/example_redirect.html
   - icon: fa-newspaper
     text: News
     menu:

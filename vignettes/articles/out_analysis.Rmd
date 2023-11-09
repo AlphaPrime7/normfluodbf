@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
 
 ## Accessing test DBF files 
 
-```{r setup, eval=FALSE}
+```{r setupdbfviz, eval=FALSE}
 raw_dbf <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
 
 norm_dbf <- normfluodbf::norm_tidy_dbf(raw_dbf, norm_scale = 'z-score')
@@ -26,7 +26,7 @@ ggplot_tnp(norm_dbf,xvar,y_list=yvars,xlim=xl,ylim=yl)
 
 ## Accessing test DAT files 
 
-```{r setup, eval=FALSE}
+```{r setupdatviz, eval=FALSE}
 raw_dat <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 
 n <- c('A','B','C')

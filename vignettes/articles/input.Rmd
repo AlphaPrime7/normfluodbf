@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
 
 ## Accessing test DBF files
 
-```{r setup, eval=FALSE}
+```{r setupdbf, eval=FALSE}
 #External files for use in testing the package.
 dir(system.file("extdata", package = "normfluodbf"))
 
@@ -27,7 +27,7 @@ normfluodbf::norm_tidy_dbf(raw_dbf, norm_scale = 'z-score')
 
 ## Accessing test DAT files
 
-```{r setup, eval=FALSE}
+```{r setupdat, eval=FALSE}
 #External files for use in testing the package.
 dir(system.file("extdata", package = "normfluodbf"))
 
