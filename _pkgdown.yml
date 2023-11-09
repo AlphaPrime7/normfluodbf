@@ -11,28 +11,28 @@ template:
     fg: '#B8BCC2'
     primary: '#306cc9'
 navbar:
-  title: normfluodbf 1.1
+  title: normfluodbf 1.4.3.9000
   type: inverse
   left:
   - icon: fa-home
-    href: articles/landing_redirect.html
+    href: docs/articles/landing_redirect.html
     text: Get Started
   - icon: fa-question
     text: How To
     menu:
     - icon: fa-code
       text: Installation
-      href: articles/install_redirect.html
+      href: docs/articles/install_redirect.html
     - icon: fa-code
       text: Input
-      href: articles/input_redirect.html
+      href: docs/articles/input_redirect.html
     - icon: fa-code
       text: Output and Analysis
-      href: articles/example_redirect.html
+      href: docs/articles/example_redirect.html
   - icon: fa-newspaper
     text: News
     menu:
-    - text: Version 1.0 (Pre-release)
+    - text: Version 1.4.3.9000
       href: news/index.html
 
   structure:

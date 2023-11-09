@@ -2,7 +2,7 @@
 % Please edit documentation in R/normfluodat.R
 \name{normfluodat}
 \alias{normfluodat}
-\title{Title: Cleans normalizes DAT files obtained from experiments using the FLUOstar Omega microplate reader (from BMG LABTECH).}
+\title{Title: Cleans and normalizes DAT files obtained from experiments using the FLUOstar Omega microplate reader (from BMG LABTECH).}
 \usage{
 normfluodat(
   dat,

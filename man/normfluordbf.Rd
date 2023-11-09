@@ -2,7 +2,7 @@
 % Please edit documentation in R/normfluordbf.R
 \name{normfluordbf}
 \alias{normfluordbf}
-\title{Title: Cleans and Normalizes ".dbf" files obtained from experiments using the FLUOstar microplate reader.}
+\title{Title: Cleans and Normalizes DBF files obtained from experiments using the FLUOstar microplate reader.}
 \usage{
 normfluordbf(file = NULL, norm_scale = NULL, transformed = NULL, fun = NA, ...)
 }

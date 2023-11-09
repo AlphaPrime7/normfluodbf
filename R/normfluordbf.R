@@ -1,4 +1,4 @@
-#' Title: Cleans and Normalizes ".dbf" files obtained from experiments using the FLUOstar microplate reader.
+#' Title: Cleans and Normalizes DBF files obtained from experiments using the FLUOstar microplate reader.
 #'
 #' @description
 #' Input the path to a ".dbf" file obtained from the FLUOstar microplate (usually a 96-well microplate) reader;

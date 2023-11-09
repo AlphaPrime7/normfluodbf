@@ -5,8 +5,8 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Converts a FLUOstar .dbf file into a normalized data frame, ready for analysis.">
-<title>fluostar .dbf dirty data to a clean normalized data frame • normfluodbf</title>
+<meta name="description" content="Cleans and Normalizes FLUOstar DBF and DAT Files obtained from liposome flux assays. Users should verify extended usage of the package on files from other assay types.">
+<title>Cleans and Normalizes FLUOstar DBF and DAT Files. • normfluodbf</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -17,8 +17,8 @@
 <link href="deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="fluostar .dbf dirty data to a clean normalized data frame">
-<meta property="og:description" content="Converts a FLUOstar .dbf file into a normalized data frame, ready for analysis.">
+<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Cleans and Normalizes FLUOstar DBF and DAT Files.">
+<meta property="og:description" content="Cleans and Normalizes FLUOstar DBF and DAT Files obtained from liposome flux assays. Users should verify extended usage of the package on files from other assay types.">
 <meta property="og:image" content="https://alphaprime7.github.io/normfluodbf/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="index.html">normfluodbf</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.4.3.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,7 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item">
-  <a class="nav-link" href="articles/landing_redirect.html">
+  <a class="nav-link" href="docs/articles/landing_redirect.html">
     <span class="fa fa-home"></span>
      
     Get Started
@@ -56,17 +56,17 @@
     How To
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdown--how-to">
-    <a class="dropdown-item" href="articles/install_redirect.html">
+    <a class="dropdown-item" href="docs/articles/install_redirect.html">
       <span class="fa fa-code"></span>
        
       Installation
     </a>
-    <a class="dropdown-item" href="articles/input_redirect.html">
+    <a class="dropdown-item" href="docs/articles/input_redirect.html">
       <span class="fa fa-code"></span>
        
       Input
     </a>
-    <a class="dropdown-item" href="articles/example_redirect.html">
+    <a class="dropdown-item" href="docs/articles/example_redirect.html">
       <span class="fa fa-code"></span>
        
       Output and Analysis
@@ -80,7 +80,7 @@
     News
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdown--news">
-    <a class="dropdown-item" href="news/index.html">Version 1.0 (Pre-release)</a>
+    <a class="dropdown-item" href="news/index.html">Version 1.4.3.9000</a>
   </div>
 </li>
       </ul>
@@ -117,62 +117,1244 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9"><p>Tingwei Adeck August 22, 2023</p>
+  <main id="main" class="col-md-9"><p>Tingwei Adeck November 09, 2023</p>
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <div class="section level1">
 <div class="page-header">
 <img src="logo.png" class="logo" alt=""><h1 id="normfluodbf-">normfluodbf <a class="anchor" aria-label="anchor" href="#normfluodbf-"></a>
 </h1>
 </div>
-<p><a href="https://github.com/AlphaPrime7/normfluodbf/commits" class="external-link"><img src="https://www.repostatus.org/badges/latest/concept.svg" alt="Project status"></a> <a href="https://github.com/AlphaPrime7/normfluodbf/commits" class="external-link"><img src="https://www.repostatus.org/badges/latest/active.svg" alt="Project Status"></a> <a href="https://github.com/AlphaPrime7/normfluodbf/commits" class="external-link"><img src="https://www.repostatus.org/badges/latest/wip.svg" alt="Project Status"></a> <a href="https://lifecycle.r-lib.org/articles/stages.html" class="external-link"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="lifecycle"></a> <a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link"><img src="https://img.shields.io/badge/say-thanks-ff69b4.svg" alt="saythanks"></a> <a href="https://github.com/AlphaPrime7/normfluodbf/actions/workflows/test-coverage.yaml" class="external-link"><img src="https://github.com/AlphaPrime7/normfluodbf/actions/workflows/test-coverage.yaml/badge.svg" alt="test-coverage"></a> <a href="https://github.com/AlphaPrime7/normfluodbf/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/AlphaPrime7/normfluodbf/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="external-link"><img src="https://img.shields.io/badge/license-GPL--3-blue.svg" alt="license"></a> <a href="https://github.com/AlphaPrime7/normfluodbf/graphs/commit-activity" class="external-link"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintenance"></a></p>
-<p>The goal of <a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link"><code>{normfluodbf}</code></a> is to normalize fluorescence data obtained from liposome flux assay experiments via the FLUOstar micro plate reader. The Input file is a .dbf file that requires cleaning and normalization using <a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link"><code>{normfluodbf}</code></a>, before insightful analysis can be conducted. .</p>
+<p><a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link"><img src="https://badgen.net/badge/icon/github?icon=github&amp;label" alt="GitHub"></a> <a href="mailto:awesome.tingwei@outlook.com"><img src="https://img.shields.io/badge/Demandez%20moi-n'%20importe%20quoi-1abc9c.svg" alt="Demandez moi n’importe quoi !"></a> <a href="mailto:awesome.tingwei@outlook.com"><img src="https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg" alt="Ask Me Anything !"></a> <a href="https://www.rstudio.com/categories/rstudio-ide/" class="external-link"><img src="https://img.shields.io/badge/Made%20with-Rstudio-1f425f.svg" alt="made-with-R"></a> <a href="https://github.com/AlphaPrime7/normfluodbf/commits" class="external-link"><img src="https://www.repostatus.org/badges/latest/concept.svg" alt="Project status"></a> <a href="https://github.com/AlphaPrime7/normfluodbf/commits" class="external-link"><img src="https://www.repostatus.org/badges/latest/active.svg" alt="Project Status"></a> <a href="https://github.com/AlphaPrime7/normfluodbf_ShinyApp/graphs/contributors" class="external-link"><img src="https://www.repostatus.org/badges/latest/wip.svg" alt="Project Status"></a> <a href="https://lifecycle.r-lib.org/articles/stages.html" class="external-link"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="lifecycle"></a> <a href="https://makeapullrequest.com" class="external-link"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome"></a> <a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link"><img src="https://img.shields.io/badge/say-thanks-ff69b4.svg" alt="saythanks"></a> <a href="mailto:awesome.tingwei@outlook.com"><img src="https://img.shields.io/badge/THANK-YOU-ff69b4.svg" alt="THANK YOU"></a> <a href="https://github.com/AlphaPrime7/normfluodbf/actions/workflows/test-coverage.yaml" class="external-link"><img src="https://github.com/AlphaPrime7/normfluodbf/actions/workflows/test-coverage.yaml/badge.svg" alt="test-coverage"></a> <a href="https://github.com/AlphaPrime7/normfluodbf/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/AlphaPrime7/normfluodbf/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://github.com/AlphaPrime7/normfluodbf/actions/workflows/pages/pages-build-deployment" class="external-link"><img src="https://github.com/AlphaPrime7/normfluodbf/actions/workflows/pages/pages-build-deployment/badge.svg" alt="pages-build-deployment"></a> <a href="https://mit-license.org/" class="external-link"><img src="https://img.shields.io/badge/MIT-License?label=license" alt="license"></a> <a href="https://github.com/AlphaPrime7/normfluodbf/graphs/commit-activity" class="external-link"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintenance"></a> <a href="https://CRAN.R-project.org/package=normfluodbf" class="external-link"><img src="https://www.r-pkg.org/badges/version/normfluodbf" alt="CRAN status"></a> <a href="https://cran.r-project.org/package=normfluodbf" class="external-link"><img src="http://cranlogs.r-pkg.org/badges/grand-total/normfluodbf?color=yellow"></a> <a href="https://cran.r-project.org/package=normfluodbf" class="external-link"><img src="http://cranlogs.r-pkg.org/badges/last-month/normfluodbf?color=green"></a> <a href="https://cran.r-project.org/package=normfluodbf" class="external-link"><img src="http://cranlogs.r-pkg.org/badges/last-week/normfluodbf?color=yellow"></a> <a href="https://github.com/Naereen/badges" class="external-link"><img src="https://img.shields.io/badge/badges-awesome-green.svg" alt="Awesome Badges"></a></p>
+</div>
+<div class="section level1">
+<h1 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h1>
+<p><a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link"><code>{normfluodbf}</code></a> is used to clean and normalize DBF and DAT files obtained from liposome flux assay experiments performed with the FLUOstar microplate reader. The expectation is this package is not limited to this assay type but other assay types performed with the same instrument. The final data frames obtained from this package are ready for insightful data analysis and for the creation of amazing visuals (using ggplot2) that help in making scientific deductions or making presentations to project stakeholders. This project firmly represents my core belief in the public dissemination of scientific information. My convictions on this idea of public dissemination were driven by the book “What Mad Pursuit” by Francis Crick. Visit <a href="https://alphaprime7.github.io/normfluodbf/articles/normfluodbf.html"><code>{my page}</code></a> for details on the concept behind the project.</p>
+<p><img src="reference/figures/navab.png" align="center" width="540"></p>
+</div>
+<div class="section level1">
+<h1 id="id_-installation">↓ Installation<a class="anchor" aria-label="anchor" href="#id_-installation"></a>
+</h1>
 <div class="section level2">
-<h2 id="id_-installation">↓ Installation<a class="anchor" aria-label="anchor" href="#id_-installation"></a>
+<h2 id="developmental-version">Developmental Version<a class="anchor" aria-label="anchor" href="#developmental-version"></a>
 </h2>
 <p>The development version of <a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link"><code>{normfluodbf}</code></a> can be installed as illustrated below:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"AlphaPrime7/normfluodbf"</span><span class="op">)</span></span>
-<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="http://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"AlphaPrime7/normfluodbf"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">#Once the package makes CRAN</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"normfluodbf"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"AlphaPrime7/normfluodbf"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"AlphaPrime7/normfluodbf"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"AlphaPrime7/normfluodbf"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="cran-version">CRAN Version<a class="anchor" aria-label="anchor" href="#cran-version"></a>
+</h2>
+<p>The CRAN version of <a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link"><code>{normfluodbf}</code></a> can be installed as illustrated below:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"normfluodbf"</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link">normfluodbf</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
-</h2>
-<p>This is a basic example which illustrates package usage:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link">normfluodbf</a></span><span class="op">)</span></span>
-<span><span class="va">liposomes_214</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"liposomes_214.dbf"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span><span class="op">)</span></span>
-<span><span class="va">normalized_data</span> <span class="op">&lt;-</span> <span class="fu">normfluodbf</span><span class="op">(</span><span class="va">liposomes_214</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="r-packages-imported">R packages Imported<a class="anchor" aria-label="anchor" href="#r-packages-imported"></a>
+<h2 id="local-installation">Local Installation<a class="anchor" aria-label="anchor" href="#local-installation"></a>
 </h2>
 <ul>
-<li>tidyr</li>
-<li>data.table</li>
-<li>foreign</li>
-<li>tibble</li>
+<li>Visit the <a href="https://github.com/AlphaPrime7/normfluodbf_builds" class="external-link"><code>{normfluodbf_builds}</code></a> to download the zip files into your desired directory.</li>
+<li>This repository will be updated with the latest accepted CRAN version when possible.</li>
 </ul>
-<p>Vist <a href="https://alphaprime7.github.io/normfluodbf/articles/normfluodbf.html"><code>{my page}</code></a> for details on the concept behind the project.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"normfluodbf_1.4.3.9000.tar.gz"</span>, repos <span class="op">=</span> <span class="cn">NULL</span>, type <span class="op">=</span> <span class="st">"source"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://devtools.r-lib.org/" class="external-link">devtools</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_local.html" class="external-link">install_local</a></span><span class="op">(</span><span class="st">"normfluodbf_1.4.3.9000.tar.gz"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org" class="external-link">remotes</a></span><span class="op">)</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_local.html" class="external-link">install_local</a></span><span class="op">(</span><span class="st">"normfluodbf_1.4.3.9000.tar.gz"</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level1">
+<h1 id="use-scenarios">Use Scenarios<a class="anchor" aria-label="anchor" href="#use-scenarios"></a>
+</h1>
+<div class="section level2">
+<h2 id="dbf-files-case-study-">DBF Files Case-Study <img src="reference/figures/dbf.png" align="right" width="40"><a class="anchor" aria-label="anchor" href="#dbf-files-case-study-"></a>
+</h2>
+<ul>
+<li>Here examples are presented on how this package handles DBF files.</li>
+</ul>
+<div class="section level3">
+<h3 id="backward-compatible-function">Backward Compatible Function<a class="anchor" aria-label="anchor" href="#backward-compatible-function"></a>
+</h3>
+<ul>
+<li>This methodology is grandfathered for initial adopters of normfluodbf.</li>
+<li>Package illustration with DBF files:</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#library(normfluodbf)</span></span>
+<span><span class="va">liposomes_214</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"liposomes_214.dbf"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span><span class="op">)</span></span>
+<span><span class="va">normalized_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/norm_tidy_dbf.html">norm_tidy_dbf</a></span><span class="op">(</span><span class="va">liposomes_214</span>, norm_scale <span class="op">=</span> <span class="st">'hundred'</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="new-function">New Function<a class="anchor" aria-label="anchor" href="#new-function"></a>
+</h3>
+<ul>
+<li>This next methodology provides easier syntax and I prefer this function name over the function name above.</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link">normfluodbf</a></span><span class="op">)</span></span>
+<span><span class="va">liposomes_214</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"liposomes_214.dbf"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span><span class="op">)</span></span>
+<span><span class="va">normalized_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/normfluordbf.html">normfluordbf</a></span><span class="op">(</span><span class="va">liposomes_214</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="advanced-features-illustration">Advanced Features Illustration<a class="anchor" aria-label="anchor" href="#advanced-features-illustration"></a>
+</h3>
+<ul>
+<li>The next section elaborates on the new features added for handling DBF files.</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="dbf-normalization-procedures">DBF Normalization Procedures<a class="anchor" aria-label="anchor" href="#dbf-normalization-procedures"></a>
+</h3>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link">normfluodbf</a></span><span class="op">)</span></span>
+<span><span class="va">liposomes_214</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"liposomes_214.dbf"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span><span class="op">)</span></span>
+<span><span class="va">normalized_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/norm_tidy_dbf.html">norm_tidy_dbf</a></span><span class="op">(</span><span class="va">liposomes_214</span>, norm_scale <span class="op">=</span> <span class="st">'one'</span><span class="op">)</span></span>
+<span><span class="va">normalized_data100</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/norm_tidy_dbf.html">norm_tidy_dbf</a></span><span class="op">(</span><span class="va">liposomes_214</span>, norm_scale <span class="op">=</span> <span class="st">'hundred'</span><span class="op">)</span></span>
+<span><span class="va">normalized_dataz</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/norm_tidy_dbf.html">norm_tidy_dbf</a></span><span class="op">(</span><span class="va">liposomes_214</span>, norm_scale <span class="op">=</span> <span class="st">'z-score'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># The user can add a transformation parameter</span></span>
+<span><span class="va">normalized_datazt</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/norm_tidy_dbf.html">norm_tidy_dbf</a></span><span class="op">(</span><span class="va">liposomes_214</span>, norm_scale <span class="op">=</span> <span class="st">'z-score'</span>, transformed <span class="op">=</span> <span class="st">'log'</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link">normfluodbf</a></span><span class="op">)</span></span>
+<span><span class="va">liposomes_214</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"liposomes_214.dbf"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span><span class="op">)</span></span>
+<span><span class="va">normalized_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/normfluordbf.html">normfluordbf</a></span><span class="op">(</span><span class="va">liposomes_214</span>, norm_scale <span class="op">=</span> <span class="st">'one'</span><span class="op">)</span></span>
+<span><span class="va">normalized_data100</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/normfluordbf.html">normfluordbf</a></span><span class="op">(</span><span class="va">liposomes_214</span>, norm_scale <span class="op">=</span> <span class="st">'hundred'</span><span class="op">)</span></span>
+<span><span class="va">normalized_dataz</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/normfluordbf.html">normfluordbf</a></span><span class="op">(</span><span class="va">liposomes_214</span>, norm_scale <span class="op">=</span> <span class="st">'z-score'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># The user can add a transformation parameter</span></span>
+<span><span class="va">normalized_datazt</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/normfluordbf.html">normfluordbf</a></span><span class="op">(</span><span class="va">liposomes_214</span>, norm_scale <span class="op">=</span> <span class="st">'z-score'</span>, transformed <span class="op">=</span> <span class="st">'log'</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="dat-files-case-study-">DAT Files Case-Study <img src="reference/figures/dat.png" align="right" width="40"><a class="anchor" aria-label="anchor" href="#dat-files-case-study-"></a>
+</h2>
+<div class="section level3">
+<h3 id="advanced-function">Advanced Function<a class="anchor" aria-label="anchor" href="#advanced-function"></a>
+</h3>
+<ul>
+<li>This methodology was provided as a minor update in normfluodbf 1.4.3.9000.</li>
+<li>This update was significantly bigger than expected and should have been a major update but by definition when backward compatibility is maintained with the previous version, it should be considered a minor update.</li>
+<li>These three parameters are a MUST for this function to work.</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link">normfluodbf</a></span><span class="op">)</span></span>
+<span><span class="va">dat1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dat_1.dat"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span><span class="op">)</span></span>
+<span><span class="va">normalized_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/normfluodat.html">normfluodat</a></span><span class="op">(</span><span class="va">dat1</span>, tnp <span class="op">=</span> <span class="fl">3</span>, cycles <span class="op">=</span> <span class="fl">40</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="base-function">Base Function<a class="anchor" aria-label="anchor" href="#base-function"></a>
+</h3>
+<ul>
+<li>This next methodology is the base version of the function above. This methodology has less features than the function above.</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link">normfluodbf</a></span><span class="op">)</span></span>
+<span><span class="va">dat2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dat_2.dat"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span><span class="op">)</span></span>
+<span><span class="va">normalized_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/normfluordat.html">normfluordat</a></span><span class="op">(</span><span class="va">dat2</span>, tnp <span class="op">=</span> <span class="fl">3</span>, cycles <span class="op">=</span> <span class="fl">40</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>Please note that the examples above indicate the simplest scenarios as these functions have more features than presented in here.</li>
+</ul>
+</div>
+<div class="section level3">
+<h3 id="dat-advanced-procedures">DAT Advanced Procedures<a class="anchor" aria-label="anchor" href="#dat-advanced-procedures"></a>
+</h3>
+<ul>
+<li>The next sections elaborate on the built-in features for handling DAT files.</li>
+</ul>
+<div class="section level4">
+<h4 id="using-the-rows_used-parameter">Using The rows_used parameter<a class="anchor" aria-label="anchor" href="#using-the-rows_used-parameter"></a>
+</h4>
+<ul>
+<li>This parameter is used alone when the user loaded samples from column 1 and in sequence.</li>
+<li>The default read direction is vertical.</li>
+<li>If the cols_used parameter is not provided, the program will assume the user loaded from column 1 and did so in sequence. Attribute names will be added to the final data frame based on this assumption.</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link">normfluodbf</a></span><span class="op">)</span></span>
+<span><span class="va">dat2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dat_2.dat"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span><span class="op">)</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'C'</span><span class="op">)</span></span>
+<span><span class="va">normalized_data16</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/normfluodat.html">normfluodat</a></span><span class="op">(</span><span class="va">dat2</span>, tnp <span class="op">=</span> <span class="fl">3</span>, cycles <span class="op">=</span> <span class="fl">40</span>, <span class="va">n</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li>Pay attention to the illustrations below. The setup below represents a standard experimental setup.</li>
+</ul>
+<table class="table">
+<colgroup>
+<col width="22%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Sample_Type (TNP)</th>
+<th align="left">96</th>
+<th align="left">1</th>
+<th align="left">2</th>
+<th align="left">3</th>
+<th align="left">4</th>
+<th align="left">5</th>
+<th align="left">6</th>
+<th align="left">7</th>
+<th align="left">8</th>
+<th align="left">9</th>
+<th align="left">10</th>
+<th align="left">11</th>
+<th align="left">12</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Test</td>
+<td align="left">A</td>
+<td align="left">X1</td>
+<td align="left">X2</td>
+<td align="left">X3</td>
+<td align="left">X4</td>
+<td align="left">X5</td>
+<td align="left">X6</td>
+<td align="left">X7</td>
+<td align="left">X8</td>
+<td align="left">X9</td>
+<td align="left">X10</td>
+<td align="left">X11</td>
+<td align="left">X12</td>
+</tr>
+<tr class="even">
+<td align="left">Negative</td>
+<td align="left">B</td>
+<td align="left">X13</td>
+<td align="left">X14</td>
+<td align="left">X15</td>
+<td align="left">X16</td>
+<td align="left">X17</td>
+<td align="left">X18</td>
+<td align="left">X19</td>
+<td align="left">X20</td>
+<td align="left">X21</td>
+<td align="left">X22</td>
+<td align="left">X23</td>
+<td align="left">X24</td>
+</tr>
+<tr class="odd">
+<td align="left">Positive</td>
+<td align="left">C</td>
+<td align="left">X25</td>
+<td align="left">X26</td>
+<td align="left">X27</td>
+<td align="left">X28</td>
+<td align="left">X29</td>
+<td align="left">X30</td>
+<td align="left">X31</td>
+<td align="left">X32</td>
+<td align="left">X33</td>
+<td align="left">X34</td>
+<td align="left">X35</td>
+<td align="left">X36</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">D</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">E</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">F</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">G</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">H</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The default or vertical read direction means the final data frame is presented in the format below.</li>
+</ul>
+<table class="table">
+<thead><tr class="header">
+<th align="left">A1 (Test)</th>
+<th align="left">B1 (Negative)</th>
+<th align="left">C1 (Positive)</th>
+<th align="left">Cycle_No</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">A1</td>
+<td align="left">B1</td>
+<td align="left">C1</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="left">A1</td>
+<td align="left">B1</td>
+<td align="left">C1</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">A1</td>
+<td align="left">B1</td>
+<td align="left">C1</td>
+<td align="left">3</td>
+</tr>
+<tr class="even">
+<td align="left">A1</td>
+<td align="left">B1</td>
+<td align="left">C1</td>
+<td align="left">4</td>
+</tr>
+<tr class="odd">
+<td align="left">A1</td>
+<td align="left">B1</td>
+<td align="left">C1</td>
+<td align="left">5</td>
+</tr>
+<tr class="even">
+<td align="left">A1</td>
+<td align="left">B1</td>
+<td align="left">C1</td>
+<td align="left">6</td>
+</tr>
+<tr class="odd">
+<td align="left">A1</td>
+<td align="left">B1</td>
+<td align="left">C1</td>
+<td align="left">…38</td>
+</tr>
+<tr class="even">
+<td align="left">A1</td>
+<td align="left">B1</td>
+<td align="left">C1</td>
+<td align="left">…39</td>
+</tr>
+<tr class="odd">
+<td align="left">A1</td>
+<td align="left">B1</td>
+<td align="left">C1</td>
+<td align="left">…40</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level4">
+<h4 id="using-the-rows_used-and-cols_used-parameter">Using The rows_used and cols_used parameter<a class="anchor" aria-label="anchor" href="#using-the-rows_used-and-cols_used-parameter"></a>
+</h4>
+<ul>
+<li>The cols_used parameter is only used when the rows_used parameter is used.</li>
+<li>The cols_used parameter is especially relevant when the user DOES NOT lead samples from column 1.</li>
+<li>The default read direction is vertical as indicated earlier.</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link">normfluodbf</a></span><span class="op">)</span></span>
+<span><span class="va">dat2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dat_2.dat"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span><span class="op">)</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'C'</span><span class="op">)</span></span>
+<span><span class="va">c</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span><span class="op">)</span></span>
+<span><span class="va">normalized_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/normfluodat.html">normfluodat</a></span><span class="op">(</span><span class="va">dat2</span>, tnp <span class="op">=</span> <span class="fl">3</span>, cycles <span class="op">=</span> <span class="fl">40</span>, rows_used<span class="op">=</span><span class="va">n</span>, cols_used<span class="op">=</span><span class="va">c</span><span class="op">)</span></span></code></pre></div>
+<table class="table">
+<thead><tr class="header">
+<th align="left">A5 (Test)</th>
+<th align="left">B5 (Negative)</th>
+<th align="left">C5 (Positive)</th>
+<th align="left">Cycle_No</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">A5</td>
+<td align="left">B5</td>
+<td align="left">C6</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="left">A5</td>
+<td align="left">B5</td>
+<td align="left">C6</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">A5</td>
+<td align="left">B5</td>
+<td align="left">C6</td>
+<td align="left">3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level4">
+<h4 id="using-the-user_specific_labels-parameter">Using The user_specific_labels parameter<a class="anchor" aria-label="anchor" href="#using-the-user_specific_labels-parameter"></a>
+</h4>
+<ul>
+<li>If the user provides the user_specific_labels parameter then they CANNOT use the rows_used and cols_used parameter together OR the rows_used parameter alone. It is a trade-off where the user either lets the program generate column names for them or the user decides to take CONTROL and do it themselves.</li>
+<li>This user_specific_labels parameter is a proactive move from the user if the user had a complicated experimental setup that can lead to wrong attribute names.</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link">normfluodbf</a></span><span class="op">)</span></span>
+<span><span class="va">dat2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dat_2.dat"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span><span class="op">)</span></span>
+<span><span class="va">manual_cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'A1'</span>,<span class="st">'B1'</span>,<span class="st">'C1'</span><span class="op">)</span></span>
+<span><span class="va">normalized_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/normfluodat.html">normfluodat</a></span><span class="op">(</span><span class="va">dat2</span>, tnp <span class="op">=</span> <span class="fl">3</span>, cycles <span class="op">=</span> <span class="fl">40</span>, user_specific_labels <span class="op">=</span> <span class="va">manual_cols</span><span class="op">)</span></span></code></pre></div>
+<ul>
+<li><p>Hypothetically, if the user uses the rows and columns indicated in the examples in <a href="#Using%20The%20rows_used%20and%20cols_used%20parameter">Using The rows_used and cols_used parameter</a> but skips some wells, then the user can simply go ahead and use the user_specific_labels to add the correct column names for the final data frame.</p></li>
+<li><p>However, if the scenario above occurs where the user indicates 9 wells should be used but the program detects fewer than 9 samples, then the program will inform the user and ask the user to choose from a list of column names. Illustration below:</p></li>
+</ul>
+<table class="table">
+<colgroup>
+<col width="22%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Sample_Type (TNP)</th>
+<th align="left">96</th>
+<th align="left">1</th>
+<th align="left">2</th>
+<th align="left">3</th>
+<th align="left">4</th>
+<th align="left">5</th>
+<th align="left">6</th>
+<th align="left">7</th>
+<th align="left">8</th>
+<th align="left">9</th>
+<th align="left">10</th>
+<th align="left">11</th>
+<th align="left">12</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Test</td>
+<td align="left">A</td>
+<td align="left">X1</td>
+<td align="left"></td>
+<td align="left">X3</td>
+<td align="left">X4</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Negative</td>
+<td align="left">B</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Positive</td>
+<td align="left">C</td>
+<td align="left">X25</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">X28</td>
+<td align="left">X29</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">D</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">E</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">F</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level4">
+<h4 id="using-the-read_direction-parameter">Using The read_direction parameter<a class="anchor" aria-label="anchor" href="#using-the-read_direction-parameter"></a>
+</h4>
+<ul>
+<li>As indicated in all the previous examples, the default read direction is vertical and I have provided illustrations in the form of tables that shows the expected outcome.</li>
+<li>The read_direction can be indicated explicitly as vertical or left as NULL but must be indicated explicitly as horizontal to obtain a different outcome.</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link">normfluodbf</a></span><span class="op">)</span></span>
+<span><span class="va">dat2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dat_2.dat"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span><span class="op">)</span></span>
+<span><span class="va">manual_cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'A1'</span>,<span class="st">'B1'</span>,<span class="st">'C1'</span><span class="op">)</span></span>
+<span><span class="va">normalized_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/normfluodat.html">normfluodat</a></span><span class="op">(</span><span class="va">dat2</span>, tnp <span class="op">=</span> <span class="fl">3</span>, cycles <span class="op">=</span> <span class="fl">40</span>, <span class="va">n</span>, read_direction <span class="op">=</span> <span class="st">'horizontal'</span><span class="op">)</span></span></code></pre></div>
+<table class="table">
+<colgroup>
+<col width="22%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Sample_Type (TNP)</th>
+<th align="left">96</th>
+<th align="left">1</th>
+<th align="left">2</th>
+<th align="left">3</th>
+<th align="left">4</th>
+<th align="left">5</th>
+<th align="left">6</th>
+<th align="left">7</th>
+<th align="left">8</th>
+<th align="left">9</th>
+<th align="left">10</th>
+<th align="left">11</th>
+<th align="left">12</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Test</td>
+<td align="left">A</td>
+<td align="left">X1</td>
+<td align="left">X2</td>
+<td align="left">X3</td>
+<td align="left">X4</td>
+<td align="left">X5</td>
+<td align="left">X6</td>
+<td align="left">X7</td>
+<td align="left">X8</td>
+<td align="left">X9</td>
+<td align="left">X10</td>
+<td align="left">X11</td>
+<td align="left">X12</td>
+</tr>
+<tr class="even">
+<td align="left">Negative</td>
+<td align="left">B</td>
+<td align="left">X13</td>
+<td align="left">X14</td>
+<td align="left">X15</td>
+<td align="left">X16</td>
+<td align="left">X17</td>
+<td align="left">X18</td>
+<td align="left">X19</td>
+<td align="left">X20</td>
+<td align="left">X21</td>
+<td align="left">X22</td>
+<td align="left">X23</td>
+<td align="left">X24</td>
+</tr>
+<tr class="odd">
+<td align="left">Positive</td>
+<td align="left">C</td>
+<td align="left">X25</td>
+<td align="left">X26</td>
+<td align="left">X27</td>
+<td align="left">X28</td>
+<td align="left">X29</td>
+<td align="left">X30</td>
+<td align="left">X31</td>
+<td align="left">X32</td>
+<td align="left">X33</td>
+<td align="left">X34</td>
+<td align="left">X35</td>
+<td align="left">X36</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">D</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">E</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">F</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">G</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">H</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The horizontal read direction means the final data frame is presented in the format below.</li>
+</ul>
+<table class="table">
+<thead><tr class="header">
+<th align="left">A1 (Test)</th>
+<th align="left">A2 (Test)</th>
+<th align="left">A3 (Test)</th>
+<th align="left">Cycle_No</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">A1</td>
+<td align="left">A2</td>
+<td align="left">A3</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="left">A1</td>
+<td align="left">A2</td>
+<td align="left">A3</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">A1</td>
+<td align="left">A2</td>
+<td align="left">A3</td>
+<td align="left">3</td>
+</tr>
+<tr class="even">
+<td align="left">A1</td>
+<td align="left">A2</td>
+<td align="left">A3</td>
+<td align="left">4</td>
+</tr>
+<tr class="odd">
+<td align="left">A1</td>
+<td align="left">A2</td>
+<td align="left">A3</td>
+<td align="left">5</td>
+</tr>
+<tr class="even">
+<td align="left">A1</td>
+<td align="left">A2</td>
+<td align="left">A3</td>
+<td align="left">6</td>
+</tr>
+<tr class="odd">
+<td align="left">A1</td>
+<td align="left">A2</td>
+<td align="left">A3</td>
+<td align="left">…38</td>
+</tr>
+<tr class="even">
+<td align="left">A1</td>
+<td align="left">A2</td>
+<td align="left">A3</td>
+<td align="left">…39</td>
+</tr>
+<tr class="odd">
+<td align="left">A1</td>
+<td align="left">A2</td>
+<td align="left">A3</td>
+<td align="left">…40</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level4">
+<h4 id="using-the-norm_scale-parameter">Using The norm_scale parameter<a class="anchor" aria-label="anchor" href="#using-the-norm_scale-parameter"></a>
+</h4>
+<ul>
+<li>Just like the DBF procedure, I have provided a few options for normalization scales.</li>
+<li>My favorite is the z-score scale as it provides more clarity in thinking about the results.</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link">normfluodbf</a></span><span class="op">)</span></span>
+<span><span class="va">dat2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dat_2.dat"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span><span class="op">)</span></span>
+<span><span class="va">manual_cols</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'A1'</span>,<span class="st">'B1'</span>,<span class="st">'C1'</span><span class="op">)</span></span>
+<span><span class="va">normalized_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/normfluodat.html">normfluodat</a></span><span class="op">(</span><span class="va">dat2</span>, tnp <span class="op">=</span> <span class="fl">3</span>, cycles <span class="op">=</span> <span class="fl">40</span>, <span class="va">n</span>, read_direction <span class="op">=</span> <span class="st">'horizontal'</span>, norm_scale <span class="op">=</span> <span class="st">'hundred'</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="the-non-standard-experimental-setup">The Non-standard Experimental Setup<a class="anchor" aria-label="anchor" href="#the-non-standard-experimental-setup"></a>
+</h2>
+<ul>
+<li>Below is a look at the non-standard experimental setup.</li>
+</ul>
+<table class="table">
+<colgroup>
+<col width="14%">
+<col width="5%">
+<col width="6%">
+<col width="11%">
+<col width="11%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+<col width="5%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Sample_Type</th>
+<th align="left">96</th>
+<th align="left">Test</th>
+<th align="left">Negative</th>
+<th align="left">Positive</th>
+<th align="left">4</th>
+<th align="left">5</th>
+<th align="left">6</th>
+<th align="left">7</th>
+<th align="left">8</th>
+<th align="left">9</th>
+<th align="left">10</th>
+<th align="left">11</th>
+<th align="left">12</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">A</td>
+<td align="left">X1</td>
+<td align="left">X2</td>
+<td align="left">X3</td>
+<td align="left">X4</td>
+<td align="left">X5</td>
+<td align="left">X6</td>
+<td align="left">X7</td>
+<td align="left">X8</td>
+<td align="left">X9</td>
+<td align="left">X10</td>
+<td align="left">X11</td>
+<td align="left">X12</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">B</td>
+<td align="left">X13</td>
+<td align="left">X14</td>
+<td align="left">X15</td>
+<td align="left">X16</td>
+<td align="left">X17</td>
+<td align="left">X18</td>
+<td align="left">X19</td>
+<td align="left">X20</td>
+<td align="left">X21</td>
+<td align="left">X22</td>
+<td align="left">X23</td>
+<td align="left">X24</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">C</td>
+<td align="left">X25</td>
+<td align="left">X26</td>
+<td align="left">X27</td>
+<td align="left">X28</td>
+<td align="left">X29</td>
+<td align="left">X30</td>
+<td align="left">X31</td>
+<td align="left">X32</td>
+<td align="left">X33</td>
+<td align="left">X34</td>
+<td align="left">X35</td>
+<td align="left">X36</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">D</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">E</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">F</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">G</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">H</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Below we take a look at what the machine sees.</li>
+</ul>
+<table class="table">
+<thead><tr class="header">
+<th align="left">Sample_Type</th>
+<th align="left">Cycle_No</th>
+<th align="left">Machine_data_verbose</th>
+<th align="left">machine_data_numeric</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Test-1</td>
+<td align="left">1</td>
+<td align="left">A1</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="left">Test-2</td>
+<td align="left">1</td>
+<td align="left">B1</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">Test-3</td>
+<td align="left">1</td>
+<td align="left">C1</td>
+<td align="left">3</td>
+</tr>
+<tr class="even">
+<td align="left">Test-1</td>
+<td align="left">2</td>
+<td align="left">A1</td>
+<td align="left">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Test-2</td>
+<td align="left">2</td>
+<td align="left">B1</td>
+<td align="left">5</td>
+</tr>
+<tr class="even">
+<td align="left">Test-3</td>
+<td align="left">2</td>
+<td align="left">C1</td>
+<td align="left">6</td>
+</tr>
+<tr class="odd">
+<td align="left">Test-1</td>
+<td align="left">40</td>
+<td align="left">A1</td>
+<td align="left">…118</td>
+</tr>
+<tr class="even">
+<td align="left">Test-2</td>
+<td align="left">40</td>
+<td align="left">B1</td>
+<td align="left">…119</td>
+</tr>
+<tr class="odd">
+<td align="left">Test-3</td>
+<td align="left">40</td>
+<td align="left">C1</td>
+<td align="left">…120</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>A keen observation below is that the vertical read direction in the program or package yields a final data frame that conceptually looks like the horizontal read direction with the test samples clustered as in the illustration below.</li>
+<li>Using the non-standard setup simply affects attribute naming conventions otherwise everything should be fine.</li>
+</ul>
+<table class="table">
+<thead><tr class="header">
+<th align="left">A1 (Test-1)</th>
+<th align="left">B1 (Test-2)</th>
+<th align="left">C1 (Test-3)</th>
+<th align="left">Cycle_No</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">A1</td>
+<td align="left">B1</td>
+<td align="left">C1</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="left">A1</td>
+<td align="left">B1</td>
+<td align="left">C1</td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">A1</td>
+<td align="left">B1</td>
+<td align="left">C1</td>
+<td align="left">3</td>
+</tr>
+<tr class="even">
+<td align="left">A1</td>
+<td align="left">B1</td>
+<td align="left">C1</td>
+<td align="left">4</td>
+</tr>
+<tr class="odd">
+<td align="left">A1</td>
+<td align="left">B1</td>
+<td align="left">C1</td>
+<td align="left">5</td>
+</tr>
+<tr class="even">
+<td align="left">A1</td>
+<td align="left">B1</td>
+<td align="left">C1</td>
+<td align="left">6</td>
+</tr>
+<tr class="odd">
+<td align="left">A1</td>
+<td align="left">B1</td>
+<td align="left">C1</td>
+<td align="left">…38</td>
+</tr>
+<tr class="even">
+<td align="left">A1</td>
+<td align="left">B1</td>
+<td align="left">C1</td>
+<td align="left">…39</td>
+</tr>
+<tr class="odd">
+<td align="left">A1</td>
+<td align="left">B1</td>
+<td align="left">C1</td>
+<td align="left">…40</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Below is just a quick illustration of the non-standard setup. This setup does not change anything about the algorithms but simply showcases how naming conventions will reverse if the experimenter deviates from the commonly used path.</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="fail-safe-dat-procedure">Fail Safe DAT Procedure<a class="anchor" aria-label="anchor" href="#fail-safe-dat-procedure"></a>
+</h2>
+<ul>
+<li>As indicated earlier, the code chunk below is the simplest use case for this function.</li>
+<li>AHOI, the user gets a data frame with the samples perfectly separated but with NO attribute names.</li>
+<li>Very important to mention this point twice.</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link">normfluodbf</a></span><span class="op">)</span></span>
+<span><span class="va">dat1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dat_1.dat"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span><span class="op">)</span></span>
+<span><span class="va">normalized_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/normfluodat.html">normfluodat</a></span><span class="op">(</span><span class="va">dat1</span>, tnp <span class="op">=</span> <span class="fl">3</span>, cycles <span class="op">=</span> <span class="fl">40</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="quality-control-qc">Quality Control (QC)<a class="anchor" aria-label="anchor" href="#quality-control-qc"></a>
+</h2>
+<ul>
+<li><p>Experimental issues should be investigated at very high or very low fluorescence values.</p></li>
+<li><p>The most common experimental issues arise when ACMA concentrations are out of the tolerated range. Based on my experience, ACMA concentrations between 2 and 5 Micromolar will suffice to get fluorescence values within the tolerance threshold.</p></li>
+<li><p>ACMA concentrations as low as 0.2 Micromolar or as high as 20 Micromolar have proven problematic based on my research experience. These ACMA concentrations have proven NOISY and provide the basis for determining the noise-signal regions.</p></li>
+<li><p>Another issue linked to the FLUOstar instrument revolves around setting the right “gain” to ensure the right level of sensitivity in machine readings. A very high “gain” setting results in increased machine sensitivity even at the right ACMA concentrations and vice versa. In short, we want the machine to be primed to read exactly what we feed it, no more, no less.</p></li>
+<li><p>This program boasts of a quality control function to help new researchers avoid pitfalls that can mar their experience performing experiments.</p></li>
+<li><p>Within this package, a QC function is designed to check that fluorescence values do not exceed the upper limit (2^15 or 32768) OR fall below the lower limit (2^11 or 2048). Fluorescence values that exceed these thresholds are considered noisy and can lead to incorrect interpretation of analysis results.</p></li>
+<li><p>The images presented below represent results obtained when experiments are conducted within the noise region. The X-axis is actually “Cycle_No” but seemed to have been mislabeled due to the tedious nature of my previous coding approach.</p></li>
+</ul>
+<p><img src="reference/figures/noise02.png" align="left" width="320"><img src="reference/figures/noise20.png" align="right" width="333"></p>
+</div>
+<div class="section level2">
+<h2 id="visualization">Visualization<a class="anchor" aria-label="anchor" href="#visualization"></a>
+</h2>
+<ul>
+<li>This time around, the package has a visualization function that is build on ggplot2.</li>
+<li>Users can expect to get some amazing visualizations using this function.</li>
+<li>Here are some visualizations from my seminar on this topic. These were done with base R and the images represent the results obtained when experiments are conducted within the signal region.</li>
+</ul>
+<p><img src="reference/figures/tnp3.png" align="left" width="320"><img src="reference/figures/tnp5.png" align="right" width="320"></p>
+</div>
+<div class="section level2">
+<h2 id="epilogue">Epilogue<a class="anchor" aria-label="anchor" href="#epilogue"></a>
+</h2>
+<ul>
+<li>It was interesting getting this package to maturity.</li>
+<li>Users are advised to default to the simplest use cases if they find the learning curve (LC) for the package too steep.</li>
+<li>I am almost certain there is always something to improve but I can say this package is officially complete based on the project scope.</li>
+</ul>
 </div>
 </div>
 <div class="section level1">
 <h1 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h1>
-<p>(Dowle and Srinivasan 2023) (R Core Team 2022) (Wickham et al. 2019)</p>
+<p>(Dowle and Srinivasan 2023) (Wickham, François, et al. 2023) (Yu 2021) (R Core Team 2022) (Wickham, Chang, et al. 2023) (Arnold 2021) (Wickham 2022) (Müller and Wickham 2023) (Wickham, Vaughan, and Girlich 2023)</p>
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-datatable" class="csl-entry">
-Dowle, Matt, and Arun Srinivasan. 2023. <span class="nocase"><em>data.table</em></span><em>: Extension of “<span class="nocase">data.frame</span>”</em>. <a href="https://CRAN.R-project.org/package=data.table" class="external-link uri">https://CRAN.R-project.org/package=data.table</a>.
+<div id="ref-R-ggthemes" class="csl-entry">
+Arnold, Jeffrey B. 2021. <em>Ggthemes: Extra Themes, Scales and Geoms for Ggplot2</em>. <a href="https://github.com/jrnold/ggthemes" class="external-link uri">https://github.com/jrnold/ggthemes</a>.
 </div>
-<div id="ref-foreign" class="csl-entry">
-R Core Team. 2022. <span class="nocase"><em>foreign</em></span><em>: Read Data Stored by “Minitab,” “S,” “SAS,” “SPSS,” “Stata,” “Systat,” “Weka,” “<span class="nocase">dBase</span>,” …</em> <a href="https://CRAN.R-project.org/package=foreign" class="external-link uri">https://CRAN.R-project.org/package=foreign</a>.
+<div id="ref-R-data.table" class="csl-entry">
+Dowle, Matt, and Arun Srinivasan. 2023. <em>Data.table: Extension of ’Data.frame‘</em>. <a href="https://CRAN.R-project.org/package=data.table" class="external-link uri">https://CRAN.R-project.org/package=data.table</a>.
 </div>
-<div id="ref-tidyverse" class="csl-entry">
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. “Welcome to the <span class="nocase">tidyverse</span>.” <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686" class="external-link uri">https://doi.org/10.21105/joss.01686</a>.
+<div id="ref-R-tibble" class="csl-entry">
+Müller, Kirill, and Hadley Wickham. 2023. <em>Tibble: Simple Data Frames</em>. <a href="https://CRAN.R-project.org/package=tibble" class="external-link uri">https://CRAN.R-project.org/package=tibble</a>.
+</div>
+<div id="ref-R-foreign" class="csl-entry">
+R Core Team. 2022. <em>Foreign: Read Data Stored by Minitab, s, SAS, SPSS, Stata, Systat, Weka, dBase, …</em> <a href="https://svn.r-project.org/R-packages/trunk/foreign/" class="external-link uri">https://svn.r-project.org/R-packages/trunk/foreign/</a>.
+</div>
+<div id="ref-R-stringr" class="csl-entry">
+Wickham, Hadley. 2022. <em>Stringr: Simple, Consistent Wrappers for Common String Operations</em>. <a href="https://CRAN.R-project.org/package=stringr" class="external-link uri">https://CRAN.R-project.org/package=stringr</a>.
+</div>
+<div id="ref-R-ggplot2" class="csl-entry">
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2023. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2" class="external-link uri">https://CRAN.R-project.org/package=ggplot2</a>.
+</div>
+<div id="ref-R-dplyr" class="csl-entry">
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr" class="external-link uri">https://CRAN.R-project.org/package=dplyr</a>.
+</div>
+<div id="ref-R-tidyr" class="csl-entry">
+Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. <em>Tidyr: Tidy Messy Data</em>. <a href="https://CRAN.R-project.org/package=tidyr" class="external-link uri">https://CRAN.R-project.org/package=tidyr</a>.
+</div>
+<div id="ref-R-emojifont" class="csl-entry">
+Yu, Guangchuang. 2021. <em>Emojifont: Emoji and Font Awesome in Graphics</em>. <a href="https://github.com/GuangchuangYu/emojifont" class="external-link uri">https://github.com/GuangchuangYu/emojifont</a>.
 </div>
 </div>
 </div>
@@ -180,6 +1362,7 @@ Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino 
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
+<li><a href="https://cloud.r-project.org/package=normfluodbf" class="external-link">View on CRAN</a></li>
 <li><a href="https://github.com/AlphaPrime7/normfluodbf/" class="external-link">Browse source code</a></li>
 <li><a href="https://github.com/AlphaPrime7/normfluodbf/issues" class="external-link">Report a bug</a></li>
 </ul>
@@ -189,7 +1372,7 @@ Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino 
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://www.r-project.org/Licenses/GPL-3" class="external-link">GPL-3</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
 

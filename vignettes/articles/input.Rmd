@@ -5,9 +5,7 @@ title: "Input: Example Data sets"
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures",
-  out.width = "100%"
+  comment = "#>"
 )
 ```
 

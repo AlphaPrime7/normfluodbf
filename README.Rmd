@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 # normfluodbf <img src="man/figures/logo.png" align="right" width="180"/>
 
 [![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/AlphaPrime7/normfluodbf)
-[![Demandez moi n'importe quoi
+[![Demandez moi n\'importe quoi
 !](https://img.shields.io/badge/Demandez%20moi-n'%20importe%20quoi-1abc9c.svg)](mailto:awesome.tingwei@outlook.com)
 [![Ask Me Anything
 !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](mailto:awesome.tingwei@outlook.com)
@@ -387,7 +387,7 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction = '
 -   Below is a look at the non-standard experimental setup.
 
 | Sample_Type | 96  | Test | Negative | Positive | 4   | 5   | 6   | 7   | 8   | 9   | 10  | 11  | 12  |
-|:------------|:----|:-----|:---------|:---------|:----|:----|:----|:----|:----|:----|:----|:----|:----|
+|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
 |             | A   | X1   | X2       | X3       | X4  | X5  | X6  | X7  | X8  | X9  | X10 | X11 | X12 |
 |             | B   | X13  | X14      | X15      | X16 | X17 | X18 | X19 | X20 | X21 | X22 | X23 | X24 |
 |             | C   | X25  | X26      | X27      | X28 | X29 | X30 | X31 | X32 | X33 | X34 | X35 | X36 |
@@ -489,6 +489,7 @@ normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
 <img src="man/figures/noise02.png" align="left" width="320"/>
 <img src="man/figures/noise20.png" align="right" width="333"/>
 
+
 ## Visualization
 
 -   This time around, the package has a visualization function that is
@@ -502,6 +503,7 @@ normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
 <img src="man/figures/tnp3.png" align="left" width="320"/>
 <img src="man/figures/tnp5.png" align="right" width="320"/>
 
+
 ## Epilogue
 
 -   It was interesting getting this package to maturity.
@@ -509,6 +511,7 @@ normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
     the learning curve (LC) for the package too steep.
 -   I am almost certain there is always something to improve but I can
     say this package is officially complete based on the project scope.
+    
 
 # References
 

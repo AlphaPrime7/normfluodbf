@@ -1,4 +1,4 @@
-#' Title: Cleans normalizes DAT files obtained from experiments using the FLUOstar Omega microplate reader (from BMG LABTECH).
+#' Title: Cleans and normalizes DAT files obtained from experiments using the FLUOstar Omega microplate reader (from BMG LABTECH).
 #'
 #' @description
 #' The simplest case scenario entails inputting the name or directory of a DAT file as a string,
