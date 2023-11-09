@@ -471,8 +471,7 @@ normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
   “Cycle_No” but seemed to have been mislabeled due to the tedious
   nature of my previous coding approach.
 
-<img src="man/figures/noise02.png" align="left" width="320"/>
-<img src="man/figures/noise20.png" align="right" width="333"/>
+<img src="man/figures/noise20.png" align="center" width="400"/>
 
 ## 💻 Visualization
 
