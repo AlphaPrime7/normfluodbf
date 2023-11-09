@@ -9,7 +9,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Accessing test DBF files
+## 🗃️ Accessing test DBF files
 
 ```{r setupdbf, eval=FALSE}
 #External files for use in testing the package.
@@ -25,7 +25,7 @@ raw_dbf <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", 
 normfluodbf::norm_tidy_dbf(raw_dbf, norm_scale = 'z-score')
 ```
 
-## Accessing test DAT files
+## 🗂️ Accessing test DAT files
 
 ```{r setupdat, eval=FALSE}
 #External files for use in testing the package.

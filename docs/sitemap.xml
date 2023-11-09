@@ -58,7 +58,52 @@
     <loc>https://alphaprime7.github.io/normfluodbf/news/index.html</loc>
   </url>
   <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/clean_odddat_optimus.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/clean_odd_cc.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/comma_cleaner.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/dat_1.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/dat_2.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/dat_3.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/dat_col_names_horizontal.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/dat_col_names_optimus.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/dat_col_names_prime.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/dat_col_names_rigid.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/decimal_scaling.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/fluor_threshold_check.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/fluor_threshold_check_na.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/fluor_threshold_check_raw.html</loc>
+  </url>
+  <url>
     <loc>https://alphaprime7.github.io/normfluodbf/reference/generic_identifier.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/ggplot_tnp.html</loc>
   </url>
   <url>
     <loc>https://alphaprime7.github.io/normfluodbf/reference/index.html</loc>
@@ -82,10 +127,46 @@
     <loc>https://alphaprime7.github.io/normfluodbf/reference/liposomes_227.html</loc>
   </url>
   <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/log_transformation.html</loc>
+  </url>
+  <url>
     <loc>https://alphaprime7.github.io/normfluodbf/reference/min_max_norm.html</loc>
   </url>
   <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/min_max_norm_percent.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/normfluodat.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/normfluordat.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/normfluordbf.html</loc>
+  </url>
+  <url>
     <loc>https://alphaprime7.github.io/normfluodbf/reference/norm_tidy_dbf.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/norm_z.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/resample_dat.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/resample_dat_alt.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/resample_dat_scale.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/resample_dat_scale_alt.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/resample_dat_scale_optimus.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/roundfluor.html</loc>
   </url>
   <url>
     <loc>https://alphaprime7.github.io/normfluodbf/reference/unique_identifier.html</loc>

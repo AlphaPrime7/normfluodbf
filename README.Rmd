@@ -52,7 +52,15 @@ status](https://www.r-pkg.org/badges/version/normfluodbf)](https://CRAN.R-projec
 [![Awesome
 Badges](https://img.shields.io/badge/badges-awesome-green.svg)](https://github.com/Naereen/badges)
 
-# Introduction
+```{r echo=FALSE, results="hide", message=FALSE}
+library("hexSticker")
+library("badger")
+```
+
+`r badger::badge_custom("follow me on", "LinkedIn", "green", "https://www.linkedin.com/in/tingwei-adeck/")`
+`r badger::badge_custom("follow me on", "GitHub", "green", "https://github.com/AlphaPrime7")`
+
+# ✍️ Introduction
 
 [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) is used to
 clean and normalize DBF and DAT files obtained from liposome flux assay
@@ -71,7 +79,7 @@ for details on the concept behind the project.
 
 <img src="man/figures/navab.png" align="center" width="540"/>
 
-# ↓ Installation
+# ⏬ Installation
 
 ## Developmental Version
 
@@ -124,9 +132,9 @@ library(remotes)
 remotes::install_local("normfluodbf_1.4.3.9000.tar.gz")
 ```
 
-# Use Scenarios
+# 🕵️ Use Scenarios
 
-## DBF Files Case-Study <img src="man/figures/dbf.png" align="right" width="40"/>
+## 🧭 DBF Files Case-Study <img src="man/figures/dbf.png" align="right" width="40"/>
 
 -   Here examples are presented on how this package handles DBF files.
 
@@ -182,7 +190,7 @@ normalized_dataz <- normfluordbf(liposomes_214, norm_scale = 'z-score')
 normalized_datazt <- normfluordbf(liposomes_214, norm_scale = 'z-score', transformed = 'log')
 ```
 
-## DAT Files Case-Study <img src="man/figures/dat.png" align="right" width="40"/>
+## 🧭 DAT Files Case-Study <img src="man/figures/dat.png" align="right" width="40"/>
 
 ### Advanced Function
 
@@ -326,7 +334,7 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, user_specific_labels 
 |                   | E   |     |     |     |     |     |     |     |     |     |     |     |     |
 |                   | F   |     |     |     |     |     |     |     |     |     |     |     |     |
 
-#### Using The read_direction parameter
+#### 🧙‍♂️️ Using The read_direction parameter
 
 -   As indicated in all the previous examples, the default read
     direction is vertical and I have provided illustrations in the form
@@ -435,7 +443,7 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction = '
     showcases how naming conventions will reverse if the experimenter
     deviates from the commonly used path.
 
-## Fail Safe DAT Procedure
+## 🥠 Fail Safe DAT Procedure
 
 -   As indicated earlier, the code chunk below is the simplest use case
     for this function.
@@ -449,7 +457,7 @@ dat1 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
 normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
 ```
 
-## Quality Control (QC)
+## 🛂 Quality Control (QC)
 
 -   Experimental issues should be investigated at very high or very low
     fluorescence values.
@@ -489,8 +497,7 @@ normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
 <img src="man/figures/noise02.png" align="left" width="320"/>
 <img src="man/figures/noise20.png" align="right" width="333"/>
 
-
-## Visualization
+## 💻 Visualization
 
 -   This time around, the package has a visualization function that is
     build on ggplot2.
@@ -500,11 +507,10 @@ normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
     were done with base R and the images represent the results obtained
     when experiments are conducted within the signal region.
 
-<img src="man/figures/tnp3.png" align="left" width="320"/>
-<img src="man/figures/tnp5.png" align="right" width="320"/>
+<img src="man/figures/tnp3.png" align="left" width="200"/>
+<img src="man/figures/tnp5.png" align="right" width="200"/>
 
-
-## Epilogue
+## 🎇 Epilogue
 
 -   It was interesting getting this package to maturity.
 -   Users are advised to default to the simplest use cases if they find
@@ -512,8 +518,13 @@ normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
 -   I am almost certain there is always something to improve but I can
     say this package is officially complete based on the project scope.
     
+# 🤦 Meme
 
-# References
+`r knitr::include_graphics("man/figures/success_memery.jpg")`
+
+# 📃 References
 
 [@R-data.table] [@R-dplyr] [@R-emojifont] [@R-foreign] [@R-ggplot2]
 [@R-ggthemes] [@R-stringr] [@R-tibble] [@R-tidyr]
+
+

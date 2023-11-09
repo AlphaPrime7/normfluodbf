@@ -5,13 +5,15 @@ title: "Example"
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.path = "vignettes/",
+  out.width = "100%"
 )
 ```
 
-## Accessing test DBF files 
+## 📊 Accessing test DBF files 
 
-```{r setupdbfviz, eval=FALSE}
+```{r, eval=FALSE}
 raw_dbf <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
 
 norm_dbf <- normfluodbf::norm_tidy_dbf(raw_dbf, norm_scale = 'z-score')
@@ -24,9 +26,11 @@ yl <- c(0,1)
 ggplot_tnp(norm_dbf,xvar,y_list=yvars,xlim=xl,ylim=yl)
 ```
 
-## Accessing test DAT files 
 
-```{r setupdatviz, eval=FALSE}
+## 📊 Accessing test DAT files 
+
+```{r, eval=FALSE}
+#{r setupdatviz, eval=FALSE}
 raw_dat <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 
 n <- c('A','B','C')
