@@ -484,7 +484,7 @@ normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
   done with base R and the images represent the results obtained when
   experiments are conducted within the signal region.
 
-<img src="man/figures/tnp3.png" align="left" width="400"/>
+<img src="man/figures/tnp3.png" align="center" width="400"/>
 
 ## 🎇 Epilogue
 
