@@ -1,5 +1,5 @@
 Package: normfluodbf
-Title: Cleans and Normalizes FLUOstar DBF and DAT Files.
+Title: Cleans and Normalizes FLUOstar DBF and DAT Files
 Version: 1.4.3.9000
 Authors@R: 
     c(person(given = "Tingwei", family = "Adeck", role = c("aut", "cre"), email = "awesome.tingwei@outlook.com"), person(given = "normfluodbf authors", role=c("cph"), 
@@ -25,6 +25,7 @@ Imports:
     stats,
     ggplot2,
     ggthemes,
+    badger,
     stringr
 Depends: 
     R (>= 2.10)

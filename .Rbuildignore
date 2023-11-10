@@ -4,6 +4,7 @@
 ^README\.Rmd$
 ^cran-comments\.md$
 ^grateful-refs\.bib$
+^gratefulgod\.bib$
 ^data-raw$
 ^CODE_OF_CONDUCT\.md$
 ^CRAN-SUBMISSION$

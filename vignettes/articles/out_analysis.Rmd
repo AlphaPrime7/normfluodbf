@@ -36,7 +36,7 @@ raw_dat <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork
 n <- c('A','B','C')
 norm_dat <- normfluodbf::normfluodat(raw_dat, tnp = 3, cycles = 40, n, read_direction = 'horizontal')
 
-yvars <- c("A1","B1","C1") #tnp
+yvars <- c("A1","A2","A3") #tnp
 xvar <- c("Cycle_Number", "Time")
 xl <- c(1,40)
 yl <- c(0,1)

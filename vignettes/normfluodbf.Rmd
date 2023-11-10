@@ -18,10 +18,6 @@ knitr::opts_chunk$set(
 
 [![Project status](https://www.repostatus.org/badges/latest/concept.svg)](https://alphaprime7.github.io/normfluodbf/articles/normfluodbf.html) [![Science](https://img.shields.io/badge/Experiment-Bioinformatics-green)](https://github.com/AlphaPrime7/normfluodbf) [![Liposomes](https://img.shields.io/badge/Liposome%20Flux%20Assays-8A2BE2)](https://pubmed.ncbi.nlm.nih.gov/27091997/) [![Flash](https://img.shields.io/badge/Sodium%20Voltage%20Gated%20Channels-84E32B)](https://www.sigmaaldrich.com/US/en/technical-documents/protocol/research-and-disease-areas/cell-signaling/ion-channel-flux-assays-and-protocols) [![Liposomes](https://img.shields.io/badge/FLUOstar-DBFs%20and%20DATs-2E2BE3)](https://github.com/AlphaPrime7/normfluodbf) [![Liposomes](https://img.shields.io/badge/Pharma%20-E32BE0)](https://www.sigmaaldrich.com/US/en/technical-documents/protocol/research-and-disease-areas/cell-signaling/ion-channel-flux-assays-and-protocols) [![Demandez moi n\'importe quoi !](https://img.shields.io/badge/Demandez%20moi-n'%20importe%20quoi-1abc9c.svg)](mailto:awesome.tingwei@outlook.com) [![Emojis](https://img.shields.io/badge/Love-Emojis%20-E32BE0)](https://emojipedia.org/)
 
-```{r echo=FALSE, results="hide", message=FALSE}
-library("hexSticker")
-```
-
 # 👨🏾‍💻 📦 What is normfluodbf 1.4.3.9000 ?
 
 The [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) package is designed to clean and normalize DBF and DAT files obtained from liposome flux assay (LFA) experiments performed with the FLUOstar microplate reader. This package is designed to be multi-dimensional, meaning the expectation is that file types from experiments other than liposome flux assays should be compliant with this package if they meet the same requirements as the original files for which this package was designed.
@@ -86,5 +82,5 @@ knitr::include_graphics("img/navab.png")
 
 -   Your R DEV `r badger::badge_custom("Tingwei", "Adeck", "green", "https://github.com/AlphaPrime7")`. There you go my name is now a badge.
 
-`r knitr::include_graphics("img/wolf.png")`
-`r knitr::include_graphics("img/success_memery.jpg")`
+`r knitr::include_graphics("img/wolf.jpg")`
+`r knitr::include_graphics("img/ash.jpg")`
