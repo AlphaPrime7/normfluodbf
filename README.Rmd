@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 # normfluodbf <img src="man/figures/logo.png" align="right" width="180"/>
 
 [![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/AlphaPrime7/normfluodbf)
-[![Demandez moi n\'importe quoi
+[![Demandez moi n'importe quoi
 !](https://img.shields.io/badge/Demandez%20moi-n'%20importe%20quoi-1abc9c.svg)](mailto:awesome.tingwei@outlook.com)
 [![Ask Me Anything
 !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](mailto:awesome.tingwei@outlook.com)
@@ -57,8 +57,9 @@ library("hexSticker")
 library("badger")
 ```
 
-`r badger::badge_custom("follow me on", "LinkedIn", "green", "https://www.linkedin.com/in/tingwei-adeck/")`
+`r badger::badge_custom("follow me on", "LinkedIn", "green", "https://www.linkedin.com/in/tingwei-adeck")`
 `r badger::badge_custom("follow me on", "GitHub", "green", "https://github.com/AlphaPrime7")`
+
 
 # ✍️ Introduction
 
@@ -515,7 +516,7 @@ normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
     the learning curve (LC) for the package too steep.
 -   I am almost certain there is always something to improve but I can
     say this package is officially complete based on the project scope.
-    
+
 # 🤦 Meme
 
 `r knitr::include_graphics("man/figures/success_memery.jpg")`
@@ -524,5 +525,3 @@ normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
 
 [@R-data.table] [@R-dplyr] [@R-emojifont] [@R-foreign] [@R-ggplot2]
 [@R-ggthemes] [@R-stringr] [@R-tibble] [@R-tidyr]
-
-
