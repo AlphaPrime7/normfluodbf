@@ -80,6 +80,10 @@ knitr::include_graphics("img/navab.png")
 
 -   Raise issues or forward me emails as quickly as you notice any hiccups or R changes that need updates.
 
+```{r echo=FALSE, results="hide", message=FALSE}
+("badger")
+```
+
 -   Your R DEV `r badger::badge_custom("Tingwei", "Adeck", "green", "https://github.com/AlphaPrime7")`. There you go my name is now a badge.
 
 `r knitr::include_graphics("img/wolf.jpg")`

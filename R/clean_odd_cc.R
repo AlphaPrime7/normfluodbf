@@ -7,6 +7,8 @@
 #'
 #' @author Tingwei Adeck
 #'
+#' @import badger
+#'
 #' @param df A dirty data frame obtained from the FLUOstar DAT file.
 #'
 #'
@@ -23,6 +25,8 @@
 #' cleaned_dat <- clean_odd_cc(dat_df)
 
 clean_odd_cc <- function(df){
+
+  #badger::badge_custom("Tingwei", "Adeck", "green", "https://github.com/AlphaPrime7")
 
   df <- comma_cleaner(df)
   df <- df[rowSums(is.na(df)) != ncol(df), ]
