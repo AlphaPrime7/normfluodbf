@@ -21,6 +21,7 @@
 #' @importFrom data.table transpose
 #' @import data.table
 #' @import tidyr
+#' @import rio
 #' @import foreign
 #'
 #' @return A normalized data frame with an appended "Cycle_Number" attribute.
@@ -36,6 +37,7 @@
 normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun = NA, ...){
 
   x <- foreign::read.dbf(file=file, as.is = F)
+  #x <- rio::import(file)
   y <- data.table::transpose(l=x)
   rownames(y) <- colnames(x)
   colnames(y) <- rownames(x)

@@ -22,6 +22,7 @@ Imports:
     tibble,
     dplyr,
     emojifont,
+    rio,
     stats,
     ggplot2,
     ggthemes,
