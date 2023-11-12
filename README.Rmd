@@ -278,7 +278,7 @@ normalized_data16 <- normfluodat(dat2, tnp = 3, cycles = 40, n)
 -   The cols_used parameter is only used when the rows_used parameter is
     used.
 -   The cols_used parameter is especially relevant when the user DOES
-    NOT lead samples from column 1.
+    NOT load samples from column 1.
 -   The default read direction is vertical as indicated earlier.
 
 ```{r exampledatrucu, eval=F}
@@ -499,7 +499,7 @@ normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
 ## 💻 Visualization
 
 -   This time around, the package has a visualization function that is
-    build on ggplot2.
+    built on ggplot2.
 -   Users can expect to get some amazing visualizations using this
     function.
 -   Here are some visualizations from my seminar on this topic. These
