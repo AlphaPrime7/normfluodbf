@@ -28,23 +28,28 @@
 
 resample_dat_scale <- function(df, tnp, cycles){
 
-  col_list <- c()
-  for(i in 1:ncol(df)){
-    col_list <- c( col_list, as.data.frame(df[,i]) )
-  }
+  suppressWarnings({
 
-  j_vect <- c()
-  for(j in col_list){
-    j <- as.data.frame(j)
-    j_resampled <- resample_dat(j, tnp = tnp, cycles = cycles)
-    j_dfs <- as.data.frame(j_resampled)
-    j_vect <- c(j_vect, j_dfs)
-  }
+    col_list <- c()
+    for(i in 1:ncol(df)){
+      col_list <- c( col_list, as.data.frame(df[,i]) )
+    }
 
-  big_data = do.call(rbind, j_vect)
-  big_data = as.data.frame(big_data)
-  big_data_t = data.table::transpose(l=big_data)
-  big_data_t <- big_data_t %>% dplyr::select_if(~ !any(is.na(.)))
+    j_vect <- c()
+    for(j in col_list){
+      j <- as.data.frame(j)
+      j_resampled <- resample_dat(j, tnp = tnp, cycles = cycles)
+      j_dfs <- as.data.frame(j_resampled)
+      j_vect <- c(j_vect, j_dfs)
+    }
 
-  return(big_data_t)
+    big_data = do.call(rbind, j_vect)
+    big_data = as.data.frame(big_data)
+    big_data_t = data.table::transpose(l=big_data)
+    big_data_t <- big_data_t %>% dplyr::select_if(~ !any(is.na(.)))
+
+    return(big_data_t)
+
+  })
+
 }

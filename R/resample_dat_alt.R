@@ -25,21 +25,26 @@
 
 resample_dat_alt <- function(df, tnp, cycles){
 
-  k <- c(1:ncol(df))
-  type_size <- c(1:ncol(df))
+  suppressWarnings({
 
-  resulting_df <- data.frame()
-  for (i in 1:(nrow(df)/tnp)){
+    k <- c(1:ncol(df))
+    type_size <- c(1:ncol(df))
 
-    insert_row = df[k,]
+    resulting_df <- data.frame()
+    for (i in 1:(nrow(df)/tnp)){
 
-    resulting_df[i,type_size] <- rbind(insert_row, resulting_df)
+      insert_row = df[k,]
 
-    increment_k = tnp
-    k <- k + increment_k
+      resulting_df[i,type_size] <- rbind(insert_row, resulting_df)
 
-    colnames(resulting_df) <- NULL
-  }
-  return(resulting_df)
+      increment_k = tnp
+      k <- k + increment_k
+
+      colnames(resulting_df) <- NULL
+    }
+    return(resulting_df)
+
+  })
+
 }
 

@@ -24,30 +24,35 @@
 
 resample_dat_scale_alt <- function(df, tnp, cycles){
 
-  type_size <- c(1:ncol(df)) #k is now nseq(same kinda thing)
+  suppressWarnings({
 
-  sample_df <- data.frame()
-  final_df <- matrix(ncol = cycles)
+    type_size <- c(1:ncol(df)) #k is now nseq(same kinda thing)
 
-  for(i in 1:tnp){
-    nseq <- c(i:ncol(df))
-    nseq <- nseq
+    sample_df <- data.frame()
+    final_df <- matrix(ncol = cycles)
 
-    for (j in 1:(nrow(df)/tnp)){
+    for(i in 1:tnp){
+      nseq <- c(i:ncol(df))
+      nseq <- nseq
 
-      insert_row = df[nseq,]
-      sample_df[j,type_size] <- rbind(insert_row, sample_df)
-      increment_n = tnp
-      nseq <- nseq + increment_n
+      for (j in 1:(nrow(df)/tnp)){
+
+        insert_row = df[nseq,]
+        sample_df[j,type_size] <- rbind(insert_row, sample_df)
+        increment_n = tnp
+        nseq <- nseq + increment_n
+
+      }
+      final_df <- cbind(final_df, sample_df)
+      final_df <- final_df[ , colSums(is.na(final_df))==0]
+      colnames(final_df) <- NULL
+      rownames(final_df) <- c(1:cycles)
+      final_df <- as.data.frame(final_df)
 
     }
-    final_df <- cbind(final_df, sample_df)
-    final_df <- final_df[ , colSums(is.na(final_df))==0]
-    colnames(final_df) <- NULL
-    rownames(final_df) <- c(1:cycles)
-    final_df <- as.data.frame(final_df)
 
-  }
+    return(final_df)
 
-  return(final_df)
+  })
+
 }
