@@ -1,9 +1,9 @@
 Tingwei Adeck
-November 13, 2023
+November 14, 2023
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# [![](https://img.shields.io/badge/normfluodbf-1.5.1-blue.svg)](https://github.com/AlphaPrime7/normfluodbf) <img src="man/figures/logo.png" align="right" width="180"/>
+# [![](https://img.shields.io/badge/normfluodbf-1.5.2-blue.svg)](https://github.com/AlphaPrime7/normfluodbf) <img src="man/figures/logo.png" align="right" width="180"/>
 
 [![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/AlphaPrime7/normfluodbf)
 [![Demandez moi n’importe quoi
@@ -98,17 +98,17 @@ library(normfluodbf)
   when possible.
 
 ``` r
-install.packages("normfluodbf_1.5.1.tar.gz", repos = NULL, type = "source")
+install.packages("normfluodbf_1.5.2.tar.gz", repos = NULL, type = "source")
 ```
 
 ``` r
 library(devtools)
-install_local("normfluodbf_1.5.1.tar.gz")
+install_local("normfluodbf_1.5.2.tar.gz")
 ```
 
 ``` r
 library(remotes)
-remotes::install_local("normfluodbf_1.5.1.tar.gz")
+remotes::install_local("normfluodbf_1.5.2.tar.gz")
 ```
 
 # 🕵️ Use Scenarios
@@ -172,7 +172,7 @@ normalized_datazt <- normfluordbf(liposomes_214, norm_scale = 'z-score', transfo
 
 ### Advanced Function
 
-- This methodology was provided as a minor update in normfluodbf 1.5.1.
+- This methodology was provided as a minor update in normfluodbf 1.5.2.
 - This update was significantly bigger than expected and should have
   been a major update but by definition when backward compatibility is
   maintained with the previous version, it should be considered a minor

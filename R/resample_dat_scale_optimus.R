@@ -49,7 +49,7 @@ resample_dat_scale_optimus <- function(df, tnp, cycles){
       final_df <- cbind(final_df, sample_df)
       final_df <- final_df[ , colSums(is.na(final_df))==0]
       colnames(final_df) <- NULL
-      rownames(final_df) <- c(1:cycles)
+      #rownames(final_df) <- c(1:cycles)
       final_df <- as.data.frame(final_df)
 
     }

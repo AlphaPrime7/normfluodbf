@@ -11,7 +11,7 @@ template:
     fg: '#B8BCC2'
     primary: '#306cc9'
 navbar:
-  title: normfluodbf 1.5.1
+  title: normfluodbf 1.5.2
   type: inverse
   left:
   - icon: fa-home
@@ -32,7 +32,7 @@ navbar:
   - icon: fa-newspaper
     text: News
     menu:
-    - text: Version 1.5.1
+    - text: Version 1.5.2
       href: news/index.html
 
   structure:
