@@ -47,7 +47,7 @@
 #'
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
-#' nocomma_dat <- clean_odd_cc(dat_df)
+#' nocomma_dat <- clean_odddat_optimus(dat_df)
 #' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 #' n = c('A','B','C')
 #' sample_col_names <- dat_col_names_rigid(resampled_scaled, n)

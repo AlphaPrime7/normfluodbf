@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 [![Project status](https://www.repostatus.org/badges/latest/concept.svg)](https://alphaprime7.github.io/normfluodbf/articles/normfluodbf.html) [![Science](https://img.shields.io/badge/Experiment-Bioinformatics-green)](https://github.com/AlphaPrime7/normfluodbf) [![Liposomes](https://img.shields.io/badge/Liposome%20Flux%20Assays-8A2BE2)](https://pubmed.ncbi.nlm.nih.gov/27091997/) [![Flash](https://img.shields.io/badge/Sodium%20Voltage%20Gated%20Channels-84E32B)](https://www.sigmaaldrich.com/US/en/technical-documents/protocol/research-and-disease-areas/cell-signaling/ion-channel-flux-assays-and-protocols) [![Liposomes](https://img.shields.io/badge/FLUOstar-DBFs%20and%20DATs-2E2BE3)](https://github.com/AlphaPrime7/normfluodbf) [![Liposomes](https://img.shields.io/badge/Pharma%20-E32BE0)](https://www.sigmaaldrich.com/US/en/technical-documents/protocol/research-and-disease-areas/cell-signaling/ion-channel-flux-assays-and-protocols) [![Demandez moi n\'importe quoi !](https://img.shields.io/badge/Demandez%20moi-n'%20importe%20quoi-1abc9c.svg)](mailto:awesome.tingwei@outlook.com) [![Emojis](https://img.shields.io/badge/Love-Emojis%20-E32BE0)](https://emojipedia.org/)
 
-# 👨🏾‍💻 📦 What is `r badger::badge_custom("normfluodbf", "1.5.0", "green", "https://github.com/AlphaPrime7")`?
+# 👨🏾‍💻 📦 What is `r badger::badge_custom("normfluodbf", "1.5.1", "green", "https://github.com/AlphaPrime7")`?
 
 The [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) package is designed to clean and normalize DBF and DAT files obtained from liposome flux assay (LFA) experiments performed with the FLUOstar microplate reader. This package is designed to be multi-dimensional, meaning the expectation is that file types from experiments other than liposome flux assays should be compliant with this package if they meet the same requirements as the original files for which this package was designed.
 
@@ -48,14 +48,13 @@ knitr::include_graphics("img/navab.png")
 #{R Chunk name, echo=FALSE, [...], fig.height=3,  dev='svg'}
 ```
 
-## ⛳ Specific Concepts Solved by normfluodbf 1.5.0
-
+## ⛳ Specific Concepts Solved by normfluodbf 1.5.1
 -   For higher-level problem-solving, it is not enough to have blurry pain points. It is important to have excellent articulation of the separate concepts surrounding the pain points.
 -   The pain point is data obtained from the FLUOstar instrument is not friendly for analysis, thus requiring some wrangling before the researcher can conduct data analysis and output some amazing visuals that can aid in extracting insights about the experiment or simply for presentations to project stakeholders.
 -   There is very little valuable insight derived from analyzing data on a sliding scale. After cleaning the data, normalization is needed.
 -   The DBF file obtained from the instrument is harder to find than the DAT file. The package gives the user an option to analyze the DAT file, which should allow for an overall better experience.
 
-## 🏌️ Who Should Use normfluodbf 1.5.0 ?
+## 🏌️ Who Should Use normfluodbf 1.5.1 ?
 
 -   Biologists (students or professors) who conduct research across the USA or globally can attest to the use of physics concepts, specifically fluorescence, in understanding the biophysical properties of biological components (cells, DNA, RNA, proteins, etc.).
 -   The package is designed for scientists (in academic or pharmaceutical settings) who need a tool to analyze data obtained from the FLUOstar Omega microplate reader. I am unsure of the far-reaching capabilities of the FLUOstar microplate reader since it is, after all, a physics concept, but there might be industries beyond the pharmaceutical industry that might find this package useful.
@@ -76,7 +75,7 @@ knitr::include_graphics("img/navab.png")
 
 -   I leave you with some fun. From my basement to YOU with MVP love, and I don't know how long I will be there since that rent is looking massive.
 
--   Thanks to the users of 1.4.3 and hope I made your lives a tad bit easier with this update (1.5.0).
+-   Thanks to the users of 1.4.3 and hope I made your lives a tad bit easier with this update (1.5.1).
 
 -   Raise issues or forward me emails as quickly as you notice any hiccups or R changes that need updates.
 

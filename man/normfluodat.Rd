@@ -53,7 +53,7 @@ Users must double-check attribute names to ensure they end up with accurate resu
 }
 \examples{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
-#' normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40)
+normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40)
 }
 \seealso{
 \code{\link[=normfluordat]{normfluordat()}}

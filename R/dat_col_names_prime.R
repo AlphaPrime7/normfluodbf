@@ -23,7 +23,7 @@
 #'
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
-#' nocomma_dat <- clean_odd_cc(dat_df)
+#' nocomma_dat <- clean_odddat_optimus(dat_df)
 #' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 #' n = c('A','B','C')
 #' sample_col_names <- dat_col_names_prime(resampled_scaled, n)
@@ -33,7 +33,7 @@ dat_col_names_prime <- function(df, rows_used = NULL, cols_used= NULL, user_spec
   colnames_noru <- c(1:ncol(df))
 
   if(is.null(rows_used)){
-    message('The user is advised to input a character vector of rows used')
+    message('The User is advised to input a character vector of rows used')
     return(colnames_noru)
   }
 

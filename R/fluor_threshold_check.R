@@ -39,7 +39,7 @@
 #' @examples
 #' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
-#' nocomma_dat <- clean_odd_cc(dat_df)
+#' nocomma_dat <- clean_odddat_optimus(dat_df)
 #' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 #' resampled_scaled <- resampled_scaled[,c(1:4)]
 #' fluor_threshold_check(resampled_scaled)
@@ -85,7 +85,7 @@ fluor_threshold_check <- function(clean_df, fun = NA){
 #' @examples
 #' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
-#' nocomma_dat <- clean_odd_cc(dat_df)
+#' nocomma_dat <- clean_odddat_optimus(dat_df)
 #' fluor_threshold_check_na(nocomma_dat)
 
 fluor_threshold_check_na <- function(clean_df, fun = NA){
@@ -132,7 +132,7 @@ fluor_threshold_check_na <- function(clean_df, fun = NA){
 #' @examples
 #' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
-#' nocomma_dat <- clean_odd_cc(dat_df)
+#' nocomma_dat <- clean_odddat_optimus(dat_df)
 #' fluor_threshold_check_raw(nocomma_dat)
 
 fluor_threshold_check_raw <- function(clean_df, fun = NA){

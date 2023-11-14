@@ -34,7 +34,7 @@ ggplot_tnp <- function(df, x , y_list, xlim, ylim){
       geom_line(aes(y=.data[[y_list[1]]], color="Test"), size = 0.8) +
       geom_line(aes(y=.data[[y_list[2]]], color="Negative Control"),size = 0.8) +
       geom_line(aes(y=.data[[y_list[3]]], color="Positivetive Control"), size = 0.8) +
-      coord_cartesian(xlim = xlim) +  coord_cartesian(ylim=ylim) +
+      coord_cartesian( xlim = xlim, ylim = ylim ) +
       labs(title = 'NavAb Liposome Flux Assay',
            x = 'Cycle_no', y='Normalized Fluorescence', color='Sample Type')
     p1

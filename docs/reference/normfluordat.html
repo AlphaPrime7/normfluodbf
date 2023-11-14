@@ -18,7 +18,7 @@ and then appends an attribute called “Cycle_Number” to the normalized data f
     
     <a class="navbar-brand me-2" href="../index.html">normfluodbf</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.0</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.5.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,7 +64,7 @@ and then appends an attribute called “Cycle_Number” to the normalized data f
     News
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdown--news">
-    <a class="dropdown-item" href="../news/index.html">Version 1.5.0</a>
+    <a class="dropdown-item" href="../news/index.html">Version 1.5.1</a>
   </div>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
@@ -173,7 +173,88 @@ This function also takes less parameters than the more optimized version of the 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">fpath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dat_1.dat"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span>, mustWork <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="co">#' normalized_fluo_dat &lt;- normfluordat(dat=fpath, tnp = 3, cycles = 40)</span></span></span>
+<span class="r-in"><span><span class="va">normalized_fluo_dat</span> <span class="op">&lt;-</span> <span class="fu">normfluordat</span><span class="op">(</span>dat<span class="op">=</span><span class="va">fpath</span>, tnp <span class="op">=</span> <span class="fl">3</span>, cycles <span class="op">=</span> <span class="fl">40</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 2</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 3</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 4</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 5</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 6</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 7</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 8</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 9</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 10</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 11</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 12</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 13</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 14</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 15</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 16</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 17</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 18</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 19</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 20</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 21</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 22</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 23</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 24</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 25</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 26</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 27</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 28</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 29</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 30</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 31</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 32</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 33</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 34</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 35</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 36</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 37</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 38</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 39</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 40</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The User is advised to input a character vector of rows used</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

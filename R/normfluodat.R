@@ -35,15 +35,14 @@
 #' @seealso [normfluordat()]
 #'
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
-#' #' normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40)
+#' normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40)
 
 normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL, norm_scale = NULL){
 
   df <- utils::read.table(dat)
-  #df <- clean_odd_cc(df)
   df <- clean_odddat_optimus(df)
-  fluor_threshold_check_na(df)
-  fluor_threshold_check_raw(df)
+  #fluor_threshold_check_na(df)
+  #fluor_threshold_check_raw(df)
 
   #Function revamp
   if(is.null(dat) && is.null(tnp) && is.null(cycles)){
@@ -71,22 +70,41 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
     } else if(!is.null(read_direction) || read_direction == 'horizontal'){
 
-      df <- resample_dat_scale_alt(df, tnp = tnp, cycles = cycles)
-      fluor_threshold_check(df)
-      df <- as.data.frame(lapply(df[1:ncol(df)], as.numeric))
+      if(ncol(df) == 1){
+        df <- resample_dat_alt(df, tnp = tnp, cycles = cycles)
+        fluor_threshold_check(df)
+        df <- as.data.frame(lapply(df[1:ncol(df)], as.numeric))
 
-      #name the columns
-      ru = rows_used
-      cu = cols_used
-      usl = user_specific_labels
-      rd = read_direction
-      sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
-      colnames(df) <- sample_col_names
+        #name the columns
+        ru = rows_used
+        cu = cols_used
+        usl = user_specific_labels
+        rd = read_direction
+        sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
+        colnames(df) <- sample_col_names
 
-      #add unique_id
-      df <-unique_identifier(df)
+        #add unique_id
+        df <-unique_identifier(df)
 
-      return(df)
+        return(df)
+      } else {
+        df <- resample_dat_scale_alt(df, tnp = tnp, cycles = cycles)
+        fluor_threshold_check(df)
+        df <- as.data.frame(lapply(df[1:ncol(df)], as.numeric))
+
+        #name the columns
+        ru = rows_used
+        cu = cols_used
+        usl = user_specific_labels
+        rd = read_direction
+        sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
+        colnames(df) <- sample_col_names
+
+        #add unique_id
+        df <-unique_identifier(df)
+
+        return(df)
+      }
 
     } else{
 
@@ -126,23 +144,45 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
     } else if(!is.null(read_direction) || read_direction == 'horizontal'){
 
-      df <- resample_dat_scale_alt(df, tnp = tnp, cycles = cycles)
-      fluor_threshold_check(df)
-      df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
-      df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
+      if(ncol(df) == 1){
+        df <- resample_dat_alt(df, tnp = tnp, cycles = cycles)
+        fluor_threshold_check(df)
+        df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
+        df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-      #name the columns
-      ru = rows_used
-      cu = cols_used
-      usl = user_specific_labels
-      rd = read_direction
-      sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
-      colnames(df) <- sample_col_names
+        #name the columns
+        ru = rows_used
+        cu = cols_used
+        usl = user_specific_labels
+        rd = read_direction
+        sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
+        colnames(df) <- sample_col_names
 
-      #add unique_id
-      df <-unique_identifier(df)
+        #add unique_id
+        df <-unique_identifier(df)
 
-      return(df)
+        return(df)
+
+      } else {
+        df <- resample_dat_scale_alt(df, tnp = tnp, cycles = cycles)
+        fluor_threshold_check(df)
+        df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
+        df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
+
+        #name the columns
+        ru = rows_used
+        cu = cols_used
+        usl = user_specific_labels
+        rd = read_direction
+        sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
+        colnames(df) <- sample_col_names
+
+        #add unique_id
+        df <-unique_identifier(df)
+
+        return(df)
+
+      }
 
     } else{
 
@@ -181,23 +221,45 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
     } else if(!is.null(read_direction) || read_direction == 'horizontal'){
 
-      df <- resample_dat_scale_alt(df, tnp = tnp, cycles = cycles)
-      fluor_threshold_check(df)
-      df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm_percent))
-      df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
+      if(ncol(df) == 1){
+        df <- resample_dat_alt(df, tnp = tnp, cycles = cycles)
+        fluor_threshold_check(df)
+        df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm_percent))
+        df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-      #name the columns
-      ru = rows_used
-      cu = cols_used
-      usl = user_specific_labels
-      rd = read_direction
-      sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
-      colnames(df) <- sample_col_names
+        #name the columns
+        ru = rows_used
+        cu = cols_used
+        usl = user_specific_labels
+        rd = read_direction
+        sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
+        colnames(df) <- sample_col_names
 
-      #add unique_id
-      df <-unique_identifier(df)
+        #add unique_id
+        df <-unique_identifier(df)
 
-      return(df)
+        return(df)
+
+      } else {
+        df <- resample_dat_scale_alt(df, tnp = tnp, cycles = cycles)
+        fluor_threshold_check(df)
+        df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm_percent))
+        df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
+
+        #name the columns
+        ru = rows_used
+        cu = cols_used
+        usl = user_specific_labels
+        rd = read_direction
+        sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
+        colnames(df) <- sample_col_names
+
+        #add unique_id
+        df <-unique_identifier(df)
+
+        return(df)
+
+      }
 
     } else{
 
@@ -236,23 +298,45 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
     } else if(!is.null(read_direction) || read_direction == 'horizontal'){
 
-      df <- resample_dat_scale_alt(df, tnp = tnp, cycles = cycles)
-      fluor_threshold_check(df)
-      df <- as.data.frame(lapply(df[1:ncol(df)], norm_z))
-      df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
+      if(ncol(df) == 1){
+        df <- resample_dat_alt(df, tnp = tnp, cycles = cycles)
+        fluor_threshold_check(df)
+        df <- as.data.frame(lapply(df[1:ncol(df)], norm_z))
+        df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-      #name the columns
-      ru = rows_used
-      cu = cols_used
-      usl = user_specific_labels
-      rd = read_direction
-      sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
-      colnames(df) <- sample_col_names
+        #name the columns
+        ru = rows_used
+        cu = cols_used
+        usl = user_specific_labels
+        rd = read_direction
+        sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
+        colnames(df) <- sample_col_names
 
-      #add unique_id
-      df <-unique_identifier(df)
+        #add unique_id
+        df <-unique_identifier(df)
 
-      return(df)
+        return(df)
+
+      } else {
+        df <- resample_dat_scale_alt(df, tnp = tnp, cycles = cycles)
+        fluor_threshold_check(df)
+        df <- as.data.frame(lapply(df[1:ncol(df)], norm_z))
+        df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
+
+        #name the columns
+        ru = rows_used
+        cu = cols_used
+        usl = user_specific_labels
+        rd = read_direction
+        sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
+        colnames(df) <- sample_col_names
+
+        #add unique_id
+        df <-unique_identifier(df)
+
+        return(df)
+
+      }
 
     } else{
 
@@ -292,23 +376,44 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
     } else if(!is.null(read_direction) || read_direction == 'horizontal'){
 
-      df <- resample_dat_scale_alt(df, tnp = tnp, cycles = cycles)
-      fluor_threshold_check(df)
-      df <- as.data.frame(lapply(df[1:ncol(df)], decimal_scaling))
-      df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
+      if(ncol(df) == 1){
+        df <- resample_dat_alt(df, tnp = tnp, cycles = cycles)
+        fluor_threshold_check(df)
+        df <- as.data.frame(lapply(df[1:ncol(df)], decimal_scaling))
+        df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-      #name the columns
-      ru = rows_used
-      cu = cols_used
-      usl = user_specific_labels
-      rd = read_direction
-      sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
-      colnames(df) <- sample_col_names
+        #name the columns
+        ru = rows_used
+        cu = cols_used
+        usl = user_specific_labels
+        rd = read_direction
+        sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
+        colnames(df) <- sample_col_names
 
-      #add unique_id
-      df <-unique_identifier(df)
+        #add unique_id
+        df <-unique_identifier(df)
 
-      return(df)
+        return(df)
+
+      } else {
+        df <- resample_dat_scale_alt(df, tnp = tnp, cycles = cycles)
+        fluor_threshold_check(df)
+        df <- as.data.frame(lapply(df[1:ncol(df)], decimal_scaling))
+        df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
+
+        #name the columns
+        ru = rows_used
+        cu = cols_used
+        usl = user_specific_labels
+        rd = read_direction
+        sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
+        colnames(df) <- sample_col_names
+
+        #add unique_id
+        df <-unique_identifier(df)
+
+        return(df)
+      }
 
     } else{
 
@@ -348,23 +453,45 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
     } else if(!is.null(read_direction) || read_direction == 'horizontal'){
 
-      df <- resample_dat_scale_alt(df, tnp = tnp, cycles = cycles)
-      fluor_threshold_check(df)
-      df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
-      df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
+      if(ncol(df) == 1){
+        df <- resample_dat_alt(df, tnp = tnp, cycles = cycles)
+        fluor_threshold_check(df)
+        df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
+        df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-      #name the columns
-      ru = rows_used
-      cu = cols_used
-      usl = user_specific_labels
-      rd = read_direction
-      sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
-      colnames(df) <- sample_col_names
+        #name the columns
+        ru = rows_used
+        cu = cols_used
+        usl = user_specific_labels
+        rd = read_direction
+        sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
+        colnames(df) <- sample_col_names
 
-      #add unique_id
-      df <-unique_identifier(df)
+        #add unique_id
+        df <-unique_identifier(df)
 
-      return(df)
+        return(df)
+
+      } else {
+        df <- resample_dat_scale_alt(df, tnp = tnp, cycles = cycles)
+        fluor_threshold_check(df)
+        df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
+        df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
+
+        #name the columns
+        ru = rows_used
+        cu = cols_used
+        usl = user_specific_labels
+        rd = read_direction
+        sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
+        colnames(df) <- sample_col_names
+
+        #add unique_id
+        df <-unique_identifier(df)
+
+        return(df)
+
+      }
 
     } else{
 
@@ -405,24 +532,47 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
     } else if(!is.null(read_direction) || read_direction == 'horizontal'){
 
-      df <- resample_dat_scale_alt(df, tnp = tnp, cycles = cycles)
-      fluor_threshold_check(df) #needs to be changed in pkg
-      df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
-      df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
+      if(ncol(df) == 1){
+        df <- resample_dat_alt(df, tnp = tnp, cycles = cycles)
+        fluor_threshold_check(df) #needs to be changed in pkg
+        df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
+        df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-      #name columns
-      ru = rows_used
-      cu = cols_used
-      usl = user_specific_labels
-      rd = read_direction
-      sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
-      colnames(df) <- sample_col_names
+        #name columns
+        ru = rows_used
+        cu = cols_used
+        usl = user_specific_labels
+        rd = read_direction
+        sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
+        colnames(df) <- sample_col_names
 
-      #add unique_id
-      df <-unique_identifier(df)
-      #colnames(df) <- c(1:(ncol(df)-1))
+        #add unique_id
+        df <-unique_identifier(df)
+        #colnames(df) <- c(1:(ncol(df)-1))
 
-      return(df)
+        return(df)
+
+      } else {
+        df <- resample_dat_scale_alt(df, tnp = tnp, cycles = cycles)
+        fluor_threshold_check(df) #needs to be changed in pkg
+        df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
+        df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
+
+        #name columns
+        ru = rows_used
+        cu = cols_used
+        usl = user_specific_labels
+        rd = read_direction
+        sample_col_names <- dat_col_names_optimus(df, ru, cu, usl, rd)
+        colnames(df) <- sample_col_names
+
+        #add unique_id
+        df <-unique_identifier(df)
+        #colnames(df) <- c(1:(ncol(df)-1))
+
+        return(df)
+
+      }
 
     } else{
 

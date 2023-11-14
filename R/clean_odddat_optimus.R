@@ -23,19 +23,36 @@
 
 clean_odddat_optimus <- function(df){
 
-  special_chars <- c('-,','-' )
-  for (i in 1:nrow(df)){
-    for (j in 1:ncol(df)){
-      if(special_chars[1] %in% df[i,j] || special_chars[2] %in% df[i,j]){
-        df[i,j] <- NA
+  suppressWarnings({
+
+    special_chars <- c('-,','-' )
+    empty_df <- data.frame()
+    for (i in 1:nrow(df)){
+      for (j in 1:ncol(df)){
+        if( special_chars[1] %in% df[i,j] || special_chars[2] %in% df[i,j] ){
+          df[i,j] <- NA
+        }
       }
     }
-  }
-  na_df <- df
+    nona_rows_df <- df
 
-  comma_df <- na_df
-  nocomma_df <- comma_cleaner(comma_df)
-  nocomma_df <- nocomma_df[rowSums(is.na(nocomma_df)) != ncol(nocomma_df), ]
 
-  return(nocomma_df)
+    if(ncol(df) == 1){
+      comma_df <- nona_rows_df
+      comma_df <- comma_df[rowSums(is.na(comma_df)) != ncol(comma_df), ]
+      comma_df = as.numeric(as.character(gsub(",", "", comma_df)))
+
+      return(as.data.frame(comma_df))
+
+    } else {
+      comma_df <- nona_rows_df
+      nocomma_df <- comma_cleaner(comma_df)
+      nocomma_df <- nocomma_df[rowSums(is.na(nocomma_df)) != ncol(nocomma_df), ]
+      nocomma_df <- as.data.frame(nocomma_df)
+
+      return(nocomma_df)
+    }
+
+  })
+
 }

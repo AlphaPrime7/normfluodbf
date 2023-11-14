@@ -43,7 +43,7 @@ This function also takes less parameters than the more optimized version of the 
 }
 \examples{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
-#' normalized_fluo_dat <- normfluordat(dat=fpath, tnp = 3, cycles = 40)
+normalized_fluo_dat <- normfluordat(dat=fpath, tnp = 3, cycles = 40)
 }
 \seealso{
 \code{\link[=normfluodat]{normfluodat()}}

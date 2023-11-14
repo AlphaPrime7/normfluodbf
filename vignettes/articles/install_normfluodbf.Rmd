@@ -20,7 +20,7 @@ pak::pak("AlphaPrime7/normfluodbf")
 
 #Install locally from source
 library(remotes)
-remotes::install_local("normfluodbf_1.4.3.9000.tar.gz")
+remotes::install_local("normfluodbf_1.5.1.tar.gz")
 
 #From CRAN based on availability
 install.packages("normfluodbf")

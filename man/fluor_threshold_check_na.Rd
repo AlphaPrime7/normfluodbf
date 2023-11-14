@@ -20,7 +20,7 @@ A function designed to check for missing values in a data frame.
 \examples{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
-nocomma_dat <- clean_odd_cc(dat_df)
+nocomma_dat <- clean_odddat_optimus(dat_df)
 fluor_threshold_check_na(nocomma_dat)
 }
 \seealso{

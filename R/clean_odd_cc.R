@@ -27,10 +27,14 @@
 clean_odd_cc <- function(df){
 
   #badger::badge_custom("Tingwei", "Adeck", "green", "https://github.com/AlphaPrime7")
+  suppressWarnings({
 
-  df <- comma_cleaner(df)
-  df <- df[rowSums(is.na(df)) != ncol(df), ]
+    df <- comma_cleaner(df)
+    df <- df[rowSums(is.na(df)) != ncol(df), ]
 
-  return(df)
+    return(df)
+
+  })
+
 
 }
