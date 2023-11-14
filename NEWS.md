@@ -1,3 +1,5 @@
+# normfluodbf 1.5.2
+
 # normfluodbf 1.5.1
 
 - This release takes care of a major bug found in the program which was discovered about 2 days after release. The issue with resampling data that contains a single column when the read direction is horizontal. I tested the program after release and noticed this issue and promptly addressed it.
