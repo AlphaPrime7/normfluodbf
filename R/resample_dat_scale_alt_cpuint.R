@@ -25,8 +25,6 @@
 resample_dat_scale_alt_cpuint <- function(df, tnp, cycles){
 
   suppressWarnings({
-    library(data.table)
-    library(dplyr)
 
     row_list <- c()
     for(i in 1:nrow(df)){
@@ -46,7 +44,7 @@ resample_dat_scale_alt_cpuint <- function(df, tnp, cycles){
     big_data = as.data.frame(big_data)
     big_data_t = transpose(l=big_data)
 
-    big_data_t <- big_data_t %>% select_if(~ !any(is.na(.)))
+    big_data_t <- big_data_t %>% dplyr::select_if(~ !any(is.na(.)))
     big_data_t <- as.data.frame(big_data_t)
     #big_data_t <- big_data_t[ , colSums(is.na(big_data_t))==0]
     colnames(big_data_t) <- NULL
