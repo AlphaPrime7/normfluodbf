@@ -30,6 +30,10 @@
 
 dat_col_names_horizontal <- function(df, rows_used=NULL,cols_used=NULL){
 
+  if(is.null(rows_used)){
+    message('The User is advised to input a character vector of rows used')
+  }
+
   cols_sort <- c()
   cols_sort_fit <- c()
 
