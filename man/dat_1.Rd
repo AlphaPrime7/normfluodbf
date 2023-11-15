@@ -11,6 +11,6 @@ An object of class \code{data.frame} with 320 rows and 12 columns.
 dat_1
 }
 \description{
-FLUOstar .dat files used for creation of the update and unusable for data immediate data analysis.
+FLUOstar .dat files used for creation of the update and unusable for immediate data analysis.
 }
 \keyword{datasets}
