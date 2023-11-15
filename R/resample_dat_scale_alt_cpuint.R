@@ -40,7 +40,7 @@ resample_dat_scale_alt_cpuint <- function(df, tnp, cycles){
       j_vect <- c(j_vect, j_dfs)
     }
 
-    big_data = do.call(rbind, j_vect)
+    big_data = do.call(cbind, j_vect)
     big_data = as.data.frame(big_data)
     big_data_t = transpose(l=big_data)
 
