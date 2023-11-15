@@ -216,7 +216,7 @@ normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
 ```{r exampledatbase, eval=F}
 library(normfluodbf)
 dat2 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
-normalized_data <- normfluordat(dat2, tnp = 3, cycles = 40)
+normalized_data <- normfluordat(dat2, tnp = 3, cycles = 40) 
 ```
 
 -   Please note that the examples above indicate the simplest scenarios
