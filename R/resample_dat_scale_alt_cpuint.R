@@ -25,30 +25,53 @@
 resample_dat_scale_alt_cpuint <- function(df, tnp, cycles){
 
   suppressWarnings({
+    library(data.table)
+    library(dplyr)
 
-    col_list <- c()
-    for(i in 1:ncol(df)){
+    row_list <- c()
+    for(i in 1:nrow(df)){
       n <- "a"
-      col_list <- c(col_list,assign(paste0(n, i), as.data.frame(df[,i])) )
+      row_list <- c(row_list, as.data.frame(df[i,]) )
     }
 
     j_vect <- c()
-    for(j in col_list){
+    for(j in row_list){
       j <- as.data.frame(j)
       j_resampled <- resample_dat_alt(j, tnp = tnp, cycles = cycles)
       j_dfs <- as.data.frame(j_resampled)
       j_vect <- c(j_vect, j_dfs)
     }
 
-    big_data = do.call(cbind, j_vect)
+    big_data = do.call(rbind, j_vect)
     big_data = as.data.frame(big_data)
     big_data_t = transpose(l=big_data)
 
-    big_data_t <- big_data_t %>% dplyr::select_if(~ !any(is.na(.)))
+    big_data_t <- big_data_t %>% select_if(~ !any(is.na(.)))
+    big_data_t <- as.data.frame(big_data_t)
     #big_data_t <- big_data_t[ , colSums(is.na(big_data_t))==0]
+    colnames(big_data_t) <- NULL
 
-    return(big_data_t)
+    num_samples = ncol(big_data_t)/cycles
+    numrows = ncol(big_data_t)/num_samples
+    k <- c(1:num_samples)
+    type_size <- c(1:num_samples)
+
+    resulting_df <- data.frame()
+    for (i in 1:numrows){
+
+      insert_col = big_data_t[,k]
+      colnames(insert_col) <- c(1:num_samples)
+
+      resulting_df[i,type_size] <- rbind(insert_col, resulting_df)
+      increment_k = num_samples
+      k <- k + increment_k
+      colnames(resulting_df) <- c(1:num_samples)
+
+    }
+
+    return(resulting_df)
 
   })
 
 }
+
