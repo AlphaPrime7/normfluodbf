@@ -48,3 +48,5 @@ resample_dat <- function(df, tnp, cycles){
   })
 
 }
+
+
