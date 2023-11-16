@@ -10,6 +10,7 @@
 #' @param df A clean data frame with attributes or tuples containing a mixture of samples.
 #' @param tnp A numeric value indicating the number of rows used. TNP is used as an acronym for Test, Negative, Positive.
 #' @param cycles A numeric value indicating the number of cycles selected by the user when running the FLUOstar instrument.
+#' @param na_omit Takes a string "yes" OR "no".
 #'
 #' @return A new data frame where separated samples are assigned a separate attribute or column.
 #'
@@ -22,7 +23,7 @@
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
 #' resampled_scaled <- resample_dat_scale_alt(nocomma_dat, tnp=3, cycles=40)
 
-resample_dat_scale_alt <- function(df, tnp, cycles){
+resample_dat_scale_alt <- function(df, tnp, cycles, na_omit = NULL){
 
   suppressWarnings({
 
@@ -43,11 +44,20 @@ resample_dat_scale_alt <- function(df, tnp, cycles){
         nseq <- nseq + increment_n
 
       }
-      final_df <- cbind(final_df, sample_df)
-      final_df <- final_df[ , colSums(is.na(final_df))==0]
-      colnames(final_df) <- NULL
-      rownames(final_df) <- c(1:cycles)
-      final_df <- as.data.frame(final_df)
+      if(is.null(na_omit) || na_omit == 'no'){
+        final_df <- cbind(final_df, sample_df)
+        final_df <- final_df[ , colSums(!is.na(final_df))>=1]
+        colnames(final_df) <- NULL
+        rownames(final_df) <- c(1:cycles)
+        final_df <- as.data.frame(final_df)
+
+      } else if(!is.null(na_omit) || na_omit == 'yes' ){
+        final_df <- cbind(final_df, sample_df)
+        final_df <- final_df[ , colSums(is.na(final_df))==0]
+        colnames(final_df) <- NULL
+        rownames(final_df) <- c(1:cycles)
+        final_df <- as.data.frame(final_df)
+      }
 
     }
 

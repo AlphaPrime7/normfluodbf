@@ -58,6 +58,12 @@
     <loc>https://alphaprime7.github.io/normfluodbf/news/index.html</loc>
   </url>
   <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/check_dat.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/check_dbf.html</loc>
+  </url>
+  <url>
     <loc>https://alphaprime7.github.io/normfluodbf/reference/clean_odddat_optimus.html</loc>
   </url>
   <url>
@@ -151,6 +157,9 @@
     <loc>https://alphaprime7.github.io/normfluodbf/reference/normfluodat.html</loc>
   </url>
   <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/normfluodat_base.html</loc>
+  </url>
+  <url>
     <loc>https://alphaprime7.github.io/normfluodbf/reference/normfluordat.html</loc>
   </url>
   <url>
@@ -161,6 +170,12 @@
   </url>
   <url>
     <loc>https://alphaprime7.github.io/normfluodbf/reference/norm_z.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/read_dats.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/read_dbfs.html</loc>
   </url>
   <url>
     <loc>https://alphaprime7.github.io/normfluodbf/reference/resample_dat.html</loc>

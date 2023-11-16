@@ -4,7 +4,7 @@
 \alias{resample_dat_scale_optimus}
 \title{Title: A function to create an attribute or column for each sample loaded into the microplate wells.}
 \usage{
-resample_dat_scale_optimus(df, tnp, cycles)
+resample_dat_scale_optimus(df, tnp, cycles, na_omit = NULL)
 }
 \arguments{
 \item{df}{A clean data frame with attributes or tuples containing a mixture of samples.}
@@ -12,6 +12,8 @@ resample_dat_scale_optimus(df, tnp, cycles)
 \item{tnp}{A numeric value indicating the number of rows used. TNP is used as an acronym for Test, Negative, Positive.}
 
 \item{cycles}{A numeric value indicating the number of cycles selected by the user when running the FLUOstar instrument.}
+
+\item{na_omit}{Takes a string "yes" OR "no".}
 }
 \value{
 A new data frame where separated samples are assigned a separate attribute or column.

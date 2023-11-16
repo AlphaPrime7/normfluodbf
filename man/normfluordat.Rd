@@ -11,7 +11,8 @@ normfluordat(
   rows_used = NULL,
   cols_used = NULL,
   user_specific_labels = NULL,
-  read_direction = NULL
+  read_direction = NULL,
+  na_omit = NULL
 )
 }
 \arguments{
@@ -30,7 +31,9 @@ normfluordat(
 \item{read_direction}{A string input with two choices, “vertical” or “horizontal.”
 The user indicates “vertical” if the user intends to have a final data frame
 with samples arranged as sample type triplets (A1, B1, C1, A1, B1, C1)
-OR “horizontal” if the user intends to have a final data frame with samples}
+OR “horizontal” if the user intends to have a final data frame with samples.}
+
+\item{na_omit}{Takes a string "yes" OR "no".}
 }
 \value{
 A normalized data frame with an appended "Cycle_Number" attribute. The “Cycle_Number” attribute is the X-variable.
