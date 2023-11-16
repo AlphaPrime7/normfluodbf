@@ -119,7 +119,8 @@ and then appends an attribute called “Cycle_Number” to the normalized data f
 <span>  <span class="va">cycles</span>,</span>
 <span>  rows_used <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  cols_used <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  user_specific_labels <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  user_specific_labels <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  read_direction <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -147,6 +148,13 @@ and then appends an attribute called “Cycle_Number” to the normalized data f
 
 <dt>user_specific_labels</dt>
 <dd><p>A character vector manually prepared by the user to denote the wells used on the microplate reader; usl = c('A1','B1','C1').</p></dd>
+
+
+<dt>read_direction</dt>
+<dd><p>A string input with two choices, “vertical” or “horizontal.”
+The user indicates “vertical” if the user intends to have a final data frame
+with samples arranged as sample type triplets (A1, B1, C1, A1, B1, C1)
+OR “horizontal” if the user intends to have a final data frame with samples</p></dd>
 
 </dl></div>
     <div class="section level2">
