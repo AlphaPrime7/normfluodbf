@@ -82,9 +82,9 @@ resample_dat_scale_altv1 <- function(df, tnp, cycles){
 #' @examples fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
-#' resampled_scaled <- resample_dat_scale_altv2(nocomma_dat, tnp=3, cycles=40)
+#' resampled_scaled <- resample_dat_scale_altv2_na(nocomma_dat, tnp=3, cycles=40)
 
-resample_dat_scale_altv2 <- function(df, tnp, cycles){
+resample_dat_scale_altv2_na <- function(df, tnp, cycles){
 
   suppressWarnings({
 
