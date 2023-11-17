@@ -71,17 +71,29 @@
        
       Output and Analysis
     </a>
+    <a class="dropdown-item" href="articles/qc_redirect.html">
+      <span class="fa fa-diamond"></span>
+       
+      QC
+    </a>
   </div>
 </li>
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--news">
-    <span class="fa fa-newspaper"></span>
+    <span class="fa fa-rss"></span>
      
     News
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdown--news">
     <a class="dropdown-item" href="news/index.html">Version 1.5.2</a>
   </div>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="articles/h_redirect.html">
+    <span class="fa fa-bullhorn"></span>
+     
+    R-Dev
+  </a>
 </li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
@@ -260,7 +272,7 @@
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/AlphaPrime7/normfluodbf" class="external-link">normfluodbf</a></span><span class="op">)</span></span>
 <span><span class="va">dat2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dat_2.dat"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span><span class="op">)</span></span>
-<span><span class="va">normalized_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/normfluordat.html">normfluordat</a></span><span class="op">(</span><span class="va">dat2</span>, tnp <span class="op">=</span> <span class="fl">3</span>, cycles <span class="op">=</span> <span class="fl">40</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">normalized_data</span> <span class="op">&lt;-</span> <span class="fu">normfluordat</span><span class="op">(</span><span class="va">dat2</span>, tnp <span class="op">=</span> <span class="fl">3</span>, cycles <span class="op">=</span> <span class="fl">40</span><span class="op">)</span></span></code></pre></div>
 <ul>
 <li>Please note that the examples above indicate the simplest scenarios as these functions have more features than presented in here.</li>
 </ul>

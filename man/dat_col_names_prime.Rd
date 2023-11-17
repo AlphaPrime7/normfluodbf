@@ -5,6 +5,7 @@
 \title{Title: Attribute(s) naming function.}
 \usage{
 dat_col_names_prime(
+  dat = NULL,
   df,
   rows_used = NULL,
   cols_used = NULL,
@@ -12,6 +13,8 @@ dat_col_names_prime(
 )
 }
 \arguments{
+\item{dat}{A string ("dat_1.dat") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dat" file.}
+
 \item{df}{A data frame that requires attribute labels.}
 
 \item{rows_used}{A character vector indicating the rows or tuples used on the microplate (usually a 96-well microplate). Initialized as NULL.}
@@ -36,10 +39,7 @@ dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odddat_optimus(dat_df)
 resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 n = c('A','B','C')
-sample_col_names <- dat_col_names_prime(resampled_scaled, n)
-}
-\seealso{
-\code{\link[=normfluordat]{normfluordat()}}
+sample_col_names <- dat_col_names_prime(dat = fpath, resampled_scaled, n)
 }
 \author{
 Tingwei Adeck

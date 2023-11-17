@@ -47,17 +47,29 @@
        
       Output and Analysis
     </a>
+    <a class="dropdown-item" href="../articles/qc_redirect.html">
+      <span class="fa fa-diamond"></span>
+       
+      QC
+    </a>
   </div>
 </li>
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--news">
-    <span class="fa fa-newspaper"></span>
+    <span class="fa fa-rss"></span>
      
     News
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdown--news">
     <a class="dropdown-item" href="../news/index.html">Version 1.5.2</a>
   </div>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/h_redirect.html">
+    <span class="fa fa-bullhorn"></span>
+     
+    R-Dev
+  </a>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
@@ -141,6 +153,7 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">fpath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dat_1.dat"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span>, mustWork <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">dat_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="normfluodat.html">normfluodat</a></span><span class="op">(</span><span class="va">fpath</span>,<span class="fl">3</span>,<span class="fl">40</span>, rows_used <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'C'</span><span class="op">)</span>, norm_scale <span class="op">=</span> <span class="st">'one'</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Check the data frame for correct attribute names AND attributes without names</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 1</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
@@ -221,7 +234,6 @@
 <span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 39</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 40</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Check the data frame for correct attribute names AND attributes without names</span>
 <span class="r-in"><span><span class="va">yvars</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A1"</span>,<span class="st">"B1"</span>,<span class="st">"C1"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">xvar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Cycle_Number"</span>, <span class="st">"Time"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">xl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">40</span><span class="op">)</span></span></span>

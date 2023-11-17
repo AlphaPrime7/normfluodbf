@@ -12,8 +12,7 @@ normfluodat(
   cols_used = NULL,
   user_specific_labels = NULL,
   read_direction = NULL,
-  norm_scale = NULL,
-  na_omit = NULL
+  norm_scale = NULL
 )
 }
 \arguments{
@@ -36,8 +35,6 @@ if the user intends to have a final data frame with samples arranged as clusters
 
 \item{norm_scale}{This parameter takes sub-parameters: 'raw’ , hundred’ , 'one’ , 'z-score' , or 'decimal’ ,
 which denotes the normalization type or scale; Initialized as NULL.}
-
-\item{na_omit}{Takes a string "yes" OR "no".}
 }
 \value{
 A normalized data frame with an appended "Cycle_Number" attribute. The “Cycle_Number” attribute is the X-variable.
@@ -59,7 +56,7 @@ fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork =
 normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40)
 }
 \seealso{
-\code{\link[=normfluordat]{normfluordat()}}
+\code{\link[=normfluodatlite]{normfluodatlite()}}
 }
 \author{
 Tingwei Adeck

@@ -4,9 +4,11 @@
 \alias{dat_col_names_horizontal}
 \title{Title: Attribute(s) naming function.}
 \usage{
-dat_col_names_horizontal(df, rows_used = NULL, cols_used = NULL)
+dat_col_names_horizontal(dat = NULL, df, rows_used = NULL, cols_used = NULL)
 }
 \arguments{
+\item{dat}{A string ("dat_1.dat") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dat" file.}
+
 \item{df}{A data frame that requires attribute labels.}
 
 \item{rows_used}{A character vector indicating the rows or tuples used on the microplate (usually a 96-well microplate). Initialized as NULL.}
@@ -33,7 +35,7 @@ dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odddat_optimus(dat_df)
 resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 n = c('A','B','C')
-sample_col_names <- dat_col_names_horizontal(resampled_scaled, n)
+sample_col_names <- dat_col_names_horizontal(dat=fpath,resampled_scaled, n)
 }
 \author{
 Tingwei Adeck

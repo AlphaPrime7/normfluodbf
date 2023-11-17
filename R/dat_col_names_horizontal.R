@@ -10,6 +10,7 @@
 #'
 #' @author Tingwei Adeck
 #'
+#' @param dat A string ("dat_1.dat") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dat" file.
 #' @param df A data frame that requires attribute labels.
 #' @param rows_used A character vector indicating the rows or tuples used on the microplate (usually a 96-well microplate). Initialized as NULL.
 #' @param cols_used A numeric vector indicating the plate columns or attributes used. Initialized as NULL.
@@ -26,9 +27,11 @@
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
 #' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 #' n = c('A','B','C')
-#' sample_col_names <- dat_col_names_horizontal(resampled_scaled, n)
+#' sample_col_names <- dat_col_names_horizontal(dat=fpath,resampled_scaled, n)
 
-dat_col_names_horizontal <- function(df, rows_used=NULL,cols_used=NULL){
+dat_col_names_horizontal <- function(dat = NULL, df, rows_used=NULL,cols_used=NULL){
+
+  actual_cols <- actual_cols_used(dat)
 
   if(is.null(rows_used)){
     message('The User is advised to input a character vector of rows used')
@@ -54,12 +57,12 @@ dat_col_names_horizontal <- function(df, rows_used=NULL,cols_used=NULL){
 
   } else if(is.null(cols_used) && !is.null(rows_used)){
 
-    colnames_nocu <- c(1:ncol(df) )
+    colnames_nocu <- actual_cols
     for(i in rows_used){
       cols_sort <- append(cols_sort, paste0(i,colnames_nocu))
     }
 
-    range <- 1:( length(cols_sort)/ (length(rows_used)*length(rows_used)) )
+    range <- 1:( length(cols_sort)/ length(rows_used))
 
     for(j in rows_used){
       increment = length(cols_sort)/length(rows_used)

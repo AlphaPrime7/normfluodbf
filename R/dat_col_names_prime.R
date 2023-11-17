@@ -10,6 +10,7 @@
 #'
 #' @author Tingwei Adeck
 #'
+#' @param dat A string ("dat_1.dat") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dat" file.
 #' @param df A data frame that requires attribute labels.
 #' @param rows_used A character vector indicating the rows or tuples used on the microplate (usually a 96-well microplate). Initialized as NULL.
 #' @param cols_used A numeric vector indicating the plate columns or attributes used. Initialized as NULL.
@@ -19,17 +20,17 @@
 #'
 #' @export
 #'
-#' @seealso [normfluordat()]
 #'
 #' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
 #' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 #' n = c('A','B','C')
-#' sample_col_names <- dat_col_names_prime(resampled_scaled, n)
+#' sample_col_names <- dat_col_names_prime(dat = fpath, resampled_scaled, n)
 
-dat_col_names_prime <- function(df, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL){
+dat_col_names_prime <- function(dat = NULL, df, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL){
 
+  actual_cols <- actual_cols_used(dat)
   colnames_noru <- c(1:ncol(df))
 
   if(is.null(rows_used)){
@@ -48,7 +49,8 @@ dat_col_names_prime <- function(df, rows_used = NULL, cols_used= NULL, user_spec
     return(user_specific_labels)
 
   } else if(is.null(cols_used)){
-    for(i in 1:ncol(df)){
+    cols_used = actual_cols
+    for(i in cols_used){
       col_names <- c(col_names, paste0(rows_used,i))
     }
     return(col_names[1:ncol(df)])

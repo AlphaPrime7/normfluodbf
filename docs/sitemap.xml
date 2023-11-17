@@ -4,6 +4,9 @@
     <loc>https://alphaprime7.github.io/normfluodbf/404.html</loc>
   </url>
   <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/articles/articles/highlights.html</loc>
+  </url>
+  <url>
     <loc>https://alphaprime7.github.io/normfluodbf/articles/articles/input.html</loc>
   </url>
   <url>
@@ -14,6 +17,12 @@
   </url>
   <url>
     <loc>https://alphaprime7.github.io/normfluodbf/articles/example_redirect.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/articles/highlights.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/articles/h_redirect.html</loc>
   </url>
   <url>
     <loc>https://alphaprime7.github.io/normfluodbf/articles/index.html</loc>
@@ -40,6 +49,12 @@
     <loc>https://alphaprime7.github.io/normfluodbf/articles/out_analysis.html</loc>
   </url>
   <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/articles/qc_redirect.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/articles/test_file.html</loc>
+  </url>
+  <url>
     <loc>https://alphaprime7.github.io/normfluodbf/authors.html</loc>
   </url>
   <url>
@@ -56,6 +71,9 @@
   </url>
   <url>
     <loc>https://alphaprime7.github.io/normfluodbf/news/index.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/actual_cols_used.html</loc>
   </url>
   <url>
     <loc>https://alphaprime7.github.io/normfluodbf/reference/check_dat.html</loc>
@@ -157,6 +175,12 @@
     <loc>https://alphaprime7.github.io/normfluodbf/reference/normfluodat.html</loc>
   </url>
   <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/normfluodatfull.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/normfluodatlite.html</loc>
+  </url>
+  <url>
     <loc>https://alphaprime7.github.io/normfluodbf/reference/normfluodat_base.html</loc>
   </url>
   <url>
@@ -164,6 +188,9 @@
   </url>
   <url>
     <loc>https://alphaprime7.github.io/normfluodbf/reference/normfluordbf.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/norm_applier.html</loc>
   </url>
   <url>
     <loc>https://alphaprime7.github.io/normfluodbf/reference/norm_tidy_dbf.html</loc>
@@ -206,6 +233,9 @@
   </url>
   <url>
     <loc>https://alphaprime7.github.io/normfluodbf/reference/resample_dat_scale_optimus.html</loc>
+  </url>
+  <url>
+    <loc>https://alphaprime7.github.io/normfluodbf/reference/resample_dat_scale_optimus_backend.html</loc>
   </url>
   <url>
     <loc>https://alphaprime7.github.io/normfluodbf/reference/resample_dat_scale_optimus_na.html</loc>

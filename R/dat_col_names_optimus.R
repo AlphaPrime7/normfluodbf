@@ -9,6 +9,7 @@
 #'
 #' @author Tingwei Adeck
 #'
+#' @param dat A string ("dat_1.dat") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dat" file.
 #' @param df A data frame that requires attribute labels.
 #' @param rows_used A character vector indicating the rows or tuples used on the microplate (usually a 96-well microplate). Initialized as NULL.
 #' @param cols_used A numeric vector indicating the plate columns or attributes used. Initialized as NULL.
@@ -46,10 +47,11 @@
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
 #' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 #' n = c('A','B','C')
-#' sample_col_names <- dat_col_names_optimus(resampled_scaled, n)
+#' sample_col_names <- dat_col_names_optimus(dat = fpath, resampled_scaled, n)
 
-dat_col_names_optimus <- function(df, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL){
+dat_col_names_optimus <- function(dat = NULL, df, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL){
 
+  actual_cols <- actual_cols_used(dat)
   colnames_noru <- c(1:ncol(df))
 
   if(is.null(rows_used)){
@@ -69,17 +71,15 @@ dat_col_names_optimus <- function(df, rows_used = NULL, cols_used= NULL, user_sp
     return(user_specific_labels)
 
   } else if(is.null(cols_used)){
-    for(i in 1:ncol(df)){
+    cols_used = actual_cols
+    for(i in cols_used){
       col_names <- c(col_names, paste0(rows_used,i))
     }
     if(is.null(read_direction) || read_direction == 'vertical'){
       message('Check the data frame for correct attribute names AND attributes without names')
       return(col_names[1:ncol(df)])
     } else if(read_direction == 'horizontal'){
-      for(i in 1:(ncol(df)/length(rows_used)) ){
-        col_names_sort <- c(col_names_sort, paste0(rows_used,i))
-      }
-      col_names_sort <- stringr::str_sort(col_names_sort, decreasing = F, na_last = T, locale = 'en', numeric = T)
+      col_names_sort <- stringr::str_sort(col_names, decreasing = F, na_last = T, locale = 'en', numeric = T)
       message('Check the data frame for correct attribute names AND attributes without names')
       return(col_names_sort[1:ncol(df)])
     } else{
@@ -99,10 +99,10 @@ dat_col_names_optimus <- function(df, rows_used = NULL, cols_used= NULL, user_sp
     } else{
       return(colnames_noru)
     }
-  } else if(is.null(user_specific_labels) || ncol(df) < length(cols_used)*length(rows_used) && length(cols_used) < length(normal_sequence) ){
+  } else if(is.null(user_specific_labels) || ncol(df) < length(cols_used)*length(rows_used) || ncol(df) < length(actual_cols)*length(rows_used) && length(cols_used) < length(normal_sequence) ){
     if(ncol(df) > length(cols_used)*length(rows_used)){
       message('The number of columns exceeds the users estimate')
-      for(i in cols_used){
+      for(i in actual_cols){
         col_names <- c(col_names, paste0(rows_used,i))
       }
       if(is.null(user_specific_labels) && is.null(read_direction) || read_direction == 'vertical'){
@@ -125,7 +125,7 @@ dat_col_names_optimus <- function(df, rows_used = NULL, cols_used= NULL, user_sp
 
     }else {
       message('The number of columns is less the users estimate')
-      for(i in cols_used){
+      for(i in actual_cols){
         col_names <- c(col_names, paste0(rows_used,i))
       }
       if(is.null(user_specific_labels) && is.null(read_direction) || read_direction == 'vertical'){
@@ -147,5 +147,9 @@ dat_col_names_optimus <- function(df, rows_used = NULL, cols_used= NULL, user_sp
       }
     }
 
+  } else{
+    return(colnames_noru)
   }
+
+
 }

@@ -1,0 +1,135 @@
+---
+title: "highlights"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "vignettes/",
+  out.width = "100%"
+)
+```
+
+```{r echo=FALSE, results="hide", message=FALSE}
+("badger")
+```
+
+[![Liposomes](https://img.shields.io/badge/Liposome%20Flux%20Assays-8A2BE2)](https://pubmed.ncbi.nlm.nih.gov/27091997/)
+`r badger::badge_custom("normfluodbf", "1.5.2", "green", "https://github.com/AlphaPrime7")`
+`r badger::badge_custom("Highlight", "REELS", "green", "https://github.com/AlphaPrime7")`
+
+# 🔥 Why Highlights?
+
+-   Sports events are filled with highlights but seldom do intellectuals like myself take time to reel in our work and find a way to document our high points. I appreciate myself and although a little dazed by this project, once the patch goes up, I will find time to enjoy and admire my work when using the package after it is re-submitted.
+
+-   In this document, I point out highlight functions in the making of this package update. The functions that I created based on pure creativity and my proper understanding of the assay concept.
+
+-   There are even functions that I came up with on the fly as I was troubleshooting and even I could not believe I did it. Similar to those NBA dunks that make some players feel like they just had an out of body experience.
+
+-   I don't point out the LOWs because the process of going through making a package and seeing a major flaw immediately after publishing it is a LOW.
+
+-   The making of the package often seems like a LOW as I run into issues in almost every step. The only win is when everything works and all test cases pass.
+
+# 💯 resample_dat series
+
+-   This is perhaps the most difficult part of learning to code in R while making this package.
+
+-   I used a considerable amount of time learning how R works with this procedure and after hours and hours of understanding the R process, this function was born.
+
+-   The pride I felt when this worked was short lived but one of my best if not best moments.
+
+-   Below is the simplest form of that function. Several other functions on the same concept were born from this.
+
+```{r resamples, eval=F}
+resample_dat <- function(df, tnp, cycles){
+
+  suppressWarnings({
+
+    type_size <- c(1:tnp)
+    k <- c(1:tnp)
+
+    resulting_df <- data.frame()
+    for (i in 1:(nrow(df)/tnp)){
+
+      colnames(resulting_df) = NULL
+      insert_row = df[k,]
+      colnames(insert_row) = NULL
+
+      resulting_df[i,type_size] <- rbind(insert_row, resulting_df)
+
+      increment = tnp
+      k <- k + increment
+    }
+    return(resulting_df)
+
+  })
+
+}
+```
+
+# 👌 QC
+
+-   The QC series of functions was impressive.
+
+-   I am SUPER PROUD of this because this function was inspired by experimental errors I commited while performing these assays myself.
+
+-   This is my best as it showed me that I knew what I was doing and that I valued Quality above all else.
+
+-   In fact, a lot of things in life are useless without some form of quality control that can help separate noise from signal. This function did that.
+
+-   Also, I did this the Ubuntu way without punishing the user. This is forgiving of me given that this function took a considerable amount of time to make. I almost QUIT because of this function.
+
+```{r qc, eval=F}
+fluor_threshold_check <- function(clean_df, fun = NA){
+
+  load.emojifont(font = "EmojiOne.ttf")
+
+  nofun <- is.na(fun)
+  clean_df <- rbind(clean_df, NA)
+  clean_df <- cbind(clean_df, NA)
+  for(i in 1:nrow(clean_df)){
+    for(j in 1:ncol(clean_df)){
+      if ( clean_df[i,j] >= (2^15) && is.na(clean_df[i,j]) != nofun ){
+        message(c(emoji('pig'), emoji('camel'), emoji('lion')))
+        message(paste("YIKES, value > 2^15, Watch in future experimental designs",'column:', j , 'row:', i))
+      } else if ( clean_df[i,j] <= (2^11) && is.na(clean_df[i,j]) != nofun ){
+        message(c(emoji('pig'), emoji('camel')))
+        message(paste("YIKES, value < 2^11, Watch in future experimental designs",'column:', j , 'row:', i))
+      }
+    }
+  }
+}
+```
+
+# 💣 actual_cols_used()
+
+-   Perhaps one of the last main functions this package needed.
+
+-   My initial approach was to have the user provide this data but after several hiccups making the package, I realized that the data had this information. On the spot I whipped up this package which was super useful.
+
+-   This again was another GREAT HIGH.
+
+```{r acu, eval=F}
+actual_cols_used <- function(dat){
+  df <- utils::read.table(dat)
+  df <- clean_odddat_optimus(df)
+  colnames(df) <- c(1:ncol(df))
+  acu <- names(which(colSums(!is.na(df)) > 0))
+  acu <- as.numeric(as.vector(acu))
+
+  return(acu)
+}
+```
+
+# ⌛ Final Remarks
+
+-   The culmination of all these functions into normfluodat is a high moment but it does not beat developing the subordinate functions that helped make the main function. Every moment I needed a subordinate function highlighted their power in the package and my HIGHEST moment was referencing my OWN subordinate functions into main processes within the package; this feeling was surreal.
+
+-   The final result is often expected when work is put into the little things or sub-processes upon which the main process is dependent upon.
+
+-   I am proud of the final recipe normfluodat but this will NOT top some of these ingenious moments when I thought of and cultivate the pieces needed to get to the final product.
+
+-   Hope anyone that stumbles upon the page for this package gets to read and take this in.
+
+-   Well Done to Myself!! Moving on to another big project.

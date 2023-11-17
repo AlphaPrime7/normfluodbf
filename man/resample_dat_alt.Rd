@@ -22,11 +22,10 @@ consisting of several samples and perform a putative resampling to yield
 another data frame with a separate attribute for each sample.
 }
 \examples{
-fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+fpath <- system.file("extdata", "dat_5.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odddat_optimus(dat_df)
-col_1 <- nocomma_dat[1]
-samples_delineated <- resample_dat_alt(col_1, tnp=3, cycles=40)
+samples_delineated <- resample_dat_alt(nocomma_dat, tnp=3, cycles=40)
 }
 \seealso{
 \code{\link[=resample_dat_scale_alt]{resample_dat_scale_alt()}}

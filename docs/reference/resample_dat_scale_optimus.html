@@ -47,17 +47,29 @@
        
       Output and Analysis
     </a>
+    <a class="dropdown-item" href="../articles/qc_redirect.html">
+      <span class="fa fa-diamond"></span>
+       
+      QC
+    </a>
   </div>
 </li>
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--news">
-    <span class="fa fa-newspaper"></span>
+    <span class="fa fa-rss"></span>
      
     News
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdown--news">
     <a class="dropdown-item" href="../news/index.html">Version 1.5.2</a>
   </div>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/h_redirect.html">
+    <span class="fa fa-bullhorn"></span>
+     
+    R-Dev
+  </a>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
@@ -101,7 +113,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">resample_dat_scale_optimus</span><span class="op">(</span><span class="va">df</span>, <span class="va">tnp</span>, <span class="va">cycles</span>, na_omit <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">resample_dat_scale_optimus</span><span class="op">(</span><span class="va">df</span>, <span class="va">tnp</span>, <span class="va">cycles</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -116,10 +128,6 @@
 
 <dt>cycles</dt>
 <dd><p>A numeric value indicating the number of cycles selected by the user when running the FLUOstar instrument.</p></dd>
-
-
-<dt>na_omit</dt>
-<dd><p>Takes a string "yes" OR "no".</p></dd>
 
 </dl></div>
     <div class="section level2">
