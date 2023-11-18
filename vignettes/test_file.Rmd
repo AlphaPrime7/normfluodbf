@@ -18,15 +18,20 @@ knitr::opts_chunk$set(
 ("badger")
 ```
 
+# 🎬 Introduction
+
+-   To arrive at massive documentation like this for all three functions, Microsoft Word was leveraged.
+- Some hard-work is put into making a template for the first function.
+-   The idea is to take one template and replace the function name with the MS word replace function.
+-   This helps create massive documentation for testing functions.
+-   All case scenarios pass and the pride factor here is these functions should yield correct column names thanks to a function called actual_cols_used().
+
 # 🕵️ Normfluodat- MVP (Minimum Viable Product)
 
 `r badger::badge_custom("normfluodat", "MVP", "green", "https://github.com/AlphaPrime7")`
 
--   To arrive at massive documentation like this, Microsoft Word was leveraged.
--   The idea is to take one template like this which will take a lot of word and replace the function name with MS words' replace function.
--   This helps create massive documentation for testing functions.
--   All case scenarios pass and the pride factor here is this function should yield correct column names thanks to a function called actual_cols_used().
--   This function is considered the MVP.
+- This function is considered the MVP. 
+- This is a robust and trusted function and Users should use it.
 
 ```{r normfluodat, eval=F}
 # Normal cases dat(1-4)

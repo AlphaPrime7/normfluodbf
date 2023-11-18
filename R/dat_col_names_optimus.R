@@ -52,8 +52,11 @@
 dat_col_names_optimus <- function(dat = NULL, df, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL){
 
   actual_cols <- actual_cols_used(dat)
-  colnames_noru <- c(1:ncol(df))
+  if(is.null(cols_used)){
+    cols_used = actual_cols
+  }
 
+  colnames_noru <- c(1:ncol(df))
   if(is.null(rows_used)){
     message('The user is advised to input a character vector of rows used')
     return(colnames_noru)

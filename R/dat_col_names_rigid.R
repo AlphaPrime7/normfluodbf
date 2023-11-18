@@ -57,6 +57,10 @@ dat_col_names_rigid <- function(dat = NULL, df, rows_used = NULL, cols_used= NUL
 
   actual_cols <- actual_cols_used(dat)
 
+  if(is.null(cols_used)){
+    cols_used = actual_cols
+  }
+
   if(is.null(rows_used)){
     warning('The user is advised to input a character vector of rows used')
   }

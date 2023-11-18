@@ -31,6 +31,10 @@
 dat_col_names_prime <- function(dat = NULL, df, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL){
 
   actual_cols <- actual_cols_used(dat)
+  if(is.null(cols_used)){
+    cols_used = actual_cols
+  }
+
   colnames_noru <- c(1:ncol(df))
 
   if(is.null(rows_used)){

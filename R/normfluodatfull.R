@@ -72,10 +72,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(df)
         df <- as.data.frame(lapply(df[1:ncol(df)], as.numeric))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
       } else if(!is.null(na_omit) || na_omit == 'no'){
         df <- resample_dat_scale_optimus_na(df, tnp = tnp, cycles = cycles)
@@ -92,10 +99,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(df)
         df <- as.data.frame(lapply(df[1:ncol(df)], as.numeric))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
       }
 
@@ -117,10 +131,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(df)
         df <- as.data.frame(lapply(df[1:ncol(df)], as.numeric))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
       } else if(!is.null(na_omit) || na_omit == 'no'){
         df <- resample_dat_scale_alt_na(df, tnp = tnp, cycles = cycles)
@@ -138,10 +159,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(df)
         df <- as.data.frame(lapply(df[1:ncol(df)], as.numeric))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
         }
       } else{
         df <- resample_dat_scale_optimus(df, tnp = tnp, cycles = cycles)
@@ -179,10 +207,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
       } else if(!is.null(na_omit) || na_omit == 'no'){
         df <- resample_dat_scale_optimus_na(df, tnp = tnp, cycles = cycles)
@@ -198,10 +233,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
       }
 
@@ -224,10 +266,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
 
       } else if(!is.null(na_omit) || na_omit == 'no'){
@@ -244,10 +293,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
       }
 
@@ -286,10 +342,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm_percent))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
 
       } else if(!is.null(na_omit) || na_omit == 'no'){
@@ -306,10 +369,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm_percent))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
       }
 
@@ -332,10 +402,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm_percent))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
       } else if(!is.null(na_omit) || na_omit == 'no'){
         df <- resample_dat_scale_alt_na(df, tnp = tnp, cycles = cycles)
@@ -351,10 +428,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm_percent))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
       }
 
@@ -391,10 +475,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], norm_z))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
 
       } else if(!is.null(na_omit) || na_omit == 'no'){
@@ -411,10 +502,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], norm_z))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
       }
 
@@ -436,10 +534,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], norm_z))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
       } else if(!is.null(na_omit) || na_omit == 'no'){
         df <- resample_dat_scale_alt_na(df, tnp = tnp, cycles = cycles)
@@ -455,10 +560,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], norm_z))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
       }
 
@@ -498,10 +610,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], decimal_scaling))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
       } else if(!is.null(na_omit) || na_omit == 'no'){
         df <- resample_dat_scale_optimus_na(df, tnp = tnp, cycles = cycles)
@@ -517,10 +636,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], decimal_scaling))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
       }
       else {
@@ -558,10 +684,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], decimal_scaling))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
 
       } else if(!is.null(na_omit) || na_omit == 'no'){
@@ -578,10 +711,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], decimal_scaling))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
       }
 
@@ -620,10 +760,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
 
       } else if(!is.null(na_omit) || na_omit == 'no'){
@@ -640,10 +787,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
       }
 
@@ -665,10 +819,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
 
       } else if(!is.null(na_omit) || na_omit == 'no'){
@@ -685,10 +846,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
       }
 
@@ -727,11 +895,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
-        #colnames(df) <- c(1:(ncol(df)-1))
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
 
       } else if(!is.null(na_omit) || na_omit == 'no'){
@@ -748,11 +922,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
-        #colnames(df) <- c(1:(ncol(df)-1))
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
       }
 
@@ -774,11 +954,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
-        #colnames(df) <- c(1:(ncol(df)-1))
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
 
       } else if(!is.null(na_omit) || na_omit == 'no'){
@@ -797,11 +983,17 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
-        #add unique_id
-        df <-unique_identifier(df)
-        #colnames(df) <- c(1:(ncol(df)-1))
+        if(ncol(df) == 1){
 
-        return(df)
+          colnames(df) <- sample_col_names
+          df <-unique_identifier(df)
+          return(df)
+
+        } else {
+
+          df <-unique_identifier(df)
+          return(df)
+        }
 
       }
 
