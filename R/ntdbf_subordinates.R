@@ -189,5 +189,5 @@ log_transformation <- function(x){
 #' test_df_norm <- lapply(test_df[1:ncol(test_df)], roundfluor)
 
 roundfluor <- function(x){
-  round(x, 3)
+  round(x, 5)
 }
