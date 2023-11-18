@@ -40,14 +40,14 @@ clean_odddat_optimus <- function(df){
     if(ncol(df) == 1){
       comma_df <- nona_rows_df
       comma_df <- comma_df[rowSums(is.na(comma_df)) != ncol(comma_df), ]
-      comma_df = as.numeric(as.character(gsub(",", "", comma_df)))
+      nocomma_df = as.numeric(as.character(gsub(",", "", comma_df)))
 
-      return(as.data.frame(comma_df))
+      return(as.data.frame(nocomma_df))
 
     } else {
       comma_df <- nona_rows_df
-      nocomma_df <- comma_df[rowSums(is.na(comma_df)) != ncol(comma_df), ]
-      nocomma_df <- comma_cleaner(nocomma_df)
+      comma_df <- comma_df[rowSums(is.na(comma_df)) != ncol(comma_df), ]
+      nocomma_df <- comma_cleaner(comma_df)
       #nocomma_df <- as.numeric(nocomma_df)
       nocomma_df <- as.data.frame(nocomma_df)
 
