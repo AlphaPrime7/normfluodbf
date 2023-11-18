@@ -46,8 +46,9 @@ clean_odddat_optimus <- function(df){
 
     } else {
       comma_df <- nona_rows_df
-      nocomma_df <- comma_cleaner(comma_df)
       nocomma_df <- nocomma_df[rowSums(is.na(nocomma_df)) != ncol(nocomma_df), ]
+      nocomma_df <- comma_cleaner(comma_df)
+      #nocomma_df <- as.numeric(nocomma_df)
       nocomma_df <- as.data.frame(nocomma_df)
 
       return(nocomma_df)
