@@ -54,6 +54,8 @@ resample_dat_scale <- function(df, tnp, cycles){
       big_data = as.data.frame(big_data)
       big_data_t = data.table::transpose(l=big_data)
       big_data_t <- big_data_t %>% dplyr::select_if(~ !any(is.na(.)))
+      #big_data_t <- big_data_t[ , colSums(is.na(big_data_t))==0]
+      big_data_t <- as.data.frame(big_data_t)
 
       return(big_data_t)
 
@@ -121,6 +123,9 @@ resample_dat_scale_naretainer <- function(df, tnp, cycles){
       big_data_t = transpose(l=big_data)
 
       big_data_t <- big_data_t[ , colSums(!is.na(big_data_t))>=1]
+      #big_data_t <-  big_data_t[, !sapply(big_data_t, function(x) all(x == 0))]
+      #big_data_t <- big_data_t[,which(!apply(big_data_t,2,FUN = function(x){all(x == 0)}))]
+      big_data_t <- as.data.frame(big_data_t)
 
       return(big_data_t)
 

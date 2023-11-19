@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 
 # 🎬 Introduction
 
--   To arrive at massive documentation like this for all three functions, Microsoft Word was leveraged.
+-   To arrive at massive documentation like this for all seven functions, Microsoft Word was leveraged.
 - Some hard-work is put into making a template for the first function.
 -   The idea is to take one template and replace the function name with the MS word replace function.
 -   This helps create massive documentation for testing functions.
@@ -204,6 +204,118 @@ normalized_fluo_dat_advv <- normfluodatfull(dat=fpath, tnp = 1, cycles = 40,rows
 normalized_fluo_dat_advv <- normfluodatfull(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'), cols_used = c(1,2,3), read_direction = 'horizontal')
 
 ```
+
+# 🕵️ Normfluordat
+
+`r badger::badge_custom("normfluordat", "BRUTEFORCE", "green", "https://github.com/AlphaPrime7")`
+
+
+```{r normfluordat, eval=F}
+# Normal cases dat(1-4)
+fpath <- system.file("extdata", "dat_3.dat", package = "normfluodbf", mustWork = TRUE)
+normalized_fluo_dat <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'), read_direction = 'vertical')
+normalized_fluo_dat <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'), read_direction = 'vertical')
+normalized_fluo_dat <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'), read_direction = 'vertical')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'), read_direction = 'vertical')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'), read_direction = 'vertical')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'), read_direction = 'horizontal')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'), read_direction = 'horizontal')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'), read_direction = 'horizontal')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'), read_direction = 'horizontal')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'), read_direction = 'horizontal')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'))
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'), read_direction = 'vertical')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'), read_direction = 'horizontal')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'))
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'))
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'))
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'))
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'))
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 3, cycles = 40)
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'), cols_used = c(1,2,3))
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'), cols_used = c(1,2,3), read_direction = 'vertical')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 3, cycles = 40,rows_used = c('A','B','C'), cols_used = c(1,2,3), read_direction = 'horizontal')
+
+# Extreme cases dat(5-7)
+fpath <- system.file("extdata", "dat_5.dat", package = "normfluodbf", mustWork = TRUE)
+normalized_fluo_dat <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'), read_direction = 'vertical')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'), read_direction = 'vertical')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'), read_direction = 'vertical')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'), read_direction = 'vertical')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'), read_direction = 'vertical')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'), read_direction = 'horizontal')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'), read_direction = 'horizontal')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'), read_direction = 'horizontal')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'), read_direction = 'horizontal')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'), read_direction = 'horizontal')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'))
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'), read_direction = 'vertical')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'), read_direction = 'horizontal')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'))
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'))
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'))
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'))
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'))
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40)
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'), cols_used = c(1,2,3))
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'), cols_used = c(1,2,3), read_direction = 'vertical')
+normalized_fluo_dat_advv <- normfluordat(dat=fpath, tnp = 1, cycles = 40,rows_used = c('A','B','C'), cols_used = c(1,2,3), read_direction = 'horizontal')
+```
+
+
+# 🕵️ Normfluordbf
+
+`r badger::badge_custom("normfluordbf", "DBF-MVP", "blue", "https://github.com/AlphaPrime7")`
+
+```{r normfluordbf, eval=F}
+#normfluordbf
+fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
+norm_dbf <- normfluordbf(fpath, norm_scale = 'raw')
+norm_dbf <- normfluordbf(fpath, norm_scale = 'decimal')
+norm_dbf <- normfluordbf(fpath, norm_scale = 'one')
+norm_dbf <- normfluordbf(fpath, norm_scale = 'hundred')
+norm_dbf <- normfluordbf(fpath, norm_scale = 'z-score')
+```
+
+# 🕵️ Norm_tidy_dbf
+
+`r badger::badge_custom("norm_tidy_dbf", "GRANDFATHERED", "blue", "https://github.com/AlphaPrime7")`
+
+```{r norm_tidy_dbf, eval=F}
+#norm_tidy_dbf
+fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
+norm_dbf <- norm_tidy_dbf(fpath, norm_scale = 'raw')
+norm_dbf <- norm_tidy_dbf(fpath, norm_scale = 'decimal')
+norm_dbf <- norm_tidy_dbf(fpath, norm_scale = 'one')
+norm_dbf <- norm_tidy_dbf(fpath, norm_scale = 'hundred')
+norm_dbf <- norm_tidy_dbf(fpath, norm_scale = 'z-score')
+```
+
+# 🕵️ Visualize
+
+`r badger::badge_custom("ggplot_tnp", "knock-knock", "brown", "https://github.com/AlphaPrime7")`
+
+```{r ggplot_tnp, eval=F}
+#Visualize
+
+#DAT
+#z-score
+ggplot_tnp(normalized_fluo_dat, c('Cycle_Number'), c('A1','B1','C1'),c(0,40),c(-1,3))
+
+#hundred
+ggplot_tnp(normalized_fluo_dat, c('Cycle_Number'), c('A1','B1','C1'),c(0,40),c(0,100))
+
+#one
+ggplot_tnp(normalized_fluo_dat, c('Cycle_Number'), c('A1','B1','C1'),c(0,40),c(0,1))
+
+#raw & decimal (sliding scale)
+ggplot_tnp(normalized_fluo_dat, c('Cycle_Number'), c('A1','B1','C1'),c(0,40),ylim = NULL)
+
+#DBF
+ggplot_tnp(norm_dbf, c('Cycle_Number'), c('A01','B01','C01'),c(0,40),ylim = NULL)
+ggplot_tnp(norm_dbf, c('Time'), c('A01','B01','C01'),xlim = NULL, ylim = NULL)
+```
+
 
 # 🕵 Final Remarks
 

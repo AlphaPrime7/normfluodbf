@@ -159,6 +159,7 @@ normalized_data <- norm_tidy_dbf(liposomes_214, norm_scale = 'hundred')
 library(normfluodbf)
 liposomes_214 <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf")
 normalized_data <- normfluordbf(liposomes_214)
+normalized_data <- normfluordbf(liposomes_214)
 ```
 
 ### Advanced Features Illustration
@@ -205,7 +206,7 @@ normalized_datazt <- normfluordbf(liposomes_214, norm_scale = 'z-score', transfo
 ```{r exampledatoptimus, eval=F}
 library(normfluodbf)
 dat1 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
-normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
+normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'))
 ```
 
 ### Base Function
@@ -216,7 +217,7 @@ normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
 ```{r exampledatbase, eval=F}
 library(normfluodbf)
 dat2 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
-normalized_data <- normfluordat(dat2, tnp = 3, cycles = 40)
+normalized_data <- normfluordat(dat2, tnp = 3, cycles = 40, rows_used = c('A','B','C'))
 ```
 
 -   Please note that the examples above indicate the simplest scenarios
@@ -229,18 +230,15 @@ normalized_data <- normfluordat(dat2, tnp = 3, cycles = 40)
 
 #### Using The rows_used parameter
 
--   This parameter is used alone when the user loaded samples from
-    column 1 and in sequence.
+-   This parameter is used alone and the user need not worry about providing the columns used.
 -   The default read direction is vertical.
--   If the cols_used parameter is not provided, the program will assume
-    the user loaded from column 1 and did so in sequence. Attribute
-    names will be added to the final data frame based on this
-    assumption.
+- The program has a robust algorithm or recipe for determining attribute names based on the rows used. 
+- Users are strongly encouraged to provide the rows_used parameter.
 
 ```{r exampledatru, eval=F}
 library(normfluodbf)
 dat2 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
-n <- c('A','B','C')
+n <- c('A','B','C') #rows used
 normalized_data16 <- normfluodat(dat2, tnp = 3, cycles = 40, n)
 ```
 
@@ -275,11 +273,10 @@ normalized_data16 <- normfluodat(dat2, tnp = 3, cycles = 40, n)
 
 #### Using The rows_used and cols_used parameter
 
--   The cols_used parameter is only used when the rows_used parameter is
-    used.
--   The cols_used parameter is especially relevant when the user DOES
-    NOT load samples from column 1.
+-   The cols_used parameter is only used if the user suspects some inconsistencies in their experimental procedure. Otherwise, the user should let the program determine the columns used.
+-   The cols_used parameter is especially relevant when the user loads samples in an unorthodox way.
 -   The default read direction is vertical as indicated earlier.
+- Users are advised NOT to supply the cols_used because the program has a robust algorithm for determining the cols_used.
 
 ```{r exampledatrucu, eval=F}
 library(normfluodbf)
@@ -327,9 +324,9 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, user_specific_labels 
 
 | Sample_Type (TNP) | 96  | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 10  | 11  | 12  |
 |:------------------|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
-| Test              | A   | X1  |     | X3  | X4  |     |     |     |     |     |     |     |     |
-| Negative          | B   |     |     |     |     |     |     |     |     |     |     |     |     |
-| Positive          | C   | X25 |     |     | X28 | X29 |     |     |     |     |     |     |     |
+| Test              | A   | X1  | X4  | X3  |     |     |     |     |     |     |     |     |     |
+| Negative          | B   | X2  | X29 |     |     |     |     |     |     |     |     |     |     |
+| Positive          | C   | X25 |     | X28 |     |     |     |     |     |     |     |     |     |
 |                   | D   |     |     |     |     |     |     |     |     |     |     |     |     |
 |                   | E   |     |     |     |     |     |     |     |     |     |     |     |     |
 |                   | F   |     |     |     |     |     |     |     |     |     |     |     |     |
@@ -454,7 +451,7 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction = '
 ```{r exampledatfailsafe, eval=F}
 library(normfluodbf)
 dat1 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
-normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40)
+normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C') )
 ```
 
 ## 🛂 Quality Control (QC)

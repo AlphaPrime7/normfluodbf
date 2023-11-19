@@ -622,3 +622,43 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
   }
 
 }
+
+#' Title: A normalization applier built on lapply.
+#'
+#' @description
+#' Applies a function over a list of attributes.
+#'
+#'
+#' @param df A data frame.
+#' @param norm_scale This parameter takes sub-parameters: 'raw’ , hundred’ , 'one’ , 'z-score' , or 'decimal’ ,
+#' which denotes the normalization type or scale.
+#'
+#' @return A data frame with attribute values obtained from the applied function using lapply.
+#'
+#' @export
+#'
+#' @examples test_df <- as.data.frame(c(seq(40)))
+#' colnames(test_df) <- "test"
+#' test_df_norm <- norm_applier(test_df,norm_scale = 'one')
+
+norm_applier <- function(df, norm_scale= c('one','hundred','z-score','raw','decimal')){
+
+  df <- as.data.frame(df)
+  if('raw' %in% norm_scale){
+    df <- as.data.frame(lapply(df[1:ncol(df)], as.numeric))
+    return(df)
+  } else if ('one' %in% norm_scale){
+    df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm))
+    df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
+  } else if ('hundred' %in% norm_scale){
+    df <- as.data.frame(lapply(df[1:ncol(df)], min_max_norm_percent))
+    df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
+  } else if ('z-score' %in% norm_scale){
+    df <- as.data.frame(lapply(df[1:ncol(df)], norm_z))
+    df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
+  } else if('decimal' %in% norm_scale){
+    df <- as.data.frame(lapply(df[1:ncol(df)], decimal_scaling))
+    df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
+  }
+
+}

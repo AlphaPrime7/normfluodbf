@@ -56,6 +56,7 @@ resample_dat_scale_optimus <- function(df, tnp, cycles){
 
         final_df <- cbind(final_df, sample_df)
         final_df <- final_df[ , colSums(is.na(final_df))==0]
+        #final_df <- final_df %>% dplyr::select_if(~ !any(is.na(.)))
         colnames(final_df) <- NULL
         #rownames(final_df) <- c(1:cycles)
         final_df <- as.data.frame(final_df)
@@ -113,7 +114,7 @@ resample_dat_scale_optimus_na <- function(df, tnp, cycles){
       type_size <- c(1:tnp) #k is now nseq(same kinda thing)
 
       sample_df <- data.frame()
-      final_df <- matrix(ncol = cycles)
+      final_df <- matrix(nrow = cycles)
 
       for(i in 1:ncol(df)){
         nseq <- c(1:tnp)
@@ -128,6 +129,8 @@ resample_dat_scale_optimus_na <- function(df, tnp, cycles){
         }
         final_df <- cbind(final_df, sample_df)
         final_df <- final_df[ , colSums(!is.na(final_df))>=1]
+        #final_df <- final_df[,which(!apply(final_df,2,FUN = function(x){all(x == 0)}))]
+        #final_df <- final_df[, !sapply(final_df, function(x) all(x == 0))]
         #rownames(final_df) <- c(1:cycles)
         final_df <- as.data.frame(final_df)
         colnames(final_df) <- NULL
@@ -184,7 +187,7 @@ resample_dat_scale_optimus_backend <- function(df, tnp, cycles, na_omit = NULL){
       type_size <- c(1:tnp) #k is now nseq(same kinda thing)
 
       sample_df <- data.frame()
-      final_df <- matrix(ncol = cycles)
+      final_df <- matrix(nrow = cycles)
 
       for(i in 1:ncol(df)){
         nseq <- c(1:tnp)

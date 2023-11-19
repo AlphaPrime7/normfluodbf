@@ -55,17 +55,29 @@ and then appends an attribute called “Cycle_Number” to the normalized data f
        
       Output and Analysis
     </a>
+    <a class="dropdown-item" href="../articles/qc_redirect.html">
+      <span class="fa fa-diamond"></span>
+       
+      QC
+    </a>
   </div>
 </li>
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown--news">
-    <span class="fa fa-newspaper"></span>
+    <span class="fa fa-rss"></span>
      
     News
   </a>
   <div class="dropdown-menu" aria-labelledby="dropdown--news">
     <a class="dropdown-item" href="../news/index.html">Version 1.5.2</a>
   </div>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../articles/h_redirect.html">
+    <span class="fa fa-bullhorn"></span>
+     
+    R-Dev
+  </a>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
@@ -172,7 +184,8 @@ OR “horizontal” if the user intends to have a final data frame with samples.
     <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
     <p>This function has less optimized space and time complexities than @seealso <code><a href="normfluodat.html">normfluodat()</a></code>.
 In real-time the difference in optimization is not noticeable.
-This function also takes less parameters than the more optimized version of the function.</p>
+This function also takes less parameters than the more optimized version of the function.
+Use @seealso <code><a href="normfluodat.html">normfluodat()</a></code> for better approximation of attribute names.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -187,6 +200,7 @@ This function also takes less parameters than the more optimized version of the 
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">fpath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"dat_1.dat"</span>, package <span class="op">=</span> <span class="st">"normfluodbf"</span>, mustWork <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">normalized_fluo_dat</span> <span class="op">&lt;-</span> <span class="fu">normfluordat</span><span class="op">(</span>dat<span class="op">=</span><span class="va">fpath</span>, tnp <span class="op">=</span> <span class="fl">3</span>, cycles <span class="op">=</span> <span class="fl">40</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The User is advised to input a character vector of rows used</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 1</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
@@ -267,7 +281,6 @@ This function also takes less parameters than the more optimized version of the 
 <span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 39</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> 🐷🐫</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> YIKES, value &lt; 2^11, Watch in future experimental designs column: 27 row: 40</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> The User is advised to input a character vector of rows used</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
