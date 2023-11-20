@@ -68,7 +68,7 @@ knitr::include_graphics("img/navab.png")
 ## 🔮 What the future holds ?
 
 -   This package has reached maturity. I will maintain the package to the best of my ability.
--   There are minor tweaks I can think about, but just for my own learning, and these might or might NOT come later.
+-   The package is officially a full baked solution. I am currently determining the cost benefit analysis of submitting the program to the Journal of Open Source Software (JOSS).
 -   I will be working on seeing how to integrate function calling in ChatGPT to use R in cleaning these DAT files. The functions from this package can hopefully be used in ChatGPT to clean and normalize DAT or DBF files from the FLUOstar instrument.
 
 ## 🍻 Cheers
@@ -77,7 +77,7 @@ knitr::include_graphics("img/navab.png")
 
 -   Thanks to the users of 1.4.3 and hope I made your lives a tad bit easier with this update (1.5.2).
 
--   Raise issues or forward me emails as quickly as you notice any hiccups or R changes that need updates.
+-   Raise issues or forward me emails as quickly as you notice any hiccups or R changes that need updates. 
 
 ```{r echo=FALSE, results="hide", message=FALSE}
 ("badger")

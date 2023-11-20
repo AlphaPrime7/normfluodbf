@@ -4,7 +4,7 @@
 \alias{ggplot_tnp}
 \title{Title: A Visualization function.}
 \usage{
-ggplot_tnp(df, x, y_list, xlim, ylim)
+ggplot_tnp(df, x, y_list, xlim, ylim, xlab = NULL, ylab = NULL, title = NULL)
 }
 \arguments{
 \item{df}{A clean data frame with attributes or tuples containing a mixture of samples.}
@@ -16,6 +16,12 @@ ggplot_tnp(df, x, y_list, xlim, ylim)
 \item{xlim}{The X-variable scale.}
 
 \item{ylim}{The Y-variable scale.}
+
+\item{xlab}{The X axis label. Takes a string.}
+
+\item{ylab}{The Y-axis label. Takes a string.}
+
+\item{title}{Graph title. Takes a string.}
 }
 \value{
 A nice visual of the clean and normalized data frame.
@@ -30,7 +36,7 @@ yvars <- c("A1","B1","C1")
 xvar <- c("Cycle_Number", "Time")
 xl <- c(0,40)
 yl <- c(0,1)
-ggplot_tnp(dat_df,xvar,yvars,xl,yl)
+ggplot_tnp(dat_df,xvar,yvars,xl,yl,xlab='Cycle_Number',ylab='Normalized Fluorescence',title='LFA')
 }
 \author{
 Tingwei Adeck

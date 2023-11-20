@@ -13,6 +13,11 @@
 ^pkgdown$
 ^vignettes/articles$
 ^\.github$
+^normfluodbf\.mp4$
+^wolf\.jpg$
+^navab\.jpg$
+^ash\.jpg$
+^normfluodbf_First_Frame\.png$
 
 ^doc$
 ^Meta$

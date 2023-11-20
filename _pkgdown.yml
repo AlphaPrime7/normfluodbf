@@ -32,6 +32,9 @@ navbar:
     - icon: fa-diamond
       text: QC
       href: articles/qc_redirect.html
+    - icon: fa-video
+      text: Video
+      href: v_redirect.html
   - icon: fa-rss
     text: News
     menu:

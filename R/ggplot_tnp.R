@@ -10,6 +10,9 @@
 #' @param y_list A character vector of samples that need to be plotted. Often of the format TNP (Test, Negative, Positive).
 #' @param xlim The X-variable scale.
 #' @param ylim The Y-variable scale.
+#' @param xlab The X axis label. Takes a string.
+#' @param ylab The Y-axis label. Takes a string.
+#' @param title Graph title. Takes a string.
 #'
 #' @import ggplot2
 #' @import ggthemes
@@ -24,9 +27,9 @@
 #' xvar <- c("Cycle_Number", "Time")
 #' xl <- c(0,40)
 #' yl <- c(0,1)
-#' ggplot_tnp(dat_df,xvar,yvars,xl,yl)
+#' ggplot_tnp(dat_df,xvar,yvars,xl,yl,xlab='Cycle_Number',ylab='Normalized Fluorescence',title='LFA')
 
-ggplot_tnp <- function(df, x , y_list, xlim, ylim){
+ggplot_tnp <- function(df, x , y_list, xlim, ylim, xlab=NULL, ylab=NULL, title = NULL){
     p1 <- ggplot(df, aes(x=.data[[x[1]]])) +
       geom_point(aes(y=.data[[y_list[1]]]), size=3, color="blue") +
       geom_point(aes(y=.data[[y_list[2]]]), size=3, color="red") +
@@ -35,7 +38,7 @@ ggplot_tnp <- function(df, x , y_list, xlim, ylim){
       geom_line(aes(y=.data[[y_list[2]]], color="Negative Control"),size = 0.8) +
       geom_line(aes(y=.data[[y_list[3]]], color="Positivetive Control"), size = 0.8) +
       coord_cartesian( xlim = xlim, ylim = ylim ) +
-      labs(title = 'NavAb Liposome Flux Assay',
-           x = 'Cycle_no', y='Normalized Fluorescence', color='Sample Type')
+      labs(title = title,
+           x = xlab, y = ylab, color='Sample Type')
     p1
 }

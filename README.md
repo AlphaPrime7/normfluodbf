@@ -1,5 +1,5 @@
 Tingwei Adeck
-November 18, 2023
+November 20, 2023
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -16,7 +16,7 @@ status](https://www.repostatus.org/badges/latest/concept.svg)](https://github.co
 [![Project
 Status](https://www.repostatus.org/badges/latest/active.svg)](https://github.com/AlphaPrime7/normfluodbf/commits)
 [![Project
-Status](https://www.repostatus.org/badges/latest/wip.svg)](https://github.com/AlphaPrime7/normfluodbf_ShinyApp/graphs/contributors)
+Status](https://img.shields.io/badge/repo%20status-mature-fg79b4.svg)](https://github.com/AlphaPrime7/normfluodbf_ShinyApp/graphs/contributors)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![PRs
 Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
@@ -38,6 +38,14 @@ Badges](https://img.shields.io/badge/badges-awesome-green.svg)](https://github.c
 
 [![](https://img.shields.io/badge/follow%20me%20on-LinkedIn-green.svg)](https://www.linkedin.com/in/tingwei-adeck)
 [![](https://img.shields.io/badge/follow%20me%20on-GitHub-green.svg)](https://github.com/AlphaPrime7)
+
+# ⏩ 📽️ Quick start
+
+For quick starters, please visit the
+[`{video tutorial}`](https://alphaprime7.github.io/normfluodbf/articles/video.html)
+for an illustration on how to effectively use the package. The video
+tutorial only covers DAT files based on the assumption that MOST users
+will be interested in using the package for DAT files.
 
 # ✍️ Introduction
 
@@ -418,7 +426,7 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction = '
 | A1          | B1          | C1          | …39      |
 | A1          | B1          | C1          | …40      |
 
-- Below is just a quick illustration of the non-standard setup. This
+- Above is just a quick illustration of the non-standard setup. This
   setup does not change anything about the algorithms but simply
   showcases how naming conventions will reverse if the experimenter
   deviates from the commonly used path.
@@ -428,7 +436,7 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction = '
 - As indicated earlier, the code chunk below is the simplest use case
   for this function.
 - AHOI, the user gets a data frame with the samples perfectly separated
-  but with NO attribute names.
+  and WITH attribute names.
 - Very important to mention this point twice.
 
 ``` r
