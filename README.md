@@ -42,7 +42,7 @@ Badges](https://img.shields.io/badge/badges-awesome-green.svg)](https://github.c
 # ⏩ 📽️ Quick start
 
 For quick starters, please visit the
-[`{video tutorial}`](https://alphaprime7.github.io/normfluodbf/articles/video.html)
+[`{video tutorial}`](https://alphaprime7.github.io/normfluodbf/video.html)
 for an illustration on how to effectively use the package. The video
 tutorial only covers DAT files based on the assumption that MOST users
 will be interested in using the package for DAT files.
