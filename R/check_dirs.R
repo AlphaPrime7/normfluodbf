@@ -54,6 +54,6 @@ check_dat <- function(pathstring){
     files_list <- list.files(path = pathstring, pattern = "\\.dat$")
     return(files_list)
   } else{
-    warning("No .dbf files in pwd. Change the directory to one with .dbf files")
+    warning("No .dat files in pwd. Change the directory to one with .dat files")
   }
 }
