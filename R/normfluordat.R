@@ -70,7 +70,7 @@ normfluordat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, us
 
       } else {
         cleaned_dat_t <-unique_identifier(cleaned_dat_t)
-        return(df)
+        return(cleaned_dat_t)
       }
 
     } else if(na_omit == 'no' || !is.null(na_omit)){
@@ -98,7 +98,7 @@ normfluordat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, us
 
       } else {
         cleaned_dat_t <-unique_identifier(cleaned_dat_t)
-        return(df)
+        return(cleaned_dat_t)
       }
 
     }
@@ -112,9 +112,10 @@ normfluordat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, us
       #name the columns
       ru = rows_used
       cu = cols_used
-      usl = user_specific_labels
-      rd = read_direction
-      sample_col_names <- dat_col_names_optimus(dat,cleaned_dat_t, ru, cu, usl, rd)
+      #usl = user_specific_labels
+      #rd = read_direction
+      sample_col_names <- dat_col_names_horizontal(dat,cleaned_dat_t, ru, cu)
+      #sample_col_names <- dat_col_names_optimus(dat,cleaned_dat_t, ru, cu, usl, rd)
       colnames(cleaned_dat_t) <- sample_col_names
 
       cleaned_dat_t <- cleaned_dat_t[ , colSums(is.na(cleaned_dat_t))==0]
@@ -131,7 +132,7 @@ normfluordat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, us
 
       } else {
         cleaned_dat_t <-unique_identifier(cleaned_dat_t)
-        return(df)
+        return(cleaned_dat_t)
       }
 
     } else if(na_omit == 'no' || !is.null(na_omit)){
@@ -141,9 +142,10 @@ normfluordat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, us
       #name the columns
       ru = rows_used
       cu = cols_used
-      usl = user_specific_labels
-      rd = read_direction
-      sample_col_names <- dat_col_names_optimus(dat,cleaned_dat_t, ru, cu, usl, rd)
+      #usl = user_specific_labels
+      #rd = read_direction
+      sample_col_names <- dat_col_names_horizontal(dat,cleaned_dat_t, ru, cu)
+      #sample_col_names <- dat_col_names_optimus(dat,cleaned_dat_t, ru, cu, usl, rd)
       colnames(cleaned_dat_t) <- sample_col_names
 
       n <- 'na_dataframe'
@@ -160,7 +162,7 @@ normfluordat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, us
 
       } else {
         cleaned_dat_t <-unique_identifier(cleaned_dat_t)
-        return(df)
+        return(cleaned_dat_t)
       }
     }
 

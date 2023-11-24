@@ -65,7 +65,7 @@ dat_col_names_horizontal <- function(dat = NULL, df, rows_used=NULL,cols_used=NU
       cols_sort <- append(cols_sort, paste0(i,colnames_nocu))
     }
 
-    range <- 1:( length(cols_sort)/ length(rows_used))
+    range <- 1:( length(df)/ length(rows_used))
 
     for(j in rows_used){
       increment = length(cols_sort)/length(rows_used)
