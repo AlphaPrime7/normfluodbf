@@ -67,6 +67,12 @@ dat_col_names_prime <- function(dat = NULL, df, rows_used = NULL, cols_used= NUL
     return(col_names[1:ncol(df)])
 
   } else if(is.null(user_specific_labels) && ncol(df) < length(cols_used)*length(rows_used) || ncol(df) > length(cols_used)*length(rows_used) || length(cols_used) < length(normal_sequence) ){
+
+    if(sum(cols_used) != sum(actual_cols)){
+      cols_used = actual_cols
+    } else {
+      cols_used = cols_used
+    }
     for(i in cols_used){
       col_names <- c(col_names, paste0(rows_used,i))
     }
