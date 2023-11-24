@@ -44,7 +44,11 @@ dat_col_names_horizontal <- function(dat = NULL, df, rows_used=NULL,cols_used=NU
   cols_sort_fit <- c()
 
   if(!is.null(cols_used) && !is.null(rows_used)){
-
+    if(sum(cols_used) != sum(actual_cols)){
+      cols_used = actual_cols
+    } else {
+      cols_used = cols_used
+    }
     for(i in rows_used){
       cols_sort <- append(cols_sort, paste0(i,cols_used))
     }
