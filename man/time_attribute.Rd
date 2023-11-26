@@ -9,8 +9,7 @@ time_attribute(
   first_end = NULL,
   pause_duration = NULL,
   end_time = NULL,
-  cycles = NULL,
-  time_unit = c("cycles", "minutes")
+  cycles = NULL
 )
 }
 \arguments{
@@ -23,18 +22,19 @@ time_attribute(
 \item{end_time}{The final end time of the assay.}
 
 \item{cycles}{The number of cycles in the assay as selected by the user or researcher.}
-
-\item{time_unit}{The time unit used, either cycles or minutes. Works with first_end.}
 }
 \value{
-A rounded value with three decimal places when applied to a single value or an attribute with log-transformed values.
+The time attribute.
 }
 \description{
 A function to help the researcher reproduce the time attribute.
 }
+\note{
+The original function had an option for minutes which was for less time conscious people
+but the final version for this package has no such option. Users MUST provide numbers in
+seconds.
+}
 \examples{
 time_test = time_attribute(30,8,136,1276,40)
 time_test = time_attribute(60,8,136,2460,40)
-time_test = time_attribute(0.5,4,2.26,21.26,40,'minutes')
-time_test = time_attribute(1,7,2.26,41,40,'minutes')
 }

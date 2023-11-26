@@ -21,6 +21,10 @@
 #' if the user intends to have a final data frame with samples arranged as clusters per sample type (A1, A2, A3, B1, B2, B3).
 #' @param norm_scale This parameter takes sub-parameters: 'raw’ , hundred’ , 'one’ , 'z-score' , or 'decimal’ ,
 #' which denotes the normalization type or scale; Initialized as NULL.
+#' @param interval The time interval chosen for the assay often in seconds.
+#' @param first_end The end time of the initial run, often the pause for the introduction of a new substance. This can be the cycle number chosen for the initial stop.
+#' @param pause_duration The time between the first end (pause) and resumption of the assay.
+#' @param end_time The final end time of the assay.
 #'
 #' @import utils
 #'
@@ -37,7 +41,8 @@
 #' @examples fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
 #' normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40)
 
-normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL, norm_scale = NULL){
+normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL, norm_scale = NULL,
+                        interval= NULL, first_end = NULL, pause_duration=NULL, end_time=NULL){
 
   df <- utils::read.table(dat)
   df <- clean_odddat_optimus(df)
@@ -45,6 +50,13 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
   dat = dat
   ru = rows_used
   usl = user_specific_labels
+
+  #time attribute for OCD people
+  interval = interval
+  fe = first_end
+  pd = pause_duration
+  et = end_time
+  cycles = cycles
 
   #Function revamp
   if(is.null(dat) && is.null(tnp) && is.null(cycles)){
@@ -73,11 +85,35 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
         if(ncol(df) == 1){
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
-          return(df)
+          #df <- df %>% dplyr::select('Cycle_Number', everything())
+          df = df %>% dplyr::relocate('Cycle_Number')
+
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
 
         } else {
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
+
         }
 
     } else if(!is.null(read_direction) || read_direction == 'horizontal'){
@@ -101,11 +137,33 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
         if(ncol(df) == 1){
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
 
         } else {
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
         }
 
     } else{
@@ -124,7 +182,18 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
         df <-unique_identifier(df)
 
         colnames(df) <- c(1:(ncol(df)-1))
-        return(df)
+        df = df %>% dplyr::relocate('Cycle_Number')
+
+        if(!is.null(interval)){
+          ta = time_attribute(interval,fe,pd,et,cycles)
+          df = cbind(ta,df)
+          return(df)
+
+        } else{
+
+          return(df)
+
+        }
 
     }
 
@@ -152,12 +221,32 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
 
         } else {
 
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
         }
 
     } else if(!is.null(read_direction) || read_direction == 'horizontal'){
@@ -183,12 +272,32 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
 
         } else {
 
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
         }
 
     } else{
@@ -204,8 +313,19 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
         df <- as.data.frame(lapply(df[1:ncol(df)], roundfluor))
 
         df <-unique_identifier(df)
+
         colnames(df) <- c(1:(ncol(df)-1))
-        return(df)
+        df = df %>% dplyr::relocate('Cycle_Number')
+        if(!is.null(interval)){
+          ta = time_attribute(interval,fe,pd,et,cycles)
+          df = cbind(ta,df)
+          return(df)
+
+        } else{
+
+          return(df)
+
+        }
 
     }
   } else if(!is.null(dat) && !is.null(norm_scale) && norm_scale == 'hundred'){
@@ -232,11 +352,13 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
 
         } else {
 
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
         }
 
@@ -262,12 +384,32 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
 
         } else {
 
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
         }
 
     } else{
@@ -283,7 +425,17 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
         df <-unique_identifier(df)
         colnames(df) <- c(1:(ncol(df)-1))
-        return(df)
+        df = df %>% dplyr::relocate('Cycle_Number')
+        if(!is.null(interval)){
+          ta = time_attribute(interval,fe,pd,et,cycles)
+          df = cbind(ta,df)
+          return(df)
+
+        } else{
+
+          return(df)
+
+        }
 
     }
   } else if(!is.null(dat) && !is.null(norm_scale) && norm_scale == 'z-score'){
@@ -310,12 +462,32 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
 
         } else {
 
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
         }
 
     } else if(!is.null(read_direction) || read_direction == 'horizontal'){
@@ -340,12 +512,32 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
 
         } else {
 
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
         }
 
     } else{
@@ -361,7 +553,17 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
         df <-unique_identifier(df)
         colnames(df) <- c(1:(ncol(df)-1))
-        return(df)
+        df = df %>% dplyr::relocate('Cycle_Number')
+        if(!is.null(interval)){
+          ta = time_attribute(interval,fe,pd,et,cycles)
+          df = cbind(ta,df)
+          return(df)
+
+        } else{
+
+          return(df)
+
+        }
     }
 
   } else if(!is.null(dat) && !is.null(norm_scale) && norm_scale == 'decimal'){
@@ -388,12 +590,32 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
 
         } else {
 
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
         }
 
     } else if(!is.null(read_direction) || read_direction == 'horizontal'){
@@ -418,12 +640,32 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
 
         } else {
 
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
         }
 
     } else{
@@ -439,8 +681,18 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
         df <-unique_identifier(df)
         colnames(df) <- c(1:(ncol(df)-1))
+        df = df %>% dplyr::relocate('Cycle_Number')
 
-        return(df)
+        if(!is.null(interval)){
+          ta = time_attribute(interval,fe,pd,et,cycles)
+          df = cbind(ta,df)
+          return(df)
+
+        } else{
+
+          return(df)
+
+        }
 
     }
 
@@ -468,12 +720,32 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
 
         } else {
 
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
         }
 
     } else if(!is.null(read_direction) || read_direction == 'horizontal'){
@@ -498,12 +770,32 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
 
         } else {
 
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
         }
 
     } else{
@@ -520,7 +812,17 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
         #add unique_id
         df <-unique_identifier(df)
         colnames(df) <- c(1:(ncol(df)-1))
-        return(df)
+        df = df %>% dplyr::relocate('Cycle_Number')
+        if(!is.null(interval)){
+          ta = time_attribute(interval,fe,pd,et,cycles)
+          df = cbind(ta,df)
+          return(df)
+
+        } else{
+
+          return(df)
+
+        }
     }
 
   } else if( !is.null(dat) && !is.null(tnp) && !is.null(cycles) ){
@@ -547,12 +849,33 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          #if(!is.null(interval) && !is.null(first_end) && !is.null(pause_duration) && !is.null(end_time))
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
 
         } else {
 
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
         }
 
     } else if(!is.null(read_direction) || read_direction == 'horizontal'){
@@ -577,12 +900,32 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
 
         } else {
 
           df <-unique_identifier(df)
-          return(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
+          if(!is.null(interval)){
+            ta = time_attribute(interval,fe,pd,et,cycles)
+            df = cbind(ta,df)
+            return(df)
+
+          } else{
+
+            return(df)
+
+          }
         }
 
     } else{
@@ -599,7 +942,17 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
       #add unique_id
       df <-unique_identifier(df)
       colnames(df) <- c(1:(ncol(df)-1))
-      return(df)
+      df = df %>% dplyr::relocate('Cycle_Number')
+      if(!is.null(interval)){
+        ta = time_attribute(interval,fe,pd,et,cycles)
+        df = cbind(ta,df)
+        return(df)
+
+      } else{
+
+        return(df)
+
+      }
 
     }
 
@@ -617,7 +970,17 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
     #add unique_id
     df <-unique_identifier(df)
     colnames(df) <- c(1:(ncol(df)-1))
-    return(df)
+    df = df %>% dplyr::relocate('Cycle_Number')
+    if(!is.null(interval)){
+      ta = time_attribute(interval,fe,pd,et,cycles)
+      df = cbind(ta,df)
+      return(df)
+
+    } else{
+
+      return(df)
+
+    }
 
   }
 

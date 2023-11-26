@@ -8,63 +8,64 @@
 #' @param pause_duration The time between the first end (pause) and resumption of the assay.
 #' @param end_time The final end time of the assay.
 #' @param cycles The number of cycles in the assay as selected by the user or researcher.
-#' @param time_unit The time unit used, either cycles or minutes. Works with first_end.
 #'
-#' @return A rounded value with three decimal places when applied to a single value or an attribute with log-transformed values.
+#' @return The time attribute.
 #'
 #' @export
 #'
+#' @note
+#' The original function had an option for minutes which was for less time conscious people
+#' but the final version for this package has no such option. Users MUST provide numbers in
+#' seconds.
+#'
 #' @examples time_test = time_attribute(30,8,136,1276,40)
 #' time_test = time_attribute(60,8,136,2460,40)
-#' time_test = time_attribute(0.5,4,2.26,21.26,40,'minutes')
-#' time_test = time_attribute(1,7,2.26,41,40,'minutes')
 
-time_attribute = function(interval= NULL, first_end = NULL, pause_duration=NULL, end_time=NULL, cycles=NULL, time_unit = c('cycles', 'minutes')){
+
+time_attribute = function(interval= NULL, first_end = NULL, pause_duration=NULL, end_time=NULL, cycles=NULL){
 
   start_time = 0
 
-  if('cycles' %in% time_unit || is.null(time_unit)){
+  if(is.null(interval)){
+    warning('Enter the cycle interval in seconds as setup in the machine')
+  }
 
-    first_end = (first_end-1) * interval
+  if(pause_duration < interval || is.null(pause_duration)){
+    pause_duration = interval
+  } else{
+    pause_duration = pause_duration
+  }
 
-    #before_pause
-    first_end = seq(from=start_time,to=first_end,by=interval)
+  # if('cycles' %in% time_unit || is.null(time_unit) && !is.null(first_end))
 
-    #new sequence start
-    timer_resume = tail(first_end,1)  + pause_duration
+  if(!is.null(first_end) && !is.null(end_time) && !is.null(pause_duration)){
 
-    #after_pause
-    after_pause = seq(from=timer_resume,to=end_time,by=interval)
+      first_end = (first_end-1) * interval
 
-    #final time attribute
-    assay_time = append(first_end,after_pause)
-    assay_time = assay_time[1:cycles]
-    assay_time = as.data.frame(assay_time)
-    colnames(assay_time) = c('Time')
+      #before_pause
+      first_end = seq(from=start_time,to=first_end,by=interval)
 
-    return(assay_time)
+      #new sequence start
+      timer_resume = tail(first_end,1)  + pause_duration
 
-  } else if('minutes' %in% time_unit || !is.null(time_unit)) {
-    #before_pause
-    interval = interval * 60
+      #after_pause
+      after_pause = seq(from=timer_resume,to=end_time,by=interval)
 
-    first_end = seq(from=start_time*60,to=first_end*60,by=interval)
+      #final time attribute
+      assay_time = append(first_end,after_pause)
+      assay_time = assay_time[1:cycles]
+      assay_time = as.data.frame(assay_time)
+      colnames(assay_time) = c('Time')
 
-    first_end = first_end[-length(first_end)]
+      return(assay_time)
 
-    #new sequence start
-    timer_resume = tail(first_end,1)  + pause_duration*60
+    } else {
 
-    #after_pause
-    after_pause = seq(from=timer_resume,to=end_time*60,by=interval)
+      assay_time = seq(from=start_time,  by = interval, along.with=seq(cycles))
+      assay_time = as.data.frame(assay_time)
+      colnames(assay_time) = c('Time')
 
-    #final time attribute
-    assay_time = append(first_end,after_pause)
-    assay_time = assay_time[1:cycles]
-    assay_time = as.data.frame(assay_time)
-    colnames(assay_time) = c('Time')
-
-    return(assay_time)
+      return(assay_time)
 
   }
 
