@@ -7,7 +7,7 @@
 time_attribute(
   interval = NULL,
   first_end = NULL,
-  pause_time = NULL,
+  pause_duration = NULL,
   end_time = NULL,
   cycles = NULL,
   time_unit = c("cycles", "minutes")
@@ -18,7 +18,7 @@ time_attribute(
 
 \item{first_end}{The end time of the initial run, often the pause for the introduction of a new substance. This can be the cycle number chosen for the initial stop.}
 
-\item{pause_time}{The time between the first end (pause) and resumption of the assay.}
+\item{pause_duration}{The time between the first end (pause) and resumption of the assay.}
 
 \item{end_time}{The final end time of the assay.}
 
