@@ -38,5 +38,9 @@ system.file("extdata", data_object, package = "normfluodbf", mustWork = TRUE)
 raw_dat <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 
 #pass the file through the function
-normfluodbf::normfluodat(raw_dat, tnp = 3, cycles = 40, norm_scale = 'hundred')
+normfluodbf::normfluodat(raw_dat, tnp = 3, cycles = 40, rows_used = c('A','B','C'), norm_scale = 'hundred')
+
+#OR
+
+normfluodbf::normfluodat(raw_dat, tnp = 3, cycles = 40, rows_used = c('A','B','C'), norm_scale = 'hundred', interval = 45)
 ```

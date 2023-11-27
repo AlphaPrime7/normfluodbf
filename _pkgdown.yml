@@ -33,8 +33,11 @@ navbar:
       text: QC
       href: articles/qc_redirect.html
     - icon: fa-video
-      text: Video
+      text: DAT protocol with Sample Names
       href: v_redirect.html
+    - icon: fa-video
+      text: DAT with Time Attribute
+      href: v1_redirect.html
   - icon: fa-rss
     text: News
     menu:

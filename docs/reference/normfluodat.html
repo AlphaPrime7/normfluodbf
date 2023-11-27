@@ -63,7 +63,12 @@ and then appends an attribute called “Cycle_Number” to the normalized data f
     <a class="dropdown-item" href="../v_redirect.html">
       <span class="fa fa-video"></span>
        
-      Video
+      DAT protocol with Sample Names
+    </a>
+    <a class="dropdown-item" href="../v1_redirect.html">
+      <span class="fa fa-video"></span>
+       
+      DAT with Time Attribute
     </a>
   </div>
 </li>
@@ -138,7 +143,11 @@ and then appends an attribute called “Cycle_Number” to the normalized data f
 <span>  cols_used <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  user_specific_labels <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  read_direction <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  norm_scale <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  norm_scale <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  interval <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  first_end <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  pause_duration <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  end_time <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -178,6 +187,22 @@ if the user intends to have a final data frame with samples arranged as clusters
 <dt>norm_scale</dt>
 <dd><p>This parameter takes sub-parameters: 'raw’ , hundred’ , 'one’ , 'z-score' , or 'decimal’ ,
 which denotes the normalization type or scale; Initialized as NULL.</p></dd>
+
+
+<dt>interval</dt>
+<dd><p>The time interval chosen for the assay often in seconds.</p></dd>
+
+
+<dt>first_end</dt>
+<dd><p>The end time of the initial run, often the pause for the introduction of a new substance. This can be the cycle number chosen for the initial stop.</p></dd>
+
+
+<dt>pause_duration</dt>
+<dd><p>The time between the first end (pause) and resumption of the assay.</p></dd>
+
+
+<dt>end_time</dt>
+<dd><p>The final end time of the assay.</p></dd>
 
 </dl></div>
     <div class="section level2">

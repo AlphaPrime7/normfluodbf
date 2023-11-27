@@ -55,7 +55,12 @@
     <a class="dropdown-item" href="../v_redirect.html">
       <span class="fa fa-video"></span>
        
-      Video
+      DAT protocol with Sample Names
+    </a>
+    <a class="dropdown-item" href="../v1_redirect.html">
+      <span class="fa fa-video"></span>
+       
+      DAT with Time Attribute
     </a>
   </div>
 </li>
@@ -123,8 +128,7 @@
 <span>  first_end <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  pause_duration <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  end_time <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  cycles <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  time_unit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"cycles"</span>, <span class="st">"minutes"</span><span class="op">)</span></span>
+<span>  cycles <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -149,24 +153,24 @@
 <dt>cycles</dt>
 <dd><p>The number of cycles in the assay as selected by the user or researcher.</p></dd>
 
-
-<dt>time_unit</dt>
-<dd><p>The time unit used, either cycles or minutes. Works with first_end.</p></dd>
-
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A rounded value with three decimal places when applied to a single value or an attribute with log-transformed values.</p>
+<p>The time attribute.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
+    <p>The original function had an option for minutes which was for less time conscious people
+but the final version for this package has no such option. Users MUST provide numbers in
+seconds.</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">time_test</span> <span class="op">=</span> <span class="fu">time_attribute</span><span class="op">(</span><span class="fl">30</span>,<span class="fl">8</span>,<span class="fl">136</span>,<span class="fl">1276</span>,<span class="fl">40</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">time_test</span> <span class="op">=</span> <span class="fu">time_attribute</span><span class="op">(</span><span class="fl">60</span>,<span class="fl">8</span>,<span class="fl">136</span>,<span class="fl">2460</span>,<span class="fl">40</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">time_test</span> <span class="op">=</span> <span class="fu">time_attribute</span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">4</span>,<span class="fl">2.26</span>,<span class="fl">21.26</span>,<span class="fl">40</span>,<span class="st">'minutes'</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">time_test</span> <span class="op">=</span> <span class="fu">time_attribute</span><span class="op">(</span><span class="fl">1</span>,<span class="fl">7</span>,<span class="fl">2.26</span>,<span class="fl">41</span>,<span class="fl">40</span>,<span class="st">'minutes'</span><span class="op">)</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

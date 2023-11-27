@@ -1,5 +1,5 @@
 Tingwei Adeck
-November 20, 2023
+November 26, 2023
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -226,7 +226,12 @@ normalized_data <- normfluordat(dat2, tnp = 3, cycles = 40, rows_used = c('A','B
 library(normfluodbf)
 dat2 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
 n <- c('A','B','C') #rows used
-normalized_data16 <- normfluodat(dat2, tnp = 3, cycles = 40, n)
+
+# Cycle_Number attribute is included below
+normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n)
+
+# Cycle_Number & Time attributes are included below
+normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, interval = 30)
 ```
 
 - Pay attention to the illustrations below. The setup below represents a
@@ -267,7 +272,8 @@ normalized_data16 <- normfluodat(dat2, tnp = 3, cycles = 40, n)
   samples in an unorthodox way.
 - The default read direction is vertical as indicated earlier.
 - Users are advised NOT to supply the cols_used because the program has
-  a robust algorithm for determining the cols_used.
+  a robust algorithm for determining the cols_used. The users’ input
+  will override the inbuilt algorithm for determining columns used.
 
 ``` r
 library(normfluodbf)
@@ -442,7 +448,11 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction = '
 ``` r
 library(normfluodbf)
 dat1 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
+
 normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C') )
+
+# Use the syntax below to obtain a Time attribute as well
+normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30)
 ```
 
 ## 🛂 Quality Control (QC)
