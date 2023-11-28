@@ -52,8 +52,15 @@
 dat_col_names_optimus <- function(dat = NULL, df, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL){
 
   actual_cols <- actual_cols_used(dat)
+
   if(is.null(cols_used)){
     cols_used = actual_cols
+  }
+
+  if(sum(cols_used) != sum(actual_cols)){
+    cols_used = actual_cols
+  } else {
+    cols_used = cols_used
   }
 
   colnames_noru <- c(1:ncol(df))
