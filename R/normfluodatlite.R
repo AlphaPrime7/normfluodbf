@@ -70,11 +70,13 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
 
         } else {
 
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
         }
 
@@ -99,11 +101,13 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
 
         } else {
 
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
         }
 
@@ -119,6 +123,7 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         #add unique_id
         df <-unique_identifier(df)
         colnames(df) <- c(1:(ncol(df)-1))
+        df = df %>% dplyr::relocate('Cycle_Number')
         return(df)
 
     }
@@ -146,11 +151,13 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
 
         } else {
 
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
         }
 
@@ -176,11 +183,13 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
 
         } else {
 
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
         }
 
@@ -196,6 +205,7 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         #add unique_id
         df <-unique_identifier(df)
         colnames(df) <- c(1:(ncol(df)-1))
+        df = df %>% dplyr::relocate('Cycle_Number')
         return(df)
 
 
@@ -224,11 +234,13 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
 
         } else {
 
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
         }
 
@@ -253,11 +265,13 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
 
         } else {
 
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
         }
 
@@ -273,6 +287,7 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         #add unique_id
         df <-unique_identifier(df)
         colnames(df) <- c(1:(ncol(df)-1))
+        df = df %>% dplyr::relocate('Cycle_Number')
         return(df)
 
     }
@@ -299,11 +314,13 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
 
         } else {
 
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
         }
 
@@ -329,11 +346,13 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
 
         } else {
 
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
         }
 
@@ -348,6 +367,7 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         #add unique_id
         df <-unique_identifier(df)
         colnames(df) <- c(1:(ncol(df)-1))
+        df = df %>% dplyr::relocate('Cycle_Number')
         return(df)
     }
 
@@ -374,11 +394,13 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
 
         } else {
 
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
         }
 
@@ -404,11 +426,13 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
 
         } else {
 
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
         }
 
@@ -423,6 +447,7 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         #add unique_id
         df <-unique_identifier(df)
         colnames(df) <- c(1:(ncol(df)-1))
+        df = df %>% dplyr::relocate('Cycle_Number')
         return(df)
 
     }
@@ -449,11 +474,13 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
 
         } else {
 
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
         }
 
@@ -478,11 +505,13 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
 
         } else {
 
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
         }
 
@@ -497,6 +526,7 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
         #add unique_id
         df <-unique_identifier(df)
         colnames(df) <- c(1:(ncol(df)-1))
+        df = df %>% dplyr::relocate('Cycle_Number')
         return(df)
 
     }
@@ -523,11 +553,13 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
 
         } else {
 
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
         }
 
@@ -551,11 +583,13 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
 
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
 
         } else {
 
           df <-unique_identifier(df)
+          df = df %>% dplyr::relocate('Cycle_Number')
           return(df)
         }
 
@@ -570,6 +604,7 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
       #add unique_id
       df <-unique_identifier(df)
       colnames(df) <- c(1:(ncol(df)-1))
+      df = df %>% dplyr::relocate('Cycle_Number')
       return(df)
 
     }
@@ -585,6 +620,7 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
     #add unique_id
     df <-unique_identifier(df)
     colnames(df) <- c(1:(ncol(df)-1))
+    df = df %>% dplyr::relocate('Cycle_Number')
     return(df)
 
   }

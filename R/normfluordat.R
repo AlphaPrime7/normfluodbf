@@ -66,10 +66,12 @@ normfluordat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, us
       if(ncol(df) == 1){
         colnames(cleaned_dat_t) <- sample_col_names
         cleaned_dat_t <-unique_identifier(cleaned_dat_t)
+        cleaned_dat_t = cleaned_dat_t %>% dplyr::relocate('Cycle_Number')
         return(cleaned_dat_t)
 
       } else {
         cleaned_dat_t <-unique_identifier(cleaned_dat_t)
+        cleaned_dat_t = cleaned_dat_t %>% dplyr::relocate('Cycle_Number')
         return(cleaned_dat_t)
       }
 
@@ -94,10 +96,12 @@ normfluordat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, us
       if(ncol(df) == 1){
         colnames(cleaned_dat_t) <- sample_col_names
         cleaned_dat_t <-unique_identifier(cleaned_dat_t)
+        cleaned_dat_t = cleaned_dat_t %>% dplyr::relocate('Cycle_Number')
         return(cleaned_dat_t)
 
       } else {
         cleaned_dat_t <-unique_identifier(cleaned_dat_t)
+        cleaned_dat_t = cleaned_dat_t %>% dplyr::relocate('Cycle_Number')
         return(cleaned_dat_t)
       }
 
@@ -128,10 +132,12 @@ normfluordat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, us
       if(ncol(df) == 1){
         colnames(cleaned_dat_t) <- sample_col_names
         cleaned_dat_t <-unique_identifier(cleaned_dat_t)
+        cleaned_dat_t = cleaned_dat_t %>% dplyr::relocate('Cycle_Number')
         return(cleaned_dat_t)
 
       } else {
         cleaned_dat_t <-unique_identifier(cleaned_dat_t)
+        cleaned_dat_t = cleaned_dat_t %>% dplyr::relocate('Cycle_Number')
         return(cleaned_dat_t)
       }
 
@@ -158,10 +164,12 @@ normfluordat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, us
       if(ncol(df) == 1){
         colnames(cleaned_dat_t) <- sample_col_names
         cleaned_dat_t <-unique_identifier(cleaned_dat_t)
+        cleaned_dat_t = cleaned_dat_t %>% dplyr::relocate('Cycle_Number')
         return(cleaned_dat_t)
 
       } else {
         cleaned_dat_t <-unique_identifier(cleaned_dat_t)
+        cleaned_dat_t = cleaned_dat_t %>% dplyr::relocate('Cycle_Number')
         return(cleaned_dat_t)
       }
     }
