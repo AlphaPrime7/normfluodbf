@@ -77,14 +77,18 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y <- cbind(y,dbf_time_column)
       y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
       y["Time"] = y[,"Time"] + 30
-      return(unique_identifier(y))
+      y = unique_identifier(y)
+      y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+      return(y)
 
     } else{
       colnames(y) <- sample_col_names
       y <- cbind(y,dbf_time_column)
       y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
       y["Time"] = y[,"Time"] + 30
-      return(unique_identifier(y))
+      y = unique_identifier(y)
+      y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+      return(y)
     }
 
   } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'one'){
@@ -96,7 +100,9 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y <- cbind(y,dbf_time_column)
       y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
       y["Time"] = y[,"Time"] + 30
-      return(unique_identifier(y))
+      y = unique_identifier(y)
+      y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+      return(y)
 
     } else {
       y <- as.data.frame(lapply(y[1:ncol(y)], log_transformation))
@@ -106,7 +112,9 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y <- cbind(y,dbf_time_column)
       y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
       y["Time"] = y[,"Time"] + 30
-      return(unique_identifier(y))
+      y = unique_identifier(y)
+      y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+      return(y)
     }
 
   } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'hundred'){
@@ -118,7 +126,9 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y <- cbind(y,dbf_time_column)
       y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
       y["Time"] = y[,"Time"] + 30
-      return(unique_identifier(y))
+      y = unique_identifier(y)
+      y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+      return(y)
 
     } else {
       y <- as.data.frame(lapply(y[1:ncol(y)], log_transformation))
@@ -128,7 +138,9 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y <- cbind(y,dbf_time_column)
       y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
       y["Time"] = y[,"Time"] + 30
-      return(unique_identifier(y))
+      y = unique_identifier(y)
+      y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+      return(y)
     }
   } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'z-score'){
 
@@ -139,7 +151,9 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y <- cbind(y,dbf_time_column)
       y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
       y["Time"] = y[,"Time"] + 30
-      return(unique_identifier(y))
+      y = unique_identifier(y)
+      y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+      return(y)
 
     } else {
       y <- as.data.frame(lapply(y[1:ncol(y)], log_transformation))
@@ -149,7 +163,9 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y <- cbind(y,dbf_time_column)
       y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
       y["Time"] = y[,"Time"] + 30
-      return(unique_identifier(y))
+      y = unique_identifier(y)
+      y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+      return(y)
     }
   } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'decimal'){
 
@@ -160,7 +176,9 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
         y <- cbind(y,dbf_time_column)
         y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
         y["Time"] = y[,"Time"] + 30
-        return(unique_identifier(y))
+        y = unique_identifier(y)
+        y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+        return(y)
 
       } else{
         y <- as.data.frame(lapply(y[1:ncol(y)], log_transformation))
@@ -170,7 +188,9 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
         y <- cbind(y,dbf_time_column)
         y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
         y["Time"] = y[,"Time"] + 30
-        return(unique_identifier(y))
+        y = unique_identifier(y)
+        y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+        return(y)
       }
 
   } else if (!is.null(file)){
@@ -181,6 +201,8 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
     y <- cbind(y,dbf_time_column)
     y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
     y["Time"] = y[,"Time"] + 30
-    return(unique_identifier(y))
+    y = unique_identifier(y)
+    y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+    return(y)
   }
 }
