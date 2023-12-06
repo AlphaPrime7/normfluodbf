@@ -42,7 +42,7 @@ resample_dat_vect <- function(df, tnp, cycles){
   k = df_vector[[list_len]] %>% .[c(kth)]
 
   #resulting_vec[1:tnp] <- c(list(), 'NULL')
-  resulting_vec <- vector(mode = 'list', length = tnp)
+  resulting_vec <- vector(mode = 'list', length = tnp * ncol(df))
 
   for(j in 1:(vec_len/tnp)){
 
