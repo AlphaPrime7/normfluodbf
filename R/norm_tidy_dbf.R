@@ -86,7 +86,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
     y["Time"] = y[,"Time"] + 30
 
     y = unique_identifier(y)
-    y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+    y = y %>% dplyr::relocate('Time', 'Cycle_Number')
     return(y)
 
   } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'hundred'){
@@ -99,7 +99,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
     y["Time"] = y[,"Time"] + 30
 
     y = unique_identifier(y)
-    y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+    y = y %>% dplyr::relocate('Time', 'Cycle_Number')
     return(y)
 
   } else if (!is.null(file) && !is.null(norm_scale) && norm_scale == 'one'){
@@ -112,7 +112,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
     y["Time"] = y[,"Time"] + 30
 
     y = unique_identifier(y)
-    y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+    y = y %>% dplyr::relocate('Time', 'Cycle_Number')
     return(y)
 
   } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'z-score'){
@@ -125,7 +125,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
     y["Time"] = y[,"Time"] + 30
 
     y = unique_identifier(y)
-    y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+    y = y %>% dplyr::relocate('Time', 'Cycle_Number')
     return(y)
 
   } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'decimal'){
@@ -138,7 +138,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
     y["Time"] = y[,"Time"] + 30
 
     y = unique_identifier(y)
-    y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+    y = y %>% dplyr::relocate('Time', 'Cycle_Number')
     return(y)
 
   } else if(!is.null(file) && !is.null(norm_scale) && !is.null(transformed) && norm_scale == 'raw' && transformed == 'log'){
@@ -149,7 +149,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
     y["Time"] = y[,"Time"] + 30
 
     y = unique_identifier(y)
-    y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+    y = y %>% dplyr::relocate('Time', 'Cycle_Number')
     return(y)
 
   } else if(!is.null(file) && !is.null(norm_scale) && !is.null(transformed) && norm_scale == 'one' && transformed == 'log'){
@@ -163,7 +163,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
     y["Time"] = y[,"Time"] + 30
 
     y = unique_identifier(y)
-    y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+    y = y %>% dplyr::relocate('Time', 'Cycle_Number')
     return(y)
 
   } else if(!is.null(file) && !is.null(norm_scale) && !is.null(transformed) && norm_scale == 'hundred' && transformed == 'log'){
@@ -177,7 +177,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
     y["Time"] = y[,"Time"] + 30
 
     y = unique_identifier(y)
-    y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+    y = y %>% dplyr::relocate('Time', 'Cycle_Number')
     return(y)
 
   } else if(!is.null(file) && !is.null(norm_scale) && !is.null(transformed) && norm_scale == 'z-score' && transformed == 'log'){
@@ -191,7 +191,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
     y["Time"] = y[,"Time"] + 30
 
     y = unique_identifier(y)
-    y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+    y = y %>% dplyr::relocate('Time', 'Cycle_Number')
     return(y)
 
   } else if(!is.null(file) && !is.null(norm_scale) && !is.null(transformed) && norm_scale == 'decimal' && transformed == 'log'){
@@ -205,7 +205,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
     y["Time"] = y[,"Time"] + 30
 
     y = unique_identifier(y)
-    y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+    y = y %>% dplyr::relocate('Time', 'Cycle_Number')
     return(y)
 
   } else if (!is.null(file)){
@@ -220,7 +220,8 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
       y["Time"] = y[,"Time"] + 30
 
       y = unique_identifier(y)
-      y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+      #y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+      y = y %>% dplyr::relocate('Time', 'Cycle_Number')
       return(y)
     } else {
       y <- as.data.frame(lapply(y[1:ncol(y)], min_max_norm))
@@ -231,7 +232,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
       y["Time"] = y[,"Time"] + 30
 
       y = unique_identifier(y)
-      y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+      y = y %>% dplyr::relocate('Time', 'Cycle_Number')
       return(y)
 
     }

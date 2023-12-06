@@ -78,7 +78,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
       y["Time"] = y[,"Time"] + 30
       y = unique_identifier(y)
-      y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+      y = y %>% dplyr::relocate('Time', 'Cycle_Number')
       return(y)
 
     } else{
@@ -87,7 +87,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
       y["Time"] = y[,"Time"] + 30
       y = unique_identifier(y)
-      y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+      y = y %>% dplyr::relocate('Time', 'Cycle_Number')
       return(y)
     }
 
@@ -101,7 +101,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
       y["Time"] = y[,"Time"] + 30
       y = unique_identifier(y)
-      y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+      y = y %>% dplyr::relocate('Time', 'Cycle_Number')
       return(y)
 
     } else {
@@ -113,7 +113,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
       y["Time"] = y[,"Time"] + 30
       y = unique_identifier(y)
-      y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+      y = y %>% dplyr::relocate('Time', 'Cycle_Number')
       return(y)
     }
 
@@ -127,7 +127,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
       y["Time"] = y[,"Time"] + 30
       y = unique_identifier(y)
-      y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+      y = y %>% dplyr::relocate('Time', 'Cycle_Number')
       return(y)
 
     } else {
@@ -139,7 +139,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
       y["Time"] = y[,"Time"] + 30
       y = unique_identifier(y)
-      y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+      y = y %>% dplyr::relocate('Time', 'Cycle_Number')
       return(y)
     }
   } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'z-score'){
@@ -152,7 +152,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
       y["Time"] = y[,"Time"] + 30
       y = unique_identifier(y)
-      y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+      y = y %>% dplyr::relocate('Time', 'Cycle_Number')
       return(y)
 
     } else {
@@ -164,7 +164,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
       y["Time"] = y[,"Time"] + 30
       y = unique_identifier(y)
-      y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+      y = y %>% dplyr::relocate('Time', 'Cycle_Number')
       return(y)
     }
   } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'decimal'){
@@ -177,7 +177,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
         y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
         y["Time"] = y[,"Time"] + 30
         y = unique_identifier(y)
-        y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+        y = y %>% dplyr::relocate('Time', 'Cycle_Number')
         return(y)
 
       } else{
@@ -189,7 +189,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
         y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
         y["Time"] = y[,"Time"] + 30
         y = unique_identifier(y)
-        y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+        y = y %>% dplyr::relocate('Time', 'Cycle_Number')
         return(y)
       }
 
@@ -202,7 +202,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
     y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
     y["Time"] = y[,"Time"] + 30
     y = unique_identifier(y)
-    y = y %>% dplyr::relocate('Cycle_Number', 'Time')
+    y = y %>% dplyr::relocate('Time', 'Cycle_Number')
     return(y)
   }
 }
