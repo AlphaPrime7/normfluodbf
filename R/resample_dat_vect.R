@@ -21,7 +21,7 @@
 #' @note
 #' This is the vectorized approach and should be a more efficient function when compared to say
 #' @seealso [resample_dat()] or @seealso [resample_dat_alt()].
-#' This function will produce a horizontal layout as defined in this package.
+#' This function will produce a vertical layout as defined in this package.
 #'
 #' @examples fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
@@ -81,7 +81,7 @@ resample_dat_vect <- function(df, tnp, cycles, output=NULL){
 #' @param df A clean data frame with attributes or tuples containing a mixture of samples.
 #' @param tnp A numeric value indicating the number of rows used. TNP is used as an acronym for Test, Negative, Positive.
 #' @param cycles A numeric value indicating the number of cycles selected by the user when running the FLUOstar instrument.
-#' @param method A string 'normal' or 'brute' to specify the method of resampling.
+#' @param method A string 'normal', 'brute' or 'vector' to specify the method of resampling.
 #'
 #' @importFrom data.table transpose
 #'
@@ -93,7 +93,7 @@ resample_dat_vect <- function(df, tnp, cycles, output=NULL){
 #'
 #' @note
 #' This is the pseudo-vectorized approach and should be a more efficient function.
-#' This function will produce a horizontal layout as defined in this package.
+#' This function will produce a vertical layout as defined in this package.
 #' This function inspired by the lapply approach pretty much applies the
 #' @seealso [resample_dat_vect()]. As a matter of fact, I took this approach to
 #' create compatibility with lapply and rapply but that failed.
@@ -103,8 +103,10 @@ resample_dat_vect <- function(df, tnp, cycles, output=NULL){
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
 #' alt_test_scale <- resample_vect_scale(nocomma_dat,3,40, method = 'brute')
 #' alt_test_scale <- resample_vect_scale(nocomma_dat,3,40, method = 'normal')
+#' alt_test_scale <- resample_vect_scale(nocomma_dat,3,40, method = 'vector')
+#' alt_test_scale_norm <- lapply(alt_test_scale, min_max_norm)
 
-resample_vect_scale <- function(df, tnp, cycles, method = c('normal','brute')){
+resample_vect_scale <- function(df, tnp, cycles, method = c('normal','brute', 'vector')){
 
   #df <- df[,colSums(is.na(df))<nrow(df)]
   df_vector = as.vector(df)
@@ -118,6 +120,7 @@ resample_vect_scale <- function(df, tnp, cycles, method = c('normal','brute')){
   total_list
 
   resulting_df = matrix()
+  resulting_vect = c(list())
   j_vect <- c()
   dfbs = data.frame() #yes bs= bullshit
 
@@ -134,7 +137,7 @@ resample_vect_scale <- function(df, tnp, cycles, method = c('normal','brute')){
     colnames(resulting_df) = c(1:ncol(resulting_df))
     return(resulting_df)
 
-  } else {
+  } else if ('brute' %in% method){
 
     for(k in df_vector){
       k = as.data.frame(k)
@@ -146,6 +149,15 @@ resample_vect_scale <- function(df, tnp, cycles, method = c('normal','brute')){
     dfbs = data.table::transpose(l = dfbs)
     dfbs = as.data.frame(dfbs)
     return(dfbs)
+
+  } else if ('vector' %in% method){
+      for(l in df_vector){
+        l = as.data.frame(l)
+        resampled_vector = resample_dat_vect(l,tnp=tnp,cycles = cycles, output = 'vect')
+        resulting_vect = append(resulting_vect, resampled_vector)
+      }
+      return(resulting_vect)
+
   }
 
 }

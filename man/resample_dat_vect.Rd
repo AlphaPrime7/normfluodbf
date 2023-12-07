@@ -36,7 +36,7 @@ samples_delineated <- resample_dat_vect(nocomma_dat, tnp=3, cycles=40)
 \code{\link[=resample_vect_scale]{resample_vect_scale()}}
 
 \code{\link[=resample_dat]{resample_dat()}} or @seealso \code{\link[=resample_dat_alt]{resample_dat_alt()}}.
-This function will produce a horizontal layout as defined in this package.
+This function will produce a vertical layout as defined in this package.
 }
 \author{
 Tingwei Adeck
