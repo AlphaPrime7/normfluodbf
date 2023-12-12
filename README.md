@@ -41,44 +41,44 @@ Badges](https://img.shields.io/badge/badges-awesome-green.svg)](https://github.c
 <a href="https://www.buymeacoffee.com/tingweiadeck"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&amp;emoji=&amp;slug=tingweiadeck&amp;button_colour=FFDD00&amp;font_colour=000000&amp;font_family=Cookie&amp;outline_colour=000000&amp;coffee_colour=ffffff" width="100" height="50"/></a>
 <a href="https://www.buymeacoffee.com/tingweiadeck"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a Pizza&emoji=🍕&slug=tingweiadeck&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" width="100" height="50" /></a>
 
-    # ⏩ 📽️ Quick start
+# ⏩ 📽️ Quick start
 
-    For quick starters, please visit the
-    [`{video tutorial}`](https://alphaprime7.github.io/normfluodbf/video.html)
-    for an illustration on how to effectively use the package. The video
-    tutorial only covers DAT files based on the assumption that MOST users
-    will be interested in using the package for DAT files.
+For quick starters, please visit the
+[`{video tutorial}`](https://alphaprime7.github.io/normfluodbf/video.html)
+for an illustration on how to effectively use the package. The video
+tutorial only covers DAT files based on the assumption that MOST users
+will be interested in using the package for DAT files.
 
-    # ✍️ Introduction
+# ✍️ Introduction
 
-    [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) is used to
-    clean and normalize DBF and DAT files obtained from liposome flux assay
-    experiments performed with the FLUOstar microplate reader. The
-    expectation is this package is not limited to this assay type but other
-    assay types performed with the same instrument. The final data frames
-    obtained from this package are ready for insightful data analysis and
-    for the creation of amazing visuals (using ggplot2) that help in making
-    scientific deductions or making presentations to project stakeholders.
-    This project firmly represents my core belief in the public
-    dissemination of scientific information. My convictions on this idea of
-    public dissemination were driven by the book "What Mad Pursuit" by
-    Francis Crick. Visit
-    [`{my page}`](https://alphaprime7.github.io/normfluodbf/articles/normfluodbf.html)
-    for details on the concept behind the project.
+[`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) is used to
+clean and normalize DBF and DAT files obtained from liposome flux assay
+experiments performed with the FLUOstar microplate reader. The
+expectation is this package is not limited to this assay type but other
+assay types performed with the same instrument. The final data frames
+obtained from this package are ready for insightful data analysis and
+for the creation of amazing visuals (using ggplot2) that help in making
+scientific deductions or making presentations to project stakeholders.
+This project firmly represents my core belief in the public
+dissemination of scientific information. My convictions on this idea of
+public dissemination were driven by the book “What Mad Pursuit” by
+Francis Crick. Visit
+[`{my page}`](https://alphaprime7.github.io/normfluodbf/articles/normfluodbf.html)
+for details on the concept behind the project.
 
-    <img src="man/figures/navab.png" align="center" width="540"/>
+<img src="man/figures/navab.png" align="center" width="540"/>
 
-    # ⏬ Installation
+# ⏬ Installation
 
-    ## Developmental Version
+## Developmental Version
 
-    The development version of
-    [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) can be
-    installed as illustrated below:
+The development version of
+[`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) can be
+installed as illustrated below:
 
-
-    ```r
-    devtools::install_github("AlphaPrime7/normfluodbf")
+``` r
+devtools::install_github("AlphaPrime7/normfluodbf")
+```
 
 ``` r
 pak::pak("AlphaPrime7/normfluodbf")
