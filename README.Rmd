@@ -19,6 +19,12 @@ knitr::opts_chunk$set(
 )
 ```
 
+```{css, include=FALSE}
+img {
+  font-size: 20%;
+}
+```
+
 # `r badger::badge_custom("normfluodbf", "1.5.2", "blue", "https://github.com/AlphaPrime7/normfluodbf")` <img src="man/figures/logo.png" align="right" width="180"/>
 
 [![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/AlphaPrime7/normfluodbf)
@@ -59,11 +65,16 @@ library("badger")
 
 `r badger::badge_custom("follow me on", "LinkedIn", "green", "https://www.linkedin.com/in/tingwei-adeck")`
 `r badger::badge_custom("follow me on", "GitHub", "green", "https://github.com/AlphaPrime7")`
-<a href="https://www.buymeacoffee.com/tingweiadeck"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=tingweiadeck&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+<a href="https://www.buymeacoffee.com/tingweiadeck"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&amp;emoji=&amp;slug=tingweiadeck&amp;button_colour=FFDD00&amp;font_colour=000000&amp;font_family=Cookie&amp;outline_colour=000000&amp;coffee_colour=ffffff" width="100" height="50"/></a>
+<a href="https://www.buymeacoffee.com/tingweiadeck"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a Pizza&emoji=🍕&slug=tingweiadeck&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" width="100" height="50" /></a>
+```
+# ⏩ 📽️ Quick start
 
-# ⏩  📽️ Quick start
-
-For quick starters, please visit the [`{video tutorial}`](https://alphaprime7.github.io/normfluodbf/video.html) for an illustration on how to effectively use the package. The video tutorial only covers DAT files based on the assumption that MOST users will be interested in using the package for DAT files.
+For quick starters, please visit the
+[`{video tutorial}`](https://alphaprime7.github.io/normfluodbf/video.html)
+for an illustration on how to effectively use the package. The video
+tutorial only covers DAT files based on the assumption that MOST users
+will be interested in using the package for DAT files.
 
 # ✍️ Introduction
 
@@ -235,10 +246,12 @@ normalized_data <- normfluordat(dat2, tnp = 3, cycles = 40, rows_used = c('A','B
 
 #### Using The rows_used parameter
 
--   This parameter is used alone and the user need not worry about providing the columns used.
+-   This parameter is used alone and the user need not worry about
+    providing the columns used.
 -   The default read direction is vertical.
-- The program has a robust algorithm or recipe for determining attribute names based on the rows used. 
-- Users are strongly encouraged to provide the rows_used parameter.
+-   The program has a robust algorithm or recipe for determining
+    attribute names based on the rows used.
+-   Users are strongly encouraged to provide the rows_used parameter.
 
 ```{r exampledatru, eval=F}
 library(normfluodbf)
@@ -284,10 +297,16 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, interval = 30)
 
 #### Using The rows_used and cols_used parameter
 
--   The cols_used parameter is only used if the user suspects some inconsistencies in their experimental procedure. Otherwise, the user should let the program determine the columns used.
--   The cols_used parameter is especially relevant when the user loads samples in an unorthodox way.
+-   The cols_used parameter is only used if the user suspects some
+    inconsistencies in their experimental procedure. Otherwise, the user
+    should let the program determine the columns used.
+-   The cols_used parameter is especially relevant when the user loads
+    samples in an unorthodox way.
 -   The default read direction is vertical as indicated earlier.
-- Users are advised NOT to supply the cols_used because the program has a robust algorithm for determining the cols_used. The users' input will override the inbuilt algorithm for determining columns used.
+-   Users are advised NOT to supply the cols_used because the program
+    has a robust algorithm for determining the cols_used. The users'
+    input will override the inbuilt algorithm for determining columns
+    used.
 
 ```{r exampledatrucu, eval=F}
 library(normfluodbf)
