@@ -1,5 +1,5 @@
 Tingwei Adeck
-November 26, 2023
+December 12, 2023
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -38,6 +38,7 @@ Badges](https://img.shields.io/badge/badges-awesome-green.svg)](https://github.c
 
 [![](https://img.shields.io/badge/follow%20me%20on-LinkedIn-green.svg)](https://www.linkedin.com/in/tingwei-adeck)
 [![](https://img.shields.io/badge/follow%20me%20on-GitHub-green.svg)](https://github.com/AlphaPrime7)
+<a href="https://www.buymeacoffee.com/tingweiadeck"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=tingweiadeck&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
 
 # ⏩ 📽️ Quick start
 
@@ -191,7 +192,7 @@ normalized_datazt <- normfluordbf(liposomes_214, norm_scale = 'z-score', transfo
 ``` r
 library(normfluodbf)
 dat1 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
-normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'))
+normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30)
 ```
 
 ### Base Function
