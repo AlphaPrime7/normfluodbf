@@ -30,9 +30,9 @@ YOU](https://img.shields.io/badge/THANK-YOU-ff69b4.svg)](mailto:awesome.tingwei@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/AlphaPrime7/normfluodbf/graphs/commit-activity)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/normfluodbf)](https://CRAN.R-project.org/package=normfluodbf)
-[![](http://cranlogs.r-pkg.org/badges/grand-total/normfluodbf?color=yellow)](https://cran.r-project.org/package=normfluodbf)
-[![](http://cranlogs.r-pkg.org/badges/last-month/normfluodbf?color=green)](https://cran.r-project.org/package=normfluodbf)
-[![](http://cranlogs.r-pkg.org/badges/last-week/normfluodbf?color=yellow)](https://cran.r-project.org/package=normfluodbf)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/normfluodbf?color=yellow)](https://www.cran-e.com/package/normfluodbf)
+[![](http://cranlogs.r-pkg.org/badges/last-month/normfluodbf?color=green)](https://www.cran-e.com/package/normfluodbf)
+[![](http://cranlogs.r-pkg.org/badges/last-week/normfluodbf?color=yellow)](https://www.cran-e.com/package/normfluodbf)
 [![Awesome
 Badges](https://img.shields.io/badge/badges-awesome-green.svg)](https://github.com/Naereen/badges)
 
