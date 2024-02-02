@@ -25,8 +25,8 @@ virtual_plate_maker = function(well_count = NULL){
       dplyr::select_("well", "sample", "row", "col", "used")
 
   } else if (well_count == 1536L){
-
     WELL_META <-
+      #a little weird but A(4)-H(4) (A1,A2,A3,A4...)
       expand.grid(LETTERS[1:32], 1:48, stringsAsFactors = FALSE) %>%
       magrittr::set_colnames(c("row", "col")) %>%
       dplyr::mutate_("well" = ~ sprintf("%s%02d", row, col),
