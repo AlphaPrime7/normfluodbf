@@ -25,14 +25,16 @@ plate_types <- list()
 #' @return The parent type of the given plate.
 #'
 #' @export
+#'
+#' @note
+#' The plate type names are just the first letter of the numbers.
+#' Also there are going to be 2 other plate types. These are
+#' \code{tef_well} and \code{ofts_well}.
+#'
 #' @keywords internal
 
 default_plate_type <- function(plate) {
-  #the way this is different from ddpcr is nfd plates do not need params or
-  #really all i want them to be is empty as the parameter, but wait they do have
-  #parameters, fluor values within (0-2^16), volume of solution it can take, likely a range of concs as well,
-  #ok maybe more to think about here.
-  UseMethod("96_well")
+  UseMethod("ns_well")
 }
 
 #' Define plate type parameters
