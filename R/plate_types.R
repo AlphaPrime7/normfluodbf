@@ -39,11 +39,11 @@ default_plate_type <- function(plate) {
 
 #' Define plate type parameters
 #'
-#' Parameters in liposome flux assays are the same for all plates unlike ddpcr.
+#' Parameters in liposome flux assays are the same for all plates.
 #'
-#' @param plate A normfluodbf plate
+#' @param plate A normfluodbf plate (\code{ns_well}, \code{tef_well} or \code{ofts_well} ).
 #'
-#' @return A list o
+#' @return A list of parameters for the well chosen.
 #'
 #' @note
 #' I do not know much about \code{ddpcr} but I know the plate parameters are same in
@@ -51,7 +51,7 @@ default_plate_type <- function(plate) {
 #' will be things like \code{MIN_FLUOR}, \code{MAX_FLUOR}, and \code{WELL_CAPACITY}.
 #' There is a lot to learn here about R OOP and these S3 classes I had heard about.
 #' Also \code{tidyqpcr} package will be important in learning more about R and how to
-#' think when programming.
+#' think when programming. These packages also introduce me to grids.
 #'
 #' @export
 #' @keywords internal
