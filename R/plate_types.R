@@ -39,6 +39,7 @@ default_plate_type <- function(plate) {
 
 #' Define plate type parameters
 #'
+#' @details
 #' Parameters in liposome flux assays are the same for all plates.
 #'
 #' @param plate A normfluodbf plate (\code{ns_well}, \code{tef_well} or \code{ofts_well} ).
