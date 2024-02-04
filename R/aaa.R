@@ -61,3 +61,11 @@ Virtual_plate_maker = function(well_count = c(96L, 384L, 1536L)){
 
 }
 
+#' Supported plate types empty list.
+#'
+#' Will be populated with the three plate types indicated above
+#' as I progress on understanding its use.
+#'
+#' @export
+
+plate_types <- list()

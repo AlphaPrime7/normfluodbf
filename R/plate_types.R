@@ -1,3 +1,37 @@
+#' Parent plate type
+#'
+#' Assuming liposome flux assays were ran alongside a different experiment type,
+#' I think a parent plate type will be handy in setting default parameters
+#' for all other child plate types.
+#'
+#' @param plate An nfd plate
+#'
+#' @return The parent type of the given plate.
+#' @export
+#' @keywords internal
+
+parent_plate_type <- function(plate) {
+  UseMethod("parent_plate_type")
+}
+
+
+#' Parent plate type of default plates
+#' @inheritParams parent_plate_type
+#' @keywords internal
+
+#' Plate type: nfd plate
+#'
+#' The default plate type that all other plates inherit from.
+NULL
+plate_types[['nfd_plate']] <- "nfd_plate"
+
+parent_plate_type.nfd_plate <- function(plate) {
+  # this is the default plate type -- there is no parent
+  # Also the parent plate type is just specific to nfd.
+  NULL
+
+}
+
 #' Plate types based on number of wells
 #'
 #' Liposome flux assays can be conducted in 96, 384 or 1536 microplates. \code{plate_types} simply
@@ -41,6 +75,8 @@ default_plate_type <- function(plate) {
 #'
 #' @details
 #' Parameters in liposome flux assays are the same for all plates.
+#' Parameters is entirely different from specificiations (specs). More on this
+#' as I work out the details.
 #'
 #' @param plate A normfluodbf plate (\code{ns_well}, \code{tef_well} or \code{ofts_well} ).
 #'
@@ -53,6 +89,7 @@ default_plate_type <- function(plate) {
 #' There is a lot to learn here about R OOP and these S3 classes I had heard about.
 #' Also \code{tidyqpcr} package will be important in learning more about R and how to
 #' think when programming. These packages also introduce me to grids.
+#'
 #'
 #' @export
 #' @keywords internal
