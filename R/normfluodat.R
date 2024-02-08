@@ -91,11 +91,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
-
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
+            
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
 
@@ -106,11 +106,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
 
@@ -142,11 +142,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
 
@@ -157,11 +157,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
         }
@@ -187,11 +187,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
         if(!is.null(interval)){
           ta = time_attribute(interval,fe,pd,et,cycles)
           df = cbind(ta,df)
-          return(df)
+          structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
         } else{
 
-          return(df)
+          structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
         }
 
@@ -225,11 +225,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
 
@@ -240,11 +240,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
         }
@@ -276,11 +276,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
 
@@ -291,11 +291,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
         }
@@ -319,11 +319,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
         if(!is.null(interval)){
           ta = time_attribute(interval,fe,pd,et,cycles)
           df = cbind(ta,df)
-          return(df)
+          structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
         } else{
 
-          return(df)
+          structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
         }
 
@@ -353,13 +353,13 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           colnames(df) <- sample_col_names
           df <-unique_identifier(df)
           df = df %>% dplyr::relocate('Cycle_Number')
-          return(df)
+          structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
         } else {
 
           df <-unique_identifier(df)
           df = df %>% dplyr::relocate('Cycle_Number')
-          return(df)
+          structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
         }
 
     } else if(!is.null(read_direction) || read_direction == 'horizontal'){
@@ -388,11 +388,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
 
@@ -403,11 +403,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
         }
@@ -429,11 +429,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
         if(!is.null(interval)){
           ta = time_attribute(interval,fe,pd,et,cycles)
           df = cbind(ta,df)
-          return(df)
+          structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
         } else{
 
-          return(df)
+          structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
         }
 
@@ -466,11 +466,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
 
@@ -481,11 +481,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
         }
@@ -516,11 +516,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
 
@@ -531,11 +531,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
         }
@@ -557,11 +557,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
         if(!is.null(interval)){
           ta = time_attribute(interval,fe,pd,et,cycles)
           df = cbind(ta,df)
-          return(df)
+          structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
         } else{
 
-          return(df)
+          structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
         }
     }
@@ -594,11 +594,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
 
@@ -609,11 +609,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
         }
@@ -644,11 +644,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
 
@@ -659,11 +659,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
         }
@@ -686,11 +686,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
         if(!is.null(interval)){
           ta = time_attribute(interval,fe,pd,et,cycles)
           df = cbind(ta,df)
-          return(df)
+          structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
         } else{
 
-          return(df)
+          structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
         }
 
@@ -724,11 +724,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
 
@@ -739,11 +739,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
         }
@@ -774,11 +774,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
 
@@ -789,11 +789,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
         }
@@ -816,11 +816,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
         if(!is.null(interval)){
           ta = time_attribute(interval,fe,pd,et,cycles)
           df = cbind(ta,df)
-          return(df)
+          structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
         } else{
 
-          return(df)
+          structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
         }
     }
@@ -854,11 +854,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
 
@@ -869,11 +869,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
         }
@@ -904,11 +904,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
 
@@ -919,11 +919,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
           if(!is.null(interval)){
             ta = time_attribute(interval,fe,pd,et,cycles)
             df = cbind(ta,df)
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           } else{
 
-            return(df)
+            structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
           }
         }
@@ -946,11 +946,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
       if(!is.null(interval)){
         ta = time_attribute(interval,fe,pd,et,cycles)
         df = cbind(ta,df)
-        return(df)
+        structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
       } else{
 
-        return(df)
+        structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
       }
 
@@ -974,11 +974,11 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
     if(!is.null(interval)){
       ta = time_attribute(interval,fe,pd,et,cycles)
       df = cbind(ta,df)
-      return(df)
+      structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
     } else{
 
-      return(df)
+      structure(return(df),class= c("normfluodbf_df", "normfluodbf", "normfluodbf_plate_bound", class(df)))
 
     }
 
