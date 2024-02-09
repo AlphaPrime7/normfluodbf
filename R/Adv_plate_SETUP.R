@@ -1,5 +1,5 @@
-#' @keywords internal
-#' @description 
+#' @title Empty Normfluodbf plate
+#' @description
 #' Not exported and for internal use only. See below for reference on my inspiration for this method.
 #' \href{https://github.com/daattali/ddpcr#advanced-topic-3-creating-new-plate-types}{See the README} for more
 #' information on plate types. It is obviously advanced R so I dont bank on casuals getting it
@@ -7,48 +7,54 @@
 #' dissected surgically like I did before proper understanding of the topic can be obtained.
 #' Despite grasping the topic, give it time to settle in and have more experience with R OOP.
 #' Better yet, time can be circumvented by practicing and applying this idea to different problem types.
-#' @details 
+#' @details
 #' This is an advanced plate setup vs a base plate setup (more on the base setup later).
 #' This is the basis of forming an empty plate. If the user (often a non-casual) figures out how to setup a
 #' plate without this internal function then they can circumvent it.
 #' The next step is functionally defining each plate property listed here. I have a feeling
 #' names and definitions are going to change when i start that.
+#' @name empty_plate
+NULL #documenting null
+
 empty_plate <- function() {
   list(
     plate_data = NULL, #init null (data will be placed in wells eventually-no files for me REMEMBER normfluodat and Co did all the heavy lifting)
     plate_tech_meta = NULL, #vary by plate(contains plate technical specs different fluostar physics thresholds)
     plate_sci_meta = NULL, #parent type specific (init not null-define thresholds)
     well_status = NULL, #dirty or clean (used vs not used)(init null)
-    steps = NULL #init null plot steps happen eventually
+    steps = NULL, #init null plot steps happen eventually
     status = NULL #temp-i will see if i need this-no need to over complicate
   )
 }
 
+#' @title Global plate types list
 #' These types of procedures need to be assigned to the global environment.
 #' I think I saw a way this could be done and that will be implemented next.
 #' For what its worth, this procedure will be devoted to a function of its own.
+#' @name plate_types_global
+NULL
 
 plate_types <- list()
 plate_types[['normfluodbf_plate']] <- "normfluodbfplate_plate"
 
-#' Plate types tibble
-#' @details 
+#' @title Plate types tibble
+#' @details
 #' Just a static way of knowing the plate types. Honestly for normfluodbf this is about it
-#' and it shouldnt get more complicated than this. The tibble begins with the parent plate type and
+#' and it shouldn't get more complicated than this. The tibble begins with the parent plate type and
 #' then follows with plate types indicating the number of wells in each.
-#' 
-#' @return 
+#'
+#' @return
 #' A tibble
-#' 
+#'
 #' @name plate_types_tbl
 NULL
-#' @seealso [plate_types()] 
+#' @seealso [plate_types()]
 
 plate_types_tbl <- function(){
 
   # Make a plate type tibble
-  # A list will also be made in another function as backup if issues occur 
-  # assigniing the non-function() list to the global environment.
+  # A list will also be made in another function as backup if issues occur
+  # assigning the non-function() list to the global environment.
   plate_type_tbl <- tibble::tribble(
     ~plate_types, ~Value,
     "normfluodbf_plate", "normfluodbf_plate",
@@ -61,11 +67,11 @@ plate_types_tbl <- function(){
 }
 
 #' Plate types list
-#' @details 
+#' @details
 #' The list equivalent of the tibble from \code{plate_types_tbl}.
 
 plate_types <- function(){
-    
+
     plate_types <- list()
     plate_types[['normfluodbf_plate']] <- "normfluodbf_plate"
     plate_types[["plate_96_wells"]]  <- "plate_96_wells"
@@ -76,13 +82,25 @@ plate_types <- function(){
     return(plate_types)
 }
 
-#' @description 
+#' @description
+#' Parent plate type method.
+#'
+#' @author Tingwei Adeck
+#'
+#' @details
+#' This is the method for setting the plate type.
+
+parent_plate_type <- function(plate) {
+  UseMethod("parent_plate_type")
+}
+
+#' @description
 #' Parent plate type.
 #' In short, no way to call a parent plate type for a class that does not exist.
-#' 
+#'
 #' @author Tingwei Adeck
-#' 
-#' @details 
+#'
+#' @details
 #' There is NO normfluodbf_plate class before this
 #' so the use of this S3 method was deceptive to me at first
 #' but after some frustration and thinking hard, i was able to
@@ -94,15 +112,15 @@ parent_plate_type.normfluodbf_plate <- function(plate) {
   NULL
 }
 
-#' @description 
+#' @description
 #' Initializes the plate type once its created, even if empty.
-#' 
+#'
 #' @author Tingwei Adeck
-#' 
-#' @details 
+#'
+#' @details
 #' The default method should initialize the plate type for the newly created plate or
 #' a plate without a plate type or one with plate_type "list" since the initial created plate is a list.
-#' 
+#'
 parent_plate_type.default <- function(plate) {
   if(class(plate)[1] != "list"){
     class(plate) <- class(plate)
@@ -112,11 +130,11 @@ parent_plate_type.default <- function(plate) {
   }
 }
 
-#' @description 
+#' @description
 #' Initial step in setting up a plate is defining the type.
 #' Shouldnt be too complicated with normfluodbf.
 #' I need to determine the default parameters normfluodbf will want to use.
-#' 
+#'
 #' @param plate A newly created plate (empty_plate is not exported)
 #' @param type The plate type with default as normfluodbf_plate
 
@@ -125,13 +143,13 @@ setup_plate <- function(plate, type) {
   plate
 }
 
-#' @description 
+#' @description
 #' Define the plate type and often for an empty plate, it should be normfluodbf_plate.
-#' 
+#'
 #' @param plate A newly created plate (empty_plate is not exported)
 #' @param type The plate type with default as normfluodbf_plate
-#' 
-#' @example 
+#'
+#' @example
 #' \dontrun{
 #' set_plate_type(empty_plate())
 #' }
@@ -161,17 +179,17 @@ set_plate_type <- function(plate, type) {
                  structure(plate, class = type) %>% parent_plate_type)
 }
 
-#' @description 
+#' @description
 #' A new plate for now is just a function with no parameters that will create an empty plate from
 #' scratch and assign a type for the plate.
 #' Right now I am simply defining an empty plate and have not figured out the extra functionalities.
-#' 
-#' @details 
+#'
+#' @details
 #' The process of making a new plate entails the following:
 #' \code{empty_plate}
 #' \code{setup_plate} <- \code{set_plate_type}
-#' 
-#' @example 
+#'
+#' @example
 #' new_plate(type = plate_types()$normfluodbf_plate)
 new_plate = function(type = NULL){
     plate = empty_plate()
