@@ -68,7 +68,7 @@ check_dat <- function(pathstring){
   }
 }
 
-#' @export 
+#' @export
 list_dats <- function(pathstring){
   if(length(list.files(path = pathstring, pattern = "\\.dat$", full.names = TRUE)) > 0) {
     files_list <- list.files(path = pathstring, pattern = "\\.dat$", full.names = TRUE)
@@ -84,7 +84,7 @@ list_dats <- function(pathstring){
 #' fpath = "C:/Users/..."
 #' is_file(fpath)
 #' }
-#' 
+#'
 
 is_file <- function(fpath){
 
@@ -101,7 +101,7 @@ is_file <- function(fpath){
     return(FALSE)
     #or use !(fileinfo$isdir) instead of the else statement
   } else {
-    return(TRUE) 
+    return(TRUE)
   }
 
 }
@@ -112,7 +112,7 @@ is_file <- function(fpath){
 #' dpath = "C:/Users/..."
 #' is_file(dpath)
 #' }
-#' 
+#'
 
 is_dir <- function(path=NULL) {
   if (missing(path) | is.null(path)) {
@@ -126,14 +126,14 @@ is_dir <- function(path=NULL) {
   fileinfo$isdir
 }
 
-#' Known file path 
+#' Known file path
 #' @example
 #' \dontrun{
 #' fpath = "C:/Users/..."
 #' fname = "test"
 #' find_known_liposome_file(fpath, fname)
 #' }
-#' 
+#'
 
 find_known_liposome_file <- function(fpath,fname){
 
@@ -191,7 +191,7 @@ find_known_liposome_file <- function(fpath,fname){
 #' @note The filenames were originally performed by the author(me).
 #' This is mostly a learning function and placed in the program for future use.
 #' This function can also be performed on a list of files using \code{list.files}.
-#' @example 
+#' @example
 #' \dontrun{
 #' get_dbf_file_name("liposomes_218.dbf")
 #' }
@@ -207,11 +207,11 @@ get_dbf_file_name <- function(dbf_file) {
 #' This is mostly a learning function and placed in the program for future use.
 #' This function is used in events when the author gets a chance to get access to
 #' a FLUOStar instrument.
-#' @example 
+#' @example
 #' \dontrun{
 #' get_dat_file_name(""dat_5.dat"")
 #' }
-#' 
+#'
 
 get_dat_file_name <- function(dat_file) {
   DAT_FILE_REGEX <- "^(.*)_([0-9]).dat$"
@@ -222,7 +222,7 @@ get_dat_file_name <- function(dat_file) {
 #' @export
 #' @note The dat common name is not machine sourced but used in this program for
 #' ease of reference/testing.
-#' @example 
+#' @example
 #' \dontrun{
 #' get_dat_common_name(""dat_5.dat"")
 #' }
@@ -238,7 +238,7 @@ get_dat_common_name <- function(dat_file) {
 #' were named for purposes of developing this program.
 #' Not suited for casual users (appropriate for fellow developers).
 #' For the sake of time, this function is not applied to DBF files.
-#' @example 
+#' @example
 #' \dontrun{
 #' get_common_dat_names(list.files(tpath, pattern = "\\.dat$"))
 #' }
@@ -260,9 +260,9 @@ get_common_dat_names <- function(dat_files) {
 }
 
 #' Get developmental data
-#' 
+#'
 #' Load sample data for testing and developmental purposes.
-#' @examples 
+#' @examples
 #' sample_data_dir()
 #' @name sample_data
 NULL
@@ -287,7 +287,7 @@ sample_data_dir <- function() {
 #' @export
 #' @note The developmental goto file when it comes to testing the program.
 #' From now on running tests in R for this program should be a breeze.
-#' @example 
+#' @example
 #' sample_data_file()
 
 sample_data_file <- function(gotofile = NULL) {
@@ -303,5 +303,3 @@ sample_data_file <- function(gotofile = NULL) {
   }
 
 }
-
-#Just the plate issue looming right now. Knowing how to class plates is priority.
