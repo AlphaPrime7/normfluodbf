@@ -132,7 +132,7 @@ parent_plate_type.default <- function(plate) {
 
 #' @description
 #' Initial step in setting up a plate is defining the type.
-#' Shouldnt be too complicated with normfluodbf.
+#' Shouldn't be too complicated with normfluodbf.
 #' I need to determine the default parameters normfluodbf will want to use.
 #'
 #' @param plate A newly created plate (empty_plate is not exported)
