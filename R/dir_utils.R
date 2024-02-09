@@ -274,7 +274,7 @@ NULL
 sample_data_dir <- function() {
   fun = NA
   nofun = is.na(fun)
-  hopath = system.file("sample_dat_dbf_files", "dat", package = "normfluodbf")
+  hopath = system.file("sample_data", "dat", package = "normfluodbf")
   if(nchar(hopath) == 0 || str_length(hopath) == 0 || nzchar(hopath) != nofun){
     hopath = system.file("extdata", package = "normfluodbf", mustWork = TRUE)
   } else{
