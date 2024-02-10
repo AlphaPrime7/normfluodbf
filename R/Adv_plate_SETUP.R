@@ -122,12 +122,24 @@ parent_plate_type.normfluodbf_plate <- function(plate) {
 #' a plate without a plate type or one with plate_type "list" since the initial created plate is a list.
 #'
 parent_plate_type.default <- function(plate) {
-  if(class(plate)[1] != "list"){
+  if(class(plate)[1] != "list" || class(plate)[1] == "normfluodbf_plate"){
     class(plate) <- class(plate)
     plate
   } else {
     class(plate) = "normfluodbf_plate"
   }
+}
+
+#' @description
+#' Create a plate with class plate_96_wells.
+#'
+#' @author Tingwei Adeck
+#'
+#' @details
+#' Once this plate type is specified by the user, there is nothing for this function to do.
+#'
+parent_plate_type.plate_96_wells <- function(plate) {
+  NULL #nothing to do. The "plate_96_wells" class should not exist unless specified already.
 }
 
 #' @description
@@ -176,7 +188,7 @@ set_plate_type <- function(plate, type) {
 
   # This is a new tool in my arsenal for recursive programming
   set_plate_type(plate,
-                 structure(plate, class = type) %>% parent_plate_type)
+                 structure(plate, class = c(type, class(plate)) ) %>% parent_plate_type)
 }
 
 #' @description
