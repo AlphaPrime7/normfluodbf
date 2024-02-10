@@ -126,7 +126,7 @@ parent_plate_type.default <- function(plate) {
     class(plate) <- class(plate)
     plate
   } else {
-    class(plate) = "normfluodbf_plate"
+    class(plate) = c("normfluodbf_plate", class(plate))
   }
 }
 
@@ -167,12 +167,13 @@ setup_plate <- function(plate, type) {
 #' }
 
 set_plate_type <- function(plate, type) {
-
+  #the plate type should be not be specified for the plate setup
+  #otherwise simply return the specified plate type
   if (!missing(type) && !is.null(type) && class(plate)[1] != "list") {
     return(plate)
   }
 
-  if (missing(type) || is.null(type) || !nzchar(type)) {
+  if (missing(type) || is.null(type) ) {
     type <- NULL
   }
 
@@ -186,9 +187,8 @@ set_plate_type <- function(plate, type) {
   class(plate) <- new_class
   plate
 
-  # This is a new tool in my arsenal for recursive programming
   set_plate_type(plate,
-                 structure(plate, class = c(type, class(plate)) ) %>% parent_plate_type)
+                 structure(plate, class = type) %>% parent_plate_type)
 }
 
 #' @description
