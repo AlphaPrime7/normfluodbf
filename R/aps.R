@@ -258,7 +258,7 @@ new_plate <- function(dat,
   }
 
 }
-=======
+
 #' @title Empty Normfluodbf plate
 #' @description
 #' Not exported and for internal use only. See below for reference on my inspiration for this method.
