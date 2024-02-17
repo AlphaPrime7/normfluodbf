@@ -18,12 +18,11 @@ NULL #documenting null
 
 empty_plate <- function() {
   list(
-    plate_data = NULL, #init null (data will be placed in wells eventually-no files for me REMEMBER normfluodat and Co did all the heavy lifting)
+    zero_plate = NULL,
+    plate_data = NULL,
     plate_tech_meta = NULL, #vary by plate(contains plate technical specs different fluostar physics thresholds)
     plate_sci_meta = NULL, #parent type specific (init not null-define thresholds)
-    well_status = NULL, #dirty or clean (used vs not used)(init null)
     steps = NULL, #init null plot steps happen eventually
-    status = NULL #temp-i will see if i need this-no need to over complicate
   )
 }
 
@@ -191,6 +190,38 @@ set_plate_type <- function(plate, type) {
                  structure(plate, class = type) %>% parent_plate_type)
 }
 
+
+
+#' Add plate status
+#'
+#' @param plate A normfluodbf plate or empty plate
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' status(empty_plate())
+
+status <- function(plate) {
+  stopifnot(plate %>% inherits("normfluodbf_plate"))
+  plate[['status']]
+}
+
+
+#' Empty plate check
+#'
+#' @param plate A normfluodbf plate or empty plate
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' is_plate_empty(empty_plate())
+
+is_plate_empty <- function(plate) {
+  is.null(status(plate))
+}
+
 #' @description
 #' A new plate for now is just a function with no parameters that will create an empty plate from
 #' scratch and assign a type for the plate.
@@ -202,9 +233,27 @@ set_plate_type <- function(plate, type) {
 #' \code{setup_plate} <- \code{set_plate_type}
 #'
 #' @example
-#' new_plate(type = plate_types()$normfluodbf_plate)
-new_plate = function(type = NULL){
-    plate = empty_plate()
-    plate = setup_plate(plate,type=type)
-    plate
+#' fpath <- system.file("extdata", "dat_2.dat", package = "normfluodbf", mustWork = TRUE)
+#' new_plate(dat = fpath, tnp = 3, cycles = 40, rows_used = c('A','B','C'), type = NULL)
+new_plate <- function(dat,
+                      tnp,
+                      cycles,
+                      rows_used, type=NULL) {
+
+  stopifnot(!is.null(rows_used))
+
+  library(normfluodbf)
+  plate = empty_plate()
+  plate <- setup_plate(plate,type=type)
+  status(plate)
+
+  if(is_plate_empty(plate)){
+    lipo_data = normfluodat(dat,tnp,cycles,rows_used)
+    plate[["plate_data"]] <- lipo_data
+    status(plate) = 'in_use'
+    return(plate)
+  } else {
+    return(plate)
+  }
+
 }
