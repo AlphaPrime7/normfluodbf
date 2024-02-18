@@ -42,7 +42,7 @@
 #' normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40)
 
 normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL, norm_scale = NULL,
-                        interval= NULL, first_end = NULL, pause_duration=NULL, end_time=NULL){
+                        interval= NULL, first_end = NULL, pause_duration=NULL, end_time=NULL, normfluodbf.verbose = TRUE){
 
   df <- utils::read.table(dat)
   df <- clean_odddat_optimus(df)

@@ -16,3 +16,17 @@
 
   packageStartupMessage(msg)
 }
+
+
+## normfluodbf - R package for analysis of liposome flux assays data
+## Copyright (C) 2024 Tingwei Adeck
+
+# A way to set/get global variables
+.pkg_globals_store <- function() {
+  .store <- new.env()
+  list(
+    get = function(y) .store[[y]],
+    set = function(y, v) .store[[y]] <- v
+  )
+}
+.globals <- .pkg_globals_store()

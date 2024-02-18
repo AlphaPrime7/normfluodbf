@@ -1,4 +1,3 @@
-<<<<<<< HEAD:R/aps.R
 #' @title Empty Normfluodbf plate
 #' @description
 #' Not exported and for internal use only. See below for reference on my inspiration for this method.
@@ -19,12 +18,13 @@ NULL #documenting null
 
 empty_plate <- function() {
   list(
-    zero_plate = NULL,
+    plate_meta = NULL,
     plate_data = NULL,
-    plate_tech_meta = NULL, #vary by plate(contains plate technical specs different fluostar physics thresholds)
-    plate_sci_meta = NULL, #parent type specific (init not null-define thresholds)
-    steps = NULL, #init null plot steps happen eventually
-  )
+    well_status = NULL,
+    steps = NULL,
+    status = NULL,
+    dirty = NULL,
+    version = NULL)
 }
 
 #' @title Global plate types list
@@ -336,7 +336,7 @@ plate_types <- function(){
     plate_types[['normfluodbf_plate']] <- "normfluodbf_plate"
     plate_types[["plate_96_wells"]]  <- "plate_96_wells"
     plate_types[['plate_384_wells']] <- "plate_384_wells"
-    plate_types[['plate-1536_wells']] <- "plate_1536_wells"
+    plate_types[['plate_1536_wells']] <- "plate_1536_wells"
 
     class(plate_types) <- c("normfluodbf_plate_types", "advanced_plate_setup", class(plate_types))
     return(plate_types)
@@ -400,6 +400,30 @@ parent_plate_type.default <- function(plate) {
 #'
 parent_plate_type.plate_96_wells <- function(plate) {
   NULL #nothing to do. The "plate_96_wells" class should not exist unless specified already.
+}
+
+#' @description
+#' Create a plate with class plate_384_wells.
+#'
+#' @author Tingwei Adeck
+#'
+#' @details
+#' Once this plate type is specified by the user, there is nothing for this function to do.
+#'
+parent_plate_type.plate_384_wells <- function(plate) {
+  NULL #nothing to do. The "plate_384_wells" class should not exist unless specified already.
+}
+
+#' @description
+#' Create a plate with class plate_1536_wells.
+#'
+#' @author Tingwei Adeck
+#'
+#' @details
+#' Once this plate type is specified by the user, there is nothing for this function to do.
+#'
+parent_plate_type.plate_1536_wells <- function(plate) {
+  NULL #nothing to do. The "plate_1536_wells" class should not exist unless specified already.
 }
 
 #' @description
@@ -481,6 +505,39 @@ status <- function(plate) {
 
 is_plate_empty <- function(plate) {
   is.null(status(plate))
+}
+
+#' Plate data
+#'
+#' @param plate A normfluodbf plate or empty plate
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' plate_data(empty_plate())
+#' }
+plate_data <- function(plate) {
+  stopifnot(plate %>% inherits("normfluodbf_plate"))
+  plate[['plate_data']]
+}
+
+#' Plate data
+#'
+#' @param plate A normfluodbf plate or empty plate
+#' populate plate data
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' `plate_data<-`(empty_plate(), normfluodat(dat, tnp, cycles, rows_used))
+#' }
+`plate_data<-` <- function(plate, value) {
+  plate[['plate_data']] <- value
+  plate
 }
 
 #' @description
