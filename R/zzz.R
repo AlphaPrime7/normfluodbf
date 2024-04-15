@@ -3,8 +3,11 @@
   msg <- paste0(
     "\n",
     "== Welcome to normfluodbf ===========================================================================",
-    "\nIf you find this package useful, please leave a star: ",
-    "\n   https://github.com/AlphaPrime7/normfluodbf'",
+    "\nIf you find this package useful, please leave a star:",
+    "\n   https://github.com/AlphaPrime7/normfluodbf",
+    "\n",
+    "\nIf you want to support me in my learning and development journey:",
+    "\n https://www.buymeacoffee.com/tingweiadeck",
     "\n",
     "\nIf you encounter a bug or want to request an enhancement please file an issue at:",
     "\n   https://github.com/AlphaPrime7/normfluodbf/issues",
@@ -22,11 +25,11 @@
 ## Copyright (C) 2024 Tingwei Adeck
 
 # A way to set/get global variables
-.pkg_globals_store <- function() {
+.cache <- function() {
   .store <- new.env()
   list(
     get = function(y) .store[[y]],
     set = function(y, v) .store[[y]] <- v
   )
 }
-.globals <- .pkg_globals_store()
+.globals <- .cache()
