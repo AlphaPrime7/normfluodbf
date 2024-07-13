@@ -1,14 +1,15 @@
 Package: normfluodbf
-Title: Cleans and Normalizes FLUOstar DBF and DAT Files
+Type: Package
+Title: Cleans and Normalizes FLUOstar DBF and DAT Files from Liposome Flux Assays
 Version: 1.5.2
 Authors@R: 
-    c(person(given = "Tingwei", family = "Adeck", role = c("aut", "cre"), email = "awesome.tingwei@outlook.com"), person(given = "normfluodbf authors", role=c("cph"), 
+    c(person(given = "Tingwei", family = "Adeck", role = c("aut", "cre"), email = "awesome.tingwei@outlook.com"), person(given = "Tingwei Adeck & Tesla Adeck", role=c("cph"), 
            comment = c(ORCID = "0009-0009-7450-8863")))
 Description: Cleans and Normalizes FLUOstar DBF and DAT Files obtained from liposome flux assays. Users should verify extended usage of the package on files from other assay types.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Suggests: 
     knitr,
     learnr,
@@ -29,7 +30,7 @@ Imports:
     badger,
     stringr
 Depends: 
-    R (>= 2.10)
+    R (>= 4.3.0)
 LazyData: true
 URL: https://github.com/AlphaPrime7/normfluodbf, https://alphaprime7.github.io/normfluodbf/
 BugReports: https://github.com/AlphaPrime7/normfluodbf/issues

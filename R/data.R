@@ -1,3 +1,6 @@
+## normfluodbf - R package that Cleans and Normalizes FLUOstar DBF and DAT Files
+## Copyright (C) 2024 Tingwei Adeck
+
 #' @importFrom tibble tibble
 NULL
 

@@ -1,8 +1,10 @@
-# On library attachment, print message to user.
+## normfluodbf - R package that Cleans and Normalizes FLUOstar DBF and DAT Files
+## Copyright (C) 2024 Tingwei Adeck
+
 .onAttach <- function(libname, pkgname) {
   msg <- paste0(
     "\n",
-    "== Welcome to normfluodbf ===========================================================================",
+    "== Welcome to normfluodbf - Developed by Tingwei Adeck and Tesla Adeck ===========================================================================",
     "\nIf you find this package useful, please leave a star:",
     "\n   https://github.com/AlphaPrime7/normfluodbf",
     "\n",
@@ -16,20 +18,7 @@
     "\nThank you for using normfluodbf!",
     "\n"
   )
-
   packageStartupMessage(msg)
 }
 
 
-## normfluodbf - R package for analysis of liposome flux assays data
-## Copyright (C) 2024 Tingwei Adeck
-
-# A way to set/get global variables
-.cache <- function() {
-  .store <- new.env()
-  list(
-    get = function(y) .store[[y]],
-    set = function(y, v) .store[[y]] <- v
-  )
-}
-.globals <- .cache()
