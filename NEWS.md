@@ -1,3 +1,5 @@
+# normfluodbf 2.0.0
+
 # normfluodbf 1.5.2
 
 - This is the most mature release and all bugs have been squashed with this release. Only considerations for the next update is to account for machine corruption that could yield very weird files that will need more User control. I will do my best to make updates if changes to the programs' dependencies occur. THANKS to a R and the community of scientists that will be part of normfluodbf.

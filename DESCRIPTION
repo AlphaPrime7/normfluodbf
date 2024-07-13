@@ -1,7 +1,7 @@
 Package: normfluodbf
 Type: Package
 Title: Cleans and Normalizes FLUOstar DBF and DAT Files from Liposome Flux Assays
-Version: 1.5.2
+Version: 2.0.0
 Authors@R: 
     c(person(given = "Tingwei", family = "Adeck", role = c("aut", "cre"), email = "awesome.tingwei@outlook.com"), person(given = "Tingwei Adeck & Tesla Adeck", role=c("cph"), 
            comment = c(ORCID = "0009-0009-7450-8863")))
@@ -13,22 +13,30 @@ RoxygenNote: 7.3.2
 Suggests: 
     knitr,
     learnr,
-    rmarkdown,
-    testthat (>= 3.0.0)
+    rmarkdown
 Config/testthat/edition: 3
 Imports: 
     data.table,
-    foreign,
-    tidyr,
+    foreign (>= 0.8.86),
+    tidyr (>= 1.3.1),
     tibble,
-    dplyr,
+    dplyr (>= 1.1.4),
     emojifont,
-    rio,
     stats,
-    ggplot2,
-    ggthemes,
+    ggplot2 (>= 3.5.0),
     badger,
-    stringr
+    stringr,
+    magrittr (>= 2.0.3),
+    assertthat,
+    forcats,
+    gridExtra,
+    pkgsearch,
+    plotly (>= 4.10.4),
+    purrr (>= 1.0.2),
+    rlang (>= 1.1.3),
+    rstudioapi,
+    wesanderson,
+    testthat (>= 3.2.1)
 Depends: 
     R (>= 4.3.0)
 LazyData: true
