@@ -45,8 +45,6 @@ plate
 Parent Type
 }
 \examples{
-\dontrun{
-parent_plate_type()
-}
+\dontrun{parent_plate_type()}
 }
 \concept{parenttype}

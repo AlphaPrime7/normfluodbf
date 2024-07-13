@@ -41,6 +41,5 @@ Status
 }
 \examples{
 \dontrun{status(plate, status)}
-
 }
 \concept{status}

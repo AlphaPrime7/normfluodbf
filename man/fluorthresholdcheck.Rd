@@ -66,16 +66,15 @@ designed to check for NA values
 designed to check for NA values
 }
 \examples{
+\dontrun{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odddat_optimus(dat_df)
 resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 resampled_scaled <- resampled_scaled[,c(1:4)]
-fluor_threshold_check(resampled_scaled)
+fluor_threshold_check(resampled_scaled)}
 }
 \seealso{
-\code{\link[=fluor_threshold_check_na]{fluor_threshold_check_na()}}, \code{\link[=fluor_threshold_check_raw]{fluor_threshold_check_raw()}}
-
 Other normfluodbf_utils: 
 \code{\link{normalizingagents}}
 }
@@ -83,3 +82,4 @@ Other normfluodbf_utils:
 Tingwei Adeck
 }
 \concept{normfluodbf_utils}
+\keyword{internal}

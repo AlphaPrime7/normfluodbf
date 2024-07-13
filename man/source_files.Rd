@@ -15,4 +15,7 @@ All functions from the R file
 \description{
 Title: Source files
 }
+\examples{
+\dontrun{source_files('R')}
+}
 \keyword{internal}

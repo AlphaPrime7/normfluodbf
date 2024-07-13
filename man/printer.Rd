@@ -8,16 +8,16 @@
 \alias{print.1536well_plate_t2}
 \title{Print}
 \usage{
-\method{print}{`96well_plate`}(plate, ...)
+\method{print}{`96well_plate`}(x, ...)
 
-\method{print}{`384well_plate`}(plate, ...)
+\method{print}{`384well_plate`}(x, ...)
 
-\method{print}{`1536well_plate_t1`}(plate, ...)
+\method{print}{`1536well_plate_t1`}(x, ...)
 
-\method{print}{`1536well_plate_t2`}(plate, ...)
+\method{print}{`1536well_plate_t2`}(x, ...)
 }
 \arguments{
-\item{plate}{plate}
+\item{x}{print requirement}
 
 \item{...}{placeholder}
 }
@@ -35,6 +35,5 @@ Print
 }
 \examples{
 \dontrun{plate}
-
 }
 \concept{printer}

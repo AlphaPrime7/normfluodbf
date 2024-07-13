@@ -26,12 +26,9 @@
 #' @return A normalized data frame with an appended "Cycle_Number" attribute. The “Cycle_Number” attribute is the X-variable.
 #' @export
 #' @seealso [normfluodat()]
-#' @note This function has less optimized space and time complexities than @seealso [normfluodat()].
-#' In real-time the difference in optimization is not noticeable.
-#' This function also takes less parameters than the more optimized version of the function.
-#' Use @seealso [normfluodat()] for better approximation of attribute names.
-#' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
-#' normalized_fluo_dat <- normfluordat(dat=fpath, tnp = 3, cycles = 40)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+#' normalized_fluo_dat <- normfluordat(dat=fpath, tnp = 3, cycles = 40)}
 #' @rdname normalize_liposome_fluor_dats
 normfluordat <- function(dat,
                          tnp,
@@ -205,6 +202,7 @@ normfluordat <- function(dat,
 #' @param first_end The end time of the initial run, often the pause for the introduction of a new substance. This can be the cycle number chosen for the initial stop.
 #' @param pause_duration The time between the first end (pause) and resumption of the assay.
 #' @param end_time The final end time of the assay.
+#' @param normfluodbf.verbose verbose option
 #' @import utils
 #' @return A normalized data frame with an appended "Cycle_Number" attribute. The “Cycle_Number” attribute is the X-variable.
 #' @export
@@ -212,8 +210,9 @@ normfluordat <- function(dat,
 #' It is assumed that the user has the 3 baseline parameters to get this function working.
 #' Users must double-check attribute names to ensure they end up with accurate results.
 #' @seealso [normfluodatlite()]
-#' @examples fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
-#' normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
+#' normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40)}
 #' @rdname normalize_liposome_fluor_dats
 normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL, norm_scale = NULL,
                         interval= NULL, first_end = NULL, pause_duration=NULL, end_time=NULL, normfluodbf.verbose = TRUE){
@@ -1151,8 +1150,9 @@ normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, use
 #' It is assumed that the user has the 3 baseline parameters to get this function working.
 #' Users must double-check attribute names to ensure they end up with accurate results.
 #' @seealso [normfluodat()]
-#' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
-#' normalized_fluo_dat <- normfluodatlite(dat=fpath, tnp = 3, cycles = 40)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+#' normalized_fluo_dat <- normfluodatlite(dat=fpath, tnp = 3, cycles = 40)}
 #' @rdname normalize_liposome_fluor_dats
 normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL, norm_scale = NULL){
 
@@ -1772,8 +1772,9 @@ normfluodatlite <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
 #' It is assumed that the user has the 3 baseline parameters to get this function working.
 #' Users must double-check attribute names to ensure they end up with accurate results.
 #' @seealso [normfluodat()]
-#' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
-#' normalized_fluo_dat <- normfluodatfull(dat=fpath, tnp = 3, cycles = 40)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+#' normalized_fluo_dat <- normfluodatfull(dat=fpath, tnp = 3, cycles = 40)}
 #' @rdname normalize_liposome_fluor_dats
 normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL, norm_scale = NULL, na_omit = NULL){
 
@@ -2865,10 +2866,10 @@ normfluodatfull <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL,
 #' Logarithmic transformation provides a minuscule advantage in data analysis and could/should be avoided.
 #' Backward compatibility is maintained in all updates, so there should be no issues with using the package the way the user was used to.
 #' The favorite "norm_scale" level is "z-score" since it divides the axis into negative and positive, thus facilitating interpretation.
-#' @examples
+#' @examples \dontrun{
 #' fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
 #' normalized_dbf <- norm_tidy_dbf(file=fpath, norm_scale = 'raw')
-#' normalized_dbf <- normfluordbf(file=fpath, norm_scale = 'raw')
+#' normalized_dbf <- normfluordbf(file=fpath, norm_scale = 'raw')}
 #' @name liposome_fluor_dbfs
 NULL
 
@@ -2902,7 +2903,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
   colnames(dbf_time_column) <- c('Time')
 
   y[1:3,] <- NA
-  y <- y %>% drop_na()
+  y <- y %>% tidyr::drop_na()
   y <- y[,-(1:2)]
   y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
   n <- 'liposome_dataframe'
@@ -2921,7 +2922,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     y = unique_identifier(y)
     y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-    class(y) <- class('normfluodbf_normalized_dbf', class(y))
+    class(y) <- c('normfluodbf_normalized_dbf', class(y))
     return(y)
 
   } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'hundred'){
@@ -2935,7 +2936,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     y = unique_identifier(y)
     y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-    class(y) <- class('normfluodbf_normalized_dbf', class(y))
+    class(y) <- c('normfluodbf_normalized_dbf', class(y))
     return(y)
 
   } else if (!is.null(file) && !is.null(norm_scale) && norm_scale == 'one'){
@@ -2949,7 +2950,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     y = unique_identifier(y)
     y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-    class(y) <- class('normfluodbf_normalized_dbf', class(y))
+    class(y) <- c('normfluodbf_normalized_dbf', class(y))
     return(y)
 
   } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'z-score'){
@@ -2963,7 +2964,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     y = unique_identifier(y)
     y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-    class(y) <- class('normfluodbf_normalized_dbf', class(y))
+    class(y) <- c('normfluodbf_normalized_dbf', class(y))
     return(y)
 
   } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'decimal'){
@@ -2977,7 +2978,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     y = unique_identifier(y)
     y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-    class(y) <- class('normfluodbf_normalized_dbf', class(y))
+    class(y) <- c('normfluodbf_normalized_dbf', class(y))
     return(y)
 
   } else if(!is.null(file) && !is.null(norm_scale) && !is.null(transformed) && norm_scale == 'raw' && transformed == 'log'){
@@ -2989,7 +2990,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     y = unique_identifier(y)
     y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-    class(y) <- class('normfluodbf_normalized_dbf', class(y))
+    class(y) <- c('normfluodbf_normalized_dbf', class(y))
     return(y)
 
   } else if(!is.null(file) && !is.null(norm_scale) && !is.null(transformed) && norm_scale == 'one' && transformed == 'log'){
@@ -3004,7 +3005,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     y = unique_identifier(y)
     y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-    class(y) <- class('normfluodbf_normalized_dbf', class(y))
+    class(y) <- c('normfluodbf_normalized_dbf', class(y))
     return(y)
 
   } else if(!is.null(file) && !is.null(norm_scale) && !is.null(transformed) && norm_scale == 'hundred' && transformed == 'log'){
@@ -3019,7 +3020,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     y = unique_identifier(y)
     y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-    class(y) <- class('normfluodbf_normalized_dbf', class(y))
+    class(y) <- c('normfluodbf_normalized_dbf', class(y))
     return(y)
 
   } else if(!is.null(file) && !is.null(norm_scale) && !is.null(transformed) && norm_scale == 'z-score' && transformed == 'log'){
@@ -3034,7 +3035,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     y = unique_identifier(y)
     y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-    class(y) <- class('normfluodbf_normalized_dbf', class(y))
+    class(y) <- c('normfluodbf_normalized_dbf', class(y))
     return(y)
 
   } else if(!is.null(file) && !is.null(norm_scale) && !is.null(transformed) && norm_scale == 'decimal' && transformed == 'log'){
@@ -3049,7 +3050,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
     y = unique_identifier(y)
     y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-    class(y) <- class('normfluodbf_normalized_dbf', class(y))
+    class(y) <- c('normfluodbf_normalized_dbf', class(y))
     return(y)
 
   } else if (!is.null(file)){
@@ -3066,7 +3067,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
       y = unique_identifier(y)
       #y = y %>% dplyr::relocate('Cycle_Number', 'Time')
       y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-      class(y) <- class('normfluodbf_normalized_dbf', class(y))
+      class(y) <- c('normfluodbf_normalized_dbf', class(y))
       return(y)
     } else {
       y <- as.data.frame(lapply(y[1:ncol(y)], min_max_norm))
@@ -3078,7 +3079,7 @@ norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fu
 
       y = unique_identifier(y)
       y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-      class(y) <- class('normfluodbf_normalized_dbf', class(y))
+      class(y) <- c('normfluodbf_normalized_dbf', class(y))
       return(y)
 
     }
@@ -3136,7 +3137,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y["Time"] = y[,"Time"] + 30
       y = unique_identifier(y)
       y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-      class(y) <- class('normfluodbf_normalized_dbf', class(y))
+      class(y) <- c('normfluodbf_normalized_dbf', class(y))
       return(y)
 
     } else{
@@ -3146,7 +3147,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y["Time"] = y[,"Time"] + 30
       y = unique_identifier(y)
       y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-      class(y) <- class('normfluodbf_normalized_dbf', class(y))
+      class(y) <- c('normfluodbf_normalized_dbf', class(y))
       return(y)
     }
 
@@ -3161,7 +3162,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y["Time"] = y[,"Time"] + 30
       y = unique_identifier(y)
       y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-      class(y) <- class('normfluodbf_normalized_dbf', class(y))
+      class(y) <- c('normfluodbf_normalized_dbf', class(y))
       return(y)
 
     } else {
@@ -3174,7 +3175,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y["Time"] = y[,"Time"] + 30
       y = unique_identifier(y)
       y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-      class(y) <- class('normfluodbf_normalized_dbf', class(y))
+      class(y) <- c('normfluodbf_normalized_dbf', class(y))
       return(y)
     }
 
@@ -3189,7 +3190,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y["Time"] = y[,"Time"] + 30
       y = unique_identifier(y)
       y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-      class(y) <- class('normfluodbf_normalized_dbf', class(y))
+      class(y) <- c('normfluodbf_normalized_dbf', class(y))
       return(y)
 
     } else {
@@ -3202,7 +3203,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y["Time"] = y[,"Time"] + 30
       y = unique_identifier(y)
       y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-      class(y) <- class('normfluodbf_normalized_dbf', class(y))
+      class(y) <- c('normfluodbf_normalized_dbf', class(y))
       return(y)
     }
   } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'z-score'){
@@ -3216,7 +3217,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y["Time"] = y[,"Time"] + 30
       y = unique_identifier(y)
       y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-      class(y) <- class('normfluodbf_normalized_dbf', class(y))
+      class(y) <- c('normfluodbf_normalized_dbf', class(y))
       return(y)
 
     } else {
@@ -3229,7 +3230,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y["Time"] = y[,"Time"] + 30
       y = unique_identifier(y)
       y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-      class(y) <- class('normfluodbf_normalized_dbf', class(y))
+      class(y) <- c('normfluodbf_normalized_dbf', class(y))
       return(y)
     }
   } else if(!is.null(file) && !is.null(norm_scale) && norm_scale == 'decimal'){
@@ -3243,7 +3244,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y["Time"] = y[,"Time"] + 30
       y = unique_identifier(y)
       y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-      class(y) <- class('normfluodbf_normalized_dbf', class(y))
+      class(y) <- c('normfluodbf_normalized_dbf', class(y))
       return(y)
 
     } else{
@@ -3256,7 +3257,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
       y["Time"] = y[,"Time"] + 30
       y = unique_identifier(y)
       y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-      class(y) <- class('normfluodbf_normalized_dbf', class(y))
+      class(y) <- c('normfluodbf_normalized_dbf', class(y))
       return(y)
     }
 
@@ -3270,7 +3271,7 @@ normfluordbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun
     y["Time"] = y[,"Time"] + 30
     y = unique_identifier(y)
     y = y %>% dplyr::relocate('Time', 'Cycle_Number')
-    class(y) <- class('normfluodbf_normalized_dbf', class(y))
+    class(y) <- c('normfluodbf_normalized_dbf', class(y))
     return(y)
   }
 }
@@ -3327,7 +3328,7 @@ normfluodbf <- function(file = NULL, norm_scale, transformed = NULL, fun = NA, .
     data["Time"] <- data["Time"] + 30
     data <- unique_identifier(data)
     data <- data %>% dplyr::relocate('Time', 'Cycle_Number')
-    class(data) <- class('normfluodbf_normalized_dbf', class(data))
+    class(data) <- c('normfluodbf_normalized_dbf', class(data))
     return(data)
   }
 

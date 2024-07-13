@@ -9,7 +9,6 @@
 #' @name platemeta
 #' @examples
 #' \dontrun{plate_meta(plate, num_wells = 96L)}
-#'
 NULL
 
 #' @rdname platemeta
@@ -147,7 +146,6 @@ plate_meta.1536well_plate_t2 <- function(plate, num_wells){
 #' @name loadplatemeta
 #' @examples
 #' \dontrun{load_plate_meta(plate, meta)}
-#'
 NULL
 
 #' @rdname loadplatemeta

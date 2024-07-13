@@ -201,7 +201,7 @@ is_normalized <- function(data, type = c("min-max", "z-score", "hundred")) {
     is_normalized <- sapply(data, function(column) {
       if (is.numeric(column)) {
         mean_val <- mean(column, na.rm = TRUE)
-        sd_val <- sd(column, na.rm = TRUE)
+        sd_val <- stats::sd(column, na.rm = TRUE)
         return(abs(mean_val) < 1e-8 && abs(sd_val - 1) < 1e-8)
       } else {
         return(TRUE)

@@ -20,5 +20,3 @@
   )
   packageStartupMessage(msg)
 }
-
-

@@ -28,6 +28,6 @@ Open Testfile
 Solves the inconvenient process of navigating to the tests folder every time
 }
 \examples{
-\dontrun(test_boilerplate(file_name = "test_remove_shit.R"))
-\dontrun(open_testfile('test_pipeline.R'))
+\dontrun{test_boilerplate(file_name = "test_remove_shit.R")}
+\dontrun{open_testfile('test_pipeline.R')}
 }

@@ -23,15 +23,11 @@ algorithm that inserts NAs in place of the special characters, and then applies 
 comma_cleaner() to the dirty data frame for the removal of commas, and finally, rows with NAs only are removed.
 }
 \examples{
+\dontrun{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
-partial_cleaned_dat <- clean_odddat_optimus(dat_df)
+partial_cleaned_dat <- clean_odddat_optimus(dat_df)}
 \dontrun{clean_even_dat(df)}
-}
-\seealso{
-\code{\link[=comma_cleaner]{comma_cleaner()}}, \code{\link[=clean_odd_cc]{clean_odd_cc()}}
-
-\code{\link[=comma_cleaner]{comma_cleaner()}}, \code{\link[=clean_odd_cc]{clean_odd_cc()}}
 }
 \author{
 Tingwei Adeck

@@ -18,12 +18,7 @@ the FLUOstar DAT file and applies a function called comma_cleaner() to the dirty
 which automatically inserts NAs in place of the special characters, and rows with NAs only are removed.
 }
 \examples{
-fpath <- system.file("extdata", "dat_3.dat", package = "normfluodbf", mustWork = TRUE)
-dat_df <- read.table(file=fpath)
-cleaned_dat <- clean_odd_cc(dat_df)
-}
-\seealso{
-\code{\link[=comma_cleaner]{comma_cleaner()}}, \code{\link[=clean_odddat_optimus]{clean_odddat_optimus()}}
+\dontrun{clean_commas(df)}
 }
 \author{
 Tingwei Adeck

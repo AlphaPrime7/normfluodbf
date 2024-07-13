@@ -7,11 +7,11 @@
 set_assiette_type(plate, type = NULL, child_type = NULL)
 }
 \arguments{
+\item{plate}{A parent plate}
+
 \item{type}{parent plate type}
 
 \item{child_type}{child plate type}
-
-\item{parent_plate}{A parent plate}
 }
 \value{
 plate

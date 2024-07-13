@@ -18,11 +18,13 @@ run_steps(plate, reset = FALSE, ...)
 
 \item{n}{n}
 
-\item{...}{dots}
+\item{reset}{reset}
 
-\item{restart}{restart}
+\item{...}{dots}
 }
 \value{
+plate
+
 plate
 
 plate

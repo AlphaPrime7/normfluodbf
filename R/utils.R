@@ -301,7 +301,7 @@ msg <- function(...) {
 #' @param all logical
 #' @return suppress comms
 #' @export
-#' @examples \dontrun(quiet(expr))
+#' @examples \dontrun{quiet(expr)}
 quiet <- function(expr, suppress_messages = FALSE, suppress_warnings = FALSE, suppress_output = FALSE, all = FALSE){
   if (Sys.info()['sysname'] == "Windows") {
     file <- "NUL"
@@ -336,7 +336,7 @@ quiet <- function(expr, suppress_messages = FALSE, suppress_warnings = FALSE, su
 #' @param package_name package or string
 #' @return use location
 #' @export
-#' @examples \dontrun(check_package_usage('R','capitalize'))
+#' @examples \dontrun{check_package_usage('R','capitalize')}
 check_package_usage <- function(directory, package_name) {
   r_files <- list.files(directory, pattern = "\\.R$", full.names = TRUE)
 
@@ -366,12 +366,50 @@ check_package_usage <- function(directory, package_name) {
   }
 }
 
+#' Comment Out
+#' @param input_file file
+#' @param output_file file
+#' @return file
+#' @export
+#' @examples \dontrun{comment_out_lines('tests/testthat/test_pipeline.R', 'tests/testthat/test_pipeline.R')}
+comment_out_lines <- function(input_file, output_file) {
+  lines <- readLines(input_file)
+  commented_lines <- paste("#", lines)
+  writeLines(commented_lines, output_file)
+  message("All lines have been commented out and written to ", output_file)
+}
+
+#' Add Package Namespace
+#' @param dir dir
+#' @param package package
+#' @return modified file
+#' @export
+#' @examples \dontrun{add_package_namespace(dir, package)}
+add_package_namespace <- function(dir, package) {
+  funcs <- getNamespaceExports(package)
+  if (is_dir(pathstring = dir))
+    r_files <- list.files(dir, pattern = "\\.R$", full.names = TRUE)
+  else
+    sprintf('%s is not a directory', dir)
+
+  packagecall <- paste(package,'::',sep = "")
+  for (file in r_files) {
+    content <- readLines(file)
+    for (func in funcs) {
+      pattern <- paste0("\\b", func, "\\b")
+      replacement <- paste0(packagecall, func)
+      content <- gsub(pattern, replacement, content)
+    }
+    writeLines(content, file)
+  }
+}
+
 #' Test Boilerplate
 #' @param file_name file name
 #' @return test boilerplate
 #' @export
 #' @note Solves the inconvenient process of navigating to the tests folder every time
-#' @examples \dontrun(test_boilerplate(file_name = "test_remove_shit.R"))
+#' @examples \dontrun{test_boilerplate(file_name = "test_remove_shit.R")}
 #' @rdname testthatutils
 test_boilerplate <- function(file_name = NULL) {
   if (!dir.exists("tests/testthat")) {
@@ -396,7 +434,7 @@ testthat::test_that('test...', {
   writeLines(test_content, file.path("tests/testthat", file_name))
   message("Boilerplate test file created at: ", file.path("tests/testthat", file_name))
 
-  if (requireNamespace("rstudioapi", quietly = TRUE) && rstudioapi::isAvailable()) {
+  if (base::requireNamespace("rstudioapi", quietly = TRUE) && rstudioapi::isAvailable()) {
     rstudioapi::navigateToFile(file.path("tests/testthat", file_name))
   } else {
     message("RStudio API is not available.")
@@ -408,12 +446,12 @@ testthat::test_that('test...', {
 #' @param testfile test file
 #' @return open test file
 #' @export
-#' @examples \dontrun(open_testfile('test_pipeline.R'))
+#' @examples \dontrun{open_testfile('test_pipeline.R')}
 #' @rdname testthatutils
 open_testfile <- function(testfile){
   file_path <- file.path("tests/testthat", testfile)
 
-  if (requireNamespace("rstudioapi", quietly = TRUE) && rstudioapi::isAvailable()) {
+  if (base::requireNamespace("rstudioapi", quietly = TRUE) && rstudioapi::isAvailable()) {
     rstudioapi::navigateToFile(file.path("tests/testthat", testfile))
   } else {
     message("RStudio API is not available.")
@@ -427,7 +465,7 @@ open_testfile <- function(testfile){
 #' @return file
 #' @note Solves the inconvenient problem of renaming a function correctly and having to manually correct it.
 #' @export
-#' @examples \dontrun(replace_word_in_file('R/plate_plot.R','plot_fluostar_style', 'plot_in_well'))
+#' @examples \dontrun{replace_word_in_file('R/plate_plot.R','plot_fluostar_style', 'plot_in_well')}
 replace_word_in_file <- function(file_path, old_word, new_word) {
   if (!file.exists(file_path)) {
     stop("The file does not exist.")
@@ -461,7 +499,7 @@ check_broken_packages <- function(){
 #' @param x well
 #' @return capital letter
 #' @export
-#' @examples \dontrun(capitalize('a1'))
+#' @examples \dontrun{capitalize('a1')}
 capitalize <- function(x){
   paste(toupper(substring(x,1,1)), substring(x,2),
         sep = "", collapse = " ")
@@ -471,12 +509,12 @@ capitalize <- function(x){
 #' @param plate plate
 #' @return capital letter
 #' @export
-#' @examples \dontrun(average_fluorescence_by_row_cycle(plate))
+#' @examples \dontrun{average_fluorescence_by_row_cycle(plate)}
 average_fluorescence_by_row_cycle <- function(plate) {
   data <- plate[['plate_data']]
   data %>%
-    group_by(well_row, Cycle_Number) %>%  # Group by well_row and Cycle_Number
-    summarise(avg_fluorescence = mean(fluor_values, na.rm = TRUE))  # Calculate average fluorescence
+    dplyr::group_by(well_row, Cycle_Number) %>%  # Group by well_row and Cycle_Number
+    dplyr::summarise(avg_fluorescence = mean(fluor_values, na.rm = TRUE))  # Calculate average fluorescence
   plate[['avg_plate_data']] <- data
   plate
 }

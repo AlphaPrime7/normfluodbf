@@ -3,7 +3,6 @@
 
 #' Plate Data
 #' @family platedata
-#' @param plate plate
 #' @param file file
 #' @param tnp tnp
 #' @param cycles cycles

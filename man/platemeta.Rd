@@ -47,6 +47,5 @@ Plate Meta
 }
 \examples{
 \dontrun{plate_meta(plate, num_wells = 96L)}
-
 }
 \concept{platemeta}

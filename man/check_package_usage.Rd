@@ -18,5 +18,5 @@ use location
 Check package or function Usage
 }
 \examples{
-\dontrun(check_package_usage('R','capitalize'))
+\dontrun{check_package_usage('R','capitalize')}
 }

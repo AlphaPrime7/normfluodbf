@@ -36,6 +36,8 @@ roundfluor(x)
 }
 \arguments{
 \item{x}{value(s)}
+
+\item{df}{data frame}
 }
 \value{
 A normalized value when applied to a single value or a normalized attribute with values between the normalizing range.
@@ -67,8 +69,7 @@ Normalizing Agents
 \dontrun{
 test_df <- as.data.frame(c(seq(40)))
 colnames(test_df) <- "test"
-test_df_norm <- lapply(test_df[1:ncol(test_df)], min_max_norm)
-}
+test_df_norm <- lapply(test_df[1:ncol(test_df)], min_max_norm)}
 }
 \seealso{
 Other normfluodbf_utils: 

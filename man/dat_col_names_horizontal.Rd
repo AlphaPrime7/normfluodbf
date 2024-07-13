@@ -30,12 +30,13 @@ This function was designed to avoid the use of stringr. This function is designe
 name attributes when the read direction is specified as horizontal.
 }
 \examples{
+\dontrun{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odddat_optimus(dat_df)
 resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 n = c('A','B','C')
-sample_col_names <- dat_col_names_horizontal(dat=fpath,resampled_scaled, n)
+sample_col_names <- dat_col_names_horizontal(dat=fpath,resampled_scaled, n)}
 }
 \author{
 Tingwei Adeck

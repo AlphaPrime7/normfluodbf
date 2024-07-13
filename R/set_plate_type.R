@@ -11,8 +11,7 @@
 #' @examples
 #' \dontrun{
 #' x = set_plate_type(parent_plate,"96well_plate")
-#' print(class(x))
-#' }
+#' print(class(x))}
 set_plate_type <- function(parent_plate, type) {
   if (length(class(parent_plate)) == 3 && class(parent_plate)[1] != "list") {
     return(parent_plate)
@@ -33,7 +32,7 @@ set_plate_type <- function(parent_plate, type) {
 }
 
 #' Set The Plate Types
-#' @param parent_plate A parent plate
+#' @param plate A parent plate
 #' @param type parent plate type
 #' @param child_type child plate type
 #' @return plate

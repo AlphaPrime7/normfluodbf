@@ -30,5 +30,5 @@ suppress comms
 Quiet
 }
 \examples{
-\dontrun(quiet(expr))
+\dontrun{quiet(expr)}
 }

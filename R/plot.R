@@ -7,15 +7,15 @@
 #' @param whichplot int
 #' @param fluorstarplot whichplot = 1
 #' @param superimpose whichplot = 2
-#' @param plate_status whichplot = 3
+#' @param plate_layout whichplot = 3
 #' @param plot_side_by_side whichplot = 4
 #' @param legend_labels labels whichplot = 2,4
+#' @param plot_name plot name
 #' @param ... additional parameters
 #' @return plot object
 #' @name normfluodbfplots
 #' @examples
-#' \dontrun{
-#' plot(plate, whichplot = 1)}
+#' \dontrun{plot(plate, whichplot = 1)}
 NULL
 
 #' @rdname normfluodbfplots
@@ -170,7 +170,6 @@ plot.1536well_plate_t1 = function(x,
                              superimpose = 2 %in% whichplot,
                              plate_layout = 3 %in% whichplot,
                              plot_side_by_side = 4 %in% whichplot,
-                             reset_grid = FALSE,
                              legend_labels = NULL,
                              plot_name = NULL,
                              ...){
@@ -242,7 +241,6 @@ plot.1536well_plate_t2 = function(x,
                                   superimpose = 2 %in% whichplot,
                                   plate_layout = 3 %in% whichplot,
                                   plot_side_by_side = 4 %in% whichplot,
-                                  reset_grid = FALSE,
                                   legend_labels = NULL,
                                   plot_name = NULL,
                                   ...){

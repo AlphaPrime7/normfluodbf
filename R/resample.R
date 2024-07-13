@@ -18,10 +18,11 @@
 #' This is the vectorized approach and should be a more efficient function when compared to say
 #' @seealso [resample_dat()] or @seealso [resample_dat_alt()].
 #' This function will produce a vertical layout as defined in this package.
-#' @examples fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
-#' samples_delineated <- resample_dat_vect(nocomma_dat, tnp=3, cycles=40)
+#' samples_delineated <- resample_dat_vect(nocomma_dat, tnp=3, cycles=40)}
 #' @rdname resample
 resample_dat_vect <- function(df, tnp, cycles, output=NULL){
 
@@ -73,10 +74,11 @@ resample_dat_vect <- function(df, tnp, cycles, output=NULL){
 #' @return A new data frame where separated samples are assigned a separate attribute or column.
 #' @export
 #' @seealso [resample_dat_scale()], [resample_dat_scale_optimus()]
-#' @examples fpath <- system.file("extdata", "dat_5.dat", package = "normfluodbf", mustWork = TRUE)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_5.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
-#' samples_delineated <- resample_dat(nocomma_dat, tnp=3, cycles=40)
+#' samples_delineated <- resample_dat(nocomma_dat, tnp=3, cycles=40)}
 #' @rdname resample
 resample_dat <- function(df, tnp, cycles){
 
@@ -112,10 +114,11 @@ resample_dat <- function(df, tnp, cycles){
 #' @return A new data frame where separated samples are assigned a separate attribute or column.
 #' @export
 #' @seealso [resample_dat_scale_alt()]
-#' @examples fpath <- system.file("extdata", "dat_5.dat", package = "normfluodbf", mustWork = TRUE)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_5.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
-#' samples_delineated <- resample_dat_alt(nocomma_dat, tnp=3, cycles=40)
+#' samples_delineated <- resample_dat_alt(nocomma_dat, tnp=3, cycles=40)}
 #' @rdname resample
 resample_dat_alt <- function(df, tnp, cycles){
 
@@ -153,10 +156,11 @@ resample_dat_alt <- function(df, tnp, cycles){
 #' @note This function builds on or scales-up  @seealso [resample_dat()], hence the suffix scale.
 #' This function is less optimized than @seealso [resample_dat_scale_optimus()].
 #' @seealso [resample_dat()]
-#' @examples fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
-#' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
+#' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)}
 #' @rdname resamplescale
 resample_dat_scale <- function(df, tnp, cycles){
 
@@ -207,10 +211,11 @@ resample_dat_scale <- function(df, tnp, cycles){
 #' @note This function builds on or scales-up  @seealso [resample_dat()], hence the suffix scale.
 #' This function is less optimized than @seealso [resample_dat_scale_optimus()].
 #' @seealso [resample_dat()]
-#' @examples fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
-#' resampled_scaled <- resample_dat_scale_naretainer(nocomma_dat, tnp=3, cycles=40)
+#' resampled_scaled <- resample_dat_scale_naretainer(nocomma_dat, tnp=3, cycles=40)}
 #' @rdname resamplescale
 resample_dat_scale_naretainer <- function(df, tnp, cycles){
 
@@ -262,10 +267,11 @@ resample_dat_scale_naretainer <- function(df, tnp, cycles){
 #' @return A new data frame where separated samples are assigned a separate attribute or column.
 #' @export
 #' @seealso [resample_dat_alt()]
-#' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
-#' resampled_scaled <- resample_dat_scale_alt(nocomma_dat, tnp=3, cycles=40)
+#' resampled_scaled <- resample_dat_scale_alt(nocomma_dat, tnp=3, cycles=40)}
 #' @rdname resamplescale
 resample_dat_scale_alt <- function(df, tnp, cycles, na_omit = NULL){
 
@@ -327,10 +333,11 @@ resample_dat_scale_alt <- function(df, tnp, cycles, na_omit = NULL){
 #' @return A new data frame where separated samples are assigned a separate attribute or column.
 #' @export
 #' @seealso [resample_dat_alt()]
-#' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
-#' resampled_scaled <- resample_dat_scale_alt_na(nocomma_dat, tnp=3, cycles=40)
+#' resampled_scaled <- resample_dat_scale_alt_na(nocomma_dat, tnp=3, cycles=40)}
 #' @rdname resamplescale
 resample_dat_scale_alt_na <- function(df, tnp, cycles){
 
@@ -382,10 +389,11 @@ resample_dat_scale_alt_na <- function(df, tnp, cycles){
 #' @return A new data frame where separated samples are assigned a separate attribute or column.
 #' @export
 #' @seealso [resample_dat_alt()], [resample_dat_scale_alt()]
-#' @examples fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
-#' resampled_scaled <- resample_dat_scale_alt_bf_na(nocomma_dat, tnp=3, cycles=40)
+#' resampled_scaled <- resample_dat_scale_alt_bf_na(nocomma_dat, tnp=3, cycles=40)}
 #' @rdname resamplescale
 resample_dat_scale_alt_bf_na <- function(df, tnp, cycles){
 
@@ -453,10 +461,11 @@ resample_dat_scale_alt_bf_na <- function(df, tnp, cycles){
 #' @return A new data frame where separated samples are assigned a separate attribute or column.
 #' @export
 #' @seealso [resample_dat_alt()], [resample_dat_scale_alt()]
-#' @examples fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
-#' resampled_scaled <- resample_dat_scale_alt_bfv(nocomma_dat, tnp=3, cycles=40)
+#' resampled_scaled <- resample_dat_scale_alt_bfv(nocomma_dat, tnp=3, cycles=40)}
 #' @rdname resamplescale
 resample_dat_scale_alt_bfv <- function(df, tnp, cycles){
 
@@ -515,10 +524,11 @@ resample_dat_scale_alt_bfv <- function(df, tnp, cycles){
 #' @note This function builds on or scales-up  @seealso [resample_dat()], hence the suffix scale.
 #' This function is more optimized than @seealso [resample_dat_scale()], hence the suffix scale_optimus.
 #' @seealso [resample_dat()]
-#' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
-#' resampled_scaled <- resample_dat_scale_optimus(nocomma_dat, tnp=3, cycles=40)
+#' resampled_scaled <- resample_dat_scale_optimus(nocomma_dat, tnp=3, cycles=40)}
 #' @rdname resamplescale
 resample_dat_scale_optimus <- function(df, tnp, cycles){
 
@@ -574,10 +584,11 @@ resample_dat_scale_optimus <- function(df, tnp, cycles){
 #' @note This function builds on or scales-up  @seealso [resample_dat()], hence the suffix scale.
 #' This function is more optimized than @seealso [resample_dat_scale()], hence the suffix scale_optimus.
 #' @seealso [resample_dat()]
-#' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
-#' resampled_scaled <- resample_dat_scale_optimus_na(nocomma_dat, tnp=3, cycles=40)
+#' resampled_scaled <- resample_dat_scale_optimus_na(nocomma_dat, tnp=3, cycles=40)}
 #' @rdname resamplescale
 resample_dat_scale_optimus_na <- function(df, tnp, cycles){
 
@@ -633,10 +644,11 @@ resample_dat_scale_optimus_na <- function(df, tnp, cycles){
 #' @note This function builds on or scales-up  @seealso [resample_dat()], hence the suffix scale.
 #' This function is more optimized than @seealso [resample_dat_scale()], hence the suffix scale_optimus.
 #' @seealso [resample_dat()]
-#' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
-#' resampled_scaled <- resample_dat_scale_optimus_backend(nocomma_dat, tnp=3, cycles=40)
+#' resampled_scaled <- resample_dat_scale_optimus_backend(nocomma_dat, tnp=3, cycles=40)}
 #' @rdname resamplescale
 resample_dat_scale_optimus_backend <- function(df, tnp, cycles, na_omit = NULL){
 
@@ -705,13 +717,14 @@ resample_dat_scale_optimus_backend <- function(df, tnp, cycles, na_omit = NULL){
 #' This function inspired by the lapply approach pretty much applies the
 #' @seealso [resample_dat_vect()]. As a matter of fact, I took this approach to
 #' create compatibility with lapply and rapply but that failed.
-#' @examples fpath <- system.file("extdata", "dat_3.dat", package = "normfluodbf", mustWork = TRUE)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_3.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
 #' alt_test_scale <- resample_vect_scale(nocomma_dat,3,40, method = 'brute')
 #' alt_test_scale <- resample_vect_scale(nocomma_dat,3,40, method = 'normal')
 #' alt_test_scale <- resample_vect_scale(nocomma_dat,3,40, method = 'vector')
-#' alt_test_scale_norm <- lapply(alt_test_scale, min_max_norm)
+#' alt_test_scale_norm <- lapply(alt_test_scale, min_max_norm)}
 #' @rdname resamplescale
 resample_vect_scale <- function(df, tnp, cycles, method = c('normal','brute', 'vector')){
 

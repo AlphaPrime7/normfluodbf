@@ -17,12 +17,10 @@ This modular function, in the context of this package, is responsible for removi
 from attribute(s) values. Removal of commas facilitates the conversion of attributes into the numeric class.
 }
 \examples{
+\dontrun{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
-nocomma_dat <- comma_cleaner(dat_df)
-}
-\seealso{
-\code{\link[=clean_odd_cc]{clean_odd_cc()}}, \code{\link[=clean_odddat_optimus]{clean_odddat_optimus()}}
+nocomma_dat <- comma_cleaner(dat_df)}
 }
 \author{
 Tingwei Adeck

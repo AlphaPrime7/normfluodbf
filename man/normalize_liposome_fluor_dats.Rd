@@ -87,6 +87,8 @@ which denotes the normalization type or scale; Initialized as NULL.}
 \item{pause_duration}{The time between the first end (pause) and resumption of the assay.}
 
 \item{end_time}{The final end time of the assay.}
+
+\item{normfluodbf.verbose}{verbose option}
 }
 \value{
 A normalized data frame with an appended "Cycle_Number" attribute. The “Cycle_Number” attribute is the X-variable.
@@ -123,11 +125,6 @@ The program takes these three baseline parameters, performs cleaning and normali
 and then appends an attribute called “Cycle_Number” to the normalized data frame.
 }
 \note{
-This function has less optimized space and time complexities than @seealso \code{\link[=normfluodat]{normfluodat()}}.
-In real-time the difference in optimization is not noticeable.
-This function also takes less parameters than the more optimized version of the function.
-Use @seealso \code{\link[=normfluodat]{normfluodat()}} for better approximation of attribute names.
-
 This function is a single-step function leveraging several subordinate functions.
 It is assumed that the user has the 3 baseline parameters to get this function working.
 Users must double-check attribute names to ensure they end up with accurate results.
@@ -141,14 +138,18 @@ It is assumed that the user has the 3 baseline parameters to get this function w
 Users must double-check attribute names to ensure they end up with accurate results.
 }
 \examples{
+\dontrun{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
-normalized_fluo_dat <- normfluordat(dat=fpath, tnp = 3, cycles = 40)
+normalized_fluo_dat <- normfluordat(dat=fpath, tnp = 3, cycles = 40)}
+\dontrun{
 fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
-normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40)
+normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40)}
+\dontrun{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
-normalized_fluo_dat <- normfluodatlite(dat=fpath, tnp = 3, cycles = 40)
+normalized_fluo_dat <- normfluodatlite(dat=fpath, tnp = 3, cycles = 40)}
+\dontrun{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
-normalized_fluo_dat <- normfluodatfull(dat=fpath, tnp = 3, cycles = 40)
+normalized_fluo_dat <- normfluodatfull(dat=fpath, tnp = 3, cycles = 40)}
 }
 \seealso{
 \code{\link[=normfluodat]{normfluodat()}}

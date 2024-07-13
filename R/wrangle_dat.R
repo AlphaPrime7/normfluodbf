@@ -9,10 +9,10 @@
 #' @param comma_df A dirty data frame obtained from the FLUOstar DAT file.
 #' @return A clean data frame with numeric no-comma values for attribute(s).
 #' @export
-#' @seealso [clean_odd_cc()], [clean_odddat_optimus()]
-#' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
-#' nocomma_dat <- comma_cleaner(dat_df)
+#' nocomma_dat <- comma_cleaner(dat_df)}
 comma_cleaner <- function(comma_df){
   cols_to_becleaned <- c(colnames(comma_df))
   comma_df[ , cols_to_becleaned] <- lapply(comma_df[ , cols_to_becleaned],
@@ -31,11 +31,7 @@ comma_cleaner <- function(comma_df){
 #' @param df A dirty data frame obtained from the FLUOstar DAT file.
 #' @return A clean data frame with clean NA values retained.
 #' @export
-#' @seealso [comma_cleaner()], [clean_odddat_optimus()]
-#' @examples
-#' fpath <- system.file("extdata", "dat_3.dat", package = "normfluodbf", mustWork = TRUE)
-#' dat_df <- read.table(file=fpath)
-#' cleaned_dat <- clean_odd_cc(dat_df)
+#' @examples \dontrun{clean_commas(df)}
 clean_commas <- function(df){
   suppressWarnings({
 
@@ -54,11 +50,10 @@ clean_commas <- function(df){
 #' @param df A dirty data frame obtained from the FLUOstar DAT file.
 #' @return A clean data frame with clean NA values retained.
 #' @export
-#' @seealso [comma_cleaner()], [clean_odd_cc()]
-#' @examples
+#' @examples \dontrun{
 #' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
-#' partial_cleaned_dat <- clean_odddat_optimus(dat_df)
+#' partial_cleaned_dat <- clean_odddat_optimus(dat_df)}
 #' @rdname cleandats
 clean_odddat_optimus <- function(df){
 
@@ -101,7 +96,6 @@ clean_odd_dat <- clean_odddat_optimus
 #' @param df df
 #' @return df
 #' @export
-#' @seealso [comma_cleaner()], [clean_odd_cc()]
 #' @examples \dontrun{clean_even_dat(df)}
 #' @rdname cleandats
 clean_even_dat <- function(df){
@@ -111,7 +105,7 @@ clean_even_dat <- function(df){
     if (i %in% skip_values) next
     df[c(k + i, i),] <- NA
   }
-  df <- na.omit(df)
+  df <- stats::na.omit(df)
   return(df)
 }
 

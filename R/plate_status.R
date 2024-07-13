@@ -4,11 +4,11 @@
 #' Define Plate Status
 #' @family definestatus
 #' @param plate plate
-#' @return NULL
+#' @param index index
+#' @return plate
 #' @name definestatus
 #' @examples
 #' \dontrun{define_steps(plate)}
-#'
 NULL
 
 #' @rdname definestatus
@@ -135,7 +135,6 @@ get_status_value <- function(plate, index){
 #' @name status
 #' @examples
 #' \dontrun{status(plate, status)}
-#'
 NULL
 
 #' @rdname status

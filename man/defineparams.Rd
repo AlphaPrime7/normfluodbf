@@ -46,6 +46,5 @@ Define Plate Parameters
 }
 \examples{
 \dontrun{define_params(plate)}
-
 }
 \concept{defineparams}

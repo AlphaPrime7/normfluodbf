@@ -9,6 +9,11 @@ pkg_globals_cache()
 
 .cache()
 }
+\value{
+cache
+
+env
+}
 \description{
 Cache
 

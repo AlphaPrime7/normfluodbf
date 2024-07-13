@@ -9,13 +9,14 @@
 #' @param df A data frame with 1:n number of rows.
 #' @return A data frame with the Cycle_Number attribute appended to the end of the data frame.
 #' @export
-#' @seealso [normfluodat()], [norm_tidy_dbf()], [normfluordbf()], [generic_identifier()]
+#' @seealso [normfluodat()]
 #' @note The function operates in a closed system,
 #' meaning it is primarily designed to work with this package ONLY.
 #' Other use cases are simply a coincidence.
-#' @examples test_df <- as.data.frame(c(seq(40)))
+#' @examples \dontrun{
+#' test_df <- as.data.frame(c(seq(40)))
 #' colnames(test_df) <- "test"
-#' unique_identifier(test_df)
+#' unique_identifier(test_df)}
 #' @rdname normfluodbf_utils
 unique_identifier <- function(df){
   for(i in 1:nrow(df)){
@@ -34,7 +35,8 @@ unique_identifier <- function(df){
 #' @param col_name The desired attribute name.
 #' @return A user-named single attribute data frame with nrow = numrows.
 #' @export
-#' @examples generic_identifier(40, col_name="Cycle_No")
+#' @examples \dontrun{
+#' generic_identifier(40, col_name="Cycle_No")}
 #' @rdname normfluodbf_utils
 generic_identifier <- function(numrows, col_name){
   vect <- seq(numrows)
@@ -46,13 +48,13 @@ generic_identifier <- function(numrows, col_name){
 #' Normalizing Agents
 #' @family normfluodbf_utils
 #' @param x value(s)
+#' @param df data frame
 #' @return A normalized value when applied to a single value or a normalized attribute with values between the normalizing range.
 #' @examples
 #' \dontrun{
 #' test_df <- as.data.frame(c(seq(40)))
 #' colnames(test_df) <- "test"
-#' test_df_norm <- lapply(test_df[1:ncol(test_df)], min_max_norm)
-#' }
+#' test_df_norm <- lapply(test_df[1:ncol(test_df)], min_max_norm)}
 #' @name normalizingagents
 NULL
 
@@ -88,14 +90,14 @@ min_max_norm_percent_df <- function(df) {
 #' @return normalized value (Z = N (0,1))
 #' @export
 norm_z <- function(x){
-  (x - mean(x)) / sd(x)
+  (x - mean(x)) / stats::sd(x)
 }
 
 #' @rdname normalizingagents
 #' @return normalized value (Z = N (0,1))
 #' @export
 norm_z_df <- function(df) {
-  return(as.data.frame(lapply(df, function(x) (x - mean(x)) / sd(x))))
+  return(as.data.frame(lapply(df, function(x) (x - mean(x)) / stats::sd(x))))
 }
 
 #' @rdname normalizingagents
@@ -136,9 +138,10 @@ roundfluor <- function(x){
 #' which denotes the normalization type or scale.
 #' @return A data frame with attribute values obtained from the applied function using lapply.
 #' @export
-#' @examples test_df <- as.data.frame(c(seq(40)))
+#' @examples \dontrun{
+#' test_df <- as.data.frame(c(seq(40)))
 #' colnames(test_df) <- "test"
-#' test_df_norm <- norm_applier(test_df,norm_scale = 'one')
+#' test_df_norm <- norm_applier(test_df,norm_scale = 'one')}
 #' @rdname normfluodbf_utils
 norm_applier <- function(df, norm_scale= c('one','hundred','z-score','raw','decimal')){
   df <- as.data.frame(df)
@@ -175,8 +178,9 @@ norm_applier <- function(df, norm_scale= c('one','hundred','z-score','raw','deci
 #' The original function had an option for minutes which was for less time conscious people
 #' but the final version for this package has no such option. Users MUST provide numbers in
 #' seconds.
-#' @examples time_test = time_attribute(30,8,136,1276,40)
-#' time_test = time_attribute(60,8,136,2460,40)
+#' @examples \dontrun{
+#' time_test = time_attribute(30,8,136,1276,40)
+#' time_test = time_attribute(60,8,136,2460,40)}
 #' @rdname normfluodbf_utils
 time_attribute = function(interval= NULL, first_end = NULL, pause_duration=NULL, end_time=NULL, cycles=NULL){
 
@@ -229,9 +233,9 @@ time_attribute = function(interval= NULL, first_end = NULL, pause_duration=NULL,
 #' @param dat A string ("dat_1.dat") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dat" file.
 #' @return Returns a numeric vector denoting the columns used in the assay.
 #' @export
-#' @examples
+#' @examples \dontrun{
 #' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
-#' acutest <- actual_cols_used(fpath)
+#' acutest <- actual_cols_used(fpath)}
 #' @rdname normfluodbf_utils
 actual_cols_used <- function(dat){
   df <- utils::read.table(dat)
@@ -254,7 +258,6 @@ actual_cols_used <- function(dat){
 #' @param fun A parameter used for Boolean expressions.
 #' @import emojifont
 #' @return A polite warning message to the researcher.
-#' @seealso [fluor_threshold_check_na()], [fluor_threshold_check_raw()]
 #' @note
 #' Experimental issues should be investigated at very high or very low fluorescence values.
 #' The most common experimental issues arise when ACMA concentrations are out of the tolerated range.
@@ -269,12 +272,13 @@ actual_cols_used <- function(dat){
 #' This function provides the attribute(s) and tuple(s) for the values that need investigation.
 #' These deductions were obtained from my experimental hiccups and my characterization of the liposome flux assay system.
 #' @examples
+#' \dontrun{
 #' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
 #' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 #' resampled_scaled <- resampled_scaled[,c(1:4)]
-#' fluor_threshold_check(resampled_scaled)
+#' fluor_threshold_check(resampled_scaled)}
 #' @name fluorthresholdcheck
 NULL
 
@@ -290,7 +294,7 @@ fix_threshold_output <- function(outlier_wells){
 
 #' @rdname fluorthresholdcheck
 #' @return outlier wells list
-#' @export
+#' @keywords internal
 .fluor_threshold_check <- function(clean_df, fun = NA){
   load.emojifont(font = "EmojiOne.ttf")
   nofun <- is.na(fun)
@@ -393,5 +397,3 @@ fluor_threshold_check_na <- function(clean_df, fun = NA){
     }
   }
 }
-
-

@@ -17,12 +17,13 @@
 #' @export
 #' @note This function was designed to avoid the use of stringr. This function is designed to
 #' name attributes when the read direction is specified as horizontal.
-#' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
 #' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 #' n = c('A','B','C')
-#' sample_col_names <- dat_col_names_horizontal(dat=fpath,resampled_scaled, n)
+#' sample_col_names <- dat_col_names_horizontal(dat=fpath,resampled_scaled, n)}
 dat_col_names_horizontal <- function(dat = NULL, df, rows_used=NULL, cols_used=NULL){
 
   actual_cols <- actual_cols_used(dat)
@@ -111,12 +112,14 @@ dat_col_names_horizontal <- function(dat = NULL, df, rows_used=NULL, cols_used=N
 #' if the user supplies a manually created character vector of the wells used in an experiment.
 #' The read direction parameter is used to determine the presentation of the samples in the final data frame.
 #' @seealso [normfluodat()], [dat_col_names_rigid()]
-#' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
 #' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 #' n = c('A','B','C')
-#' sample_col_names <- dat_col_names_optimus(dat = fpath, resampled_scaled, n)
+#' sample_col_names <- dat_col_names_optimus(dat = fpath, resampled_scaled, n)}
+
 dat_col_names_optimus <- function(dat = NULL, df, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL){
 
   actual_cols <- actual_cols_used(dat)
@@ -245,12 +248,14 @@ dat_col_names_optimus <- function(dat = NULL, df, rows_used = NULL, cols_used= N
 #' @param user_specific_labels A character vector where the user manually enters the used microplate wells based on the FLUOstar plate layout.
 #' @return Returns a character vector of attribute(s) names for the normalized data frame.
 #' @export
-#' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
 #' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 #' n = c('A','B','C')
-#' sample_col_names <- dat_col_names_prime(dat = fpath, resampled_scaled, n)
+#' sample_col_names <- dat_col_names_prime(dat = fpath, resampled_scaled, n)}
+
 dat_col_names_prime <- function(dat = NULL, df, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL){
 
   actual_cols <- actual_cols_used(dat)
@@ -349,12 +354,14 @@ dat_col_names_prime <- function(dat = NULL, df, rows_used = NULL, cols_used= NUL
 #' The read direction parameter is used to determine the presentation of the samples in the final data frame.
 #' @seealso [dat_col_names_optimus()]
 #' @note This naming function only returns a character vector hence the rigid suffix.
-#' @examples fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 #' dat_df <- read.table(file=fpath)
 #' nocomma_dat <- clean_odddat_optimus(dat_df)
 #' resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
 #' n = c('A','B','C')
-#' sample_col_names <- dat_col_names_rigid(dat = fpath, resampled_scaled, n)
+#' sample_col_names <- dat_col_names_rigid(dat = fpath, resampled_scaled, n)}
+
 dat_col_names_rigid <- function(dat = NULL, df, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL){
 
   actual_cols <- actual_cols_used(dat)

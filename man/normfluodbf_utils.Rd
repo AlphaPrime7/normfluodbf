@@ -79,20 +79,25 @@ but the final version for this package has no such option. Users MUST provide nu
 seconds.
 }
 \examples{
+\dontrun{
 test_df <- as.data.frame(c(seq(40)))
 colnames(test_df) <- "test"
-unique_identifier(test_df)
-generic_identifier(40, col_name="Cycle_No")
+unique_identifier(test_df)}
+\dontrun{
+generic_identifier(40, col_name="Cycle_No")}
+\dontrun{
 test_df <- as.data.frame(c(seq(40)))
 colnames(test_df) <- "test"
-test_df_norm <- norm_applier(test_df,norm_scale = 'one')
+test_df_norm <- norm_applier(test_df,norm_scale = 'one')}
+\dontrun{
 time_test = time_attribute(30,8,136,1276,40)
-time_test = time_attribute(60,8,136,2460,40)
+time_test = time_attribute(60,8,136,2460,40)}
+\dontrun{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
-acutest <- actual_cols_used(fpath)
+acutest <- actual_cols_used(fpath)}
 }
 \seealso{
-\code{\link[=normfluodat]{normfluodat()}}, \code{\link[=norm_tidy_dbf]{norm_tidy_dbf()}}, \code{\link[=normfluordbf]{normfluordbf()}}, \code{\link[=generic_identifier]{generic_identifier()}}
+\code{\link[=normfluodat]{normfluodat()}}
 }
 \author{
 Tingwei Adeck

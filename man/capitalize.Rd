@@ -16,5 +16,5 @@ capital letter
 Capitalize
 }
 \examples{
-\dontrun(capitalize('a1'))
+\dontrun{capitalize('a1')}
 }

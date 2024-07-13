@@ -23,6 +23,5 @@ This is a recursive method.
 \examples{
 \dontrun{
 x = set_plate_type(parent_plate,"96well_plate")
-print(class(x))
-}
+print(class(x))}
 }

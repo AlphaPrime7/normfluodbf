@@ -34,7 +34,13 @@ update_steps_list(plate, new_key, new_value, index)
 \arguments{
 \item{plate}{plate}
 
-\item{...}{custome steps}
+\item{...}{custom steps}
+
+\item{new_key}{new_key}
+
+\item{new_value}{new_value}
+
+\item{index}{index}
 }
 \value{
 steps

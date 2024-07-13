@@ -6,6 +6,7 @@
 #' @param plate plate
 #' @param type parent type
 #' @param child_type child type
+#' @param ... dots
 #' @return plate
 #' @name plate
 #' @examples
@@ -14,8 +15,7 @@
 #' new_plate()
 #' init_plate()
 #' setup_plate(plate)
-#' reset_plate()
-#' }
+#' reset_plate()}
 NULL
 
 #' @rdname plate

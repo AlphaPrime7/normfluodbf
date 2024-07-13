@@ -243,13 +243,12 @@ The most useless function here but learnt plotly a little.
 Just simple grids with no functionality. No time to delve deeper but a good primer.
 }
 \examples{
-\dontrun {
+\dontrun{
 reverse_row(vect = vector)
 column_levels(plate = plate)
 row_levels(plate = plate)
 base_plot(plate = plate)
-save_plot(name = 'beefjerky')
-}
+save_plot(name = 'beefjerky')}
 }
 \concept{plotutils}
 \keyword{internal}

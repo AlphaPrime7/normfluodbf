@@ -31,6 +31,8 @@ use_initialized_plate()
 \item{type}{parent type}
 
 \item{child_type}{child type}
+
+\item{...}{dots}
 }
 \value{
 plate
@@ -58,7 +60,6 @@ empty_plate()
 new_plate()
 init_plate()
 setup_plate(plate)
-reset_plate()
-}
+reset_plate()}
 }
 \concept{plate}

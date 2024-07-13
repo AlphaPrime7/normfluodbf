@@ -27,6 +27,5 @@ Load Plate Meta
 }
 \examples{
 \dontrun{load_plate_meta(plate, meta)}
-
 }
 \concept{loadplatemeta}

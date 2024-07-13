@@ -5,6 +5,7 @@
 #' @param path path
 #' @return All functions from the R file
 #' @keywords internal
+#' @examples \dontrun{source_files('R')}
 source_files <- function(path) {
   files <- list.files(path, pattern = "\\.R$", full.names = TRUE, recursive = TRUE)
   sapply(files, source)

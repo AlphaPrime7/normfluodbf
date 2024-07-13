@@ -33,8 +33,12 @@ get_status_value(plate, index)
 }
 \arguments{
 \item{plate}{plate}
+
+\item{index}{index}
 }
 \value{
+plate
+
 status
 
 status
@@ -58,6 +62,5 @@ Define Plate Status
 }
 \examples{
 \dontrun{define_steps(plate)}
-
 }
 \concept{definestatus}

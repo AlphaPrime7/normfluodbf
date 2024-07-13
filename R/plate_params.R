@@ -8,7 +8,6 @@
 #' @name defineparams
 #' @examples
 #' \dontrun{define_params(plate)}
-#'
 NULL
 
 #' @rdname defineparams
@@ -205,7 +204,6 @@ set_default_params <- function(plate) {
 #' @name setparams
 #' @examples
 #' \dontrun{params(plate, cat, name)}
-#'
 NULL
 
 #' @rdname setparams

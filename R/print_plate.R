@@ -3,19 +3,19 @@
 
 #' Print
 #' @family printer
-#' @param plate plate
+#' @param x print requirement
 #' @param ... placeholder
 #' @return NULL
 #' @name printer
 #' @examples
 #' \dontrun{plate}
-#'
 NULL
 
 #' @rdname printer
 #' @return plate
 #' @export
-print.96well_plate <- function(plate, ...){
+print.96well_plate <- function(x, ...){
+  plate <- x
   if ( length(steps(plate)) == 1 ){
     l = 0
   }
@@ -30,13 +30,15 @@ print.96well_plate <- function(plate, ...){
   cat(sprintf("#>               Data summary : %s\n", plate$data_summary))
   cat(sprintf("#>               Completed processes : %s\n", status(plate)))
   cat(sprintf("#>               Remaining processes : %s\n", l ))
+  cat(sprintf("#>               version : %s\n", plate$version ))
 
 }
 
 #' @rdname printer
 #' @return plate
 #' @export
-print.384well_plate <- function(plate, ...){
+print.384well_plate <- function(x, ...){
+  plate <- x
   if ( length(steps(plate)) == 1 ){
     l = 0
   }
@@ -51,13 +53,15 @@ print.384well_plate <- function(plate, ...){
   cat(sprintf("#>               Data summary : %s\n", plate$data_summary))
   cat(sprintf("#>               Completed processes : %s\n", status(plate)))
   cat(sprintf("#>               Remaining processes : %s\n", l ))
+  cat(sprintf("#>               version : %s\n", plate$version ))
 
 }
 
 #' @rdname printer
 #' @return plate
 #' @export
-print.1536well_plate_t1 <- function(plate, ...){
+print.1536well_plate_t1 <- function(x, ...){
+  plate <- x
   if ( length(steps(plate)) == 1 ){
     l = 0
   }
@@ -72,13 +76,15 @@ print.1536well_plate_t1 <- function(plate, ...){
   cat(sprintf("#>               Data summary : %s\n", plate$data_summary))
   cat(sprintf("#>               Completed processes : %s\n", status(plate)))
   cat(sprintf("#>               Remaining processes : %s\n", l ))
+  cat(sprintf("#>               version : %s\n", plate$version ))
 
 }
 
 #' @rdname printer
 #' @return plate
 #' @export
-print.1536well_plate_t2 <- function(plate, ...){
+print.1536well_plate_t2 <- function(x, ...){
+  plate <- x
   if ( length(steps(plate)) == 1 ){
     l = 0
   }
@@ -93,5 +99,6 @@ print.1536well_plate_t2 <- function(plate, ...){
   cat(sprintf("#>               Data summary : %s\n", plate$data_summary))
   cat(sprintf("#>               Completed processes : %s\n", status(plate)))
   cat(sprintf("#>               Remaining processes : %s\n", l ))
+  cat(sprintf("#>               version : %s\n", plate$version ))
 
 }

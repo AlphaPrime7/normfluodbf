@@ -32,8 +32,25 @@ time_it(expr)
 \item{expr}{expr}
 }
 \value{
-x
+internals
+
+all data
+
+workspace
+
+pkg data
+
+classes
+
+package
+
+duration
 }
 \description{
 Internal Troubleshoot
 }
+\examples{
+\dontrun{
+get_package_data('iris')}
+}
+\keyword{internal}

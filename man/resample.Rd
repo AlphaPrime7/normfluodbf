@@ -45,18 +45,21 @@ another data frame with a separate attribute for each sample.
 This is the vectorized approach and should be a more efficient function when compared to say
 }
 \examples{
+\dontrun{
 fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odddat_optimus(dat_df)
-samples_delineated <- resample_dat_vect(nocomma_dat, tnp=3, cycles=40)
+samples_delineated <- resample_dat_vect(nocomma_dat, tnp=3, cycles=40)}
+\dontrun{
 fpath <- system.file("extdata", "dat_5.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odddat_optimus(dat_df)
-samples_delineated <- resample_dat(nocomma_dat, tnp=3, cycles=40)
+samples_delineated <- resample_dat(nocomma_dat, tnp=3, cycles=40)}
+\dontrun{
 fpath <- system.file("extdata", "dat_5.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odddat_optimus(dat_df)
-samples_delineated <- resample_dat_alt(nocomma_dat, tnp=3, cycles=40)
+samples_delineated <- resample_dat_alt(nocomma_dat, tnp=3, cycles=40)}
 }
 \seealso{
 \code{\link[=resample_vect_scale]{resample_vect_scale()}}

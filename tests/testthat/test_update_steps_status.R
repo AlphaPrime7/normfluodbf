@@ -1,8 +1,6 @@
 ## normfluodbf - R package that Cleans and Normalizes FLUOstar DBF and DAT Files
 ## Copyright (C) 2024 Tingwei Adeck
 
-library(testthat)
-
 capture_output <- function(f, ...) {
   sink(tempfile())
   on.exit(sink())

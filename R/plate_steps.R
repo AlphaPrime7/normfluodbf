@@ -4,7 +4,10 @@
 #' Define Plate Steps
 #' @family definesteps
 #' @param plate plate
-#' @param ... custome steps
+#' @param index index
+#' @param new_key new_key
+#' @param new_value new_value
+#' @param ... custom steps
 #' @return NULL
 #' @name definesteps
 #' @examples
@@ -123,7 +126,7 @@ update_steps_list <- function(plate, new_key, new_value, index) {
   steps_list = steps(plate)
 
   steps_vector <- unlist(steps_list)
-  new_entry <- setNames(new_value, new_key)
+  new_entry <- stats::setNames(new_value, new_key)
   updated_vector <- append(steps_vector, new_entry, after = index - 1)
   updated_steps <- as.list(updated_vector)
 
@@ -160,7 +163,10 @@ steps <- function(plate) {
 #' @family steps
 #' @param plate plate
 #' @param step step
-#' @return NULL
+#' @param index index
+#' @param steps steps
+#' @param ... dots
+#' @return plate
 #' @name stepsutils
 #' @examples
 #' \dontrun{step(plate, step)}
@@ -255,9 +261,9 @@ steps_complete <- function(plate){
 #' @family stepspipeline
 #' @param plate plate
 #' @param n n
-#' @param restart restart
+#' @param reset reset
 #' @param ... dots
-#' @return NULL
+#' @return plate
 #' @name stepspipeline
 #' @examples
 #' \dontrun{next_step(plate, n=1)}

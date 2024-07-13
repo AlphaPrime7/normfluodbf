@@ -17,8 +17,6 @@ plate_data(file, tnp = NULL, cycles = NULL, rows_used = NULL, ...)
 \item{rows_used}{rows_used}
 
 \item{...}{dots}
-
-\item{plate}{plate}
 }
 \value{
 plate data

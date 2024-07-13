@@ -9,7 +9,6 @@
 #' @name childtype
 #' @examples
 #' \dontrun{child_plate_type()}
-#'
 NULL
 
 #' @rdname childtype
@@ -73,7 +72,7 @@ child_plate_type.normfluodbf_plate <- function(plate,child_type=NULL) {
 #' @return A tibble
 #' @export
 #' @seealso [plate_types()]
-#' @name plate_types_tbl
+#' @rdname plate_types
 plate_types_tbl <- function(){
 
   plate_type_tbl <- tibble::tribble(
@@ -92,7 +91,7 @@ plate_types_tbl <- function(){
 #' @export
 #' @details
 #' The list equivalent of the tibble from \code{plate_types_tbl}.
-#' @name plate_types_list
+#' @rdname plate_types
 plate_types <- function(){
 
   plate_types <- list()
@@ -110,7 +109,7 @@ plate_types <- function(){
 #' @export
 #' @details
 #' The vector equivalent of the tibble from \code{plate_types_tbl}.
-#' @name plate_types_vector
+#' @rdname plate_types
 plate_types_vector <- function(){
 
   pt = c('96well_plate',

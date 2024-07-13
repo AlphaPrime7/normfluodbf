@@ -32,7 +32,6 @@ Set Plate Params
 }
 \examples{
 \dontrun{params(plate, cat, name)}
-
 }
 \concept{params}
 \keyword{internal}

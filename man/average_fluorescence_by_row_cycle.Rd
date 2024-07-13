@@ -16,5 +16,5 @@ capital letter
 Capitalize
 }
 \examples{
-\dontrun(average_fluorescence_by_row_cycle(plate))
+\dontrun{average_fluorescence_by_row_cycle(plate)}
 }

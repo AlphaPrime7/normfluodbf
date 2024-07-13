@@ -23,5 +23,5 @@ Replace Word
 Solves the inconvenient problem of renaming a function correctly and having to manually correct it.
 }
 \examples{
-\dontrun(replace_word_in_file('R/plate_plot.R','plot_fluostar_style', 'plot_in_well'))
+\dontrun{replace_word_in_file('R/plate_plot.R','plot_fluostar_style', 'plot_in_well')}
 }

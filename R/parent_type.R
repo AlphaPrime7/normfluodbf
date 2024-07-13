@@ -8,9 +8,7 @@
 #' @return NULL
 #' @name parenttype
 #' @examples
-#' \dontrun{
-#' parent_plate_type()
-#' }
+#' \dontrun{parent_plate_type()}
 NULL
 
 #' @rdname parenttype

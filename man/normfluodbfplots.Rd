@@ -39,7 +39,6 @@
   superimpose = 2 \%in\% whichplot,
   plate_layout = 3 \%in\% whichplot,
   plot_side_by_side = 4 \%in\% whichplot,
-  reset_grid = FALSE,
   legend_labels = NULL,
   plot_name = NULL,
   ...
@@ -52,7 +51,6 @@
   superimpose = 2 \%in\% whichplot,
   plate_layout = 3 \%in\% whichplot,
   plot_side_by_side = 4 \%in\% whichplot,
-  reset_grid = FALSE,
   legend_labels = NULL,
   plot_name = NULL,
   ...
@@ -67,13 +65,15 @@
 
 \item{superimpose}{whichplot = 2}
 
+\item{plate_layout}{whichplot = 3}
+
 \item{plot_side_by_side}{whichplot = 4}
 
 \item{legend_labels}{labels whichplot = 2,4}
 
-\item{...}{additional parameters}
+\item{plot_name}{plot name}
 
-\item{plate_status}{whichplot = 3}
+\item{...}{additional parameters}
 }
 \value{
 plot object
@@ -90,7 +90,6 @@ print plot (return plate)
 Plot Plate - Favorite is Fluostar style
 }
 \examples{
-\dontrun{
-plot(plate, whichplot = 1)}
+\dontrun{plot(plate, whichplot = 1)}
 }
 \concept{normfluodbfplots}

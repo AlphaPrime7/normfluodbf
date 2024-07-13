@@ -35,8 +35,16 @@ steps_complete(plate)
 \item{plate}{plate}
 
 \item{step}{step}
+
+\item{steps}{steps}
+
+\item{index}{index}
+
+\item{...}{dots}
 }
 \value{
+plate
+
 step number
 
 step name

@@ -117,49 +117,59 @@ This function will produce a vertical layout as defined in this package.
 This function inspired by the lapply approach pretty much applies the
 }
 \examples{
+\dontrun{
 fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odddat_optimus(dat_df)
-resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)
+resampled_scaled <- resample_dat_scale(nocomma_dat, tnp=3, cycles=40)}
+\dontrun{
 fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odddat_optimus(dat_df)
-resampled_scaled <- resample_dat_scale_naretainer(nocomma_dat, tnp=3, cycles=40)
+resampled_scaled <- resample_dat_scale_naretainer(nocomma_dat, tnp=3, cycles=40)}
+\dontrun{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odddat_optimus(dat_df)
-resampled_scaled <- resample_dat_scale_alt(nocomma_dat, tnp=3, cycles=40)
+resampled_scaled <- resample_dat_scale_alt(nocomma_dat, tnp=3, cycles=40)}
+\dontrun{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odddat_optimus(dat_df)
-resampled_scaled <- resample_dat_scale_alt_na(nocomma_dat, tnp=3, cycles=40)
+resampled_scaled <- resample_dat_scale_alt_na(nocomma_dat, tnp=3, cycles=40)}
+\dontrun{
 fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odddat_optimus(dat_df)
-resampled_scaled <- resample_dat_scale_alt_bf_na(nocomma_dat, tnp=3, cycles=40)
+resampled_scaled <- resample_dat_scale_alt_bf_na(nocomma_dat, tnp=3, cycles=40)}
+\dontrun{
 fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odddat_optimus(dat_df)
-resampled_scaled <- resample_dat_scale_alt_bfv(nocomma_dat, tnp=3, cycles=40)
+resampled_scaled <- resample_dat_scale_alt_bfv(nocomma_dat, tnp=3, cycles=40)}
+\dontrun{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odddat_optimus(dat_df)
-resampled_scaled <- resample_dat_scale_optimus(nocomma_dat, tnp=3, cycles=40)
+resampled_scaled <- resample_dat_scale_optimus(nocomma_dat, tnp=3, cycles=40)}
+\dontrun{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odddat_optimus(dat_df)
-resampled_scaled <- resample_dat_scale_optimus_na(nocomma_dat, tnp=3, cycles=40)
+resampled_scaled <- resample_dat_scale_optimus_na(nocomma_dat, tnp=3, cycles=40)}
+\dontrun{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odddat_optimus(dat_df)
-resampled_scaled <- resample_dat_scale_optimus_backend(nocomma_dat, tnp=3, cycles=40)
+resampled_scaled <- resample_dat_scale_optimus_backend(nocomma_dat, tnp=3, cycles=40)}
+\dontrun{
 fpath <- system.file("extdata", "dat_3.dat", package = "normfluodbf", mustWork = TRUE)
 dat_df <- read.table(file=fpath)
 nocomma_dat <- clean_odddat_optimus(dat_df)
 alt_test_scale <- resample_vect_scale(nocomma_dat,3,40, method = 'brute')
 alt_test_scale <- resample_vect_scale(nocomma_dat,3,40, method = 'normal')
 alt_test_scale <- resample_vect_scale(nocomma_dat,3,40, method = 'vector')
-alt_test_scale_norm <- lapply(alt_test_scale, min_max_norm)
+alt_test_scale_norm <- lapply(alt_test_scale, min_max_norm)}
 }
 \seealso{
 \code{\link[=resample_dat]{resample_dat()}}

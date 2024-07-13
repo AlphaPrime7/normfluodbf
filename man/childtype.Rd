@@ -28,6 +28,5 @@ Child Type
 }
 \examples{
 \dontrun{child_plate_type()}
-
 }
 \concept{childtype}
