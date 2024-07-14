@@ -20,9 +20,14 @@ Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-squ
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/AlphaPrime7/normfluodbf/graphs/commit-activity)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/normfluodbf)](https://CRAN.R-project.org/package=normfluodbf)
-[![](http://cranlogs.r-pkg.org/badges/grand-total/normfluodbf?color=yellow)](https://cran.r-project.org/package=normfluodbf)
+[![CRAN RStudio mirror
+downloads](https://cranlogs.r-pkg.org/badges/last-week/normfluodbf?color=blue)](https://r-pkg.org/pkg/normfluodbf)
+[![CRAN RStudio mirror
+downloads](https://cranlogs.r-pkg.org/badges/last-month/normfluodbf?color=blue)](https://r-pkg.org/pkg/normfluodbf)
 [![](http://cranlogs.r-pkg.org/badges/last-month/normfluodbf?color=green)](https://cran.r-project.org/package=normfluodbf)
 [![](http://cranlogs.r-pkg.org/badges/last-week/normfluodbf?color=yellow)](https://cran.r-project.org/package=normfluodbf)
+[![CRAN RStudio mirror
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/normfluodbf?color=blue)](https://r-pkg.org/pkg/normfluodbf)
 [![Codecov test
 coverage](https://codecov.io/gh/AlphaPrime7/normfluodbf/branch/main/graph/badge.svg)](https://app.codecov.io/gh/AlphaPrime7/normfluodbf?branch=main)
 
