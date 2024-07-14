@@ -4,6 +4,7 @@
 #' @keywords internal
 #' @aliases normfluodbf-package
 #' @import badger
+#' @import hexSticker
 #' @import magrittr
 #' @import dplyr
 #' @importFrom testthat expect_equal

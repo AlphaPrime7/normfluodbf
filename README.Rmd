@@ -25,7 +25,7 @@ a {
 }
 ```
 
-# `r badger::badge_custom("normfluodbf", "1.5.2", "blue", "https://github.com/AlphaPrime7/normfluodbf")` <img src="man/figures/logo.png" align="right" width="180"/>
+# `r badger::badge_custom("normfluodbf", "2.0.0", "blue", "https://github.com/AlphaPrime7/normfluodbf")` <img src="man/figures/logo.png" align="right" width="180"/>
 
 [![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/AlphaPrime7/normfluodbf)
 [![Demandez moi n'importe quoi
@@ -66,7 +66,7 @@ library("badger")
 `r badger::badge_custom("follow me on", "LinkedIn", "green", "https://www.linkedin.com/in/tingwei-adeck")`
 `r badger::badge_custom("follow me on", "GitHub", "green", "https://github.com/AlphaPrime7")`
 <a href="https://www.buymeacoffee.com/tingweiadeck"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&amp;emoji=&amp;slug=tingweiadeck&amp;button_colour=FFDD00&amp;font_colour=000000&amp;font_family=Cookie&amp;outline_colour=000000&amp;coffee_colour=ffffff" width="100" height="50"/></a>
-<a href="https://www.buymeacoffee.com/tingweiadeck"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a Pizza&emoji=🍕&slug=tingweiadeck&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" width="100" height="50" /></a>
+<a href="https://www.buymeacoffee.com/tingweiadeck"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a Pizza&amp;emoji=🍕&amp;slug=tingweiadeck&amp;button_colour=FFDD00&amp;font_colour=000000&amp;font_family=Cookie&amp;outline_colour=000000&amp;coffee_colour=ffffff" width="100" height="50"/></a>
 
 # ⏩ 📽️ Quick start
 
