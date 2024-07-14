@@ -35,6 +35,8 @@ status](https://www.r-pkg.org/badges/version/normfluodbf)](https://CRAN.R-projec
 [![](http://cranlogs.r-pkg.org/badges/last-week/normfluodbf?color=yellow)](https://cran.r-project.org/package=normfluodbf)
 [![Awesome
 Badges](https://img.shields.io/badge/badges-awesome-green.svg)](https://github.com/Naereen/badges)
+[![Codecov test
+coverage](https://codecov.io/gh/AlphaPrime7/normfluodbf/branch/main/graph/badge.svg)](https://app.codecov.io/gh/AlphaPrime7/normfluodbf?branch=main)
 
 [![](https://img.shields.io/badge/follow%20me%20on-LinkedIn-green.svg)](https://www.linkedin.com/in/tingwei-adeck)
 [![](https://img.shields.io/badge/follow%20me%20on-GitHub-green.svg)](https://github.com/AlphaPrime7)
