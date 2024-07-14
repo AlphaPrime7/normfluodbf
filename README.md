@@ -3,7 +3,7 @@ July 14, 2024
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# [![](https://img.shields.io/badge/normfluodbf-2.0.0-blue.svg)](https://github.com/AlphaPrime7/normfluodbf) <img src="man/figures/logo.png" align="right" width="180"/>
+# Normfluodbf [![](https://img.shields.io/badge/normfluodbf-2.0.0-blue.svg)](https://github.com/AlphaPrime7/normfluodbf) <img src="man/figures/logo.png" align="right" width="180"/>
 
 [![GitHub](https://badgen.net/badge/icon/github?icon=github&label)](https://github.com/AlphaPrime7/normfluodbf)
 [![Demandez moi n’importe quoi
