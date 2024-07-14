@@ -1,0 +1,21 @@
+tabPanel(
+  title = "Import Assay Data",
+  id = "import",
+  icon = icon("table"),
+         sidebarPanel(
+           timeInput("time_1", "Time:", value = Sys.time()),
+           h3(strong("Upload data from a Fluostar Liposome Flux Assay"),
+              helpPopup("To use this tool, obtain a <i>.dat</i> or <i>.dbf</i> file from Fluostar Liposome FLux Assays")),
+           tags$div(style = "margin-top: 20px;"),
+           fileInput("dbfordat", NULL, accept = c(".dbf", ".dat", ".csv"),
+                     buttonLabel = "Upload...",
+                     multiple = FALSE),
+           numericInput("tnp", "Numeric Well Rows (Leave Blank for .dbf files)", value = ""),
+           numericInput("cycles", "Number of Cycles (Leave Blank for .dbf files)", value = ""),
+           textInput("ru", "Wells Used (Leave Blank for .dbf files)", ""),
+           numericInput("rows", "Preview Data Rows", value = 5, min = 1, step = 1),
+           textInput("delim", "Delimiter (leave blank to guess)", ""),
+           downloadButton("download", "Download .csv"), width = 3),
+         mainPanel(
+           tableOutput("assay_data"), width = 3)
+)

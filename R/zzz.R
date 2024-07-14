@@ -4,7 +4,7 @@
 .onAttach <- function(libname, pkgname) {
   msg <- paste0(
     "\n",
-    "== Welcome to normfluodbf - Developed by Tingwei Adeck and Tesla Adeck ===========================================================================",
+    "== Welcome to normfluodbf - Developed by Tingwei Adeck and Tesla Adeck (Jesus Followers) ===========================================================================",
     "\nIf you find this package useful, please leave a star:",
     "\n   https://github.com/AlphaPrime7/normfluodbf",
     "\n",

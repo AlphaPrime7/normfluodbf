@@ -476,6 +476,34 @@ replace_word_in_file <- function(file_path, old_word, new_word) {
   cat("The word has been replaced successfully.\n")
 }
 
+#' Move File
+#' @param source_path src
+#' @param destination_path dest
+#' @return kinetic file
+#' @export
+#' @examples \dontrun{
+#' source_file <- "path/to/source/file.txt"
+#' destination_file <- "path/to/destination/file.txt"
+#' move_file(source_file, destination_file)
+#' move_file("/home/alphaprime7/Documents/Wip/R/PkgDev/pdf","/home/alphaprime7/Documents/Wip/R/PkgDev/R/pdf")}
+move_file <- function(source_path, destination_path) {
+  if (!file.exists(source_path)) {
+    stop("Source file does not exist.")
+  }
+
+  destination_dir <- dirname(destination_path)
+  if (!dir.exists(destination_dir)) {
+    dir.create(destination_dir, recursive = TRUE)
+  }
+
+  success <- file.rename(source_path, destination_path)
+  if (success) {
+    cat("File moved successfully.\n")
+  } else {
+    stop("Failed to move the file.")
+  }
+}
+
 #' Check Broken Packages
 #' @family utils
 #' @family dev_helpers
