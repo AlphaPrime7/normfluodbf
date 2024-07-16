@@ -29,7 +29,6 @@ capture_output <- function(f, ...) {
    plate <- plate %>%
      upload_data(file = lipsum_214, tnp = 3, cycles = 40, rows_used = c('A','B','C'), norm_scale = 'raw') %>%
      run_steps
-
    if (expect_false(is.null(plate))){
      message('The pipeline works')
    } else {

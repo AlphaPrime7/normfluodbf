@@ -254,7 +254,13 @@ check_step = function(plate, step){
 #' @return boolean
 #' @export
 steps_complete <- function(plate){
-  length(steps(plate)) == 0
+  if(is.list(steps(plate))){
+    length(steps(plate)) == 0
+  }
+  else {
+    steps(plate) == 0
+  }
+
 }
 
 #' Steps Pipeline
@@ -304,7 +310,7 @@ next_step = function(plate,n=1){
   }
 
   if(steps_complete(plate)){
-    message("All steps completed")
+    message("All Processes completed")
     return(plate)
   }
 
