@@ -24,3 +24,16 @@ withBusyIndicator <- function(button) {
     )
   )
 }
+
+db <- function() {
+  user_base <- data.frame(
+    user = c("user1", "adeck@brown.edu"),
+    password = c("password1", "tingwei"), #purrr::map_chr(c("pass1", "pass2"), sodium::password_store) ; sapply(c("password1", "password2"), sodium::password_store)
+    permissions = c("standard", "admin"),
+    name = c("User One", "GODsFriend"),
+    stringsAsFactors = FALSE
+  )
+
+  assign('user_base', user_base, envir = parent.frame())
+  return(user_base)
+}

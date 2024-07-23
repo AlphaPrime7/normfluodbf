@@ -7,6 +7,7 @@ library(ggplot2)
 library(ggthemes)
 library(ggdark)
 library(profvis)
+local({source(file.path("ui", "helpers.R"))})
 
 shinyServer(function(input, output, session) {
 
@@ -18,7 +19,7 @@ shinyServer(function(input, output, session) {
 
   credentials <- shinyauthr::loginServer(
     id = "login",
-    data = user_base,
+    data = db(),
     user_col = user,
     pwd_col = password,
     log_out = reactive(logout_init())
