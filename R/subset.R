@@ -41,45 +41,7 @@ subset.default = function(plate,wells,...){
 #' @rdname subset
 #' @return plate
 #' @export
-subset.mod_normfluodbf_meta = function(plate,wells,...){
-  if (!missing(wells) && !is.null(wells) && all(nzchar(wells))) {
-    wells %<>% paste(collapse = ",")
-    wells %<>% toupper
-    wells %<>% range_list_to_vec
-  }
-
-  wells_subset_data = plate[['plate_data']] %>%
-    dplyr::filter(well %in% wells)
-
-  class(wells_subset_data) = c("normfluodbf_subset", class(wells_subset_data))
-  plate[['subset_data']] <- wells_subset_data
-  plate
-}
-
-#' @rdname subset
-#' @return plate
-#' @export
-subset.tbl_df = function(plate,wells,...){
-
-  if (!missing(wells) && !is.null(wells) && all(nzchar(wells))) {
-    wells %<>% paste(collapse = ",")
-    wells %<>% toupper
-    wells %<>% range_list_to_vec
-  }
-
-  wells_subset_data = plate[['plate_data']] %>%
-    dplyr::filter(well %in% wells)
-
-  class(wells_subset_data) = c("normfluodbf_subset", class(wells_subset_data))
-  plate[['subset_data']] <- wells_subset_data
-  plate
-}
-
-#' @rdname subset
-#' @return plate
-#' @export
-subset.data.frame = function(plate,wells,...){
-
+subset.mod_normfluodbf_data = function(plate,wells,...){
   if (!missing(wells) && !is.null(wells) && all(nzchar(wells))) {
     wells %<>% paste(collapse = ",")
     wells %<>% toupper

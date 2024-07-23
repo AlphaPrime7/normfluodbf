@@ -27,22 +27,31 @@ a {
 
 # Normfluodbf `r badger::badge_custom("normfluodbf", "2.0.0", "blue", "https://github.com/AlphaPrime7/normfluodbf")` <img src="man/figures/logo.png" align="right" width="180"/>
 
-[![license](https://img.shields.io/badge/MIT-License?label=license)](https://mit-license.org/)
-[![Demandez moi n'importe quoi!](https://img.shields.io/badge/Demandez%20moi-n'%20importe%20quoi-1abc9c.svg)](mailto:awesome.tingwei@outlook.com)
-[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
-[![saythanks](https://img.shields.io/badge/say-thanks-fff000.svg)](https://github.com/AlphaPrime7/normfluodbf)
-[![test-coverage](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/test-coverage.yaml)
-[![R-CMD-check](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/R-CMD-check.yaml)
-[![pages-build-deployment](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/pages/pages-build-deployment)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/AlphaPrime7/normfluodbf/graphs/commit-activity)
-[![CRAN status](https://www.r-pkg.org/badges/version/normfluodbf)](https://CRAN.R-project.org/package=normfluodbf)
-[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/last-week/normfluodbf?color=blue)](https://r-pkg.org/pkg/normfluodbf)
-[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/last-month/normfluodbf?color=blue)](https://r-pkg.org/pkg/normfluodbf)
-[![](http://cranlogs.r-pkg.org/badges/last-month/normfluodbf?color=green)](https://cran.r-project.org/package=normfluodbf)
-[![](http://cranlogs.r-pkg.org/badges/last-week/normfluodbf?color=yellow)](https://cran.r-project.org/package=normfluodbf)
-[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/grand-total/normfluodbf?color=blue)](https://r-pkg.org/pkg/normfluodbf)
-[![Codecov test coverage](https://codecov.io/gh/AlphaPrime7/normfluodbf/branch/main/graph/badge.svg)](https://app.codecov.io/gh/AlphaPrime7/normfluodbf?branch=main)
+[![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/en-ca/)
+[![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)](https://ubuntu.com/)
+[![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)](https://www.r-project.org/)
+[![Plotly](https://img.shields.io/badge/Plotly-239120?style=for-the-badge&logo=plotly&logoColor=white)](https://plotly.com/)
+[![license](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/license/MIT)
+[![Demandez moi n'importe
+quoi!](https://img.shields.io/badge/Demandez%20moi-n'%20importe%20quoi-1abc9c.svg?style=for-the-badge)](mailto:awesome.tingwei@outlook.com)
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge)](https://lifecycle.r-lib.org/articles/stages.html)
+[![PRs
+Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf)
+[![saythanks](https://img.shields.io/badge/say-thanks-fff000.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf)
+[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tingwei-adeck)
+[![Orcid](https://img.shields.io/badge/orcid-A6CE39?style=for-the-badge&logo=orcid&logoColor=white)](https://orcid.org/0009-0009-7450-8863)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf/graphs/commit-activity)
+[![Codecov](https://img.shields.io/badge/Codecov-F01F7A?style=for-the-badge&logo=Codecov&logoColor=white)](https://app.codecov.io/gh/AlphaPrime7/normfluodbf?branch=main)
+[![test-coverage](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/test-coverage.yaml/badge.svg?style=plastic)](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/test-coverage.yaml)
+[![R-CMD-check](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/R-CMD-check.yaml/badge.svg?style=social)](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/R-CMD-check.yaml)
+[![pages-build-deployment](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/pages/pages-build-deployment/badge.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/pages/pages-build-deployment)
+[![CRAN-status](https://www.r-pkg.org/badges/version/normfluodbf?style=for-the-badge)](https://CRAN.R-project.org/package=normfluodbf)
+[![CRAN RStudio mirror
+downloads](https://cranlogs.r-pkg.org/badges/last-week/normfluodbf?color=blue)](https://r-pkg.org/pkg/normfluodbf)
+[![CRAN RStudio mirror
+downloads](https://cranlogs.r-pkg.org/badges/last-month/normfluodbf?color=blue)](https://r-pkg.org/pkg/normfluodbf)
+[![CRAN RStudio mirror
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/normfluodbf?color=blue)](https://r-pkg.org/pkg/normfluodbf)
 
 ```{r echo=FALSE, results="hide", message=FALSE}
 library("hexSticker")
@@ -78,8 +87,6 @@ public dissemination were driven by the book "What Mad Pursuit" by
 Francis Crick. Visit
 [`{my page}`](https://alphaprime7.github.io/normfluodbf/articles/normfluodbf.html)
 for details on the concept behind the project.
-
-<img src="man/figures/navab.png" align="center" width="540"/>
 
 # ⏬ Installation
 

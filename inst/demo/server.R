@@ -8,7 +8,6 @@ library(ggthemes)
 library(ggdark)
 library(profvis)
 
-
 shinyServer(function(input, output, session) {
 
   Sys.sleep(1)
@@ -38,7 +37,8 @@ shinyServer(function(input, output, session) {
   output$app_ui <- renderUI({
     req(credentials()$user_auth)
     tagList(
-      navbarPage(
+
+      tags$div(style = "width: 95%", navbarPage(
         title = tags$b("Normfluodbf Demo"),
         windowTitle = "Normfluodbf",
         id = "main_nav",
@@ -49,8 +49,19 @@ shinyServer(function(input, output, session) {
         source(file.path("ui", "tab_2.R"),  local = TRUE)$value,
         source(file.path("ui", "tab_3.R"),  local = TRUE)$value,
         source(file.path("ui", "tab_about.R"),  local = TRUE)$value
-      ),
-      actionButton("logout", "Log out")
+      )),
+      tags$button(id="logout",
+                  type="button",
+                  icon("person"),
+                  style="color: #fff000;
+                  background-color: #337ab7;
+                  border-color: #2e6da4;
+                  position: absolute;
+                  top: 0px;
+                  right: 0px",
+                  class="btn action-button btn-large btn-primary",
+                  HTML('<i></i>Logout'))
+      #actionButton("logout", "Log out")
     )
   })
 
