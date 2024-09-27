@@ -510,6 +510,32 @@ normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B'
 normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30)
 ```
 
+## ✨ Updates
+
+```{r updates, eval=F}
+#simple pipeline run
+lipsum_214 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
+   plate = setup_plate(init_plate())
+   plate <- plate %>%
+     upload_data(file = lipsum_214, tnp = 3, cycles = 40, rows_used = c('A','B','C'), norm_scale = 'raw') %>%
+     run_steps
+
+#subset and plot
+lipsum_214 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
+plate = setup_plate(init_plate())
+plate <- plate %>%
+  upload_data(file = lipsum_214, tnp = 3, cycles = 40, rows_used = c('A','B','C'), norm_scale = 'raw') %>%
+  run_steps %>% subset('A1,B1,C1,C9') %>%
+  plot(whichplot = 2, legend_labels = c('beef_jerky','fatnose','yourmamasofat','youweird'))
+
+#plot plate layout- my favorite
+lipsum_214 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
+plate = setup_plate(init_plate())
+plate <- plate %>%
+  upload_data(file = lipsum_214, tnp = 3, cycles = 40, rows_used = c('A','B','C'), norm_scale = 'raw') %>%
+  run_steps %>% subset_for_layout(c('A1', 'B1', 'C1','A2','B2','C2','A3','B3','C3','C12','C9')) %>% plot(whichplot = 3)
+```
+
 ## 🛂 Quality Control (QC)
 
 -   Experimental issues should be investigated at very high or very low
