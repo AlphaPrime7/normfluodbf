@@ -3,9 +3,7 @@
 \name{subset}
 \alias{subset}
 \alias{subset.default}
-\alias{subset.mod_normfluodbf_meta}
-\alias{subset.tbl_df}
-\alias{subset.data.frame}
+\alias{subset.mod_normfluodbf_data}
 \alias{subset.normfluodbf_plate}
 \alias{subset.96well_plate}
 \alias{subset.384well_plate}
@@ -21,11 +19,7 @@ subset(plate, wells, ...)
 
 \method{subset}{default}(plate, wells, ...)
 
-\method{subset}{mod_normfluodbf_meta}(plate, wells, ...)
-
-\method{subset}{tbl_df}(plate, wells, ...)
-
-\method{subset}{data.frame}(plate, wells, ...)
+\method{subset}{mod_normfluodbf_data}(plate, wells, ...)
 
 \method{subset}{normfluodbf_plate}(plate, wells, ...)
 
@@ -53,10 +47,6 @@ subset_for_layout(plate, wells = NULL)
 \item{...}{dots}
 }
 \value{
-plate
-
-plate
-
 plate
 
 plate

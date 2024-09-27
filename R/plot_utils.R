@@ -255,7 +255,7 @@ plot_in_well = function(plt.obj, data, no_annotations = FALSE){
                      axis.ticks = ggplot2::element_blank(),
                      panel.grid.major = ggplot2::element_blank())
   }
-  plt.obj <- plotly::ggplotly(plt.obj)
+  #plt.obj <- plotly::ggplotly(plt.obj)
   plt.obj
 }
 

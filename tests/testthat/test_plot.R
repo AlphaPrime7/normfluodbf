@@ -12,8 +12,8 @@ test_that("test normfluodbf plot", {
   plate = setup_plate(init_plate())
   plate <- plate %>%
     upload_data(file = lipsum_214, tnp = 3, cycles = 40, rows_used = c('A','B','C'), norm_scale = 'raw') %>%
-    run_steps %>% subset('A1,B1,C1','C9') %>%
-    plot(whichplot = 2, legend_labels = c('beef_jerky','fatnose','yourmamasofat'))
+    run_steps %>% subset('A1,B1,C1,C9') %>%
+    plot(whichplot = 2, legend_labels = c('beef_jerky','fatnose','yourmamasofat','youweird'))
 
   glimpse(plate)
   plt.obj <- plot_superimpose(plate[['plate_data']])

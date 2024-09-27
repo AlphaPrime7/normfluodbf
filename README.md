@@ -1,9 +1,9 @@
 Tingwei Adeck
-July 23, 2024
+September 26, 2024
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Normfluodbf [![](https://img.shields.io/badge/normfluodbf-2.0.0-blue.svg)](https://github.com/AlphaPrime7/normfluodbf) <img src="man/figures/logo.png" align="right" width="180"/>
+# Normfluodbf
 
 [![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/en-ca/)
 [![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)](https://ubuntu.com/)
@@ -42,11 +42,44 @@ for an illustration on how to effectively use the package. The video
 tutorial only covers DAT files based on the assumption that MOST users
 will be interested in using the package for DAT files.
 
+## 🆕 Updates
+
+Based on work by [Dean Attali](https://github.com/daattali), I have
+added functionalities for a plate like setup that ensures that R users
+have a better experience dealing with Liposome flux assay data sets.
+Adding the plate system ensures that R users can get plots similar to
+that seen on the Microplate reader. I can go on forever on the
+advantages of adding the plate system but R users will have to use it
+and find out the benefits for themselves.
+
+[Dean Attali’s](https://github.com/daattali)
+[Ddpcr](https://github.com/daattali/ddpcr/tree/master) provides an
+excellent implementation of the plate system but in the context of
+Digital Droplet Polymerase Chain Reactions (Ddpcr); I extend Dean’s work
+into Normfluodbf in the context of Liposome Flux Assays. I include
+advanced plotting functions in this update to ensure that scientists can
+perform science and let worries of data analysis to Normfluodbf. I hope
+that has been achieved in this update and hope to be even better in
+subsequent updates.
+
+In regards to plate systems, future updates might involve a change to
+the plate system in this package in order to achieve a more universal
+plate system that can be used to make plates that work with Dean’s
+[Ddpcr](https://github.com/daattali/ddpcr/tree/master) experiments and
+other experiments that utilize plates.
+
+Caveat: The shiny app that was initially developed will be added to this
+package post-publication of the update. Due to unforeseen circumstances
+and because I have been working on real work, there has not been enough
+time to add the simple non-styled app that was developed for this
+package in my rookie days. Shiny app functions will not yield a useful
+shiny App. COMING SOON…
+
 # ✍️ Introduction
 
 [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) is used to
 clean and normalize DBF and DAT files obtained from liposome flux assay
-experiments performed with the FLUOstar microplate reader. The
+(LFA) experiments performed with the FLUOstar microplate reader. The
 expectation is this package is not limited to this assay type but other
 assay types performed with the same instrument. The final data frames
 obtained from this package are ready for insightful data analysis and
