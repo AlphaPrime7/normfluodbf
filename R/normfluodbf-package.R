@@ -7,6 +7,7 @@
 #' @import hexSticker
 #' @import magrittr
 #' @import dplyr
+#' @import shiny
 #' @importFrom testthat expect_equal
 #' @importFrom testthat expect_false
 #' @importFrom testthat test_that
@@ -17,6 +18,7 @@ utils::globalVariables(
     "%>%",
     "%<>%",
     ".",
+    "::",
     "pkg_globals_cache",
     ".cache",
     ".globals",

@@ -5,7 +5,6 @@
 
 #' Adeckstats Plots
 #' @family plotutils
-#' @param ... dots
 #' @return plot utils
 #' @name plotutils
 #' @examples

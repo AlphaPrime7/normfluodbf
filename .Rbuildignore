@@ -6,6 +6,18 @@
 ^grateful-refs\.bib$
 ^gratefulgod\.bib$
 ^data-raw$
+^inst/demo$
+^inst/shiny$
+^shiny\.R$
+^ui\.R$
+^server\.R$
+^helpers\.R$
+^tab_1\.R$
+^tab_2\.R$
+^tab_3\.R$
+^tab_about\.R$
+^serverlogic\.R$
+^tab_dataset\.R$
 ^CODE_OF_CONDUCT\.md$
 ^CRAN-SUBMISSION$
 ^_pkgdown\.yml$
@@ -18,7 +30,6 @@
 ^navab\.jpg$
 ^ash\.jpg$
 ^normfluodbf_First_Frame\.png$
-
 ^doc$
 ^Meta$
 ^codecov\.yml$

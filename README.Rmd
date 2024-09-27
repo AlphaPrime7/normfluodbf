@@ -27,39 +27,23 @@ a {
 
 # Normfluodbf
 
-[![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/en-ca/)
-[![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)](https://ubuntu.com/)
-[![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)](https://www.r-project.org/)
-[![Plotly](https://img.shields.io/badge/Plotly-239120?style=for-the-badge&logo=plotly&logoColor=white)](https://plotly.com/)
 [![license](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/license/MIT)
-[![Demandez moi n'importe
-quoi!](https://img.shields.io/badge/Demandez%20moi-n'%20importe%20quoi-1abc9c.svg?style=for-the-badge)](mailto:awesome.tingwei@outlook.com)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf/graphs/commit-activity)
+[![Codecov](https://img.shields.io/badge/Codecov-F01F7A?style=for-the-badge&logo=Codecov&logoColor=white)](https://app.codecov.io/gh/AlphaPrime7/normfluodbf?branch=main)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg?style=for-the-badge)](https://lifecycle.r-lib.org/articles/stages.html)
 [![PRs
 Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf)
+[![Demandez moi n'importe
+quoi!](https://img.shields.io/badge/Demandez%20moi-n'%20importe%20quoi-1abc9c.svg?style=for-the-badge)](mailto:awesome.tingwei@outlook.com)
 [![saythanks](https://img.shields.io/badge/say-thanks-fff000.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf)
-[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tingwei-adeck)
 [![Orcid](https://img.shields.io/badge/orcid-A6CE39?style=for-the-badge&logo=orcid&logoColor=white)](https://orcid.org/0009-0009-7450-8863)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf/graphs/commit-activity)
-[![Codecov](https://img.shields.io/badge/Codecov-F01F7A?style=for-the-badge&logo=Codecov&logoColor=white)](https://app.codecov.io/gh/AlphaPrime7/normfluodbf?branch=main)
-[![test-coverage](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/test-coverage.yaml/badge.svg?style=plastic)](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/test-coverage.yaml)
-[![R-CMD-check](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/R-CMD-check.yaml/badge.svg?style=social)](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/R-CMD-check.yaml)
-[![pages-build-deployment](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/pages/pages-build-deployment/badge.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf/actions/workflows/pages/pages-build-deployment)
-[![CRAN-status](https://www.r-pkg.org/badges/version/normfluodbf?style=for-the-badge)](https://CRAN.R-project.org/package=normfluodbf)
-[![CRAN RStudio mirror
-downloads](https://cranlogs.r-pkg.org/badges/last-week/normfluodbf?color=blue)](https://r-pkg.org/pkg/normfluodbf)
-[![CRAN RStudio mirror
-downloads](https://cranlogs.r-pkg.org/badges/last-month/normfluodbf?color=blue)](https://r-pkg.org/pkg/normfluodbf)
-[![CRAN RStudio mirror
-downloads](https://cranlogs.r-pkg.org/badges/grand-total/normfluodbf?color=blue)](https://r-pkg.org/pkg/normfluodbf)
+[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tingwei-adeck)
 
 ```{r echo=FALSE, results="hide", message=FALSE}
 library("hexSticker")
 library("badger")
 ```
 
-<a href="https://www.buymeacoffee.com/tingweiadeck"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&amp;emoji=&amp;slug=tingweiadeck&amp;button_colour=FFDD00&amp;font_colour=000000&amp;font_family=Cookie&amp;outline_colour=000000&amp;coffee_colour=ffffff" width="100" height="50"/></a>
-<a href="https://www.buymeacoffee.com/tingweiadeck"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a Pizza&amp;emoji=🍕&amp;slug=tingweiadeck&amp;button_colour=FFDD00&amp;font_colour=000000&amp;font_family=Cookie&amp;outline_colour=000000&amp;coffee_colour=ffffff" width="100" height="50"/></a>
 
 # ⏩ 📽️ Quick start
 
@@ -83,22 +67,24 @@ and find out the benefits for themselves.
 [ddpcr](https://github.com/daattali/ddpcr/tree/master) provides an
 excellent implementation of the plate system but in the context of
 Digital Droplet Polymerase Chain Reactions (Ddpcr); I extend Dean's work
-into Normfluodbf in the context of Liposome Flux Assays. I include advanced plotting
-functions in this update to ensure that scientists can perform science and let 
-worries of data analysis to Normfluodbf. I hope that has been achieved in this 
-update and hope to be even better in subsequent updates.
+into Normfluodbf in the context of Liposome Flux Assays. I include
+advanced plotting functions in this update to ensure that scientists can
+perform science and let worries of data analysis to Normfluodbf. I hope
+that has been achieved in this update and hope to be even better in
+subsequent updates.
 
-In regards to plate systems, future updates might involve a change to the plate
-system in this package in order to achieve a more universal plate system that can 
-be used to make plates that work with Dean's [ddpcr](https://github.com/daattali/ddpcr/tree/master)
-experiments and other experiments that utilize plates.
+In regards to plate systems, future updates might involve a change to
+the plate system in this package in order to achieve a more universal
+plate system that can be used to make plates that work with Dean's
+[ddpcr](https://github.com/daattali/ddpcr/tree/master) experiments and
+other experiments that utilize plates.
 
-Caveat: The shiny app that was initially developed will be added to this package 
-post-publication of the update. Due to unforeseen circumstances and because I have 
-been working on real work, there has not been enough time to add the simple non-styled
-app that was developed for this package in my rookie days. Shiny app functions will not yield 
-a useful shiny App. 
-COMING SOON...
+Caveat: The shiny app that was initially developed will be added to this
+package post-publication of the update. Due to unforeseen circumstances
+and because I have been working on real work, there has not been enough
+time to add the simple non-styled app that was developed for this
+package in my rookie days. Shiny app functions will not yield a useful
+shiny App. COMING SOON...
 
 # ✍️ Introduction
 

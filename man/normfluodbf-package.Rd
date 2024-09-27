@@ -19,11 +19,12 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Tingwei Adeck \email{awesome.tingwei@outlook.com}
+\strong{Maintainer}: Tingwei Adeck \email{awesome.tingwei@outlook.com} (\href{https://orcid.org/0009-0009-7450-8863}{ORCID}) [copyright holder]
 
 Other contributors:
 \itemize{
-  \item Tingwei Adeck & Tesla Adeck (\href{https://orcid.org/0009-0009-7450-8863}{ORCID}) [copyright holder]
+  \item Tesla Adeck [copyright holder]
+  \item Amina Adeck [copyright holder]
 }
 
 }

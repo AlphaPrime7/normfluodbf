@@ -22,5 +22,5 @@ Move File
 source_file <- "path/to/source/file.txt"
 destination_file <- "path/to/destination/file.txt"
 move_file(source_file, destination_file)
-move_file("/home/alphaprime7/Documents/Wip/R/PkgDev/pdf","/home/alphaprime7/Documents/Wip/R/PkgDev/R/pdf")}
+move_file("~/Documents/Wip/R/PkgDev/pdf","~/Wip/R/PkgDev/R/pdf")}
 }

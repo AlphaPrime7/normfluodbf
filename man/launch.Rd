@@ -3,6 +3,7 @@
 \name{launch}
 \alias{launch}
 \title{Run the shiny App
+checking dependencies in R code ... WARNING
 In addition to the functions provided in this package, the \code{normfluodbf} package
 also provides an interactive tool that can be used to analyze liposome flux assay data
 more easily. The tool will be launched in a web browser.}
@@ -11,6 +12,7 @@ launch()
 }
 \description{
 Run the shiny App
+checking dependencies in R code ... WARNING
 In addition to the functions provided in this package, the \code{normfluodbf} package
 also provides an interactive tool that can be used to analyze liposome flux assay data
 more easily. The tool will be launched in a web browser.

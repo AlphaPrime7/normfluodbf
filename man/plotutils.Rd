@@ -158,9 +158,6 @@ plot_dev_with_custom_legends(
 
 plate_wells_grid(num_wells = NULL)
 }
-\arguments{
-\item{...}{dots}
-}
 \value{
 plot utils
 
