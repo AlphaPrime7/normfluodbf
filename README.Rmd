@@ -80,7 +80,7 @@ advantages of adding the plate system but R users will have to use it
 and find out the benefits for themselves.
 
 [Dean Attali's](https://github.com/daattali)
-[Ddpcr](https://github.com/daattali/ddpcr/tree/master) provides an
+[ddpcr](https://github.com/daattali/ddpcr/tree/master) provides an
 excellent implementation of the plate system but in the context of
 Digital Droplet Polymerase Chain Reactions (Ddpcr); I extend Dean's work
 into Normfluodbf in the context of Liposome Flux Assays. I include advanced plotting
@@ -90,7 +90,7 @@ update and hope to be even better in subsequent updates.
 
 In regards to plate systems, future updates might involve a change to the plate
 system in this package in order to achieve a more universal plate system that can 
-be used to make plates that work with Dean's [Ddpcr](https://github.com/daattali/ddpcr/tree/master)
+be used to make plates that work with Dean's [ddpcr](https://github.com/daattali/ddpcr/tree/master)
 experiments and other experiments that utilize plates.
 
 Caveat: The shiny app that was initially developed will be added to this package 
