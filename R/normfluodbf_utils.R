@@ -238,7 +238,26 @@ time_attribute = function(interval= NULL, first_end = NULL, pause_duration=NULL,
 #' acutest <- actual_cols_used(fpath)}
 #' @rdname normfluodbf_utils
 actual_cols_used <- function(dat){
-  df <- utils::read.table(dat)
+  if (is.data.frame(dat)) {
+    df <- dat
+  }
+  else if (is.character(dat) && file.exists(dat)) {
+    df <- tryCatch(
+      {
+        utils::read.table(dat)
+      },
+      error = function(e) {
+        stop("Error reading the file. Please check the file path and format.")
+      }
+    )
+  }
+  else if (is.matrix(dat)) {
+    df <- as.data.frame(dat)
+  }
+  else {
+    stop("Input 'dat' must be a data frame, a valid file path, or a matrix.")
+  }
+
   df <- clean_odddat_optimus(df)
   colnames(df) <- c(1:ncol(df))
   acu <- names(which(colSums(!is.na(df)) > 0))

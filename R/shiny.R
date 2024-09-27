@@ -16,7 +16,7 @@ launch <- function() {
 #' more easily. The tool will be launched in a web browser.
 #' @export
 demo <- function() {
-  shiny::runApp(system.file("demo", package = "normfluodbf"),
+  shiny::runApp(system.file("shiny/demo", package = "normfluodbf"),
                 display.mode = "normal",
                 launch.browser = TRUE)
 }
