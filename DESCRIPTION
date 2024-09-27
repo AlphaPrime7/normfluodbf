@@ -1,6 +1,6 @@
 Package: normfluodbf
 Type: Package
-Title: Cleans and Normalizes FLUOstar DBF and DAT Files from Liposome Flux Assays
+Title: Cleans and Normalizes FLUOstar DBF and DAT Files from 'Liposome' Flux Assays
 Version: 2.0.0
 Authors@R: 
     c(person(given = "Tingwei", family = "Adeck", role = c("aut", "cre", "cph"), email = "awesome.tingwei@outlook.com", comment = c(ORCID = "0009-0009-7450-8863")), 
