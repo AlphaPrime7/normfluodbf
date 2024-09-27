@@ -3,7 +3,7 @@
 \docType{package}
 \name{normfluodbf-package}
 \alias{normfluodbf-package}
-\title{normfluodbf: Cleans and Normalizes FLUOstar DBF and DAT Files from Liposome Flux Assays}
+\title{normfluodbf: Cleans and Normalizes FLUOstar DBF and DAT Files from 'Liposome' Flux Assays}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
