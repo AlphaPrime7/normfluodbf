@@ -73,7 +73,7 @@ output$assay_data <- DT::renderDataTable({
       DT::formatStyle(
         col,
         backgroundColor = DT::styleInterval(c(0, 0.99), c("#006FEF", "#00FF00", "red")),
-        color = DT::styleInterval(c(0, 0.99999), c("white", "black", "black"))
+        color = c('black') #DT::styleInterval(c(0, 0.99999), c("white", "black", "black"))
       )
   }
 
