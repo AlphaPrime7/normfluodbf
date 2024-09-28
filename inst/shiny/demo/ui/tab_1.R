@@ -10,12 +10,16 @@ tabPanel(
            fileInput("dbfordat", NULL, accept = c(".dbf", ".dat", ".csv"),
                      buttonLabel = "Upload...",
                      multiple = FALSE),
-           numericInput("tnp", "Numeric Well Rows (Leave Blank for .dbf files)", value = ""),
+           numericInput("tnp", "Number of well rows (Leave Blank for .dbf files)", value = ""),
            numericInput("cycles", "Number of Cycles (Leave Blank for .dbf files)", value = ""),
-           textInput("ru", "Wells Used (Leave Blank for .dbf files)", ""),
-           numericInput("rows", "Preview Data Rows", value = 5, min = 1, step = 1),
+           selectizeInput("ru", "Wells Used (Leave Blank for .dbf files):",
+                       choices = LETTERS,
+                       multiple = TRUE,
+                       options = list(maxItems = 26)),
+           actionButton("confirm_rows","Validate_well_rows-DON'T GET IT WRONG"),
+           numericInput("preview_rows", "Preview Data Rows", value = 20, min = 1, step = 1),
            textInput("delim", "Delimiter (leave blank to guess)", ""),
            downloadButton("download", "Download .csv"), width = 3),
          mainPanel(
-           tableOutput("assay_data"), width = 3)
-)
+           DT::dataTableOutput("assay_data"), width = 8)
+  )

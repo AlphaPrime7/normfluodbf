@@ -2,6 +2,7 @@ library(shiny)
 library(shinyjs)
 library(shinycssloaders)
 library(tidyverse)
+library(DT)
 library(zoo)
 library(ggplot2)
 library(ggthemes)
@@ -65,6 +66,11 @@ shinyServer(function(input, output, session) {
       #actionButton("logout", "Log out")
     )
   })
+
+  # Source server files here
+  source(file.path("server", "tab_1.R"), local = TRUE)
+  #source(file.path("server", "tab_2.R"), local = TRUE)
+  #source(file.path("server", "tab_3.R"), local = TRUE)
 
   observeEvent(input$logout, {
     logout_init(TRUE)
