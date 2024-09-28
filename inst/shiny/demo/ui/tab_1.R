@@ -16,10 +16,11 @@ tabPanel(
                        choices = LETTERS,
                        multiple = TRUE,
                        options = list(maxItems = 26)),
-           actionButton("confirm_rows","Validate_well_rows-DON'T GET IT WRONG"),
+           actionButton("confirm_rows", "Validate Rows"),
            numericInput("preview_rows", "Preview Data Rows", value = 20, min = 1, step = 1),
            textInput("delim", "Delimiter (leave blank to guess)", ""),
            downloadButton("download", "Download .csv"), width = 3),
          mainPanel(
-           DT::dataTableOutput("assay_data"), width = 8)
+           DT::dataTableOutput("assay_data"),
+           tableOutput("assay_header"), width = 8),
   )

@@ -20,3 +20,34 @@ demo <- function() {
                 display.mode = "normal",
                 launch.browser = TRUE)
 }
+
+#' Run Demo Background
+#' @param host localhost
+#' @param appDir dir
+#' @return NULL
+#' @export
+#' @examples \dontrun {
+#' demo_background(...)}
+demo_background <- function(host = getOption("shiny.host", "127.0.0.1"),
+                            appDir = system.file("shiny/demo", package = "normfluodbf")) {
+
+  if (!file.exists(appDir)) {
+    stop("The Shiny app directory does not exist:", appDir)
+  }
+
+  tryCatch(
+    {
+      rstudioapi::verifyAvailable()
+    },
+    error = function(e) {
+      #stopifnot(rstudioapi::hasFun("viewer"))
+      message("RStudio API is not available. Using alternative method.")
+    }
+  )
+
+  port <- shiny_random_port()
+
+  run_demo_in_background(appDir = appDir, job_name = "normfluodbf_demo", host, port)
+
+  viewerpane_background_normfluodbf(host, port)
+}

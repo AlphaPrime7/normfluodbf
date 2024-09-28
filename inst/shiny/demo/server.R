@@ -69,7 +69,7 @@ shinyServer(function(input, output, session) {
 
   # Source server files here
   source(file.path("server", "tab_1.R"), local = TRUE)
-  #source(file.path("server", "tab_2.R"), local = TRUE)
+  source(file.path("server", "tab_2.R"), local = TRUE)
   #source(file.path("server", "tab_3.R"), local = TRUE)
 
   observeEvent(input$logout, {
