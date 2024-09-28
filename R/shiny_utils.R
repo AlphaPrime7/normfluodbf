@@ -1,3 +1,8 @@
+#' Random Ports In house
+#' @return port
+#' @export
+#' @examples \dontrun {
+#' shiny_random_port(...)}
 shiny_random_port <- function() {
   all_ports <- 3000:8000
   unsafe_ports <- c(3659, 4045, 5060, 5061, 6000, 6566, 6665:6669, 6697)
@@ -5,6 +10,12 @@ shiny_random_port <- function() {
   sample(safe_ports, size = 1)
 }
 
+#' Validate Url
+#' @param url url
+#' @return NULL
+#' @export
+#' @examples \dontrun {
+#' wait_for_bg_shinyapp(url)}
 wait_for_bg_shinyapp <- function(url) {
   httr2::request(url) %>%
     httr2::req_retry(max_seconds = 10, backoff = function(n) 0.2) %>%
