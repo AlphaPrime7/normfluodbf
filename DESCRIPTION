@@ -38,6 +38,10 @@ Imports:
     rstudioapi,
     wesanderson,
     hexSticker,
+    pbdZMQ,
+    httr2,
+    glue,
+    cli,
     testthat (>= 3.2.1)
 Depends: 
     R (>= 4.3.0)
