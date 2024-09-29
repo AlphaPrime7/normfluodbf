@@ -14,6 +14,7 @@ tabPanel(
            #tags$div(style = "margin-top: 20px;"),
            #tags$br(),
            #tags$br(),
+           actionButton('apply_normalization', 'Apply Norm'),
            downloadButton("download_data", "Download Data"),
            width = 3),
          mainPanel(

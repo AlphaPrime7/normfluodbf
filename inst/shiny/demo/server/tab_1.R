@@ -13,44 +13,99 @@ all_inputs_ready <- reactive({
 
 observeEvent(input$confirm_rows, {
   req(all_inputs_ready())
-  if (input$data_view == 'raw') {
-    wells_used$dat_data <- normfluodbf::normfluodat(
-      input$dbfordat$datapath,
-      tnp = input$tnp,
-      cycles = input$cycles,
-      rows_used = c(input$ru),
-      norm_scale = 'raw'
-    )
+  ext <- tools::file_ext(input$dbfordat$name)
+  if (ext == 'dat') {
+    if (input$data_view == 'raw') {
+      wells_used$dat_data <- normfluodbf::normfluodat(
+        input$dbfordat$datapath,
+        tnp = input$tnp,
+        cycles = input$cycles,
+        rows_used = c(input$ru),
+        norm_scale = 'raw'
+      )
+    }
+    else if (input$data_view == 'normalized') {
+      wells_used$dat_data <- normfluodbf::normfluodat(
+        input$dbfordat$datapath,
+        tnp = input$tnp,
+        cycles = input$cycles,
+        rows_used = c(input$ru),
+        norm_scale = 'one'
+      )
+    }
+    else if (input$data_view == 'normalized_100') {
+      wells_used$dat_data <- normfluodbf::normfluodat(
+        input$dbfordat$datapath,
+        tnp = input$tnp,
+        cycles = input$cycles,
+        rows_used = c(input$ru),
+        norm_scale = 'hundred'
+      )
+    }
+    else if (input$data_view == 'normalized_z') {
+      wells_used$dat_data <- normfluodbf::normfluodat(
+        input$dbfordat$datapath,
+        tnp = input$tnp,
+        cycles = input$cycles,
+        rows_used = c(input$ru),
+        norm_scale = 'z-score'
+      )
+    }
   }
-  else if (input$data_view == 'normalized') {
-    wells_used$dat_data <- normfluodbf::normfluodat(
-      input$dbfordat$datapath,
-      tnp = input$tnp,
-      cycles = input$cycles,
-      rows_used = c(input$ru),
-      norm_scale = 'one'
-    )
+  else {
+    #nothing happens
   }
-  else if (input$data_view == 'normalized_100') {
-    wells_used$dat_data <- normfluodbf::normfluodat(
-      input$dbfordat$datapath,
-      tnp = input$tnp,
-      cycles = input$cycles,
-      rows_used = c(input$ru),
-      norm_scale = 'hundred'
-    )
+
+
+})
+
+observeEvent(input$apply_normalization, {
+  req(all_inputs_ready())
+  ext <- tools::file_ext(input$dbfordat$name)
+  if (ext == 'dat') {
+    if (input$data_view == 'raw') {
+      wells_used$dat_data <- normfluodbf::normfluodat(
+        input$dbfordat$datapath,
+        tnp = input$tnp,
+        cycles = input$cycles,
+        rows_used = c(input$ru),
+        norm_scale = 'raw'
+      )
+    }
+    else if (input$data_view == 'normalized') {
+      wells_used$dat_data <- normfluodbf::normfluodat(
+        input$dbfordat$datapath,
+        tnp = input$tnp,
+        cycles = input$cycles,
+        rows_used = c(input$ru),
+        norm_scale = 'one'
+      )
+    }
+    else if (input$data_view == 'normalized_100') {
+      wells_used$dat_data <- normfluodbf::normfluodat(
+        input$dbfordat$datapath,
+        tnp = input$tnp,
+        cycles = input$cycles,
+        rows_used = c(input$ru),
+        norm_scale = 'hundred'
+      )
+    }
+    else if (input$data_view == 'normalized_z') {
+      wells_used$dat_data <- normfluodbf::normfluodat(
+        input$dbfordat$datapath,
+        tnp = input$tnp,
+        cycles = input$cycles,
+        rows_used = c(input$ru),
+        norm_scale = 'z-score'
+      )
+    }
   }
-  else if (input$data_view == 'normalized_z') {
-    wells_used$dat_data <- normfluodbf::normfluodat(
-      input$dbfordat$datapath,
-      tnp = input$tnp,
-      cycles = input$cycles,
-      rows_used = c(input$ru),
-      norm_scale = 'z-score'
-    )
+  else {
+    #nothing happens
   }
 
 })
+
 
 file_input <- reactive({
   req(input$dbfordat$name) #got it fine now!

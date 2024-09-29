@@ -15,7 +15,7 @@ launch <- function() {
 #' also provides an interactive tool that can be used to analyze liposome flux assay data
 #' more easily. The tool will be launched in a web browser.
 #' @export
-demo <- function() {
+run_demo <- function() {
   shiny::runApp(system.file("shiny/demo", package = "normfluodbf"),
                 display.mode = "normal",
                 launch.browser = TRUE)
@@ -28,7 +28,7 @@ demo <- function() {
 #' @export
 #' @examples \dontrun {
 #' demo_background(...)}
-demo_background <- function(host = getOption("shiny.host", "127.0.0.1"),
+run_demo_bg <- function(host = getOption("shiny.host", "127.0.0.1"),
                             appDir = system.file("shiny/demo", package = "normfluodbf")) {
 
   if (!file.exists(appDir)) {
