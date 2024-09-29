@@ -1,11 +1,39 @@
-#' Random Ports In house
+#' Random Port Normfluodbf Style
+#' @return random port
+#' @export
+#' @details
+#' Recursively find a random port that does not fall in the unsafe group
+#' Added some more unsafe ports for like PostgresDb (5432), MySQL (3306), StreamlitApp (8501),
+#' ngrok (4040), pinggy (4300), Flask (5000), Django (8000) and ReactApp (3000).
+#' Learnt a thing or two from Dean with recursion (Really Cool!!!).
+#' @examples \dontrun {
+#' find_random_port()}
+find_random_port <- function(){
+
+  if ("random_port" %in% getNamespaceExports("pbdZMQ")) {
+    random_port <- pbdZMQ::random_port(min_port = 3000, max_port = 9000)
+    unsafe_ports <- c(3000, 3306, 3659, 4040, 4045, 4300, 5000, 5060, 5061, 5432, 6000, 6566, 6665:6669, 6697, 8000, 8501)
+  }
+  else {
+    random_port <- shiny_random_port()
+  }
+
+  if (random_port %in% unsafe_ports) {
+    find_random_port()
+  }
+  else {
+    return(random_port)
+  }
+}
+
+#' Random Port gptstudio style
 #' @return port
 #' @export
 #' @examples \dontrun {
 #' shiny_random_port(...)}
 shiny_random_port <- function() {
-  all_ports <- 3000:8000
-  unsafe_ports <- c(3659, 4045, 5060, 5061, 6000, 6566, 6665:6669, 6697)
+  all_ports <- 3000:9000
+  unsafe_ports <- c(3000, 3306, 3659, 4040, 4045, 4300, 5000, 5060, 5061, 5432, 6000, 6566, 6665:6669, 6697, 8000, 8501)
   safe_ports <- setdiff(all_ports, unsafe_ports)
   sample(safe_ports, size = 1)
 }

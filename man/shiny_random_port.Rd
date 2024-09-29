@@ -2,7 +2,7 @@
 % Please edit documentation in R/shiny_utils.R
 \name{shiny_random_port}
 \alias{shiny_random_port}
-\title{Random Ports In house}
+\title{Random Port gptstudio style}
 \usage{
 shiny_random_port()
 }
@@ -10,7 +10,7 @@ shiny_random_port()
 port
 }
 \description{
-Random Ports In house
+Random Port gptstudio style
 }
 \examples{
 \dontrun {
