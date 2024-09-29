@@ -109,7 +109,6 @@ run_demo_in_background <- function(appDir = system.file("shiny/demo", package = 
   )
 }
 
-
 #' View App in Viewer Pane
 #' @param host host
 #' @param port port
