@@ -140,5 +140,4 @@ viewerpane_background_normfluodbf <- function(host, port) {
     browseURL(url)
   })
 
-
 }
