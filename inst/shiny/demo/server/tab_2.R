@@ -43,7 +43,7 @@ output$download_data <- downloadHandler(
   filename = function() {
     paste0(input$dbfordat, ".csv")},
   content = function(file){
-    write.csv(editable_data(), file)})
+    write.csv(file_input(), file)})
 
 
 
