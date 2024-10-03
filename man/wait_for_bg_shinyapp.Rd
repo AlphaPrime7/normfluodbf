@@ -2,7 +2,7 @@
 % Please edit documentation in R/shiny_utils.R
 \name{wait_for_bg_shinyapp}
 \alias{wait_for_bg_shinyapp}
-\title{Validate Url}
+\title{Validate URL}
 \usage{
 wait_for_bg_shinyapp(url)
 }
@@ -10,9 +10,5 @@ wait_for_bg_shinyapp(url)
 \item{url}{url}
 }
 \description{
-Validate Url
-}
-\examples{
-\dontrun {
-wait_for_bg_shinyapp(url)}
+Validate URL
 }

@@ -26,7 +26,3 @@ NULL (run script)
 \description{
 Run Demo in Background
 }
-\examples{
-\dontrun {
-run_demo_in_background(...)}
-}

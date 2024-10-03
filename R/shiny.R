@@ -26,9 +26,6 @@ run_demo <- function() {
 #' @param appDir dir
 #' @return NULL
 #' @export
-#' @examples
-#' \dontrun {
-#' demo_background(...)}
 run_demo_bg <- function(host = getOption("shiny.host", "127.0.0.1"),
                             appDir = system.file("shiny/demo", package = "normfluodbf")) {
 

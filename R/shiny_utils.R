@@ -6,8 +6,6 @@
 #' Added some more unsafe ports for like PostgresDb (5432), MySQL (3306), StreamlitApp (8501),
 #' ngrok (4040), pinggy (4300), Flask (5000), Django (8000) and ReactApp (3000).
 #' Learnt a thing or two from Dean with recursion (Really Cool!!!).
-#' @examples \dontrun {
-#' find_random_port()}
 find_random_port <- function(){
 
   if ("random_port" %in% getNamespaceExports("pbdZMQ")) {
@@ -29,8 +27,6 @@ find_random_port <- function(){
 #' Random Port gptstudio style
 #' @return port
 #' @export
-#' @examples \dontrun {
-#' shiny_random_port(...)}
 shiny_random_port <- function() {
   all_ports <- 3000:9000
   unsafe_ports <- c(3000, 3306, 3659, 4040, 4045, 4300, 5000, 5060, 5061, 5432, 6000, 6566, 6665:6669, 6697, 8000, 8501)
@@ -38,12 +34,9 @@ shiny_random_port <- function() {
   sample(safe_ports, size = 1)
 }
 
-#' Validate Url
+#' Validate URL
 #' @param url url
 #' @return NULL
-#' @export
-#' @examples \dontrun {
-#' wait_for_bg_shinyapp(url)}
 wait_for_bg_shinyapp <- function(url) {
   httr2::request(url) %>%
     httr2::req_retry(max_seconds = 10, backoff = function(n) 0.2) %>%
@@ -58,8 +51,6 @@ wait_for_bg_shinyapp <- function(url) {
 #' @details
 #' A quick script inspired by gptstudio to aid in running the cool normfluodbf demo.
 #' @export
-#' @examples \dontrun {
-#' run_demo_script (...)}
 run_demo_script <- function(appDir = system.file("shiny/demo", package = "normfluodbf"),
                             port,
                             host) {
@@ -87,8 +78,6 @@ run_demo_script <- function(appDir = system.file("shiny/demo", package = "normfl
 #' @param port port
 #' @return NULL (run script)
 #' @export
-#' @examples \dontrun {
-#' run_demo_in_background(...)}
 run_demo_in_background <- function(appDir = system.file("shiny/demo", package = "normfluodbf"),
                                    job_name,
                                    host,
@@ -114,8 +103,6 @@ run_demo_in_background <- function(appDir = system.file("shiny/demo", package = 
 #' @param port port
 #' @return NULL
 #' @export
-#' @examples \dontrun {
-#' open_background_normfluodbf(...)}
 viewerpane_background_normfluodbf <- function(host, port) {
   url <- glue::glue("http://{host}:{port}")
   translated_url <- rstudioapi::translateLocalUrl(url, absolute = TRUE) #no difference except double quotes

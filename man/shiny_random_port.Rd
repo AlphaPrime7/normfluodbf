@@ -12,7 +12,3 @@ port
 \description{
 Random Port gptstudio style
 }
-\examples{
-\dontrun {
-shiny_random_port(...)}
-}

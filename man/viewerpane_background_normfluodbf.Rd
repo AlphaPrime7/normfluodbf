@@ -14,7 +14,3 @@ viewerpane_background_normfluodbf(host, port)
 \description{
 View App in Viewer Pane
 }
-\examples{
-\dontrun {
-open_background_normfluodbf(...)}
-}

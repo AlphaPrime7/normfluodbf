@@ -17,7 +17,3 @@ run_demo_bg(
 \description{
 Run Demo Background
 }
-\examples{
-\dontrun {
-demo_background(...)}
-}

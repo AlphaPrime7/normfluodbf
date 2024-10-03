@@ -26,7 +26,3 @@ Run Demo Script
 \details{
 A quick script inspired by gptstudio to aid in running the cool normfluodbf demo.
 }
-\examples{
-\dontrun {
-run_demo_script (...)}
-}

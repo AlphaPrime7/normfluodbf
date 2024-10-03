@@ -18,7 +18,3 @@ Added some more unsafe ports for like PostgresDb (5432), MySQL (3306), Streamlit
 ngrok (4040), pinggy (4300), Flask (5000), Django (8000) and ReactApp (3000).
 Learnt a thing or two from Dean with recursion (Really Cool!!!).
 }
-\examples{
-\dontrun {
-find_random_port()}
-}
