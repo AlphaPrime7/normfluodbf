@@ -100,7 +100,7 @@ reset_plate = function(plate){
                   "no",
                   "hello world"),
                   title = "Hey Yoda, are you sure you want to reset the plate? (Save the plate before resetting!)")
-    if (usr_choice == "no") {
+    if (usr_choice == 2 || usr_choice == 3) {
       plate
     }
     else {

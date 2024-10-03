@@ -195,6 +195,7 @@ subset_unplated_data <- function(data, wells){
 
 #' @rdname subset
 #' @return data
+#' @export
 #' @keywords internal
 subset_for_layout <- function(plate, wells = NULL){
   if (!missing(wells) && !is.null(wells) && all(nzchar(wells))) {
