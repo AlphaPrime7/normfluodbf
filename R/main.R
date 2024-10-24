@@ -233,7 +233,7 @@ normfluordat <- function(dat,
 #' fpath <- system.file("extdata", "dat_4.dat", package = "normfluodbf", mustWork = TRUE)
 #' normalized_fluo_dat <- normfluodat(dat=fpath, tnp = 3, cycles = 40)}
 #' @rdname normalize_liposome_fluor_dats
-normfluodat <- function(dat, tnp, cycles, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL, norm_scale = NULL,
+normfluodat <- function(dat, tnp , cycles, rows_used = NULL, cols_used= NULL, user_specific_labels = NULL, read_direction = NULL, norm_scale = NULL,
                         interval= NULL, first_end = NULL, pause_duration=NULL, end_time=NULL, normfluodbf.verbose = TRUE){
 
   if (is.data.frame(dat)) {

@@ -226,6 +226,127 @@ time_attribute = function(interval= NULL, first_end = NULL, pause_duration=NULL,
   }
 }
 
+#' A function to get the actual rows used in the assay.
+#' @description
+#' A function that facilitates a users' workflow by helping extract the actual rows used in the assay.
+#' @author Tingwei Adeck
+#' @param dat A string ("dat_1.dat") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dat" file.
+#' @return Returns a character vector denoting the rows used in the assay.
+#' @export
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+#' arutest <- actual_rows_used(fpath)}
+#' @rdname normfluodbf_utils
+actual_rows_used <- function(dat){
+  if (is.data.frame(dat)) {
+    df <- dat
+  }
+  else if (is.character(dat) && file.exists(dat)) {
+    df <- tryCatch(
+      {
+        utils::read.table(dat)
+      },
+      error = function(e) {
+        stop("Error reading the file. Please check the file path and format.")
+      }
+    )
+  }
+  else if (is.matrix(dat)) {
+    df <- as.data.frame(dat)
+  }
+  else {
+    stop("Input 'dat' must be a data frame, a valid file path, or a matrix.")
+  }
+
+  H_position <- which(LETTERS == "H")
+  length_A_to_H <- H_position
+
+  df <- head(df, length_A_to_H)
+  rows_without_all_dashes <- which(!apply(df, 1, function(row) all(row %in% c('-,', '-'))))
+  row_letters <- LETTERS[rows_without_all_dashes]
+  return(row_letters)
+}
+
+#' A function to get the number of rows used.
+#' @description
+#' A function that facilitates a users' workflow by helping to get the number of rows used in the assay.
+#' @author Tingwei Adeck
+#' @param dat A string ("dat_1.dat") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dat" file.
+#' @return Returns the number of rows used denoted as tnp.
+#' @export
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+#' gettnptest <- get_tnp(fpath)}
+#' @rdname normfluodbf_utils
+get_tnp <- function(dat){
+  if (is.data.frame(dat)) {
+    df <- dat
+  }
+  else if (is.character(dat) && file.exists(dat)) {
+    df <- tryCatch(
+      {
+        utils::read.table(dat)
+      },
+      error = function(e) {
+        stop("Error reading the file. Please check the file path and format.")
+      }
+    )
+  }
+  else if (is.matrix(dat)) {
+    df <- as.data.frame(dat)
+  }
+  else {
+    stop("Input 'dat' must be a data frame, a valid file path, or a matrix.")
+  }
+
+  H_position <- which(LETTERS == "H")
+  length_A_to_H <- H_position
+
+  df <- head(df, length_A_to_H)
+  rows_without_all_dashes <- which(!apply(df, 1, function(row) all(row %in% c('-,', '-'))))
+  row_letters <- LETTERS[rows_without_all_dashes]
+  return(length(row_letters))
+}
+
+#' A function to get the cycles.
+#' @description
+#' A function to get the number of cycles used in the assay.
+#' @author Tingwei Adeck
+#' @param dat A string ("dat_1.dat") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dat" file.
+#' @return The number of cycles.
+#' @export
+#' @examples \dontrun{
+#' fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+#' getcyclestest <- actual_cycles(fpath)}
+#' @rdname normfluodbf_utils
+actual_cycles <- function(dat){
+  if (is.data.frame(dat)) {
+    df <- dat
+  }
+  else if (is.character(dat) && file.exists(dat)) {
+    df <- tryCatch(
+      {
+        utils::read.table(dat)
+      },
+      error = function(e) {
+        stop("Error reading the file. Please check the file path and format.")
+      }
+    )
+  }
+  else if (is.matrix(dat)) {
+    df <- as.data.frame(dat)
+  }
+  else {
+    stop("Input 'dat' must be a data frame, a valid file path, or a matrix.")
+  }
+
+  H_position <- which(LETTERS == "H")
+  length_A_to_H <- H_position
+  number_of_cycles <- nrow(df) / length_A_to_H
+
+  return(number_of_cycles)
+}
+
 #' A function to get the actual columns used in the assay.
 #' @description
 #' A function that facilitates a users' workflow by helping extract the actual columns used in the assay.
@@ -264,6 +385,7 @@ actual_cols_used <- function(dat){
   acu <- as.numeric(as.vector(acu))
   return(acu)
 }
+
 
 #' A fluorescence quantification Quality Control (QC) function.
 #' @family normfluodbf_utils

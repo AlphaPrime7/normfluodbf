@@ -5,6 +5,9 @@
 \alias{generic_identifier}
 \alias{norm_applier}
 \alias{time_attribute}
+\alias{actual_rows_used}
+\alias{get_tnp}
+\alias{actual_cycles}
 \alias{actual_cols_used}
 \title{A function to append a unique identifier attribute to any data frame within the normfluodbf package.}
 \usage{
@@ -21,6 +24,12 @@ time_attribute(
   end_time = NULL,
   cycles = NULL
 )
+
+actual_rows_used(dat)
+
+get_tnp(dat)
+
+actual_cycles(dat)
 
 actual_cols_used(dat)
 }
@@ -55,6 +64,12 @@ A data frame with attribute values obtained from the applied function using lapp
 
 The time attribute.
 
+Returns a character vector denoting the rows used in the assay.
+
+Returns the number of rows used denoted as tnp.
+
+The number of cycles.
+
 Returns a numeric vector denoting the columns used in the assay.
 }
 \description{
@@ -66,6 +81,12 @@ A function that creates an attribute of seq(numrows) with a step size of 1, wher
 Applies a function over a list of attributes.
 
 A function to help the researcher reproduce the time attribute.
+
+A function that facilitates a users' workflow by helping extract the actual rows used in the assay.
+
+A function that facilitates a users' workflow by helping to get the number of rows used in the assay.
+
+A function to get the number of cycles used in the assay.
 
 A function that facilitates a users' workflow by helping extract the actual columns used in the assay.
 }
@@ -92,6 +113,15 @@ test_df_norm <- norm_applier(test_df,norm_scale = 'one')}
 \dontrun{
 time_test = time_attribute(30,8,136,1276,40)
 time_test = time_attribute(60,8,136,2460,40)}
+\dontrun{
+fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+arutest <- actual_rows_used(fpath)}
+\dontrun{
+fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+gettnptest <- get_tnp(fpath)}
+\dontrun{
+fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
+getcyclestest <- actual_cycles(fpath)}
 \dontrun{
 fpath <- system.file("extdata", "dat_1.dat", package = "normfluodbf", mustWork = TRUE)
 acutest <- actual_cols_used(fpath)}
