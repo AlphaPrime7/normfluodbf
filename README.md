@@ -13,8 +13,8 @@ Tingwei Adeck September 27, 2024
 <details closed="closed">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
   <ol>
-    <li><a href="#1-Quick start">Quick start</a></li>
-    <li><a href="## 🆕 Updates">Updates</a></li>
+    <li><a href="#-⏩ 📽️ Quick start">Quick start</a></li>
+    <li><a href="#- 🆕 Updates">Updates</a></li>
     <li><a href="# ✍️ Introduction">Introduction</a></li>
     <li><a href="# ⏬ Installation">Installation</a></li>
     <li><a href="# 🕵️ Use Scenarios">Use Scenarios</a></li>
@@ -29,7 +29,7 @@ Tingwei Adeck September 27, 2024
 
 For quick starters, please visit the [`{video tutorial}`](https://alphaprime7.github.io/normfluodbf/video.html) for an illustration on how to effectively use the package. The video tutorial only covers DAT files based on the assumption that MOST users will be interested in using the package for DAT files.
 
-## 🆕 Updates
+# 🆕 Updates
 
 Based on work by [Dean Attali](https://github.com/daattali), I have added functionalities for a plate like setup that ensures that R users have a better experience dealing with Liposome flux assay data sets. Adding the plate system ensures that R users can get plots similar to that seen on the Microplate reader. I can go on forever on the advantages of adding the plate system but R users will have to use it and find out the benefits for themselves.
 
