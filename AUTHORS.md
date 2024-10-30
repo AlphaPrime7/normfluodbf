@@ -10,7 +10,7 @@ Normfluodbf is developed and maintained Tingwei Adeck.
   <img src="https://contributors-img.web.app/image?repo=Alphaprime7/normfluodbf" width = 50/>
 </p>
 
-Maintainers (sorted alphabetically)
+Maintainers
 ---------------------------------------
 Maintainers are actively supporting the project and have made substantial contributions to the repository.<br>
 They have admin access to the repo and provide support reviewing issues and pull requests.
