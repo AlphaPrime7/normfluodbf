@@ -19,8 +19,8 @@ Tingwei Adeck September 27, 2024
     <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#-installation">Installation</a></li>
     <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#%EF%B8%8F-use-scenarios">Use Scenarios</a></li>
     <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#-meme">Meme</a></li>
-    <li><a href="#7-Contributors">Contributors</a></li>
-    <li><a href="# 📃 References">References</a></li>
+    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#--contributors">Contributors</a></li>
+    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#-references">References</a></li>
   </ol>
 </details>
 
