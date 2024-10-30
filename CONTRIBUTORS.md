@@ -22,4 +22,14 @@ They have admin access to the repo and provide support reviewing issues and pull
 
 * **[Tingwei Adeck](https://github.com/AlphaPrime7)**
    * Everything
+
+# I would like to join this list. How can I help the project?
+
+> Here you could make a call to people who would like to contribute to the project. Below, expose what you expect people to do.
+
+We're currently looking for contributions for the following:
+
+- [ ] Bug fixes
+- [ ] Expanding functionalities
+- [ ] etc...
     
