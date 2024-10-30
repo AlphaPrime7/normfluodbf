@@ -14,11 +14,11 @@ Tingwei Adeck September 27, 2024
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
   <ol>
     <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#-%EF%B8%8F-quick-start">Quick start</a></li>
-    <li><a href="# 🆕 Updates">Updates</a></li>
-    <li><a href="# ✍️ Introduction">Introduction</a></li>
-    <li><a href="# ⏬ Installation">Installation</a></li>
-    <li><a href="# 🕵️ Use Scenarios">Use Scenarios</a></li>
-    <li><a href="# 🤦 Meme">Meme</a></li>
+    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#-updates">Updates</a></li>
+    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#%EF%B8%8F-introduction">Introduction</a></li>
+    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#-installation">Installation</a></li>
+    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#%EF%B8%8F-use-scenarios">Use Scenarios</a></li>
+    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#-meme">Meme</a></li>
     <li><a href="#7-Contributors">Contributors</a></li>
     <li><a href="# 📃 References">References</a></li>
   </ol>
@@ -440,7 +440,7 @@ plate <- plate %>%
 
 <img src="man/figures/success_memery.jpg" width="100%"/>
 
-## 7. Contributors
+# 🤝🏿 🎧 Contributors
 
 <a href="https://github.com/AlphaPrime7/normfluodbf/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=AlphaPrime7/normfluodbf" />
