@@ -440,7 +440,7 @@ plate <- plate %>%
 
 <img src="man/figures/success_memery.jpg" width="100%"/>
 
-## Contributors
+## 7. 🤝🏽 Contributors
 
 <a href="https://github.com/AlphaPrime7/normfluodbf/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=AlphaPrime7/normfluodbf" />
