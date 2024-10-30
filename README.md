@@ -2,6 +2,22 @@ Tingwei Adeck September 27, 2024
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<!-- TABLE OF CONTENTS -->
+<details closed="closed">
+  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <ol>
+    <li><a href="# ⏩ 📽️ Quick start">Quick start</a></li>
+    <li><a href="## 🆕 Updates">Updates</a></li>
+    <li><a href="# ✍️ Introduction">Introduction</a></li>
+    <li><a href="# ⏬ Installation">Installation</a></li>
+    <li><a href="# 🕵️ Use Scenarios">Use Scenarios</a></li>
+    <li><a href="# 🤦 Meme">Meme</a></li>
+    <li><a href="# Contributors">Contributors</a></li>
+    <li><a href="# 📃 References">References</a></li>
+  </ol>
+</details>
+
+
 # Normfluodbf
 
 [![license](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/license/MIT) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf/graphs/commit-activity) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf/pulls) [![Codecov](https://img.shields.io/badge/Codecov-F01F7A?style=for-the-badge&logo=Codecov&logoColor=white)](https://app.codecov.io/gh/AlphaPrime7/normfluodbf?branch=main) [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-orange.svg?style=for-the-badge)](https://lifecycle.r-lib.org/articles/stages.html) [![Demandez moi n’importe quoi!](https://img.shields.io/badge/Demandez%20moi-n'%20importe%20quoi-1abc9c.svg?style=for-the-badge)](mailto:awesome.tingwei@outlook.com) [![saythanks](https://img.shields.io/badge/say-thanks-fff000.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf) [![Orcid](https://img.shields.io/badge/orcid-A6CE39?style=for-the-badge&logo=orcid&logoColor=white)](https://orcid.org/0009-0009-7450-8863) [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tingwei-adeck)
@@ -424,6 +440,12 @@ plate <- plate %>%
 
 <img src="man/figures/success_memery.jpg" width="100%"/>
 
+# Contributors
+
+<a href="https://github.com/AlphaPrime7/normfluodbf/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=AlphaPrime7/normfluodbf" />
+</a>
+
 # 📃 References
 
 (Dowle and Srinivasan 2023) (Wickham, François, et al. 2023) (Yu 2021) (R Core Team 2022) (Wickham, Chang, et al. 2023) (Arnold 2021) (Wickham 2022) (Müller and Wickham 2023) (Wickham, Vaughan, and Girlich 2023)
@@ -465,3 +487,5 @@ Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. *Tidyr: Tidy Messy
 Yu, Guangchuang. 2021. *Emojifont: Emoji and Font Awesome in Graphics*. <https://github.com/GuangchuangYu/emojifont>.
 :::
 :::
+
+
