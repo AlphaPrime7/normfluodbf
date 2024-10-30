@@ -5,7 +5,7 @@ Licensed under the MIT License.
 
 Contributors to Normfluodbf 
 ============================
-Normfluodbf is developed and maintained Tingwei Adeck.
+Normfluodbf is developed and maintained Tingwei Adeck. How do i add the Contributors to the sidebar?
 <p align="center">
   <img src="https://contributors-img.web.app/image?repo=Alphaprime7/normfluodbf" width = 50/>
 </p>
