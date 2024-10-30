@@ -10,9 +10,10 @@ Normfluodbf is developed and maintained Tingwei Adeck.
   <img src="https://contributors-img.web.app/image?repo=Alphaprime7/normfluodbf" width = 50/>
 </p>
 
-Contributors 
----------------------------------------
-Tingwei Adeck
+# Contributors
+
+* [Tingwei Adeck](https://github.com/alphaprime7)
+
 
 Maintainers
 ---------------------------------------
