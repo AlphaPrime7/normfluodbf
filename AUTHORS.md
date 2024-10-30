@@ -5,9 +5,9 @@ Licensed under the MIT License.
 
 Contributors to Normfluodbf 
 ============================
-Recommenders is developed and maintained Tingwei Adeck.
+Normfluodbf is developed and maintained Tingwei Adeck.
 <p align="center">
-  <img src="https://contributors-img.web.app/image?repo=Alphaprime7/normfluodbf" width = 100/>
+  <img src="https://contributors-img.web.app/image?repo=Alphaprime7/normfluodbf" width = 50/>
 </p>
 
 Maintainers (sorted alphabetically)
