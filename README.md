@@ -13,7 +13,7 @@ Tingwei Adeck September 27, 2024
 <details closed="closed">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
   <ol>
-    <li><a href="# ⏩ 📽️ Quick start">Quick start</a></li>
+    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#-%EF%B8%8F-quick-start">Quick start</a></li>
     <li><a href="# 🆕 Updates">Updates</a></li>
     <li><a href="# ✍️ Introduction">Introduction</a></li>
     <li><a href="# ⏬ Installation">Installation</a></li>
