@@ -443,7 +443,7 @@ plate <- plate %>%
 # 🤝🏿 🎧 Contributors
 
 <a href="https://github.com/AlphaPrime7/normfluodbf/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=AlphaPrime7/normfluodbf" />
+  <img src="https://contributors-img.web.app/image?repo=Alphaprime7/normfluodbf" width = 50/>
 </a>
 
 # 📃 References
