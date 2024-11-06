@@ -3,16 +3,16 @@ Copyright (c) Recommenders contributors.
 Licensed under the MIT License.
 -->
 
-Contributors to Normfluodbf 
+# Contributors to Normfluodbf
 ============================
+
 Normfluodbf is developed and maintained Tingwei Adeck. How do i add the Contributors to the sidebar?
+
+* [Tingwei Adeck](https://github.com/alphaprime7)
+
 <p align="center">
   <img src="https://contributors-img.web.app/image?repo=Alphaprime7/normfluodbf" width = 50/>
 </p>
-
-# Contributors
-
-* [Tingwei Adeck](https://github.com/alphaprime7)
 
 
 # Maintainers
