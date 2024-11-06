@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "AlphaPrime7",
+      "name": "Tingwei Adeck",
+      "avatar_url": "https://avatars.githubusercontent.com/u/98990077?v=4",
+      "profile": "https://github.com/AlphaPrime7",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "normfluodbf",
+  "projectOwner": "AlphaPrime7",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}

@@ -6,13 +6,30 @@ Tingwei Adeck September 27, 2024
 
 [![license](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/license/MIT) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf/graphs/commit-activity) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf/pulls) [![Codecov](https://img.shields.io/badge/Codecov-F01F7A?style=for-the-badge&logo=Codecov&logoColor=white)](https://app.codecov.io/gh/AlphaPrime7/normfluodbf?branch=main) [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-orange.svg?style=for-the-badge)](https://lifecycle.r-lib.org/articles/stages.html) [![Demandez moi n’importe quoi!](https://img.shields.io/badge/Demandez%20moi-n'%20importe%20quoi-1abc9c.svg?style=for-the-badge)](mailto:awesome.tingwei@outlook.com) [![saythanks](https://img.shields.io/badge/say-thanks-fff000.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf) [![Orcid](https://img.shields.io/badge/orcid-A6CE39?style=for-the-badge&logo=orcid&logoColor=white)](https://orcid.org/0009-0009-7450-8863) [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tingwei-adeck)
 
+
 <a href="https://buymeacoffee.com/tingweiadeck"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a Pizza&amp;emoji=🍕&amp;slug=tingweiadeck&amp;button_colour=FFA500&amp;font_colour=000000&amp;font_family=Cookie&amp;outline_colour=000000&amp;coffee_colour=ffffff" width="100" height="50"/></a>
+
+<!-- TABLE OF CONTENTS -->
+<details closed="closed">
+  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <ol>
+    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#-%EF%B8%8F-quick-start">Quick start</a></li>
+    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#-updates">Updates</a></li>
+    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#%EF%B8%8F-introduction">Introduction</a></li>
+    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#-installation">Installation</a></li>
+    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#%EF%B8%8F-use-scenarios">Use Scenarios</a></li>
+    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#-meme">Meme</a></li>
+    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#--contributors">Contributors</a></li>
+    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#-references">References</a></li>
+  </ol>
+</details>
+
 
 # ⏩ 📽️ Quick start
 
 For quick starters, please visit the [`{video tutorial}`](https://alphaprime7.github.io/normfluodbf/video.html) for an illustration on how to effectively use the package. The video tutorial only covers DAT files based on the assumption that MOST users will be interested in using the package for DAT files.
 
-## 🆕 Updates
+# 🆕 Updates
 
 Based on work by [Dean Attali](https://github.com/daattali), I have added functionalities for a plate like setup that ensures that R users have a better experience dealing with Liposome flux assay data sets. Adding the plate system ensures that R users can get plots similar to that seen on the Microplate reader. I can go on forever on the advantages of adding the plate system but R users will have to use it and find out the benefits for themselves.
 
@@ -423,6 +440,12 @@ plate <- plate %>%
 
 <img src="man/figures/success_memery.jpg" width="100%"/>
 
+# 🤝🏿 🎧 Contributors
+
+<a href="https://github.com/AlphaPrime7/normfluodbf/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=Alphaprime7/normfluodbf" width = 50/>
+</a>
+
 # 📃 References
 
 (Dowle and Srinivasan 2023) (Wickham, François, et al. 2023) (Yu 2021) (R Core Team 2022) (Wickham, Chang, et al. 2023) (Arnold 2021) (Wickham 2022) (Müller and Wickham 2023) (Wickham, Vaughan, and Girlich 2023)
@@ -464,3 +487,5 @@ Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. *Tidyr: Tidy Messy
 Yu, Guangchuang. 2021. *Emojifont: Emoji and Font Awesome in Graphics*. <https://github.com/GuangchuangYu/emojifont>.
 :::
 :::
+
+
