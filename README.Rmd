@@ -596,7 +596,7 @@ dat1 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
 zz <- file(tempfile(), open = "wt")
 sink(zz)
 sink(zz, type = "message")
-normalized_data <- normfluodbf::normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30, normfluodbf.verbose = FALSE)
+normalized_dat <- normfluodbf::normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30, normfluodbf.verbose = FALSE)
 sink(type = "message")
 sink()
 ```
