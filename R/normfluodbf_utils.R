@@ -523,7 +523,7 @@ fluor_threshold_check <- function(clean_df, fun = NA){
   if (length(outlier_wells) > 0 ) {
     message(paste("Crikee, some values in your original data violate thresholds", emoji('pig'), emoji('camel')))
     message("Outlier wells (Mixtures might be problematic and should be investigated with mixtools)")
-    message(outlier_wells)
+    message(paste(outlier_wells, collapse = ", "))
   }
   else {
     message(paste("Our quality control checks dont appear to show any wells that violate threshold values", emoji('heartbeat'), emoji('cool'), emoji('sunny'), emoji('sweat_smile')) )
