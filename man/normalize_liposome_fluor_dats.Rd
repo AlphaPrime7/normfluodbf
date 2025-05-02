@@ -20,8 +20,8 @@ normfluordat(
 
 normfluodat(
   dat,
-  tnp,
-  cycles,
+  tnp = NULL,
+  cycles = NULL,
   rows_used = NULL,
   cols_used = NULL,
   user_specific_labels = NULL,

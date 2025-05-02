@@ -380,9 +380,13 @@ actual_cols_used <- function(dat){
   }
 
   df <- clean_odddat_optimus(df)
-  colnames(df) <- c(1:ncol(df))
-  acu <- names(which(colSums(!is.na(df)) > 0))
-  acu <- as.numeric(as.vector(acu))
+  df <- df[ , !names(df) %in% c("Time", "Cycle_Number")]
+  df <- as.data.frame(df)
+
+  #colnames(df) <- c(1:ncol(df))
+  #acu <- names(which(colSums(!is.na(df)) > 0))
+  acu <- ncol(df)
+  acu <- as.numeric(as.vector(seq(acu)))
   return(acu)
 }
 
@@ -458,8 +462,41 @@ fix_threshold_output <- function(outlier_wells){
       }
     }
   outlier_wells <- unique(outlier_wells)
-  print("Outlier wells (Mixtures might be problematic and should be investigated with mixtools)")
-  print(outlier_wells)
+  message("Outlier wells (Mixtures might be problematic and should be investigated with mixtools)")
+  message(outlier_wells)
+  return(fix_threshold_output(outlier_wells))
+}
+
+#' @rdname fluorthresholdcheck
+#' @return outlier wells list
+#' @export
+fluor_threshold_check_new <- function(clean_df, fun = NA){
+  load.emojifont(font = "EmojiOne.ttf")
+
+  outlier_wells <- c()
+
+  for(i in 1:nrow(clean_df)){
+    for(j in 1:ncol(clean_df)){
+      value <- clean_df[i, j]
+      if (!is.na(value)) {
+        if (value >= 2^15 || value <= 2^11) {
+          outlier_wells <- c(outlier_wells, names(clean_df)[j])
+        }
+      }
+    }
+  }
+
+  outlier_wells <- unique(outlier_wells)
+
+  if (length(outlier_wells) > 0) {
+    message(paste("Crikee, some values in your original data violate thresholds", emoji('pig'), emoji('camel')))
+    message("Outlier wells (Mixtures might be problematic and should be investigated with mixtools):")
+    message(paste(outlier_wells, collapse = ", "))
+  } else {
+    message(paste("Our quality control checks don't appear to show any wells that violate threshold values",
+                  emoji('heartbeat'), emoji('cool'), emoji('sunny'), emoji('sweat_smile')))
+  }
+
   return(fix_threshold_output(outlier_wells))
 }
 
@@ -476,17 +513,22 @@ fluor_threshold_check <- function(clean_df, fun = NA){
 
   for(i in 1:nrow(clean_df)){
     for(j in 1:ncol(clean_df)){
-      if ( clean_df[i,j] >= (2^15) && is.na(clean_df[i,j]) != nofun ){
-        outlier_wells <- c(outlier_wells, names(clean_df)[j])
-      } else if ( clean_df[i,j] <= (2^11) && is.na(clean_df[i,j]) != nofun ){
-        outlier_wells <- c(outlier_wells, names(clean_df)[j])
+      if ( (clean_df[i,j] >= (2^15) || clean_df[i,j] <= (2^11)) && is.na(clean_df[i,j]) != nofun ){
+        outlier_wells <- c(outlier_wells, unique(names(clean_df)[j]) )
       }
     }
   }
   outlier_wells <- unique(outlier_wells)
-  message(paste("Crikee, some values in your original data violate thresholds", emoji('pig'), emoji('camel')))
-  print("Outlier wells (Mixtures might be problematic and should be investigated with mixtools)")
-  print(outlier_wells)
+
+  if (length(outlier_wells) > 0 ) {
+    message(paste("Crikee, some values in your original data violate thresholds", emoji('pig'), emoji('camel')))
+    message("Outlier wells (Mixtures might be problematic and should be investigated with mixtools)")
+    message(outlier_wells)
+  }
+  else {
+    message(paste("Our quality control checks dont appear to show any wells that violate threshold values", emoji('heartbeat'), emoji('cool'), emoji('sunny'), emoji('sweat_smile')) )
+  }
+
   return(fix_threshold_output(outlier_wells))
 }
 

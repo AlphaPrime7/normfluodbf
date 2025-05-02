@@ -20,10 +20,10 @@ test_that("test actual_cycles", {
   expect_equal(result,cycles)
 })
 
-test_that("test aru output is accurate", {
+test_that("test acu output is accurate", {
   lipsum_214 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
-  result = actual_rows_used(lipsum_214)
-  known_rows = c('A','B','C')
+  result = actual_cols_used(lipsum_214)
+  known_rows = seq(12)
   expect_equal(result,known_rows)
 })
 
