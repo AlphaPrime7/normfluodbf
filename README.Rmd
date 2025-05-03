@@ -15,13 +15,18 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures",
-  out.width = "100%"
+  fig.width = 12,
+  fig.height = 8,
+  out.width = "100%",
+  dev = "CairoPNG", #dev = "CairoPNG",
+  dpi=300
 )
+#rmarkdown::render("README.Rmd", output_format = "github_document")
 ```
 
 ```{css, include=FALSE}
 a {
-  font-size: 20%;
+  font-size: 200px;
 }
 ```
 
@@ -31,6 +36,7 @@ library(gghighlight)
 library(ggimage)
 library(cowplot)
 library(svglite)
+library(rsvg)
 library(dplyr)
 library(ggdark)
 library(ggthemes)
@@ -587,13 +593,29 @@ gg_func_rook <- function(data,
     dark_mode() +
     coord_cartesian(xlim = xlim, ylim = ylim) +
     labs(title = "NavAb Liposome Flux Assay System: NOISY PLOT",
-         subtitle = "Noise emerging from liposome flux assays when the concentration of reagents\n is too high or too low.")
+         subtitle = "Noise emerging from liposome flux assays when the concentration of reagents\n is too high or too low.",
+         y="Fluorescence",
+         x="Cycles",
+         caption = "Source: Normfluodbf 2.0.0\n\nAuthor: Tingwei Adeck") + 
+  theme(
+    legend.text = element_text(size = 34, family = "sans"),
+    legend.title = element_text(size =38, face = "bold", family = "sans"),
+    axis.title.y = element_text(family = "sans", size = 36, margin = margin(l=0)),
+    axis.title.x = element_text(family = "sans", size = 36, margin = margin(l=0)),
+    plot.caption = element_text(size = 38, family = "sans", hjust = 1, face = "italic", margin = margin(t=5), lineheight = 0.3),
+    axis.text = element_text(family = "sans",size = 36),
+    plot.subtitle = element_text(family = "sans",size = 40, lineheight = 0.3),
+    plot.title = element_text(family = "sans",
+                              size=50,
+                              face = "bold",
+                              margin(t = 15, r = 0, b = 1, l = 0))
+  ) 
   p1
 }
 ```
 
 
-```{r qc demo, warning=FALSE, message=FALSE, comment=FALSE, echo=FALSE, fig.path = "man/figures/"}
+```{r qc demo, warning=FALSE, message=FALSE, comment=FALSE, echo=FALSE, fig.path = "man/figures/", fig.width=12, fig.height=8}
 #initial image presentation = <img src="man/figures/noise20.png" align="center" width="400"/>
 #<img src="man/figures/noise.png" align="center" width="400"/>
 # invisible(capture.output(
@@ -623,20 +645,21 @@ print(noiseplot)
     were done with base R and the images represent the results obtained
     when experiments are conducted within the signal region.
     
-```{r visualization demo, warning=FALSE, message=FALSE, comment=FALSE, include=TRUE, echo=TRUE, fig.path = "man/figures/"}
+```{r visualization demo, warning=FALSE, message=FALSE, comment=FALSE, echo=FALSE, fig.path = "man/figures/", fig.width=12, fig.height=8}
 #initial image presentation = <img src="man/figures/tnp3.png" align="center" width="400"/>
 #<img src="man/figures/nfd_plot.png" align="center" width="400"/>
 #invisible(capture.output(
 #normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30)
 #))
+#dpi= 300
 library(normfluodbf)
 dat1 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
-# zz <- file(tempfile(), open = "wt")
-# sink(zz)
-# sink(zz, type = "message")
+zz <- file(tempfile(), open = "wt")
+sink(zz)
+sink(zz, type = "message")
 normalized_dat <- normfluodbf::normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30, normfluodbf.verbose = FALSE)
-# sink()
-# sink(type = "message")
+sink(type = "message")
+#sink()
 
 #set the data up
 plot_samples <- c("A1", "B1", "C1")
@@ -677,8 +700,8 @@ plot <- normalized_fluo_long %>%
   labs(
     x = 'Cycles',
     y = 'Fluorescence (RFU)',
-    title = "Fluorescence Measurements",
-    subtitle = "Liposome Flux Assays (LFAs) are a scientific tool for high throughput drug screening.\nLFAs are used to understand how potential drug therapies affect membrane channels \nthat have been inserted into liposomes. The experiments in normfluodbf focus on the\n interplay between K+ flux vs H+ flux in order to understand how the NavAb channel\n (Bacterial Voltage-gated Sodium Channel) functions. Because the experiments here\n simply validate the assay, the results here signal functionality of the NavAb channel.",
+    title = "Liposome Flux Assays in the NavAb Context",
+    subtitle = "Liposome Flux Assays (LFAs) are a scientific tool for high throughput drug screening. LFAs are used to \nunderstand how potential drug therapies affect membrane channels that have been inserted into \n liposomes. The experiments in normfluodbf focus on the interplay between K+ flux vs H+ flux in order to\n understand how the NavAb channel (Bacterial Voltage-gated Sodium Channel) functions. Because\n the experiments here simply validate the assay, the results here signal functionality of the \nNavAb channel.",
     caption = "Source: Normfluodbf 2.0.0\n\nAuthor: Tingwei Adeck"
   ) +
   scale_y_continuous(
@@ -708,19 +731,26 @@ plot <- normalized_fluo_long %>%
   annotate(
     'text',
     x = pause_time,
-    y = 1.33, #1.2 with grob
-    size = 6,
-    label = "CCCP or\n Valinomycin",
-    color = "red",
+    y = 1.7, #1.2 with grob
+    size = 12,
+    label = "CCCP or Valinomycin",
+    color = "blue",
     hjust = 0.5
   ) + 
-  coord_cartesian(ylim = c(0,1.5),
+  geom_image(
+    aes(image = "man/figures/lipsum.png",
+        x = 8,
+        y = 1.25),
+    inherit.aes = FALSE,
+    size = 0.4
+  ) +
+  coord_cartesian(ylim = c(0,1.8),
                   xlim = c(0, 50 ) ) + 
   annotate(
     'text',
     x = 45,
     y = c(0.01351, 0.05643, 0.09421),
-    size = 3.5,
+    size = 8.5,
     label = c("Test","Negative","Positive"),
     color = c(a1_hex, b1_hex, c1_hex),
     fontface = 'bold',
@@ -736,27 +766,38 @@ plot <- normalized_fluo_long %>%
     'text',
     x = 48,
     y = 0.15,
-    size = 2.5,
+    size = 9.5,
     label = "Other Samples",
   ) + 
   theme(
     legend.position = 'bottom',
-    axis.title.y = element_text(family = "sans",margin = margin(t = 0, r = 30, b = 0, l = 0)),
+    legend.text = element_text(size = 34, family = "sans"),
+    legend.title = element_text(size =38, face = "bold", family = "sans"),
+    axis.title.y = element_text(family = "sans", size = 36, margin = margin(l=10)),
     axis.title.x = element_blank(),
-    axis.text = element_text(family = "sans",size = 8),
-    plot.subtitle = element_text(family = "sans",size = 10),
+    plot.caption = element_text(size = 38, family = "sans", hjust = 1, face = "italic", margin = margin(t=5), lineheight = 0.3),
+    axis.text = element_text(family = "sans",size = 36),
+    plot.subtitle = element_text(family = "sans",size = 40, lineheight = 0.3),
     plot.title = element_text(family = "sans",
-                              size=18,
+                              size=50,
                               face = "bold",
-                              margin(t = 0, r = 0, b = 5, l = 0))
-  )
-img <- png::readPNG("man/figures/lipsum.png")
-grob <- grid::rasterGrob(img, interpolate=TRUE)
-plot <- plot + annotation_custom(grob, xmin=5.5, xmax=10.5, ymin=0.75, ymax=1.3)
+                              margin(t = 15, r = 0, b = 1, l = 0))
+  ) 
+# img <- png::readPNG("man/figures/lipsum.png")
+# grob <- grid::rasterGrob(img, interpolate=TRUE)
+# plot <- plot + annotation_custom(grob, xmin=5.5, xmax=10.5, ymin=0.75, ymax=1.3)
 
 # invisible(capture.output(dev.off())) 
-#rmarkdown::render("README.Rmd", output_format = "github_document")
 print(plot)
+
+#failed
+# img <- rsvg::rsvg_png("man/figures/lipsum.svg")
+# img_raster <- png::readPNG(img)
+# grob <- grid::rasterGrob(img_raster, interpolate=TRUE)
+
+#failed technique
+# svg_img <- grid::grid.raster(png::readPNG("man/figures/lipsum.png"))
+# plot <- plot + patchwork::inset_element(svg_img, left=5.5, bottom=0.75, right=10.5, top=1.3)
 ```
 
 
