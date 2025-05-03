@@ -24,9 +24,12 @@ plate_data = function(file, tnp = NULL, cycles = NULL, rows_used = NULL,...){
     colnames(df) <- new_names
     class(df) = c("normfluodbf_dbf", class(df))
     df
-  }  else {
-    if (is.null(tnp) || is.null(cycles))
-      rlang::abort(sprintf('DAT:The params %s and %s must be provided and for making plates it is advised to provide %s', 'tnp', 'cycles', 'rows_used'));
+  }
+  else {
+    if (is.null(tnp) || is.null(cycles) || is.null(rows_used))
+    rlang::warn(sprintf('DAT:The params %s, %s and %s can be provided but we have robust algos for obtaining these values',
+                        'tnp', 'cycles', 'rows_used' )
+                );
     df = suppressMessages({normfluodat(file, tnp, cycles, rows_used, ...) })
     class(df) = c("normfluodbf_dat", class(df))
     df
