@@ -95,18 +95,19 @@ setup_plate = function(plate, ...){
 #' @export
 reset_plate = function(plate){
 
-  if (is_plate_dirty(plate)){
+  if (isTRUE(is_plate_dirty(plate))){
     usr_choice = utils::menu(c("yes",
                   "no",
                   "hello world"),
                   title = "Hey Yoda, are you sure you want to reset the plate? (Save the plate before resetting!)")
-    if (usr_choice == 2 || usr_choice == 3) {
-      plate
-    }
-    else {
+    print(usr_choice)
+    if (usr_choice == 1) {
       plate = NULL
       plate = init_plate(plate)
       plate = setup_plate(plate)
+      plate
+    }
+    else {
       plate
     }
   }
