@@ -34,6 +34,7 @@ library(svglite)
 library(dplyr)
 library(ggdark)
 library(ggthemes)
+library(showtext)
 ```
 
 # Normfluodbf 2.0.0
@@ -586,7 +587,7 @@ gg_func_rook <- function(data,
     dark_mode() +
     coord_cartesian(xlim = xlim, ylim = ylim) +
     labs(title = "NavAb Liposome Flux Assay System: NOISY PLOT",
-         subtitle = "Noise emerging from liposome flux assayswhen the concentration of reagents\n is too high or too low.")
+         subtitle = "Noise emerging from liposome flux assays when the concentration of reagents\n is too high or too low.")
   p1
 }
 ```
@@ -638,6 +639,7 @@ zz <- file(tempfile(), open = "wt")
 sink(zz)
 sink(zz, type = "message")
 normalized_dat <- normfluodbf::normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30, normfluodbf.verbose = FALSE)
+sink()
 sink(type = "message")
 
 #set the data up
@@ -659,7 +661,8 @@ normalized_fluo_long <- normalized_fluo_long %>%
                           "C1" = "Positive"))
 
 #setup fonts
-sysfonts::font_add_google(name = "Alegreya Sans", family = "aleg")
+#systemfonts::system_fonts()
+sysfonts::font_add(family = "FreeSerif", regular = "/usr/share/fonts/truetype/freefont/FreeSerifBoldItalic.ttf")
 showtext::showtext_auto()
 
 #PLOT stuff
@@ -742,11 +745,12 @@ plot <- normalized_fluo_long %>%
   ) + 
   theme(
     legend.position = 'bottom',
-    axis.title.y = element_text(margin = margin(t = 0, r = 30, b = 0, l = 0)),
+    axis.title.y = element_text(family = "DejaVu Sans",margin = margin(t = 0, r = 30, b = 0, l = 0)),
     axis.title.x = element_blank(),
-    axis.text = element_text(size = 8),
-    plot.subtitle = element_text(size = 10),
-    plot.title = element_text(size=18,
+    axis.text = element_text(family = "DejaVu Sans",size = 8),
+    plot.subtitle = element_text(family = "DejaVu Sans",size = 10),
+    plot.title = element_text(family = "DejaVu Sans",
+                              size=18,
                               face = "bold",
                               margin(t = 0, r = 0, b = 5, l = 0))
   )

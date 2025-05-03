@@ -580,6 +580,7 @@ zz <- file(tempfile(), open = "wt")
 sink(zz)
 sink(zz, type = "message")
 normalized_dat <- normfluodbf::normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30, normfluodbf.verbose = FALSE)
+sink()
 sink(type = "message")
 
 #set the data up
@@ -600,8 +601,9 @@ normalized_fluo_long <- normalized_fluo_long %>%
                           "B1" = "Negative",
                           "C1" = "Positive"))
 
-#setup fonts
-sysfonts::font_add_google(name = "Alegreya Sans", family = "aleg")
+# #setup fonts
+#systemfonts::system_fonts()
+sysfonts::font_add(family = "FreeSerif", regular = "/usr/share/fonts/truetype/freefont/FreeSerifBoldItalic.ttf")  # adjust path
 showtext::showtext_auto()
 
 #PLOT stuff
@@ -688,7 +690,8 @@ plot <- normalized_fluo_long %>%
     axis.title.x = element_blank(),
     axis.text = element_text(size = 8),
     plot.subtitle = element_text(size = 10),
-    plot.title = element_text(size=18,
+    plot.title = element_text(
+                              size=18,
                               face = "bold",
                               margin(t = 0, r = 0, b = 5, l = 0))
   )
