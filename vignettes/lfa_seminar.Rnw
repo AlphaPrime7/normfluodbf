@@ -1,0 +1,7 @@
+\documentclass{article}
+\usepackage{pdfpages}
+%\VignetteIndexEntry{LFA Seminar}
+
+\begin{document}
+\includepdf[pages=-, fitpaper=true]{LFA_Seminar.pdf}
+\end{document}

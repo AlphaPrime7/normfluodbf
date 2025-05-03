@@ -1,53 +1,89 @@
-Tingwei Adeck September 27, 2024
+Tingwei Adeck
+May 03, 2025
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Normfluodbf
+# Normfluodbf 2.0.0
 
-[![license](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/license/MIT) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf/graphs/commit-activity) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf/pulls) [![Codecov](https://img.shields.io/badge/Codecov-F01F7A?style=for-the-badge&logo=Codecov&logoColor=white)](https://app.codecov.io/gh/AlphaPrime7/normfluodbf?branch=main) [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-orange.svg?style=for-the-badge)](https://lifecycle.r-lib.org/articles/stages.html) [![Demandez moi n’importe quoi!](https://img.shields.io/badge/Demandez%20moi-n'%20importe%20quoi-1abc9c.svg?style=for-the-badge)](mailto:awesome.tingwei@outlook.com) [![saythanks](https://img.shields.io/badge/say-thanks-fff000.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf) [![Orcid](https://img.shields.io/badge/orcid-A6CE39?style=for-the-badge&logo=orcid&logoColor=white)](https://orcid.org/0009-0009-7450-8863) [![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tingwei-adeck)
-
+[![license](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/license/MIT)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf/graphs/commit-activity)
+[![PRs
+Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf/pulls)
+[![Codecov](https://img.shields.io/badge/Codecov-F01F7A?style=for-the-badge&logo=Codecov&logoColor=white)](https://app.codecov.io/gh/AlphaPrime7/normfluodbf?branch=main)
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-orange.svg?style=for-the-badge)](https://lifecycle.r-lib.org/articles/stages.html)
+[![Demandez moi n’importe
+quoi!](https://img.shields.io/badge/Demandez%20moi-n'%20importe%20quoi-1abc9c.svg?style=for-the-badge)](mailto:awesome.tingwei@outlook.com)
+[![saythanks](https://img.shields.io/badge/say-thanks-fff000.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf)
+[![Orcid](https://img.shields.io/badge/orcid-A6CE39?style=for-the-badge&logo=orcid&logoColor=white)](https://orcid.org/0009-0009-7450-8863)
+[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tingwei-adeck)
 
 <a href="https://buymeacoffee.com/tingweiadeck"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a Pizza&amp;emoji=🍕&amp;slug=tingweiadeck&amp;button_colour=FFA500&amp;font_colour=000000&amp;font_family=Cookie&amp;outline_colour=000000&amp;coffee_colour=ffffff" width="100" height="50"/></a>
 
-<!-- TABLE OF CONTENTS -->
-<details closed="closed">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
-  <ol>
-    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#-%EF%B8%8F-quick-start">Quick start</a></li>
-    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#-updates">Updates</a></li>
-    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#%EF%B8%8F-introduction">Introduction</a></li>
-    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#-installation">Installation</a></li>
-    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#%EF%B8%8F-use-scenarios">Use Scenarios</a></li>
-    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#-meme">Meme</a></li>
-    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#--contributors">Contributors</a></li>
-    <li><a href="https://github.com/AlphaPrime7/normfluodbf/blob/main/README.md#-references">References</a></li>
-  </ol>
-</details>
-
-
 # ⏩ 📽️ Quick start
 
-For quick starters, please visit the [`{video tutorial}`](https://alphaprime7.github.io/normfluodbf/video.html) for an illustration on how to effectively use the package. The video tutorial only covers DAT files based on the assumption that MOST users will be interested in using the package for DAT files.
+For quick starters, please visit the
+[`{video tutorial}`](https://alphaprime7.github.io/normfluodbf/video.html)
+for an illustration on how to effectively use the package. The video
+tutorial only covers DAT files based on the assumption that MOST users
+will be interested in using the package for DAT files.
 
-# 🆕 Updates
+## 🆕 Updates
 
-Based on work by [Dean Attali](https://github.com/daattali), I have added functionalities for a plate like setup that ensures that R users have a better experience dealing with Liposome flux assay data sets. Adding the plate system ensures that R users can get plots similar to that seen on the Microplate reader. I can go on forever on the advantages of adding the plate system but R users will have to use it and find out the benefits for themselves.
+Based on work by [Dean Attali](https://github.com/daattali), I have
+added functionalities for a plate like setup that ensures that R users
+have a better experience dealing with Liposome flux assay data sets.
+Adding the plate system ensures that R users can get plots similar to
+that seen on the Microplate reader. I can go on forever on the
+advantages of adding the plate system but R users will have to use it
+and find out the benefits for themselves.
 
-[Dean Attali’s](https://github.com/daattali) [ddpcr](https://github.com/daattali/ddpcr/tree/master) provides an excellent implementation of the plate system but in the context of Digital Droplet Polymerase Chain Reactions (Ddpcr); I extend Dean’s work into Normfluodbf in the context of Liposome Flux Assays. I include advanced plotting functions in this update to ensure that scientists can perform science and let worries of data analysis to Normfluodbf. I hope that has been achieved in this update and hope to be even better in subsequent updates.
+[Dean Attali’s](https://github.com/daattali)
+[ddpcr](https://github.com/daattali/ddpcr/tree/master) provides an
+excellent implementation of the plate system but in the context of
+Digital Droplet Polymerase Chain Reactions (Ddpcr); I extend Dean’s work
+into Normfluodbf in the context of Liposome Flux Assays. I include
+advanced plotting functions in this update to ensure that scientists can
+perform science and let worries of data analysis to Normfluodbf. I hope
+that has been achieved in this update and hope to be even better in
+subsequent updates.
 
-In regards to plate systems, future updates might involve a change to the plate system in this package in order to achieve a more universal plate system that can be used to make plates that work with Dean’s [ddpcr](https://github.com/daattali/ddpcr/tree/master) experiments and other experiments that utilize plates. Visit the [updates](https://github.com/AlphaPrime7/normfluodbf/tree/main#-updates-1) sub-section for an illustration on using the plate system.
+In regards to plate systems, future updates might involve a change to
+the plate system in this package in order to achieve a more universal
+plate system that can be used to make plates that work with Dean’s
+[ddpcr](https://github.com/daattali/ddpcr/tree/master) experiments and
+other experiments that utilize plates.
 
-Caveat: The shiny app that was initially developed will be added to this package post-publication of the update. Due to unforeseen circumstances and because I have been working on real work, there has not been enough time to add the simple non-styled app that was developed for this package in my rookie days. Shiny app functions will not yield a useful shiny App. COMING SOON…
+Caveat: The shiny app that was initially developed will be added to this
+package post-publication of the update. Due to unforeseen circumstances
+and because I have been working on real work, there has not been enough
+time to add the simple non-styled app that was developed for this
+package in my rookie days. Shiny app functions will not yield a useful
+shiny App. COMING SOON…
 
 # ✍️ Introduction
 
-[`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) is used to clean and normalize DBF and DAT files obtained from liposome flux assay (LFA) experiments performed with the FLUOstar microplate reader. The expectation is this package is not limited to this assay type but other assay types performed with the same instrument. The final data frames obtained from this package are ready for insightful data analysis and for the creation of amazing visuals (using ggplot2) that help in making scientific deductions or making presentations to project stakeholders. This project firmly represents my core belief in the public dissemination of scientific information. My convictions on this idea of public dissemination were driven by the book “What Mad Pursuit” by Francis Crick. Visit [`{my page}`](https://alphaprime7.github.io/normfluodbf/articles/normfluodbf.html) for details on the concept behind the project.
+[`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) is used to
+clean and normalize DBF and DAT files obtained from liposome flux assay
+(LFA) experiments performed with the FLUOstar microplate reader. The
+expectation is this package is not limited to this assay type but other
+assay types performed with the same instrument. The final data frames
+obtained from this package are ready for insightful data analysis and
+for the creation of amazing visuals (using ggplot2) that help in making
+scientific deductions or making presentations to project stakeholders.
+This project firmly represents my core belief in the public
+dissemination of scientific information. My convictions on this idea of
+public dissemination were driven by the book “What Mad Pursuit” by
+Francis Crick. Visit
+[`{my page}`](https://alphaprime7.github.io/normfluodbf/articles/normfluodbf.html)
+for details on the concept behind the project.
 
 # ⏬ Installation
 
 ## Developmental Version
 
-The development version of [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) can be installed as illustrated below:
+The development version of
+[`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) can be
+installed as illustrated below:
 
 ``` r
 devtools::install_github("AlphaPrime7/normfluodbf")
@@ -63,7 +99,9 @@ remotes::install_github("AlphaPrime7/normfluodbf")
 
 ## CRAN Version
 
-The CRAN version of [`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) can be installed as illustrated below:
+The CRAN version of
+[`{normfluodbf}`](https://github.com/AlphaPrime7/normfluodbf) can be
+installed as illustrated below:
 
 ``` r
 install.packages("normfluodbf")
@@ -72,8 +110,11 @@ library(normfluodbf)
 
 ## Local Installation
 
--   Visit the [`{normfluodbf_builds}`](https://github.com/AlphaPrime7/normfluodbf_builds) to download the zip files into your desired directory.
--   This repository will be updated with the latest accepted CRAN version when possible.
+- Visit the
+  [`{normfluodbf_builds}`](https://github.com/AlphaPrime7/normfluodbf_builds)
+  to download the zip files into your desired directory.
+- This repository will be updated with the latest accepted CRAN version
+  when possible.
 
 ``` r
 install.packages("normfluodbf_1.5.2.tar.gz", repos = NULL, type = "source")
@@ -93,12 +134,12 @@ remotes::install_local("normfluodbf_1.5.2.tar.gz")
 
 ## 🧭 DBF Files Case-Study <img src="man/figures/dbf.png" align="right" width="40"/>
 
--   Here examples are presented on how this package handles DBF files.
+- Here examples are presented on how this package handles DBF files.
 
 ### Backward Compatible Function
 
--   This methodology is grandfathered for initial adopters of normfluodbf.
--   Package illustration with DBF files:
+- This methodology is grandfathered for initial adopters of normfluodbf.
+- Package illustration with DBF files:
 
 ``` r
 #library(normfluodbf)
@@ -108,7 +149,8 @@ normalized_data <- norm_tidy_dbf(liposomes_214, norm_scale = 'hundred')
 
 ### New Function
 
--   This next methodology provides easier syntax and I prefer this function name over the function name above.
+- This next methodology provides easier syntax and I prefer this
+  function name over the function name above.
 
 ``` r
 library(normfluodbf)
@@ -119,7 +161,8 @@ normalized_data <- normfluordbf(liposomes_214)
 
 ### Advanced Features Illustration
 
--   The next section elaborates on the new features added for handling DBF files.
+- The next section elaborates on the new features added for handling DBF
+  files.
 
 ### DBF Normalization Procedures
 
@@ -149,9 +192,12 @@ normalized_datazt <- normfluordbf(liposomes_214, norm_scale = 'z-score', transfo
 
 ### Advanced Function
 
--   This methodology was provided as a minor update in normfluodbf 1.5.2.
--   This update was significantly bigger than expected and should have been a major update but by definition when backward compatibility is maintained with the previous version, it should be considered a minor update.
--   These three parameters are a MUST for this function to work.
+- This methodology was provided as a minor update in normfluodbf 1.5.2.
+- This update was significantly bigger than expected and should have
+  been a major update but by definition when backward compatibility is
+  maintained with the previous version, it should be considered a minor
+  update.
+- These three parameters are a MUST for this function to work.
 
 ``` r
 library(normfluodbf)
@@ -161,7 +207,8 @@ normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B'
 
 ### Base Function
 
--   This next methodology is the base version of the function above. This methodology has less features than the function above.
+- This next methodology is the base version of the function above. This
+  methodology has less features than the function above.
 
 ``` r
 library(normfluodbf)
@@ -169,18 +216,22 @@ dat2 <- system.file("extdata", "dat_2.dat", package = "normfluodbf")
 normalized_data <- normfluordat(dat2, tnp = 3, cycles = 40, rows_used = c('A','B','C'))
 ```
 
--   Please note that the examples above indicate the simplest scenarios as these functions have more features than presented in here.
+- Please note that the examples above indicate the simplest scenarios as
+  these functions have more features than presented in here.
 
 ### DAT Advanced Procedures
 
--   The next sections elaborate on the built-in features for handling DAT files.
+- The next sections elaborate on the built-in features for handling DAT
+  files.
 
 #### Using The rows_used parameter
 
--   This parameter is used alone and the user need not worry about providing the columns used.
--   The default read direction is vertical.
--   The program has a robust algorithm or recipe for determining attribute names based on the rows used.
--   Users are strongly encouraged to provide the rows_used parameter.
+- This parameter is used alone and the user need not worry about
+  providing the columns used.
+- The default read direction is vertical.
+- The program has a robust algorithm or recipe for determining attribute
+  names based on the rows used.
+- Users are strongly encouraged to provide the rows_used parameter.
 
 ``` r
 library(normfluodbf)
@@ -194,7 +245,8 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n)
 normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, interval = 30)
 ```
 
--   Pay attention to the illustrations below. The setup below represents a standard experimental setup.
+- Pay attention to the illustrations below. The setup below represents a
+  standard experimental setup.
 
 | Sample_Type (TNP) | 96  | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 10  | 11  | 12  |
 |:------------------|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
@@ -207,7 +259,8 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, interval = 30)
 |                   | G   |     |     |     |     |     |     |     |     |     |     |     |     |
 |                   | H   |     |     |     |     |     |     |     |     |     |     |     |     |
 
--   The default or vertical read direction means the final data frame is presented in the format below.
+- The default or vertical read direction means the final data frame is
+  presented in the format below.
 
 | A1 (Test) | B1 (Negative) | C1 (Positive) | Cycle_No |
 |:----------|:--------------|:--------------|:---------|
@@ -223,10 +276,15 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, interval = 30)
 
 #### Using The rows_used and cols_used parameter
 
--   The cols_used parameter is only used if the user suspects some inconsistencies in their experimental procedure. Otherwise, the user should let the program determine the columns used.
--   The cols_used parameter is especially relevant when the user loads samples in an unorthodox way.
--   The default read direction is vertical as indicated earlier.
--   Users are advised NOT to supply the cols_used because the program has a robust algorithm for determining the cols_used. The users’ input will override the inbuilt algorithm for determining columns used.
+- The cols_used parameter is only used if the user suspects some
+  inconsistencies in their experimental procedure. Otherwise, the user
+  should let the program determine the columns used.
+- The cols_used parameter is especially relevant when the user loads
+  samples in an unorthodox way.
+- The default read direction is vertical as indicated earlier.
+- Users are advised NOT to supply the cols_used because the program has
+  a robust algorithm for determining the cols_used. The users’ input
+  will override the inbuilt algorithm for determining columns used.
 
 ``` r
 library(normfluodbf)
@@ -244,8 +302,14 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, rows_used=n, cols_use
 
 #### Using The user_specific_labels parameter
 
--   If the user provides the user_specific_labels parameter then they CANNOT use the rows_used and cols_used parameter together OR the rows_used parameter alone. It is a trade-off where the user either lets the program generate column names for them or the user decides to take CONTROL and do it themselves.
--   This user_specific_labels parameter is a proactive move from the user if the user had a complicated experimental setup that can lead to wrong attribute names.
+- If the user provides the user_specific_labels parameter then they
+  CANNOT use the rows_used and cols_used parameter together OR the
+  rows_used parameter alone. It is a trade-off where the user either
+  lets the program generate column names for them or the user decides to
+  take CONTROL and do it themselves.
+- This user_specific_labels parameter is a proactive move from the user
+  if the user had a complicated experimental setup that can lead to
+  wrong attribute names.
 
 ``` r
 library(normfluodbf)
@@ -254,9 +318,17 @@ manual_cols <- c('A1','B1','C1')
 normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, user_specific_labels = manual_cols)
 ```
 
--   Hypothetically, if the user uses the rows and columns indicated in the examples in [Using The rows_used and cols_used parameter](#Using%20The%20rows_used%20and%20cols_used%20parameter) but skips some wells, then the user can simply go ahead and use the user_specific_labels to add the correct column names for the final data frame.
+- Hypothetically, if the user uses the rows and columns indicated in the
+  examples in [Using The rows_used and cols_used
+  parameter](#Using%20The%20rows_used%20and%20cols_used%20parameter) but
+  skips some wells, then the user can simply go ahead and use the
+  user_specific_labels to add the correct column names for the final
+  data frame.
 
--   However, if the scenario above occurs where the user indicates 9 wells should be used but the program detects fewer than 9 samples, then the program will inform the user and ask the user to choose from a list of column names. Illustration below:
+- However, if the scenario above occurs where the user indicates 9 wells
+  should be used but the program detects fewer than 9 samples, then the
+  program will inform the user and ask the user to choose from a list of
+  column names. Illustration below:
 
 | Sample_Type (TNP) | 96  | 1   | 2   | 3   | 4   | 5   | 6   | 7   | 8   | 9   | 10  | 11  | 12  |
 |:------------------|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|:----|
@@ -269,8 +341,12 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, user_specific_labels 
 
 #### 🧙‍♂️️ Using The read_direction parameter
 
--   As indicated in all the previous examples, the default read direction is vertical and I have provided illustrations in the form of tables that shows the expected outcome.
--   The read_direction can be indicated explicitly as vertical or left as NULL but must be indicated explicitly as horizontal to obtain a different outcome.
+- As indicated in all the previous examples, the default read direction
+  is vertical and I have provided illustrations in the form of tables
+  that shows the expected outcome.
+- The read_direction can be indicated explicitly as vertical or left as
+  NULL but must be indicated explicitly as horizontal to obtain a
+  different outcome.
 
 ``` r
 library(normfluodbf)
@@ -290,7 +366,8 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction = '
 |                   | G   |     |     |     |     |     |     |     |     |     |     |     |     |
 |                   | H   |     |     |     |     |     |     |     |     |     |     |     |     |
 
--   The horizontal read direction means the final data frame is presented in the format below.
+- The horizontal read direction means the final data frame is presented
+  in the format below.
 
 | A1 (Test) | A2 (Test) | A3 (Test) | Cycle_No |
 |:----------|:----------|:----------|:---------|
@@ -306,8 +383,10 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction = '
 
 #### Using The norm_scale parameter
 
--   Just like the DBF procedure, I have provided a few options for normalization scales.
--   My favorite is the z-score scale as it provides more clarity in thinking about the results.
+- Just like the DBF procedure, I have provided a few options for
+  normalization scales.
+- My favorite is the z-score scale as it provides more clarity in
+  thinking about the results.
 
 ``` r
 library(normfluodbf)
@@ -318,10 +397,10 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction = '
 
 ## The Non-standard Experimental Setup
 
--   Below is a look at the non-standard experimental setup.
+- Below is a look at the non-standard experimental setup.
 
 | Sample_Type | 96  | Test | Negative | Positive | 4   | 5   | 6   | 7   | 8   | 9   | 10  | 11  | 12  |
-|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|:-----|
+|:------------|:----|:-----|:---------|:---------|:----|:----|:----|:----|:----|:----|:----|:----|:----|
 |             | A   | X1   | X2       | X3       | X4  | X5  | X6  | X7  | X8  | X9  | X10 | X11 | X12 |
 |             | B   | X13  | X14      | X15      | X16 | X17 | X18 | X19 | X20 | X21 | X22 | X23 | X24 |
 |             | C   | X25  | X26      | X27      | X28 | X29 | X30 | X31 | X32 | X33 | X34 | X35 | X36 |
@@ -331,7 +410,7 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction = '
 |             | G   |      |          |          |     |     |     |     |     |     |     |     |     |
 |             | H   |      |          |          |     |     |     |     |     |     |     |     |     |
 
--   Below we take a look at what the machine sees.
+- Below we take a look at what the machine sees.
 
 | Sample_Type | Cycle_No | Machine_data_verbose | machine_data_numeric |
 |:------------|:---------|:---------------------|:---------------------|
@@ -345,8 +424,12 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction = '
 | Test-2      | 40       | B1                   | …119                 |
 | Test-3      | 40       | C1                   | …120                 |
 
--   A keen observation below is that the vertical read direction in the program or package yields a final data frame that conceptually looks like the horizontal read direction with the test samples clustered as in the illustration below.
--   Using the non-standard setup simply affects attribute naming conventions otherwise everything should be fine.
+- A keen observation below is that the vertical read direction in the
+  program or package yields a final data frame that conceptually looks
+  like the horizontal read direction with the test samples clustered as
+  in the illustration below.
+- Using the non-standard setup simply affects attribute naming
+  conventions otherwise everything should be fine.
 
 | A1 (Test-1) | B1 (Test-2) | C1 (Test-3) | Cycle_No |
 |:------------|:------------|:------------|:---------|
@@ -360,13 +443,18 @@ normalized_data <- normfluodat(dat2, tnp = 3, cycles = 40, n, read_direction = '
 | A1          | B1          | C1          | …39      |
 | A1          | B1          | C1          | …40      |
 
--   Above is just a quick illustration of the non-standard setup. This setup does not change anything about the algorithms but simply showcases how naming conventions will reverse if the experimenter deviates from the commonly used path.
+- Above is just a quick illustration of the non-standard setup. This
+  setup does not change anything about the algorithms but simply
+  showcases how naming conventions will reverse if the experimenter
+  deviates from the commonly used path.
 
 ## 🥠 Fail Safe DAT Procedure
 
--   As indicated earlier, the code chunk below is the simplest use case for this function.
--   AHOI, the user gets a data frame with the samples perfectly separated and WITH attribute names.
--   Very important to mention this point twice.
+- As indicated earlier, the code chunk below is the simplest use case
+  for this function.
+- AHOI, the user gets a data frame with the samples perfectly separated
+  and WITH attribute names.
+- Very important to mention this point twice.
 
 ``` r
 library(normfluodbf)
@@ -406,86 +494,300 @@ plate <- plate %>%
 
 ## 🛂 Quality Control (QC)
 
--   Experimental issues should be investigated at very high or very low fluorescence values.
+- Experimental issues should be investigated at very high or very low
+  fluorescence values.
 
--   The most common experimental issues arise when ACMA concentrations are out of the tolerated range. Based on my experience, ACMA concentrations between 2 and 5 Micromolar will suffice to get fluorescence values within the tolerance threshold.
+- The most common experimental issues arise when ACMA concentrations are
+  out of the tolerated range. Based on my experience, ACMA
+  concentrations between 2 and 5 Micromolar will suffice to get
+  fluorescence values within the tolerance threshold.
 
--   ACMA concentrations as low as 0.2 Micromolar or as high as 20 Micromolar have proven problematic based on my research experience. These ACMA concentrations have proven NOISY and provide the basis for determining the noise-signal regions.
+- ACMA concentrations as low as 0.2 Micromolar or as high as 20
+  Micromolar have proven problematic based on my research experience.
+  These ACMA concentrations have proven NOISY and provide the basis for
+  determining the noise-signal regions.
 
--   Another issue linked to the FLUOstar instrument revolves around setting the right “gain” to ensure the right level of sensitivity in machine readings. A very high “gain” setting results in increased machine sensitivity even at the right ACMA concentrations and vice versa. In short, we want the machine to be primed to read exactly what we feed it, no more, no less.
+- Another issue linked to the FLUOstar instrument revolves around
+  setting the right “gain” to ensure the right level of sensitivity in
+  machine readings. A very high “gain” setting results in increased
+  machine sensitivity even at the right ACMA concentrations and vice
+  versa. In short, we want the machine to be primed to read exactly what
+  we feed it, no more, no less.
 
--   This program boasts of a quality control function to help new researchers avoid pitfalls that can mar their experience performing experiments.
+- This program boasts of a quality control function to help new
+  researchers avoid pitfalls that can mar their experience performing
+  experiments.
 
--   Within this package, a QC function is designed to check that fluorescence values do not exceed the upper limit (2\^15 or 32768) OR fall below the lower limit (2\^11 or 2048). Fluorescence values that exceed these thresholds are considered noisy and can lead to incorrect interpretation of analysis results.
+- Within this package, a QC function is designed to check that
+  fluorescence values do not exceed the upper limit (2^15 or 32768) OR
+  fall below the lower limit (2^11 or 2048). Fluorescence values that
+  exceed these thresholds are considered noisy and can lead to incorrect
+  interpretation of analysis results.
 
--   The images presented below represent results obtained when experiments are conducted within the noise region. The X-axis is actually “Cycle_No” but seemed to have been mislabeled due to the tedious nature of my previous coding approach.
+- The images presented below represent results obtained when experiments
+  are conducted within the noise region. The X-axis is actually
+  “Cycle_No” but seemed to have been mislabeled due to the tedious
+  nature of my previous coding approach.
 
-<img src="man/figures/noise20.png" align="center" width="400"/>
+``` r
+#initial image presentation = <img src="man/figures/noise20.png" align="center" width="400"/>
+#<img src="man/figures/noise.png" align="center" width="400"/>
+# invisible(capture.output(
+#   normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30)
+# ))
+library(normfluodbf)
+dbf1 <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf")
+normalized_dbf <- normfluodbf::normfluodbf(dbf1, norm_scale = 'min-max')
+
+#define args
+test <- c("A01", "A02", "A03")
+xvar <- c("Cycle_Number")
+xl <- c(0,40)
+yl <- c(0,1)
+
+noiseplot <- gg_func_rook(normalized_dbf, xvar, test, xl, yl)
+print(noiseplot)
+```
+
+<img src="man/figuresqc demo-1.png" width="100%" />
+
+``` r
+# ggsave(
+#   "man/figures/noise.png",
+#   plot = noiseplot 
+# )
+```
 
 ## 💻 Visualization
 
--   This time around, the package has a visualization function that is built on ggplot2.
--   Users can expect to get some amazing visualizations using this function.
--   Here are some visualizations from my seminar on this topic. These were done with base R and the images represent the results obtained when experiments are conducted within the signal region.
+- This time around, the package has a visualization function that is
+  built on ggplot2.
+- Users can expect to get some amazing visualizations using this
+  function.
+- Here are some visualizations from my seminar on this topic. These were
+  done with base R and the images represent the results obtained when
+  experiments are conducted within the signal region.
 
-<img src="man/figures/tnp3.png" align="center" width="400"/>
+``` r
+#initial image presentation = <img src="man/figures/tnp3.png" align="center" width="400"/>
+#<img src="man/figures/nfd_plot.png" align="center" width="400"/>
+# invisible(capture.output(
+#   normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30)
+# ))
+library(normfluodbf)
+dat1 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
+zz <- file(tempfile(), open = "wt")
+sink(zz)
+sink(zz, type = "message")
+normalized_dat <- normfluodbf::normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30, normfluodbf.verbose = FALSE)
+sink(type = "message")
+
+#set the data up
+plot_samples <- c("A1", "B1", "C1")
+plot_samples_labels <- c("Test", "Negative", "Positive")
+
+normalized_fluo_long <- normalized_dat %>%
+  pivot_longer(
+    cols = -Cycle_Number,           
+    names_to = "Sample",            
+    values_to = "Fluorescence"       
+  )
+
+normalized_fluo_long <- normalized_fluo_long %>% 
+  mutate(KEY = if_else(Sample %in% plot_samples, "key", "Non-key"),
+         Sample_Label = recode(Sample,
+                          "A1" = "Test",
+                          "B1" = "Negative",
+                          "C1" = "Positive"))
+
+#setup fonts
+sysfonts::font_add_google(name = "Alegreya Sans", family = "aleg")
+showtext::showtext_auto()
+
+#PLOT stuff
+png("man/figures/nfd_plot.png", width = 10, height = 6, res = 300, units = "in")
+
+a1_hex <- "#231EBB"
+b1_hex <- "#BB1324"
+c1_hex <- "#1CBB31"
+
+pause_time <- 240/30 #paused after 8 minutes with 30 second interval
+
+plot <- normalized_fluo_long %>%
+  ggplot(aes(x=Cycle_Number, y=Fluorescence, color=Sample_Label)) +
+  theme_classic() +
+  geom_line(linewidth=1.25, alpha=0.75) +
+  labs(
+    x = 'Cycles',
+    y = 'Fluorescence (RFU)',
+    title = "Fluorescence Measurements",
+    subtitle = "Liposome Flux Assays (LFAs) are a scientific tool for high throughput drug screening.\nLFAs are used to understand how potential drug therapies affect membrane channels \nthat have been inserted into liposomes. The experiments in normfluodbf focus on the\n interplay between K+ flux vs H+ flux in order to understand how the NavAb channel\n (Bacterial Voltage-gated Sodium Channel) functions. Because the experiments here\n simply validate the assay, the results here signal functionality of the NavAb channel.",
+    caption = "Source: Normfluodbf 2.0.0\n\nAuthor: Tingwei Adeck"
+  ) +
+  scale_y_continuous(
+    labels = scales::dollar_format(prefix="NORM", suffix = "RFU")
+  ) +
+  gghighlight(
+    Sample %in% plot_samples,
+    use_direct_label = F,
+    use_group_by = F,
+    unhighlighted_params = list(color = 'grey90', linewidth = 0.5)
+  ) +
+  scale_color_manual(
+    values = c("Test" = a1_hex,
+               "Negative" = b1_hex,
+               "Positive" = c1_hex)
+  ) + 
+  annotate(
+    'segment',
+    x = pause_time,
+    xend = pause_time,
+    y = 0,
+    yend = 0.89,
+    linetype = 2,
+    linewidth = 0.6,
+    color = 'blue'
+  ) +
+  annotate(
+    'text',
+    x = pause_time,
+    y = 1.33, #1.2 with grob
+    size = 6,
+    label = "CCCP or\n Valinomycin",
+    color = "red",
+    hjust = 0.5
+  ) + 
+  coord_cartesian(ylim = c(0,1.5),
+                  xlim = c(0, 50 ) ) + 
+  annotate(
+    'text',
+    x = 45,
+    y = c(0.01351, 0.05643, 0.09421),
+    size = 3.5,
+    label = c("Test","Negative","Positive"),
+    color = c(a1_hex, b1_hex, c1_hex),
+    fontface = 'bold',
+    hjust = 0.5
+  ) + 
+  annotate("segment", 
+           x = 45,
+           xend = 45,
+           y = 0.1, 
+           yend = 0.2,
+           arrow = arrow(ends = "both", length = unit(.2,"cm"))) +
+  annotate(
+    'text',
+    x = 48,
+    y = 0.15,
+    size = 2.5,
+    label = "Other Samples",
+  ) + 
+  theme(
+    legend.position = 'bottom',
+    axis.title.y = element_text(margin = margin(t = 0, r = 30, b = 0, l = 0)),
+    axis.title.x = element_blank(),
+    axis.text = element_text(size = 8),
+    plot.subtitle = element_text(size = 10),
+    plot.title = element_text(size=18,
+                              face = "bold",
+                              margin(t = 0, r = 0, b = 5, l = 0))
+  )
+img <- png::readPNG("man/figures/lipsum.png")
+grob <- grid::rasterGrob(img, interpolate=TRUE)
+plot <- plot + annotation_custom(grob, xmin=5.5, xmax=10.5, ymin=0.75, ymax=1.3)
+
+invisible(capture.output(dev.off())) 
+print(plot)
+```
+
+<img src="man/figuresvisualization demo-1.png" width="100%" />
 
 ## 🎇 Epilogue
 
--   It was interesting getting this package to maturity.
--   Users are advised to default to the simplest use cases if they find the learning curve (LC) for the package too steep.
--   I am almost certain there is always something to improve but I can say this package is officially complete based on the project scope.
+- It was interesting getting this package to maturity.
+- Users are advised to default to the simplest use cases if they find
+  the learning curve (LC) for the package too steep.
+- I am almost certain there is always something to improve but I can say
+  this package is officially complete based on the project scope.
 
 # 🤦 Meme
 
-<img src="man/figures/success_memery.jpg" width="100%"/>
-
-# 🤝🏿 🎧 Contributors
-
-<a href="https://github.com/AlphaPrime7/normfluodbf/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=Alphaprime7/normfluodbf" width = 50/>
-</a>
+<img src="man/figures/success_memery.jpg" width="100%" />
 
 # 📃 References
 
-(Dowle and Srinivasan 2023) (Wickham, François, et al. 2023) (Yu 2021) (R Core Team 2022) (Wickham, Chang, et al. 2023) (Arnold 2021) (Wickham 2022) (Müller and Wickham 2023) (Wickham, Vaughan, and Girlich 2023)
+(Dowle and Srinivasan 2023) (Wickham, François, et al. 2023) (Yu 2021)
+(R Core Team 2022) (Wickham, Chang, et al. 2023) (Arnold 2021) (Wickham
+2022) (Müller and Wickham 2023) (Wickham, Vaughan, and Girlich 2023)
 
-::: {#refs .references .csl-bib-body .hanging-indent entry-spacing="0"}
-::: {#ref-R-ggthemes .csl-entry}
-Arnold, Jeffrey B. 2021. *Ggthemes: Extra Themes, Scales and Geoms for Ggplot2*. <https://github.com/jrnold/ggthemes>.
-:::
+<div id="refs" class="references csl-bib-body hanging-indent"
+entry-spacing="0">
 
-::: {#ref-R-data.table .csl-entry}
-Dowle, Matt, and Arun Srinivasan. 2023. *Data.table: Extension of ‘Data.frame‘*. <https://CRAN.R-project.org/package=data.table>.
-:::
+<div id="ref-R-ggthemes" class="csl-entry">
 
-::: {#ref-R-tibble .csl-entry}
-Müller, Kirill, and Hadley Wickham. 2023. *Tibble: Simple Data Frames*. <https://CRAN.R-project.org/package=tibble>.
-:::
+Arnold, Jeffrey B. 2021. *Ggthemes: Extra Themes, Scales and Geoms for
+Ggplot2*. <https://github.com/jrnold/ggthemes>.
 
-::: {#ref-R-foreign .csl-entry}
-R Core Team. 2022. *Foreign: Read Data Stored by Minitab, s, SAS, SPSS, Stata, Systat, Weka, dBase, ...* <https://svn.r-project.org/R-packages/trunk/foreign/>.
-:::
+</div>
 
-::: {#ref-R-stringr .csl-entry}
-Wickham, Hadley. 2022. *Stringr: Simple, Consistent Wrappers for Common String Operations*. <https://CRAN.R-project.org/package=stringr>.
-:::
+<div id="ref-R-data.table" class="csl-entry">
 
-::: {#ref-R-ggplot2 .csl-entry}
-Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2023. *Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics*. <https://CRAN.R-project.org/package=ggplot2>.
-:::
+Dowle, Matt, and Arun Srinivasan. 2023. *Data.table: Extension of
+‘Data.frame‘*. <https://CRAN.R-project.org/package=data.table>.
 
-::: {#ref-R-dplyr .csl-entry}
-Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023. *Dplyr: A Grammar of Data Manipulation*. <https://CRAN.R-project.org/package=dplyr>.
-:::
+</div>
 
-::: {#ref-R-tidyr .csl-entry}
-Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. *Tidyr: Tidy Messy Data*. <https://CRAN.R-project.org/package=tidyr>.
-:::
+<div id="ref-R-tibble" class="csl-entry">
 
-::: {#ref-R-emojifont .csl-entry}
-Yu, Guangchuang. 2021. *Emojifont: Emoji and Font Awesome in Graphics*. <https://github.com/GuangchuangYu/emojifont>.
-:::
-:::
+Müller, Kirill, and Hadley Wickham. 2023. *Tibble: Simple Data Frames*.
+<https://CRAN.R-project.org/package=tibble>.
 
+</div>
 
+<div id="ref-R-foreign" class="csl-entry">
+
+R Core Team. 2022. *Foreign: Read Data Stored by Minitab, s, SAS, SPSS,
+Stata, Systat, Weka, dBase, ...*
+<https://svn.r-project.org/R-packages/trunk/foreign/>.
+
+</div>
+
+<div id="ref-R-stringr" class="csl-entry">
+
+Wickham, Hadley. 2022. *Stringr: Simple, Consistent Wrappers for Common
+String Operations*. <https://CRAN.R-project.org/package=stringr>.
+
+</div>
+
+<div id="ref-R-ggplot2" class="csl-entry">
+
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen,
+Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey
+Dunnington. 2023. *Ggplot2: Create Elegant Data Visualisations Using the
+Grammar of Graphics*. <https://CRAN.R-project.org/package=ggplot2>.
+
+</div>
+
+<div id="ref-R-dplyr" class="csl-entry">
+
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis
+Vaughan. 2023. *Dplyr: A Grammar of Data Manipulation*.
+<https://CRAN.R-project.org/package=dplyr>.
+
+</div>
+
+<div id="ref-R-tidyr" class="csl-entry">
+
+Wickham, Hadley, Davis Vaughan, and Maximilian Girlich. 2023. *Tidyr:
+Tidy Messy Data*. <https://CRAN.R-project.org/package=tidyr>.
+
+</div>
+
+<div id="ref-R-emojifont" class="csl-entry">
+
+Yu, Guangchuang. 2021. *Emojifont: Emoji and Font Awesome in Graphics*.
+<https://github.com/GuangchuangYu/emojifont>.
+
+</div>
+
+</div>

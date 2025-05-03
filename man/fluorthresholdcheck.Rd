@@ -4,6 +4,7 @@
 \alias{fluorthresholdcheck}
 \alias{fix_threshold_output}
 \alias{.fluor_threshold_check}
+\alias{fluor_threshold_check_new}
 \alias{fluor_threshold_check}
 \alias{is_threshold_violated}
 \alias{fluor_threshold_check_na}
@@ -12,6 +13,8 @@
 fix_threshold_output(outlier_wells)
 
 .fluor_threshold_check(clean_df, fun = NA)
+
+fluor_threshold_check_new(clean_df, fun = NA)
 
 fluor_threshold_check(clean_df, fun = NA)
 
@@ -30,6 +33,8 @@ fluor_threshold_check_na(clean_df, fun = NA)
 A polite warning message to the researcher.
 
 outlier wells
+
+outlier wells list
 
 outlier wells list
 
