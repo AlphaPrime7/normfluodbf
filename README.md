@@ -529,34 +529,7 @@ plate <- plate %>%
   “Cycle_No” but seemed to have been mislabeled due to the tedious
   nature of my previous coding approach.
 
-``` r
-#initial image presentation = <img src="man/figures/noise20.png" align="center" width="400"/>
-#<img src="man/figures/noise.png" align="center" width="400"/>
-# invisible(capture.output(
-#   normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30)
-# ))
-library(normfluodbf)
-dbf1 <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf")
-normalized_dbf <- normfluodbf::normfluodbf(dbf1, norm_scale = 'min-max')
-
-#define args
-test <- c("A01", "A02", "A03")
-xvar <- c("Cycle_Number")
-xl <- c(0,40)
-yl <- c(0,1)
-
-noiseplot <- gg_func_rook(normalized_dbf, xvar, test, xl, yl)
-print(noiseplot)
-```
-
-<img src="man/figuresqc demo-1.png" width="100%" />
-
-``` r
-# ggsave(
-#   "man/figures/noise.png",
-#   plot = noiseplot 
-# )
-```
+<img src="man/figures/qc demo-1.png" width="100%" />
 
 ## 💻 Visualization
 
@@ -571,17 +544,17 @@ print(noiseplot)
 ``` r
 #initial image presentation = <img src="man/figures/tnp3.png" align="center" width="400"/>
 #<img src="man/figures/nfd_plot.png" align="center" width="400"/>
-# invisible(capture.output(
-#   normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30)
-# ))
+#invisible(capture.output(
+#normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30)
+#))
 library(normfluodbf)
 dat1 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
-zz <- file(tempfile(), open = "wt")
-sink(zz)
-sink(zz, type = "message")
+# zz <- file(tempfile(), open = "wt")
+# sink(zz)
+# sink(zz, type = "message")
 normalized_dat <- normfluodbf::normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30, normfluodbf.verbose = FALSE)
-sink()
-sink(type = "message")
+# sink()
+# sink(type = "message")
 
 #set the data up
 plot_samples <- c("A1", "B1", "C1")
@@ -601,13 +574,13 @@ normalized_fluo_long <- normalized_fluo_long %>%
                           "B1" = "Negative",
                           "C1" = "Positive"))
 
-# #setup fonts
+#setup fonts
 #systemfonts::system_fonts()
-sysfonts::font_add(family = "FreeSerif", regular = "/usr/share/fonts/truetype/freefont/FreeSerifBoldItalic.ttf")  # adjust path
-showtext::showtext_auto()
+#sysfonts::font_add(family = "FreeSerif", regular = "/usr/share/fonts/truetype/freefont/FreeSerifBoldItalic.ttf")
+#showtext::showtext_auto()
 
 #PLOT stuff
-png("man/figures/nfd_plot.png", width = 10, height = 6, res = 300, units = "in")
+#png("man/figures/nfd_plot.png", width = 10, height = 6, res = 300, units = "in")
 
 a1_hex <- "#231EBB"
 b1_hex <- "#BB1324"
@@ -686,11 +659,11 @@ plot <- normalized_fluo_long %>%
   ) + 
   theme(
     legend.position = 'bottom',
-    axis.title.y = element_text(margin = margin(t = 0, r = 30, b = 0, l = 0)),
+    axis.title.y = element_text(family = "sans",margin = margin(t = 0, r = 30, b = 0, l = 0)),
     axis.title.x = element_blank(),
-    axis.text = element_text(size = 8),
-    plot.subtitle = element_text(size = 10),
-    plot.title = element_text(
+    axis.text = element_text(family = "sans",size = 8),
+    plot.subtitle = element_text(family = "sans",size = 10),
+    plot.title = element_text(family = "sans",
                               size=18,
                               face = "bold",
                               margin(t = 0, r = 0, b = 5, l = 0))
@@ -699,11 +672,12 @@ img <- png::readPNG("man/figures/lipsum.png")
 grob <- grid::rasterGrob(img, interpolate=TRUE)
 plot <- plot + annotation_custom(grob, xmin=5.5, xmax=10.5, ymin=0.75, ymax=1.3)
 
-invisible(capture.output(dev.off())) 
+# invisible(capture.output(dev.off())) 
+#rmarkdown::render("README.Rmd", output_format = "github_document")
 print(plot)
 ```
 
-<img src="man/figuresvisualization demo-1.png" width="100%" />
+<img src="man/figures/visualization demo-1.png" width="100%" />
 
 ## 🎇 Epilogue
 

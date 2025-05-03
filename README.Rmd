@@ -593,7 +593,7 @@ gg_func_rook <- function(data,
 ```
 
 
-```{r qc demo, warning=FALSE, message=FALSE, comment=FALSE}
+```{r qc demo, warning=FALSE, message=FALSE, comment=FALSE, echo=FALSE, fig.path = "man/figures/"}
 #initial image presentation = <img src="man/figures/noise20.png" align="center" width="400"/>
 #<img src="man/figures/noise.png" align="center" width="400"/>
 # invisible(capture.output(
@@ -611,10 +611,6 @@ yl <- c(0,1)
 
 noiseplot <- gg_func_rook(normalized_dbf, xvar, test, xl, yl)
 print(noiseplot)
-# ggsave(
-#   "man/figures/noise.png",
-#   plot = noiseplot 
-# )
 ```
 
 ## 💻 Visualization
@@ -627,20 +623,20 @@ print(noiseplot)
     were done with base R and the images represent the results obtained
     when experiments are conducted within the signal region.
     
-```{r visualization demo, warning=FALSE, message=FALSE, comment=FALSE, include=TRUE, echo=TRUE}
+```{r visualization demo, warning=FALSE, message=FALSE, comment=FALSE, include=TRUE, echo=TRUE, fig.path = "man/figures/"}
 #initial image presentation = <img src="man/figures/tnp3.png" align="center" width="400"/>
 #<img src="man/figures/nfd_plot.png" align="center" width="400"/>
-# invisible(capture.output(
-#   normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30)
-# ))
+#invisible(capture.output(
+#normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30)
+#))
 library(normfluodbf)
 dat1 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
-zz <- file(tempfile(), open = "wt")
-sink(zz)
-sink(zz, type = "message")
+# zz <- file(tempfile(), open = "wt")
+# sink(zz)
+# sink(zz, type = "message")
 normalized_dat <- normfluodbf::normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30, normfluodbf.verbose = FALSE)
-sink()
-sink(type = "message")
+# sink()
+# sink(type = "message")
 
 #set the data up
 plot_samples <- c("A1", "B1", "C1")
@@ -662,11 +658,11 @@ normalized_fluo_long <- normalized_fluo_long %>%
 
 #setup fonts
 #systemfonts::system_fonts()
-sysfonts::font_add(family = "FreeSerif", regular = "/usr/share/fonts/truetype/freefont/FreeSerifBoldItalic.ttf")
-showtext::showtext_auto()
+#sysfonts::font_add(family = "FreeSerif", regular = "/usr/share/fonts/truetype/freefont/FreeSerifBoldItalic.ttf")
+#showtext::showtext_auto()
 
 #PLOT stuff
-png("man/figures/nfd_plot.png", width = 10, height = 6, res = 300, units = "in")
+#png("man/figures/nfd_plot.png", width = 10, height = 6, res = 300, units = "in")
 
 a1_hex <- "#231EBB"
 b1_hex <- "#BB1324"
@@ -745,11 +741,11 @@ plot <- normalized_fluo_long %>%
   ) + 
   theme(
     legend.position = 'bottom',
-    axis.title.y = element_text(family = "DejaVu Sans",margin = margin(t = 0, r = 30, b = 0, l = 0)),
+    axis.title.y = element_text(family = "sans",margin = margin(t = 0, r = 30, b = 0, l = 0)),
     axis.title.x = element_blank(),
-    axis.text = element_text(family = "DejaVu Sans",size = 8),
-    plot.subtitle = element_text(family = "DejaVu Sans",size = 10),
-    plot.title = element_text(family = "DejaVu Sans",
+    axis.text = element_text(family = "sans",size = 8),
+    plot.subtitle = element_text(family = "sans",size = 10),
+    plot.title = element_text(family = "sans",
                               size=18,
                               face = "bold",
                               margin(t = 0, r = 0, b = 5, l = 0))
@@ -758,7 +754,8 @@ img <- png::readPNG("man/figures/lipsum.png")
 grob <- grid::rasterGrob(img, interpolate=TRUE)
 plot <- plot + annotation_custom(grob, xmin=5.5, xmax=10.5, ymin=0.75, ymax=1.3)
 
-invisible(capture.output(dev.off())) 
+# invisible(capture.output(dev.off())) 
+#rmarkdown::render("README.Rmd", output_format = "github_document")
 print(plot)
 ```
 
