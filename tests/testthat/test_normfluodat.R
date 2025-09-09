@@ -40,3 +40,10 @@ test_that("test normfluodatfull output length matches the number of cycles", {
   cycles = 40
   expect_equal(nrow(result),cycles)
 })
+
+test_that("test normfluodat update without the cycles tnp or rows used provided", {
+  lipsum_214 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
+  result = normfluodat(lipsum_214)
+  cycles = 40
+  expect_equal(nrow(result),cycles)
+})

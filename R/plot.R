@@ -73,6 +73,11 @@ plot.96well_plate = function(x,
                              title = title,
                              legend_labels = legend_labels)
     plate <- remove_subset_data(plate)
+    if (is.null(plot_name))
+      plot_name <- 'sbs_plot'
+    else
+      plot_name <- plot_name
+    plate[[plot_name]] <- plt.obj
     invisible(plate)
   }
   else {
