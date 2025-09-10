@@ -30,9 +30,10 @@ a {
 }
 ```
 
-```{r warning=FALSE, message=FALSE, include=FALSE, echo=FALSE}
+```{r warning=FALSE, message=FALSE, include=FALSE}
 library(tidyverse)
 library(gghighlight)
+library(ggiraph)
 library(ggimage)
 library(cowplot)
 library(svglite)
@@ -41,6 +42,8 @@ library(dplyr)
 library(ggdark)
 library(ggthemes)
 library(showtext)
+#build_vignettes()
+#tools::compactPDF("inst/doc", gs_quality = "ebook")
 ```
 
 # Normfluodbf 2.0.0
@@ -577,61 +580,67 @@ plate <- plate %>%
     actually "Cycle_No" but seemed to have been mislabeled due to the
     tedious nature of my previous coding approach.
 
+
 ```{r echo=FALSE, include=FALSE}
-gg_func_rook <- function(data, 
-                         x, 
-                         y_list, 
-                         xlim, 
-                         ylim) {
-  p1 <- ggplot(data, aes(x=.data[[x[1]]])) +
-    geom_point(aes(y=.data[[y_list[1]]]), size=3, color="blue") +
-    geom_point(aes(y=.data[[y_list[2]]]), size=3, color="red") +
-    geom_point(aes(y=.data[[y_list[3]]]), size=3, color="green") +
-    geom_line(aes(y=.data[[y_list[1]]], color="Test"), size=0.8) +
-    geom_line(aes(y=.data[[y_list[2]]], color="Negative Control"), size=0.8) +
-    geom_line(aes(y=.data[[y_list[3]]], color="Positive Control"), size=0.8) +
-    dark_mode() +
-    coord_cartesian(xlim = xlim, ylim = ylim) +
-    labs(title = "NavAb Liposome Flux Assay System: NOISY PLOT",
-         subtitle = "Noise emerging from liposome flux assays when the concentration of reagents\n is too high or too low.",
-         y="Fluorescence",
-         x="Cycles",
-         caption = "Source: Normfluodbf 2.0.0\n\nAuthor: Tingwei Adeck") + 
-  theme(
-    legend.text = element_text(size = 34, family = "sans"),
-    legend.title = element_text(size =38, face = "bold", family = "sans"),
-    axis.title.y = element_text(family = "sans", size = 36, margin = margin(l=0)),
-    axis.title.x = element_text(family = "sans", size = 36, margin = margin(l=0)),
-    plot.caption = element_text(size = 38, family = "sans", hjust = 1, face = "italic", margin = margin(t=5), lineheight = 0.3),
-    axis.text = element_text(family = "sans",size = 36),
-    plot.subtitle = element_text(family = "sans",size = 40, lineheight = 0.3),
-    plot.title = element_text(family = "sans",
-                              size=50,
-                              face = "bold",
-                              margin(t = 15, r = 0, b = 1, l = 0))
-  ) 
-  p1
+gg_rookie <- function(data, x, wells, xlim = NULL, ylim = NULL,
+                         labels = wells, dark = TRUE) {
+  stopifnot(is.data.frame(data))
+  if (!is.character(x) || length(x) != 1) stop("`x` must be a single column name (character).")
+  missing <- setdiff(wells, colnames(data))
+  if (length(missing)) stop("Missing columns: ", paste(missing, collapse = ", "))
+  if (length(labels) != length(wells)) stop("`labels` must be same length as `wells`.")
+
+  # Long-format data
+  df_long <- tidyr::pivot_longer(
+    data,
+    cols = dplyr::all_of(wells),
+    names_to = "well",
+    values_to = "fluor"
+  )
+  df_long$role <- factor(df_long$well, levels = wells, labels = labels)
+
+  p <- ggplot2::ggplot(df_long, ggplot2::aes(x = .data[[x]], y = fluor, color = role, group = role)) +
+    ggplot2::geom_line(size = 0.8) +
+    ggplot2::geom_point(size = 1.8, alpha = 0.85) +
+    ggplot2::labs(
+      title = "NavAb Liposome Flux Assay System: NOISY PLOT",
+      subtitle = "Noise emerging from liposome flux assays when reagent concentrations are too high or too low.",
+      x = "Cycles", y = "Fluorescence",
+      caption = "Source: normfluodbf 2.0.0\nAuthor: Tingwei Adeck"
+    ) +
+    ggplot2::theme_minimal(base_size = 14) +
+    ggplot2::theme(legend.title = ggplot2::element_blank())
+
+  if (!is.null(xlim) || !is.null(ylim)) p <- p + ggplot2::coord_cartesian(xlim = xlim, ylim = ylim)
+  p
 }
+
 ```
 
 
-```{r qc demo, warning=FALSE, message=FALSE, comment=FALSE, echo=FALSE, fig.path = "man/figures/", fig.width=12, fig.height=8}
+```{r qc_demo, warning=FALSE, message=FALSE, comment=FALSE, echo=FALSE, fig.path = "man/figures/", fig.width=12, fig.height=8}
 #initial image presentation = <img src="man/figures/noise20.png" align="center" width="400"/>
 #<img src="man/figures/noise.png" align="center" width="400"/>
 # invisible(capture.output(
 #   normalized_data <- normfluodat(dat1, tnp = 3, cycles = 40, rows_used = c('A','B','C'), interval = 30)
 # ))
+
 library(normfluodbf)
 dbf1 <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf")
 normalized_dbf <- normfluodbf::normfluodbf(dbf1, norm_scale = 'min-max')
 
-#define args
-test <- c("A01", "A02", "A03")
-xvar <- c("Cycle_Number")
-xl <- c(0,40)
-yl <- c(0,1)
+xvar  <- "Cycle_Number"
+wells <- c("A01", "A02", "A03")
+labs  <- c("Test", "Negative Control", "Positive Control")
 
-noiseplot <- gg_func_rook(normalized_dbf, xvar, test, xl, yl)
+noiseplot <- gg_rookie(
+  normalized_dbf,
+  x = xvar,
+  wells = wells,
+  xlim = c(0, 40),
+  ylim = c(0, 1),
+  labels = labs
+)
 print(noiseplot)
 ```
 
@@ -645,7 +654,7 @@ print(noiseplot)
     were done with base R and the images represent the results obtained
     when experiments are conducted within the signal region.
     
-```{r visualization demo, warning=FALSE, message=FALSE, comment=FALSE, echo=FALSE, fig.path = "man/figures/", fig.width=12, fig.height=8}
+```{r visualization_demo, warning=FALSE, message=FALSE, comment=FALSE, echo=FALSE, fig.path = "man/figures/", fig.width=12, fig.height=8}
 #initial image presentation = <img src="man/figures/tnp3.png" align="center" width="400"/>
 #<img src="man/figures/nfd_plot.png" align="center" width="400"/>
 #invisible(capture.output(
