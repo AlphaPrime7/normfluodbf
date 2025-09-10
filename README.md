@@ -1,5 +1,5 @@
 Tingwei Adeck
-May 03, 2025
+September 09, 2025
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -529,7 +529,7 @@ plate <- plate %>%
   “Cycle_No” but seemed to have been mislabeled due to the tedious
   nature of my previous coding approach.
 
-<img src="man/figures/qc demo-1.png" width="100%" />
+<img src="man/figures/qc_demo-1.png" width="100%" />
 
 ## 💻 Visualization
 
@@ -541,7 +541,7 @@ plate <- plate %>%
   done with base R and the images represent the results obtained when
   experiments are conducted within the signal region.
 
-<img src="man/figures/visualization demo-1.png" width="100%" />
+<img src="man/figures/visualization_demo-1.png" width="100%" />
 
 ## 🎇 Epilogue
 
