@@ -1,3 +1,11 @@
+# normfluodbf 2.0.2
+
+Released to support ggplot2 in lunching their new version 3.5.2.
+
+normfluodat can now be used with just the DAT file and no need for additional parameters. Major win for the TEAM!
+
+Bumped up since CRAN did not yet respond to 2.0.1 and there were some failed tests. This should be the final one for the ggplot2 issue.
+
 # normfluodbf 2.0.1
 
 Released to support ggplot2 in lunching their new version 3.5.2.
