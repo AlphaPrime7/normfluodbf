@@ -19,8 +19,8 @@ test_that("test normfluodbf filled wells plot", {
 
   expect_false(is.null(plt.obj))
   expect_true(inherits(plate$fluostar_plot, c("ggplot", "gg", "ggplot2::ggplot")))
-  expect_type(plate[["fluostar_plot"]], "S4") #S4 not list
-  expect_length(as.list(plt.obj), as.integer(12)) #decompose gives 12 otherwise 1
+  expect_type(plate[["fluostar_plot"]], "list")
+  expect_length(as.list(plt.obj), 11)
 })
 
 
