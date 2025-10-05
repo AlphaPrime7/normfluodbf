@@ -19,6 +19,10 @@
 ^ash\.jpg$
 ^normfluodbf_First_Frame\.png$
 ^doc$
+^lfa_beamer\.pdf$
+^LFA_Protocol\.pdf$
+^lfa_ref\.pdf$
+^lfa_seminar\.pdf$
 ^Meta$
 ^codecov\.yml$
 ^README\.html$
