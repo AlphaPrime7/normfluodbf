@@ -3,7 +3,7 @@ October 05, 2025
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Normfluodbf 2.0.0 <img src="man/figures/logo.png" align="right" width="180" />
+# Normfluodbf 2.0.3 <img src="man/figures/logo.png" align="right" width="180" />
 
 [![license](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/license/MIT)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf/graphs/commit-activity)
