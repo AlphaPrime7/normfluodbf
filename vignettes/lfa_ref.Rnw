@@ -1,0 +1,7 @@
+\documentclass{article}
+\usepackage{pdfpages}
+%\VignetteIndexEntry{LFA Ref}
+
+\begin{document}
+\includepdf[pages=-, fitpaper=true]{../inst/extdata/LFA_Ref.pdf}
+\end{document}

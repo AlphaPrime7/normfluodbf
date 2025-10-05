@@ -1,0 +1,7 @@
+\documentclass{article}
+\usepackage{pdfpages}
+%\VignetteIndexEntry{LFA Protocol}
+
+\begin{document}
+\includepdf[pages=-, fitpaper=true]{../inst/extdata/LFA_Protocol.pdf}
+\end{document}
