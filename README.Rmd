@@ -46,7 +46,7 @@ library(showtext)
 #tools::compactPDF("inst/doc", gs_quality = "ebook")
 ```
 
-# Normfluodbf 2.0.0
+# Normfluodbf 2.0.0 <img src="man/figures/logo.png" align="right" width="180" />
 
 [![license](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/license/MIT)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)](https://github.com/AlphaPrime7/normfluodbf/graphs/commit-activity)
