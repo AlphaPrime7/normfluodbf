@@ -1,7 +1,7 @@
 Package: normfluodbf
 Type: Package
 Title: Cleans and Normalizes FLUOstar DBF and DAT Files from 'Liposome' Flux Assays
-Version: 2.0.2
+Version: 2.0.3
 Authors@R: 
     c(person(given = "Tingwei", family = "Adeck", role = c("aut", "cre", "cph"), email = "awesome.tingwei@outlook.com", comment = c(ORCID = "0009-0009-7450-8863")), 
     person(given = "Tesla", family = "Adeck", role="cph"), person(given = "Amina", family = "Adeck", role="cph") )
@@ -17,14 +17,10 @@ Suggests:
 Config/testthat/edition: 3
 Imports: 
     shiny,
-    data.table,
-    foreign (>= 0.8.86),
     tidyr (>= 1.3.1),
     tibble,
-    dplyr (>= 1.1.4),
     emojifont,
     stats,
-    ggplot2 (>= 3.5.0),
     badger,
     stringr,
     magrittr (>= 2.0.3),
@@ -32,7 +28,6 @@ Imports:
     forcats,
     gridExtra,
     pkgsearch,
-    plotly (>= 4.10.4),
     purrr (>= 1.0.2),
     rlang (>= 1.1.3),
     rstudioapi,
@@ -44,7 +39,12 @@ Imports:
     cli,
     testthat (>= 3.2.1)
 Depends: 
-    R (>= 4.3.0)
+    R (>= 4.3.0),
+    dplyr (>= 1.1.4),
+    foreign (>= 0.8.86),
+    ggplot2 (>= 3.5.0),
+    plotly (>= 4.10.4),
+    data.table (>= 1.15.2)
 LazyData: true
 URL: https://github.com/AlphaPrime7/normfluodbf, https://alphaprime7.github.io/normfluodbf/
 BugReports: https://github.com/AlphaPrime7/normfluodbf/issues

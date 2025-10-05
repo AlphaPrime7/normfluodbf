@@ -8,6 +8,8 @@
 #' @import magrittr
 #' @import dplyr
 #' @import shiny
+#' @rawNamespace import(ggplot2, except = last_plot)
+#' @import plotly
 #' @importFrom testthat expect_equal
 #' @importFrom testthat expect_false
 #' @importFrom testthat test_that
