@@ -49,6 +49,30 @@ library(showtext)
 ```{r include=FALSE}
 #tools::compactPDF("inst/extdata", gs_quality = "ebook")
 #tools::compactPDF("doc", gs_quality = "ebook") #gs+qpdf
+#goodpractice::gp()
+
+#pkg steps
+# document()
+# check()
+# check_win_release()
+# check_rhub()
+# spell_check()
+# #remotes::install_github("jumpingrivers/inteRgrate")
+# library(inteRgrate)
+# inteRgrate::check_pkg()
+# inteRgrate::check_lintr()
+# inteRgrate::check_tidy_description()
+# usethis:use_tidy_description()
+# inteRgrate::check_r_filenames()
+# inteRgrate::check_version()
+# inteRgrate::check_gitignore()
+# inteRgrate::check_news()
+# 
+# #submit to cran
+# devtools::test()
+# devtools::test_coverage()
+# devtools::run_examples()
+# devtools::release() #submit(best part)
 ```
 
 # Normfluodbf 2.0.3 <img src="man/figures/logo.png" align="right" width="180" />
