@@ -162,7 +162,13 @@ library(normfluodbf)
     to download the zip files into your desired directory.
 -   This repository will be updated with the latest accepted CRAN
     version when possible.
-
+    
+```{r include=FALSE}
+#tools::compactPDF("inst/extdata", gs_quality = "ebook")
+#tools::compactPDF("doc", gs_quality = "ebook") #gs+qpdf
+```
+    
+    
 ```{r, eval = FALSE}
 install.packages("normfluodbf_1.5.2.tar.gz", repos = NULL, type = "source")
 ```
