@@ -75,6 +75,26 @@ library(showtext)
 # devtools::release() #submit(best part)
 ```
 
+```{r include=FALSE, eval=FALSE}
+library(rio)
+data <- import_list("your_file.xlsx")
+
+library(openxlsx)
+data <- lapply(getSheetNames("your_file.xlsx"), function(sheet) read.xlsx("your_file.xlsx", sheet = sheet))
+names(data) <- getSheetNames("your_file.xlsx")
+
+
+library(readxl)
+library(writexl)
+read_all_sheets <- function(filename) {
+  sheets <- excel_sheets(filename)
+  data_list <- lapply(sheets, function(sheet) read_excel(filename, sheet = sheet))
+  names(data_list) <- sheets
+  return(data_list)
+}
+```
+
+
 # Normfluodbf 2.0.3 <img src="man/figures/logo.png" align="right" width="180"/>
 
 [![license](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/license/MIT)
