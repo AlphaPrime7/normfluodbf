@@ -1,4 +1,8 @@
 library(foreign)
+library(ggplot2)
+library(plotly)
+library(tidyr)
+library(plyr)
 
 check_dbf <- function(pathstring){
   if(length(list.files(path = pathstring, pattern = "\\.dbf$")) > 0) {
@@ -126,6 +130,8 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
   }
 }
 
+## GGPLOT2
+
 #shinyapp version 1 ).DATA[[]] VERSION
 GG_plot_triplets <- function(df, x, y_list, xlim, ylim){
   ggplot(df, aes(x=.data[[x[1]]])) + 
@@ -172,7 +178,91 @@ GG_plot_triplets_sym <- function(df, x, y_list, xlim, ylim){
     labs(title = 'NavAb Liposome Flux Assay', 
          x = 'Cycle_no', y='Normalized Fluorescence', color='Sample Type')
 }
-
 # GG_plot_triplets(wrangled_dbf2,x=xvar,y_list=test,xlim=xl,ylim=yl)
+
+## BASE PLOT
+
+windows(width = 4.5, height = 4)
+opar <- par(no.readonly = TRUE)
+par(mar = c(4, 4, 3, 5)) #par(mar = c(5, 5, 4, 6))
+
+plot.fun <- function(dbf_file){
+  plot(A01 ~ Cycle_Number, 
+       data = dbf_file, #normalized_dbf
+       type = "o", 
+       frame = T, 
+       pch = 1, 
+       col = "blue", 
+       lwd = 2, 
+       xlim = c(1,40), 
+       main = "NavAb Liposome Flux Assay", 
+       xlab = "Cycle No", 
+       ylab = "Average Normalized Fluorescence")
+  
+  lines(A02 ~ Cycle_Number, 
+        data = dbf_file, 
+        pch = 2, 
+        col = "red", 
+        type = "o", 
+        lty = 2, 
+        lwd = 2)
+  
+  lines(A03 ~ Cycle_Number, 
+        data = dbf_file, 
+        pch = 7, 
+        col = "green", 
+        type = "o", 
+        lty = 2, 
+        lwd = 2)
+  
+  legend("topright", 
+         inset = c(0.0, 0), 
+         legend=c("Test", "NC","PC"), 
+         title = "2uM ACMA (Cs inside)", 
+         title.col = "black", 
+         box.lwd = 1, 
+         box.col = "orange", 
+         col=c("blue","red","green"), 
+         lty = 1:2, 
+         lwd = 3, 
+         cex=0.7, 
+         xpd = T)
+}
+plot.fun(normalized_dbf)
+
+### PLOTLY
+
+plotly.fun<- function(dbf){
+  fig1 <- plot_ly(dbf, x = ~Cycle_Number, y = ~A01, 
+                  type = 'scatter', mode = 'markers', name = 'Test')
+  fig1 <- fig1 %>% add_trace(y = ~A02, name = 'Negative Control')
+  fig1 <- fig1 %>% add_trace(y = ~A03, name = 'Positive Control')
+  fig1
+  fig1 %>% layout(yaxis = list(range=c(-0.8,0), 
+                               title = 'Log Normalized Fluorescence'),
+                  title = 'NavAb Liposome Flux Assay')
+  
+}
+plotly.fun(normalized_dbf)
+
+## PLOT METHODS PRIOR (PLOTLY) - NONFUNCTIONAL
+fpath <- system.file("extdata", "liposomes_214.dbf", package = "normfluodbf", mustWork = TRUE)
+normalized_dbf <- normfluordbf(file=fpath, norm_scale = 'one')
+p1 = plot(A02 ~ Cycle_Number, data=normalized_dbf,
+          pch=16,
+          col="dodgerblue1",
+          main = "NavAb Liposome Flux Assay",
+          xlab = "Cycle Number",
+          ylab = "Normalized Fluorescence")
+
+plot(A03 ~ Cycle_Number, 
+     data = normalized_dbf, 
+     type = "b", 
+     frame = FALSE, 
+     pch = 19, 
+     col = "red", 
+     main = "NavAb Liposome Flux Assay", 
+     xlab = "Cycle No", 
+     ylab = "Normalized Fluorescence")
 
 #END SUB
