@@ -236,7 +236,7 @@ server <- function(input, output, session) {
   
   output$y_names <- renderUI({
     if(is.null(input$dbfordat$name)) {
-      print("Load DBF")
+      #print("Load DBF")
     }
     else{
       selectizeInput(inputId = "wells", 
@@ -249,7 +249,7 @@ server <- function(input, output, session) {
   
   output$x_name <- renderUI({
     if(is.null(input$dbfordat$name)) {
-      print("Load DBF")
+      #print("Load DBF")
     }
     else {
       selectizeInput(inputId = "x", 
@@ -263,7 +263,7 @@ server <- function(input, output, session) {
   
   output$test <- renderUI({
     if(is.null(input$dbfordat$name)) {
-      print("Load DBF")
+      #print("Load DBF")
     }
     else {
       selectInput("ts", 
@@ -274,7 +274,7 @@ server <- function(input, output, session) {
   
   output$negc <- renderUI({
     if(is.null(input$dbfordat$name)) {
-      print("Load DBF")
+      #print("Load DBF")
     }
     else {
       selectInput("negative_control", 
@@ -285,7 +285,7 @@ server <- function(input, output, session) {
   
   output$posc <- renderUI({
     if(is.null(input$dbfordat$name)) {
-      print("Load DBF")
+      #print("Load DBF")
     }
     else {
       selectInput("positive_control", 
@@ -348,6 +348,7 @@ server <- function(input, output, session) {
       ggsave(file_norm, plot=plot_container$plot)})
   
 }
+
 
 
 shinyApp(ui, server)
