@@ -25,6 +25,17 @@ knitr::opts_chunk$set(
 [![THANK YOU](https://img.shields.io/badge/THANK-YOU-ff69b4.svg)](mailto:awesome.tingwei@outlook.com)
 [![Attribution-NonCommercial-ShareAlike](https://licensebuttons.net/i/l/by-nc-sa/000000/ff/ff/ff/88x31.png)](https://creativecommons.org/licenses/by-nc-sa/2.0/)
 
+## Introduction
+
 - Alpha version of the shiny app for normfluodbf.
 
 - No bugs but need for improved functionality.
+
+## HowTo?
+
+1. Navigate to inst/extdata
+
+2. Open demoalpha folder
+
+3. Open the app.R file and run the app from there.
+
