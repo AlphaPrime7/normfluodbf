@@ -3,5 +3,5 @@
 %\VignetteIndexEntry{LFA Ref Two}
 
 \begin{document}
-\includepdf[pages=-, fitpaper=true]{../inst/extdata/LFA_Ref_Two.pdf}
+\includepdf[pages=-, fitpaper=true]{../inst/extdata/lfa_ref_two.pdf}
 \end{document}

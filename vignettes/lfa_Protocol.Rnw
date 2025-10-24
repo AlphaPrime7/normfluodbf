@@ -3,5 +3,5 @@
 %\VignetteIndexEntry{LFA Protocol}
 
 \begin{document}
-\includepdf[pages=-, fitpaper=true]{../inst/extdata/LFA_Protocol.pdf}
+\includepdf[pages=-, fitpaper=true]{../inst/extdata/lfa_Protocol.pdf}
 \end{document}

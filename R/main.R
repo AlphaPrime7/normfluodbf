@@ -2986,6 +2986,49 @@ NULL
 #' @rdname liposome_fluor_dbfs
 #' @family normfluodbf
 #' @return A normalized data frame with an appended "Cycle_Number" attribute.
+#' @internal
+.normfluordbf <- function(x, fun = NA, ...){
+  library(data.table)
+  library(tidyr)
+  y <- transpose(l=x)
+  rownames(y) <- colnames(x)
+  colnames(y) <- rownames(x)
+  colnames(y) <- paste0("a",rownames(x))
+
+  sample_col_names<- vector("list")
+  nofun <- is.na(fun)
+  for(j in y[1,]){
+    if(is.na(j) != nofun){
+      sample_col_names <- c(sample_col_names,j)
+    }
+  }
+
+  nofun <- is.na(fun)
+  dirty_time <- y[,1]
+  dbf_time_column <- data.frame() #can be a matrix wrapped into a df
+  for(i in dirty_time){
+    if(is.na(i) != nofun && i != "t"){
+      dbf_time_column <- rbind(dbf_time_column,i)
+    }
+  }
+  colnames(dbf_time_column) <- c('Time')
+
+  y[1:3,] <- NA
+  y <- y %>% drop_na()
+  y <- y[,-(1:2)]
+  y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
+  y <- as.data.frame(lapply(y[1:ncol(y)], min_max_norm))
+  colnames(y) <- sample_col_names
+  y <- cbind(y,dbf_time_column)
+  y[, c(1:ncol(y))] <- sapply(y[, c(1:ncol(y))], as.numeric)
+  y["Time"] = y[,"Time"] + 30
+  return(unique_identifier(y))
+
+}
+
+#' @rdname liposome_fluor_dbfs
+#' @family normfluodbf
+#' @return A normalized data frame with an appended "Cycle_Number" attribute.
 #' @export
 norm_tidy_dbf <- function(file = NULL, norm_scale = NULL, transformed = NULL, fun = NA, ...){
   x <- foreign::read.dbf(file=file, as.is = F)

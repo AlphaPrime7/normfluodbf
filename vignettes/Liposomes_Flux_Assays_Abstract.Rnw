@@ -3,5 +3,5 @@
 %\VignetteIndexEntry{LFA Seminar}
 
 \begin{document}
-\includepdf[pages=-, fitpaper=true]{../inst/extdata/lfa_seminar.pdf}
+\includepdf[pages=-, fitpaper=true]{../inst/extdata/Liposomes_Flux_Assays_Abstract.pdf}
 \end{document}

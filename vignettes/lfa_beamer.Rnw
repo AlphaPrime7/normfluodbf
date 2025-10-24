@@ -3,5 +3,5 @@
 %\VignetteIndexEntry{LFA Beamer}
 
 \begin{document}
-\includepdf[pages=-, fitpaper=true]{../inst/extdata/LFA_Beamer.pdf}
+\includepdf[pages=-, fitpaper=true]{../inst/extdata/lfa_beamer.pdf}
 \end{document}
