@@ -13,7 +13,8 @@ library(ggthemes)
 library(plotly)
 #library(magick)
 #library(reactable)
-source("PROCS.R")
+local({source(file.path("helpers", "PROCS.R"))}) #source("PROCS.R")
+
 
 ui <- fluidPage(
   shinythemes::themeSelector(),
@@ -101,7 +102,7 @@ ui <- fluidPage(
                tabsetPanel(type = "tabs",
                            tabPanel("Active table", tableOutput("selected_cols")),
                            tabPanel("Main plot", plotOutput("single_plot")),
-                           tabPanel("Plate View", plotlyOutput("multiplot_panel"))
+                           tabPanel("Plate View", plotOutput("plate_plot"))
                ),
 
              )
@@ -148,6 +149,14 @@ server <- function(input, output, session) {
     dat_norm = reactive({
       normfluodat(input$dbfordat$datapath)
       })
+    plate_with_data_plot = reactive({
+      req(input$dbfordat)
+      plate = setup_plate(init_plate())
+      plate = plate %>%
+        upload_data(input$dbfordat$datapath) %>%
+        run_steps %>%
+        plot(whichplot = 1)
+    })
 
 
   #TAB 2
@@ -305,31 +314,46 @@ server <- function(input, output, session) {
     }
   })
 
+  active_table = reactive({
+    req(active_x())
+    req(active_ys())
+    print(active_ys())
+    cbind(active_x(),
+          active_ys())
+  })
+
   output$selected_cols <- renderTable({
+
     if(NA %in% input$rows_tab3) {
       head(c("Enter >= 1 rows to preview the information"))
     }
+    else if(is.null(active_ys()) | is.null(active_x())){
+      head(c("Select 3 wells to plot for this demo"))
+    }
     else {
-      head(cbind(active_x(),
-                 active_ys()),
+      head(active_table(),
            input$rows_tab3)
     }
   })
 
-  active_table = reactive({
-    cbind(active_x(),
-          active_ys())
-    })
-
   y_vars <- reactive({c(input$wells)})
   x_var <- reactive({c(input$x)})
+
+  plot_placeholder = reactive({
+    ggplot() +
+      labs(title = "Error: Please provide exactly 3 samples.",
+           x = "X Variable",
+           y = "") +
+      theme_void()
+  })
 
   plot_container <- reactiveValues()
   observeEvent(input$plot_button,{
     req(input$dbfordat)
+    req(active_table())
     ext = tools::file_ext(input$dbfordat$datapath)
     plot_container$plot = NULL
-    if(length(y_vars()) !=3) {
+    if(length(y_vars()) !=3 || is.null(active_table()) || is.null(y_vars())) {
       plot_container$plot = ggplot() +
         labs(title = "Error: Please provide exactly 3 samples.",
              x = "X Variable",
@@ -342,14 +366,24 @@ server <- function(input, output, session) {
                                               xlim=input$x_range,
                                               ylim=input$y_range)
     }
+    plot_container$plot
     })
 
   #using the ggplot program for this
   output$single_plot <- renderPlot({
-    plot_container$plot})
+    req(active_table())
+    if(is.null(y_vars())){
+      plot_placeholder()$plot
+    }
+    else{
+      plot_container$plot
+    }
 
-  output$multiplot_panel <- renderText({
-    print("No Multiplots for Demo Version")})
+    })
+
+  output$plate_plot = renderPlot({
+    plate_with_data_plot()$plot
+  })
 
   output$download_plot <- downloadHandler(
     filename <- function() {

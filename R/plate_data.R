@@ -100,7 +100,7 @@ format_plate_data.default = function(plate){
                       "sample" = well,
                       "used" = TRUE,
                       "outlier" = FALSE) %>%
-        dplyr::select("well", "sample", "well_row", "well_col", "used", "Cycle_Number", "Time", "fluor_values", "outlier")
+        dplyr::select("well", "sample", "well_row", "well_col", "used", "Cycle_Number", "fluor_values", "outlier")
       message('Cannot check for outliers in already normalized plate data')
     }
     else {
@@ -164,7 +164,7 @@ format_plate_data.96well_plate = function(plate){
                       "sample" = well,
                       "used" = TRUE,
                       "outlier" = FALSE) %>%
-        dplyr::select("well", "sample", "well_row", "well_col", "used", "Cycle_Number", "Time", "fluor_values", "outlier")
+        dplyr::select("well", "sample", "well_row", "well_col", "used", "Cycle_Number", "fluor_values", "outlier")
       message('Cannot check for outliers in already normalized plate data')
     }
     else {
@@ -227,7 +227,7 @@ format_plate_data.384well_plate = function(plate){
                       "sample" = well,
                       "used" = TRUE,
                       "outlier" = FALSE) %>%
-        dplyr::select("well", "sample", "well_row", "well_col", "used", "Cycle_Number", "Time", "fluor_values", "outlier")
+        dplyr::select("well", "sample", "well_row", "well_col", "used", "Cycle_Number", "fluor_values", "outlier")
       message('Cannot check for outliers in already normalized plate data')
     }
     else {
@@ -290,7 +290,7 @@ format_plate_data.1536well_plate_t1 = function(plate){
                       "sample" = well,
                       "used" = TRUE,
                       "outlier" = FALSE) %>%
-        dplyr::select("well", "sample", "well_row", "well_col", "used", "Cycle_Number", "Time", "fluor_values", "outlier")
+        dplyr::select("well", "sample", "well_row", "well_col", "used", "Cycle_Number", "fluor_values", "outlier")
       message('Cannot check for outliers in already normalized plate data')
     }
     else {
@@ -353,7 +353,7 @@ format_plate_data.1536well_plate_t2 = function(plate){
                       "sample" = well,
                       "used" = TRUE,
                       "outlier" = FALSE) %>%
-        dplyr::select("well", "sample", "well_row", "well_col", "used", "Cycle_Number", "Time", "fluor_values", "outlier")
+        dplyr::select("well", "sample", "well_row", "well_col", "used", "Cycle_Number", "fluor_values", "outlier")
       message('Cannot check for outliers in already normalized plate data')
     }
     else {

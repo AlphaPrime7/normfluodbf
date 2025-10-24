@@ -2,11 +2,14 @@
 % Please edit documentation in R/main.R
 \name{liposome_fluor_dbfs}
 \alias{liposome_fluor_dbfs}
+\alias{.normfluordbf}
 \alias{norm_tidy_dbf}
 \alias{normfluordbf}
 \alias{normfluodbf}
 \title{Cleans and Normalizes DBF files obtained from experiments using the FLUOstar Omega microplate reader (from BMG LABTECH).}
 \usage{
+.normfluordbf(x, fun = NA, ...)
+
 norm_tidy_dbf(
   file = NULL,
   norm_scale = NULL,
@@ -20,17 +23,19 @@ normfluordbf(file = NULL, norm_scale = NULL, transformed = NULL, fun = NA, ...)
 normfluodbf(file = NULL, norm_scale, transformed = NULL, fun = NA, ...)
 }
 \arguments{
+\item{fun}{A parameter defined as NA is used for Boolean expressions or manipulation.}
+
+\item{...}{An abstract placeholder or container parameter that can be used to capture extra variables if needed.}
+
 \item{file}{A string ("liposomes_xxx.dbf") if the file is found within the present working directory (pwd) OR a path pointing directly to a ".dbf" file.}
 
 \item{norm_scale}{This parameter takes sub-parameters: 'raw’ , hundred’ , 'one’ , 'z-score' , or 'decimal’ , which denotes the normalization type or scale; The parameter is initialized as NULL.}
 
 \item{transformed}{This parameter takes input 'log', which denotes a logarithmic box-cox transformation; Initialized as NULL.}
-
-\item{fun}{A parameter defined as NA is used for Boolean expressions or manipulation.}
-
-\item{...}{An abstract placeholder or container parameter that can be used to capture extra variables if needed.}
 }
 \value{
+A normalized data frame with an appended "Cycle_Number" attribute.
+
 A normalized data frame with an appended "Cycle_Number" attribute.
 
 A normalized data frame with an appended "Cycle_Number" attribute.
@@ -77,3 +82,4 @@ normalized_dbf <- normfluordbf(file=fpath, norm_scale = 'raw')}
 Tingwei Adeck
 }
 \concept{normfluodbf}
+\keyword{internal}

@@ -8,6 +8,8 @@
 \alias{is_dir}
 \alias{find_known_liposome_dat_file}
 \alias{find_known_liposome_dbf_file}
+\alias{read_dbfs}
+\alias{attach_dbfs}
 \title{Directory Utils}
 \usage{
 list_dbfs(pathstring)
@@ -21,6 +23,10 @@ is_dir(pathstring = NULL)
 find_known_liposome_dat_file(fpath, fname)
 
 find_known_liposome_dbf_file(fpath, fname)
+
+read_dbfs(dbf_list)
+
+attach_dbfs()
 }
 \arguments{
 \item{pathstring}{path string}

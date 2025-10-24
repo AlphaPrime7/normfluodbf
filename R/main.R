@@ -2986,7 +2986,7 @@ NULL
 #' @rdname liposome_fluor_dbfs
 #' @family normfluodbf
 #' @return A normalized data frame with an appended "Cycle_Number" attribute.
-#' @internal
+#' @keywords internal
 .normfluordbf <- function(x, fun = NA, ...){
   library(data.table)
   library(tidyr)

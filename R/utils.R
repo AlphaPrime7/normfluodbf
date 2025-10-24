@@ -117,6 +117,24 @@ find_known_liposome_dbf_file <- function(fpath,fname){
   }
 }
 
+#' @rdname dirutils
+#' @return NULL
+#' @export
+read_dbfs <- function(dbf_list){
+  dbffiles <- lapply(dbf_list,foreign::read.dbf)
+  return(dbffiles)
+}
+
+#' @rdname dirutils
+#' @return NULL
+#' @export
+attach_dbfs = function(){
+  for(i in 1:length(read_dbf(list.files()))){
+    n <- "dbf"
+    assign(paste0(n, i), as.data.frame(dbfs[i]))
+  }
+}
+
 # ----------------------------- File Names ----------------------------------
 #' Get File Name(s)
 #' @family getfilename

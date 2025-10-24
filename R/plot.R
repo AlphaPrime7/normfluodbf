@@ -37,16 +37,18 @@ plot.96well_plate = function(x,
   ylab <- params(plate, 'GENERAL', 'Y_VAR')
 
   if (is.null(whichplot) || is.null(fluorstarplot) || fluorstarplot){
-    plt.obj <- plot_grid(data, plt.obj)
-    plt.obj <- plot_in_well(plt.obj, data, no_annotations = F)
-    plate <- remove_subset_data(plate)
-    if (is.null(plot_name))
-      plot_name <- 'fluostar_plot'
-    else
-      plot_name <- plot_name
-    plate[[plot_name]] <- plt.obj
-    print(plt.obj)
-    invisible(plate)
+    suppressWarnings({
+      plt.obj <- plot_grid(data, plt.obj)
+      plt.obj <- plot_in_well(plt.obj, data, no_annotations = F)
+      plate <- remove_subset_data(plate)
+      if (is.null(plot_name))
+        plot_name <- 'fluostar_plot'
+      else
+        plot_name <- plot_name
+      plate[[plot_name]] <- plt.obj
+      print(plt.obj)
+      invisible(plate)
+    })
   }
   else if (superimpose){
     plot_superimpose_advanced(data = data,

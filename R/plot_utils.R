@@ -215,8 +215,10 @@ plot_canvas <- function(plate){
   bg_plot_app = "transparent"
   bg_plot_r = "#DDDDDD"
 
+  data <- subset_or_not(plate)
+
   plt.obj <-
-    ggplot2::ggplot() +
+    ggplot2::ggplot(data) +
     ggplot2::xlab(x_var_two_label(plate)) +
     ggplot2::ylab(y_var(plate)) +
     ggplot2::ggtitle(sprintf('%s vs %s',y_var(plate),x_var_two_label(plate))) +
@@ -388,6 +390,21 @@ plot_superimpose_advanced <- function(data,
                                       ylab = NULL,
                                       title = NULL,
                                       legend_labels = NULL) {
+  # ggplot(t, aes(x = Cycle_Number, y = fluor_values, color = well)) +
+  #   geom_line(aes(group = well), size = 1) +
+  #   geom_point(aes(shape = outlier, color = well), size = 3) +
+  #   labs(title = "Fluorescence Values by Cycle Number for All Wells",
+  #        x = "Cycle Number",
+  #        y = "Fluorescence Values",
+  #        color = "Well",
+  #        shape = "Outlier") +
+  #   theme_minimal() +
+  #   theme(legend.position = "right")
+
+  # pobj = plot_canvas(plate)
+  # pobj +
+  #   ggplot2::geom_line(ggplot2::aes(x = Cycle_Number, y = fluor_values, color = well, group = well), size = 1)
+
   if(!is.null(legend_labels))
     data <- add_custom_legend(data,legend_labels)
   else
