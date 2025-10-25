@@ -10,6 +10,7 @@
 #' @param pathstring path string
 #' @param fpath fpath
 #' @param fname fname
+#' @param dbf_list list of dbfs for lazy loading
 #' @return directory utils
 #' @name dirutils
 #' @examples

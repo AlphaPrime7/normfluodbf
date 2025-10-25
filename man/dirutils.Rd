@@ -34,6 +34,8 @@ attach_dbfs()
 \item{fpath}{fpath}
 
 \item{fname}{fname}
+
+\item{dbf_list}{list of dbfs for lazy loading}
 }
 \value{
 directory utils

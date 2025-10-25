@@ -11,11 +11,16 @@
 \method{plot}{`96well_plate`}(
   x,
   whichplot = 1,
+  whichxvar = NULL,
   fluorstarplot = 1 \%in\% whichplot,
   superimpose = 2 \%in\% whichplot,
   plate_layout = 3 \%in\% whichplot,
   plot_side_by_side = 4 \%in\% whichplot,
+  Time = 1 \%in\% whichxvar,
+  Cycle_Number = 2 \%in\% whichxvar,
   legend_labels = NULL,
+  whichpalette = NULL,
+  whichlinetype = NULL,
   plot_name = NULL,
   ...
 )
@@ -23,11 +28,16 @@
 \method{plot}{`384well_plate`}(
   x,
   whichplot = 1,
+  whichxvar = NULL,
   fluorstarplot = 1 \%in\% whichplot,
   superimpose = 2 \%in\% whichplot,
   plate_layout = 3 \%in\% whichplot,
   plot_side_by_side = 4 \%in\% whichplot,
+  Time = 1 \%in\% whichxvar,
+  Cycle_Number = 2 \%in\% whichxvar,
   legend_labels = NULL,
+  whichpalette = NULL,
+  whichlinetype = NULL,
   plot_name = NULL,
   ...
 )
@@ -35,11 +45,16 @@
 \method{plot}{`1536well_plate_t1`}(
   x,
   whichplot = 1,
+  whichxvar = NULL,
   fluorstarplot = 1 \%in\% whichplot,
   superimpose = 2 \%in\% whichplot,
   plate_layout = 3 \%in\% whichplot,
   plot_side_by_side = 4 \%in\% whichplot,
+  Time = 1 \%in\% whichxvar,
+  Cycle_Number = 2 \%in\% whichxvar,
   legend_labels = NULL,
+  whichpalette = NULL,
+  whichlinetype = NULL,
   plot_name = NULL,
   ...
 )
@@ -47,11 +62,16 @@
 \method{plot}{`1536well_plate_t2`}(
   x,
   whichplot = 1,
+  whichxvar = NULL,
   fluorstarplot = 1 \%in\% whichplot,
   superimpose = 2 \%in\% whichplot,
   plate_layout = 3 \%in\% whichplot,
   plot_side_by_side = 4 \%in\% whichplot,
+  Time = 1 \%in\% whichxvar,
+  Cycle_Number = 2 \%in\% whichxvar,
   legend_labels = NULL,
+  whichpalette = NULL,
+  whichlinetype = NULL,
   plot_name = NULL,
   ...
 )
@@ -61,6 +81,8 @@
 
 \item{whichplot}{int}
 
+\item{whichxvar}{int}
+
 \item{fluorstarplot}{whichplot = 1}
 
 \item{superimpose}{whichplot = 2}
@@ -69,7 +91,15 @@
 
 \item{plot_side_by_side}{whichplot = 4}
 
+\item{Time}{whichxvar = 2}
+
+\item{Cycle_Number}{whichxvar = 1}
+
 \item{legend_labels}{labels whichplot = 2,4}
+
+\item{whichpalette}{choose a palette using an integer 1-6}
+
+\item{whichlinetype}{choose linetype 1-3}
 
 \item{plot_name}{plot name}
 

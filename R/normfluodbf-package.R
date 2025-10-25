@@ -43,7 +43,10 @@ utils::globalVariables(
     "element_rect",
     "legend",
     "check_dats",
-    "write_rds"
+    "write_rds",
+    "dbfs",
+    "read_dbf",
+    "drop_na"
   ),
   package = 'normfluodbf',
   add = FALSE

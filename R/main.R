@@ -2988,8 +2988,6 @@ NULL
 #' @return A normalized data frame with an appended "Cycle_Number" attribute.
 #' @keywords internal
 .normfluordbf <- function(x, fun = NA, ...){
-  library(data.table)
-  library(tidyr)
   y <- transpose(l=x)
   rownames(y) <- colnames(x)
   colnames(y) <- rownames(x)

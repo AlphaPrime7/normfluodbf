@@ -9,6 +9,7 @@
 \alias{column_levels_layout}
 \alias{column_levels_grid}
 \alias{row_levels}
+\alias{reset_grid}
 \alias{get_x_var}
 \alias{get_y_var}
 \alias{convert_x_one_label}
@@ -16,25 +17,14 @@
 \alias{get_x_label}
 \alias{add_custom_legend}
 \alias{remove_legend}
-\alias{reset_grid}
-\alias{save_plot}
 \alias{plot_canvas}
-\alias{plot_in_well}
 \alias{plot_grid}
-\alias{plot_grid_with_forcats}
-\alias{plot_grid_alt.one}
-\alias{plot_grid_alt.two}
-\alias{plot_grid_alt.three}
+\alias{plot_in_well}
+\alias{plot.fluorstar}
 \alias{plot_superimpose}
-\alias{plot_superimpose_advanced}
 \alias{plot_plate_layout}
-\alias{plot_return_plot.obj}
 \alias{plot_side_by_side}
-\alias{plotly_plot}
-\alias{plot_dev_deprecated}
-\alias{plot_dev}
-\alias{plot_dev_with_custom_legends}
-\alias{plate_wells_grid}
+\alias{save_plot}
 \title{Adeckstats Plots}
 \usage{
 reverse_row(vect)
@@ -51,6 +41,8 @@ column_levels_grid(cols)
 
 row_levels(plate)
 
+reset_grid(plate, grid_plot)
+
 get_x_var(data)
 
 get_y_var(data)
@@ -65,46 +57,65 @@ add_custom_legend(df, legend_values)
 
 remove_legend(plate)
 
-reset_grid(plate, grid_plot)
-
-save_plot(name)
-
-plot_canvas(plate)
-
-plot_in_well(plt.obj, data, no_annotations = FALSE)
+plot_canvas(
+  plate,
+  whichxvar = NULL,
+  Cycle_Number = 2 \%in\% whichxvar,
+  Time = 1 \%in\% whichxvar
+)
 
 plot_grid(data, plt.obj)
 
-plot_grid_with_forcats(base_plot, data)
+plot_in_well(
+  plt.obj,
+  data,
+  whichxvar = NULL,
+  Cycle_Number = 2 \%in\% whichxvar,
+  Time = 1 \%in\% whichxvar,
+  no_annotations = FALSE
+)
 
-plot_grid_alt.one(base_plot, data)
-
-plot_grid_alt.two(base_plot, data)
-
-plot_grid_alt.three(base_plot, data)
+\method{plot}{fluorstar}(data, plt.obj, whichxvar = NULL)
 
 plot_superimpose(
   data,
-  xlab = NULL,
-  ylab = NULL,
-  xlim = NULL,
-  ylim = NULL,
-  title = NULL,
-  legend_labels = NULL
-)
-
-plot_superimpose_advanced(
-  data,
   plt.obj,
+  whichxvar = NULL,
+  Cycle_Number = 2 \%in\% whichxvar,
+  Time = 1 \%in\% whichxvar,
   xlab = NULL,
   ylab = NULL,
   title = NULL,
-  legend_labels = NULL
+  legend_labels = NULL,
+  whichpalette = NULL,
+  whichlinetype = NULL,
+  linetypeoptions = c("solid", "dashed", "dotted"),
+  solid = linetypeoptions[which(linetypeoptions == "solid")],
+  dashed = linetypeoptions[which(linetypeoptions == "dashed")],
+  dotted = linetypeoptions[which(linetypeoptions == "dotted")],
+  linetype = solid,
+  wespalettes = c(names(wesanderson::wes_palettes)),
+  Zissou1 = wespalettes[which(wespalettes == "Zissou1")],
+  Cavalcanti1 = wespalettes[which(wespalettes == "Cavalcanti1")],
+  BottleRocket1 = wespalettes[which(wespalettes == "BottleRocket1")],
+  BottleRocket2 = wespalettes[which(wespalettes == "BottleRocket2")],
+  Rushmore1 = wespalettes[which(wespalettes == "Rushmore1")],
+  Darjeeling1 = wespalettes[which(wespalettes == "Darjeeling1")],
+  Royal1 = wespalettes[which(wespalettes == "Royal1")],
+  Royal2 = wespalettes[which(wespalettes == "Royal2")],
+  Moonrise1 = wespalettes[which(wespalettes == "Moonrise1")],
+  GrandBudapest1 = wespalettes[which(wespalettes == "GrandBudapest1")],
+  Moonrise2 = wespalettes[which(wespalettes == "Moonrise2")],
+  GrandBudapest2 = wespalettes[which(wespalettes == "GrandBudapest2")],
+  IsleofDogs1 = wespalettes[which(wespalettes == "IsleofDogs1")],
+  IsleofDogs2 = wespalettes[which(wespalettes == "IsleofDogs2")],
+  FrenchDispatch = wespalettes[which(wespalettes == "FrenchDispatch")],
+  AsteroidCity1 = wespalettes[which(wespalettes == "AsteroidCity1")],
+  AsteroidCity2 = wespalettes[which(wespalettes == "AsteroidCity2")],
+  pal = Zissou1
 )
 
 plot_plate_layout(plate)
-
-plot_return_plot.obj(data, plt.obj)
 
 plot_side_by_side(
   data,
@@ -114,49 +125,13 @@ plot_side_by_side(
   xlim = NULL,
   ylim = NULL,
   title = NULL,
+  whichxvar = NULL,
+  whichpalette = NULL,
+  whichlinetype = NULL,
   legend_labels = NULL
 )
 
-plotly_plot(plate, title = NULL, ylab = NULL, xlab = NULL)
-
-plot_dev_deprecated(
-  df,
-  wells,
-  x = NULL,
-  well_colors = NULL,
-  xlim = NULL,
-  ylim = NULL,
-  xlab = NULL,
-  ylab = NULL,
-  title = NULL
-)
-
-plot_dev(
-  df,
-  wells,
-  x = NULL,
-  well_colors = NULL,
-  xlim = NULL,
-  ylim = NULL,
-  xlab = NULL,
-  ylab = NULL,
-  title = NULL
-)
-
-plot_dev_with_custom_legends(
-  df,
-  wells,
-  legend_labels = NULL,
-  x = NULL,
-  well_colors = NULL,
-  xlim = NULL,
-  ylim = NULL,
-  xlab = NULL,
-  ylab = NULL,
-  title = NULL
-)
-
-plate_wells_grid(num_wells = NULL)
+save_plot(name)
 }
 \value{
 plot utils
@@ -191,41 +166,21 @@ plot utils
 
 plot utils
 
+ggplot list
+
+ggplot list
+
+ggplot list
+
+ggplot list
+
+ggplot list
+
+ggplot list
+
+ggplot list
+
 plot utils
-
-ggplot list
-
-ggplot list
-
-ggplot list
-
-ggplot list
-
-ggplot list
-
-ggplot list
-
-ggplot list
-
-ggplot list
-
-ggplot list
-
-ggplot list
-
-ggplot list
-
-ggplot list
-
-ggplot list
-
-ggplot list
-
-ggplot list
-
-ggplot list
-
-ggplot list
 }
 \description{
 Adeckstats Plots
@@ -233,11 +188,9 @@ Adeckstats Plots
 \note{
 Just one of those functions I have found no use for
 
+follows the grid plot
+
 purely subordinate because of the plt.obj found in the plot function
-
-The most useless function here but learnt plotly a little.
-
-Just simple grids with no functionality. No time to delve deeper but a good primer.
 }
 \examples{
 \dontrun{

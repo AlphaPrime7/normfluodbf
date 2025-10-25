@@ -98,18 +98,36 @@ row_levels <- function(plate) {
 
 #' @rdname plotutils
 #' @return plot utils
+#' @note Just one of those functions I have found no use for
+#' @keywords internal
+reset_grid <- function(plate, grid_plot){
+  bg_plot_r = "#DDDDDD"
+  grid_plot <- grid_plot +
+    ggplot2::geom_rect(
+      data = plate[['plate_data']],
+      xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf,
+      fill = bg_plot_r
+    )
+  grid_plot
+}
+
+# ------------------------------- axis labels ----------------
+
+#' @rdname plotutils
+#' @return plot utils
 #' @keywords internal
 get_x_var = function(data){
-  xvar = ""
+  xvars = c()
   for (i in names(data)){
-    if (i == "Cycle_Number" && "Cycle_Number" %in% names(data)){
-      xvar = i
+    if (i == "Cycle_Number"){
+      xvars = c(xvars, i)
     }
-    else if (i == "Time" && "Time" %in% names(data)){
-      xvar = i
+
+    if (i == "Time"){
+      xvars = c(xvars, i)
     }
   }
-  return(xvar)
+  return(xvars)
 }
 
 #' @rdname plotutils
@@ -159,6 +177,8 @@ get_x_label <- function(xvar){
   }
 }
 
+# ------------------------------- handle legends ----------------
+
 #' @rdname plotutils
 #' @return plot utils
 #' @keywords internal
@@ -184,44 +204,52 @@ remove_legend <- function(plate) {
   plate
 }
 
-#' @rdname plotutils
-#' @return plot utils
-#' @note Just one of those functions I have found no use for
-#' @keywords internal
-reset_grid <- function(plate, grid_plot){
-  bg_plot_r = "#DDDDDD"
-  grid_plot <- grid_plot +
-    ggplot2::geom_rect(
-      data = plate[['plate_data']],
-      xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf,
-      fill = bg_plot_r
-    )
-  grid_plot
-}
-
-#' @rdname plotutils
-#' @return plot utils
-#' @keywords internal
-#' @export
-save_plot <- function(name){
-  ggplot2::ggsave(name, width=9,height=6)
-}
 
 # -------------------------------- Plot Handlers ----------------------------
+
+## -------------------------------- base ----------------------------
 #' @rdname plotutils
 #' @return ggplot list
 #' @keywords internal
-plot_canvas <- function(plate){
+plot_canvas <- function(plate,
+                        whichxvar = NULL,
+                        Cycle_Number = 2 %in% whichxvar,
+                        Time = 1 %in% whichxvar){
   bg_plot_app = "transparent"
   bg_plot_r = "#DDDDDD"
 
-  data <- subset_or_not(plate)
+  xvariables = get_x_var(plate[['plate_data']])
+  xlabel = NULL
+  ylable = NULL
+
+  #xlabel
+  if(is.null(whichxvar)) {
+    xvar = xvariables[which(xvariables == "Cycle_Number")]
+    whichxvar = 2
+
+    xlabel = x_var_two_label(plate)
+  }
+  else if (Cycle_Number && "Cycle_Number" %in% xvariables){
+    whichxvar = 2
+    xlabel = x_var_two_label(plate)
+  }
+  else if(Time && "Time" %in% xvariables) {
+    whichxvar = 1
+    xlabel = x_var_one_label(plate)
+  }
+  else {
+    whichxvar = 2
+    xlabel = x_var_two_label(plate)
+  }
+
+  #ylabel
+  ylabel = y_var(plate)
 
   plt.obj <-
-    ggplot2::ggplot(data) +
-    ggplot2::xlab(x_var_two_label(plate)) +
-    ggplot2::ylab(y_var(plate)) +
-    ggplot2::ggtitle(sprintf('%s vs %s',y_var(plate),x_var_two_label(plate))) +
+    ggplot2::ggplot() +
+    ggplot2::xlab(xlabel) +
+    ggplot2::ylab(ylabel) +
+    ggplot2::ggtitle(sprintf('%s vs %s',ylabel,xlabel)) +
     ggplot2::theme_bw() +
     ggplot2::theme(
       panel.grid.minor = ggplot2::element_blank(),
@@ -236,19 +264,70 @@ plot_canvas <- function(plate){
   plt.obj
 }
 
+## -------------------------------- plot 1 ----------------------------
+
+#' @rdname plotutils
+#' @return ggplot list
+#' @export
+plot_grid <- function(data,
+                      plt.obj){
+  plt.obj <- plt.obj +
+    ggplot2::facet_grid(row_levels_grid(data$well_row) ~ column_levels_grid(data$well_col))
+  plt.obj
+}
+
 #' @rdname plotutils
 #' @return ggplot list
 #' @keywords internal
-plot_in_well = function(plt.obj, data, no_annotations = FALSE){
-  x = get_x_var(data)
+#' @note follows the grid plot
+plot_in_well = function(plt.obj,
+                        data,
+                        whichxvar = NULL,
+                        Cycle_Number = 2 %in% whichxvar,
+                        Time = 1 %in% whichxvar,
+                        no_annotations = FALSE){
+
+  xvariables = get_x_var(data)
+  x = NULL
+  y = NULL
+
+  #xlabel
+  if(is.null(whichxvar)) {
+    x = xvariables[which(xvariables == "Cycle_Number")]
+    whichxvar = 2
+    xlabel = x_var_two_label(plate)
+  }
+  else if (Cycle_Number && "Cycle_Number" %in% xvariables){
+    x = xvariables[which(xvariables == "Cycle_Number")]
+    whichxvar = 2
+    xlabel = x_var_two_label(plate)
+  }
+  else if(Time && "Time" %in% xvariables) {
+    x = xvariables[which(xvariables == "Time")]
+    whichxvar = 1
+    xlabel = x_var_one_label(plate)
+  }
+  else {
+    x = xvariables[which(xvariables == "Cycle_Number")]
+    whichxvar = 2
+    xlabel = x_var_two_label(plate)
+  }
+
+  #ylabel
+  ylabel = y_var(plate)
   y = get_y_var(data)
+
+  #take in grid
   plt.obj <- plt.obj +
     ggplot2::geom_point(
       data = data,
       ggplot2::aes_string(x, y),
       alpha = 0.3,
       size = 1
-    ) + ggplot2::geom_line(data=data,ggplot2::aes_string(x, y), linewidth=0.1)
+    ) +
+    ggplot2::geom_line(data=data,
+                       ggplot2::aes_string(x, y, group = 'well'),
+                       linewidth=0.1)
 
   if(no_annotations){
     plt.obj <- plt.obj +
@@ -262,215 +341,219 @@ plot_in_well = function(plt.obj, data, no_annotations = FALSE){
 
 #' @rdname plotutils
 #' @return ggplot list
-#' @export
-plot_grid <- function(data, plt.obj){
-  plt.obj <- plt.obj +
-    ggplot2::facet_grid(row_levels_grid(data$well_row) ~ column_levels_grid(data$well_col))
+#' @keywords internal
+plot.fluorstar = function(data,
+                          plt.obj,
+                          whichxvar = NULL){
+  plt.obj <- plot_grid(data = data,
+                       plt.obj = plt.obj)
+  plt.obj = plot_in_well(plt.obj,
+                         data,
+                         no_annotations = F,
+                         whichxvar = whichxvar)
+  print(plt.obj)
   plt.obj
 }
 
-#' @rdname plotutils
-#' @return ggplot list
-#' @keywords internal
-plot_grid_with_forcats = function(base_plot, data){
-  p <- base_plot +
-    ggplot2::facet_grid(forcats::fct_rev(data$well_row) ~ data$well_col,
-                        space = "free_y",
-                        switch = "x",
-                        #labeller = labeller(well_row = reverse),
-                        drop = FALSE) +
-    theme(strip.text.x = element_text(size=16, angle=0, face="bold"),
-          strip.text.y = element_text(size=16, face="bold"),
-          strip.background = element_rect(colour="red", fill="orange"))
-  p
-}
+## -------------------------------- plot 2 ----------------------------
 
-#' @rdname plotutils
-#' @return ggplot list
-#' @keywords internal
-plot_grid_alt.one = function(base_plot, data){
-  p <- base_plot +
-    ggplot2::facet_grid(reverse_row(data$well_row) ~ data$well_col,
-                        space = "free_y",
-                        switch = "x",
-                        labeller = labeller(reverse_row(data$well_row)),
-                        drop = FALSE) +
-    theme(strip.text.x = element_text(size=16, angle=0, face="bold"),
-          strip.text.y = element_text(size=16, face="bold"),
-          strip.background = element_rect(colour="red", fill="orange"))
-  p
-}
-
-#' @rdname plotutils
-#' @return ggplot list
-#' @keywords internal
-plot_grid_alt.two = function(base_plot, data){
-  p <- base_plot +
-    ggplot2::facet_grid(factor(data$well_row, levels = reverse_row(data$well_row)) ~ data$well_col,
-                        space = "free_y",
-                        switch = "y",
-                        drop = FALSE) +
-    theme(strip.text.x = element_text(size=16, angle=0, face="bold"),
-          strip.text.y = element_text(size=16, face="bold"),
-          strip.background = element_rect(colour="red", fill="orange"))
-  p
-}
-
-#' @rdname plotutils
-#' @return ggplot list
-#' @keywords internal
-plot_grid_alt.three = function(base_plot, data){
-  p <- base_plot +
-    ggplot2::facet_grid(reverse_row(data$well_row) ~ as.numeric(data$well_col),
-                        space = "free_y",
-                        switch = "both",
-                        labeller = ggplot2::labeller(reverse_row(data$well_row)),
-                        drop = FALSE) +
-    ggplot2::theme(strip.text.x = ggplot2::element_text(size=16, angle=0, face="bold"),
-          strip.text.y = ggplot2::element_text(size=16, face="bold"),
-          strip.background = ggplot2::element_rect(colour="gray", fill="gray"),
-          axis.text = ggplot2::element_blank(),
-          axis.ticks = ggplot2::element_blank())
-  p
-}
-
-#' @rdname plotutils
-#' @return ggplot list
-#' @keywords internal
-plot_superimpose <- function(data,
-                             xlab = NULL,
-                             ylab = NULL,
-                             xlim=NULL,
-                             ylim=NULL,
-                             title=NULL,
-                             legend_labels = NULL){
-  if (!is.null(legend_labels)){
-    data <- add_custom_legend(data, legend_values = legend_labels)
-  }
-  else{
-    data <- data
-  }
-
-  x = get_x_var(data)
-  y = get_y_var(data)
-  if (is.null(xlab)) xlab = get_x_label(x)
-  if (is.null(ylab)) ylab = 'FLUORESCENCE'
-  if (is.null(title)) title <- sprintf('%s vs %s', ylab, xlab)
-  well = 'well'
-  legend = 'legend'
-  if ("legend" %in% colnames(data)){
-    plt.obj <- ggplot2::ggplot(data, ggplot2::aes_string(x=x, y=y, color=legend)) +
-      ggplot2::geom_point(size=3) +
-      ggplot2::geom_line(size=0.8) +
-      ggplot2::coord_cartesian(xlim=xlim, ylim=ylim) +
-      ggplot2::labs(title=title, x=xlab, y=ylab, color='legend') +
-      ggplot2::theme_minimal()
-    print(plt.obj)
-    return(plt.obj)
-  }
-  else {
-    plt.obj <- ggplot2::ggplot(data, ggplot2::aes_string(x=x, y=y, color=well)) +
-      ggplot2::geom_point(size=3) +
-      ggplot2::geom_line(size=0.8) +
-      ggplot2::coord_cartesian(xlim=xlim, ylim=ylim) +
-      ggplot2::labs(title=title, x=xlab, y=ylab, color='Sample Type') +
-      ggplot2::theme_minimal()
-    print(plt.obj)
-    return(plt.obj)
-  }
-}
 
 #' @rdname plotutils
 #' @return ggplot list
 #' @note purely subordinate because of the plt.obj found in the plot function
 #' @keywords internal
-plot_superimpose_advanced <- function(data,
-                                      plt.obj,
-                                      xlab = NULL,
-                                      ylab = NULL,
-                                      title = NULL,
-                                      legend_labels = NULL) {
-  # ggplot(t, aes(x = Cycle_Number, y = fluor_values, color = well)) +
-  #   geom_line(aes(group = well), size = 1) +
-  #   geom_point(aes(shape = outlier, color = well), size = 3) +
-  #   labs(title = "Fluorescence Values by Cycle Number for All Wells",
-  #        x = "Cycle Number",
-  #        y = "Fluorescence Values",
-  #        color = "Well",
-  #        shape = "Outlier") +
-  #   theme_minimal() +
-  #   theme(legend.position = "right")
+plot_superimpose <- function(data,
+                             plt.obj,
+                             whichxvar = NULL,
+                             Cycle_Number = 2 %in% whichxvar,
+                             Time = 1 %in% whichxvar,
+                             xlab = NULL,
+                             ylab = NULL,
+                             title = NULL,
+                             legend_labels = NULL,
+                             whichpalette = NULL,
+                             whichlinetype = NULL,
+                             linetypeoptions = c("solid","dashed","dotted"),
+                             solid = linetypeoptions[which(linetypeoptions == "solid")],
+                             dashed = linetypeoptions[which(linetypeoptions == "dashed")],
+                             dotted = linetypeoptions[which(linetypeoptions == "dotted")],
+                             linetype = solid,
+                             wespalettes = c(names(wesanderson::wes_palettes)),
+                             Zissou1 = wespalettes[which(wespalettes == "Zissou1")],
+                             Cavalcanti1 = wespalettes[which(wespalettes == "Cavalcanti1")],
+                             BottleRocket1 = wespalettes[which(wespalettes == "BottleRocket1")],
+                             BottleRocket2 = wespalettes[which(wespalettes == "BottleRocket2")],
+                             Rushmore1 = wespalettes[which(wespalettes == "Rushmore1")],
+                             Darjeeling1 = wespalettes[which(wespalettes == "Darjeeling1")],
+                             Royal1 = wespalettes[which(wespalettes == "Royal1")],
+                             Royal2 = wespalettes[which(wespalettes == "Royal2")],
+                             Moonrise1 = wespalettes[which(wespalettes == "Moonrise1")],
+                             GrandBudapest1 = wespalettes[which(wespalettes == "GrandBudapest1")],
+                             Moonrise2 = wespalettes[which(wespalettes == "Moonrise2")],
+                             GrandBudapest2 = wespalettes[which(wespalettes == "GrandBudapest2")],
+                             IsleofDogs1 = wespalettes[which(wespalettes == "IsleofDogs1")],
+                             IsleofDogs2 = wespalettes[which(wespalettes == "IsleofDogs2")],
+                             FrenchDispatch = wespalettes[which(wespalettes == "FrenchDispatch")],
+                             AsteroidCity1 = wespalettes[which(wespalettes == "AsteroidCity1")],
+                             AsteroidCity2 = wespalettes[which(wespalettes == "AsteroidCity2")],
+                             pal = Zissou1
+                                      ) {
 
-  # pobj = plot_canvas(plate)
-  # pobj +
-  #   ggplot2::geom_line(ggplot2::aes(x = Cycle_Number, y = fluor_values, color = well, group = well), size = 1)
+  #get x vars because of 2 options
+  xvariables = get_x_var(data)
+  x = NULL
+  y = NULL
 
   if(!is.null(legend_labels))
-    data <- add_custom_legend(data,legend_labels)
+    data <- add_custom_legend(data,
+                              legend_labels)
   else
     data <- data
 
-  sample_cols <- unique(data$well)
-  xvar <- get_x_var(data)
-  yvar <- get_y_var(data)
+  #not consistent with plot 1 (most beloved plot)
+  used_wells = data[!is.na(data[['fluor_values']]),] #dont want a plot of everything if possible
+  sample_cols <- unique(data[['well']]) #legend should only contain used wells
+
+  #xlabel and xvar
+  if(is.null(whichxvar)) {
+    x = xvariables[which(xvariables == "Cycle_Number")]
+    whichxvar = 2
+    xlabel = x_var_two_label(plate)
+  }
+  else if (Cycle_Number && "Cycle_Number" %in% xvariables){
+    x = xvariables[which(xvariables == "Cycle_Number")]
+    whichxvar = 2
+    xlabel = x_var_two_label(plate)
+  }
+  else if(Time && "Time" %in% xvariables) {
+    x = xvariables[which(xvariables == "Time")]
+    whichxvar = 1
+    xlabel = x_var_one_label(plate)
+  }
+  else {
+    x = xvariables[which(xvariables == "Cycle_Number")]
+    whichxvar = 2
+    xlabel = x_var_two_label(plate)
+  }
+  if (is.null(xlab)) xlab = xlabel
+
+  #ylabel and yvar
+  ylabel = y_var(plate)
+  y = get_y_var(data)
+  if (is.null(ylab)) ylab = ylabel
+
+  #grouping variables
   well = 'well'
   legend = 'legend'
-  if (is.null(xlab)) xlab = get_x_label(xvar)
-  if (is.null(ylab)) ylab = 'FLUORESCENCE'
-  if (is.null(title)) title <- sprintf('%s vs %s', ylab, xlab)
 
-  if("legend" %in% colnames(data)){
+  #title(see if the canvas does not get this)
+  if (is.null(title)) title <- sprintf('%s vs %s', ylabel, xlabel)
+
+  #palette management -if is the turn on
+  if(is.null(whichpalette)) {
+    whichpalette = 1
+  }
+  pal = switch(whichpalette,
+               Zissou1,
+               Cavalcanti1,
+               BottleRocket1,
+               BottleRocket2,
+               Rushmore1,
+               Darjeeling1,
+               Royal1,
+               Royal2,
+               Moonrise1,
+               GrandBudapest1,
+               Moonrise2,
+               GrandBudapest2,
+               IsleofDogs1,
+               IsleofDogs2,
+               FrenchDispatch,
+               AsteroidCity1,
+               AsteroidCity2,
+               Zissou1
+               )
+
+  #linetype management
+  if(is.null(whichlinetype)) whichlinetype = 1
+
+  linetype = switch(whichlinetype,
+               solid,
+               dashed,
+               dotted,
+               solid
+               )
+
+  if("legend" %in% colnames(used_wells)){
     plt.obj <- plt.obj + ggplot2::geom_point(
-      data = data,
-      ggplot2::aes_string(x = xvar, y = yvar, color = legend),
-      size = 1,
+      data = used_wells,
+      ggplot2::aes_string(x = x,
+                          y = y,
+                          color = legend),
+      size = 2,
+      shape = 16,
       show.legend = TRUE
     ) +
       ggplot2::geom_line(
-        data = data,
-        ggplot2::aes_string(x = xvar, y = yvar, group = legend, color = legend),
+        data = used_wells,
+        ggplot2::aes_string(x = x,
+                            y = y,
+                            group = well,
+                            color = legend),
         size = 0.8,
+        linetype = linetype,
         alpha = 0.7
       ) +
-      ggplot2::labs(title=title, x=xlab, y=ylab, color = legend)
+      ggplot2::labs(color = legend) +
+      ggplot2::theme(legend.position = "right")
   }
   else {
     plt.obj <- plt.obj + ggplot2::geom_point(
-      data = data,
-      ggplot2::aes_string(x = xvar, y = yvar, color = well),
+      data = used_wells,
+      ggplot2::aes_string(x = x,
+                          y = y,
+                          color = well),
       size = 1,
       show.legend = TRUE
     ) +
       ggplot2::geom_line(
-        data = data,
-        ggplot2::aes_string(x = xvar, y = yvar, group = well, color = well),
+        data = used_wells,
+        ggplot2::aes_string(x = x,
+                            y = y,
+                            group = well,
+                            color = well),
         size = 0.8,
         alpha = 0.7
       ) +
-      ggplot2::labs(title=title, x=xlab, y=ylab, color = well)
-
+      ggplot2::labs(color = well)
   }
 
-  if ("legend" %in% colnames(data)) {
-    legend_labels <- unique(data$legend)
+  if ("legend" %in% colnames(used_wells)) {
+    legend_labels <- unique(used_wells$legend)
     plt.obj <- plt.obj + ggplot2::scale_color_manual(
-      name = 'Well',
-      values = wesanderson::wes_palette(n = length(sample_cols), name = 'Zissou1', type = 'continuous'),
-      breaks = sample_cols,
+      name = well,
+      values = wesanderson::wes_palette(n = length(legend_labels),
+                                        name = pal,
+                                        type = 'continuous'),
+      breaks = legend_labels,
       labels = legend_labels
     )
   }
   else {
     plt.obj <- plt.obj + ggplot2::scale_color_manual(
-      name = 'Well',
-      values = wesanderson::wes_palette(n = length(sample_cols), name = 'Zissou1', type = 'continuous'),
+      name = well,
+      values = wesanderson::wes_palette(n = length(sample_cols),
+                                        name = pal,
+                                        type = 'continuous'),
       breaks = sample_cols
     )
   }
-  plt.obj <- plotly::ggplotly(plt.obj)
+
   print(plt.obj)
   return(plt.obj)
 }
+
+## -------------------------------- plot 3 ----------------------------
 
 #' @rdname plotutils
 #' @return ggplot list
@@ -490,20 +573,13 @@ plot_plate_layout <- function(plate){
     ggplot2::xlab(NULL) +
     ggplot2::ylab(NULL) +
     ggplot2::coord_fixed()
-  plt.obj <- plotly::ggplotly(plt.obj)
+  #plt.obj <- plotly::ggplotly(plt.obj)
   print(plt.obj)
   return(plt.obj)
 }
 
-#' @rdname plotutils
-#' @return ggplot list
-#' @keywords internal
-plot_return_plot.obj = function(data, plt.obj){
-    plt.obj <- plot_grid(data = data, plt.obj = plt.obj)
-    plt.obj = plot_in_well(plt.obj, data, no_annotations = F)
-    print(plt.obj)
-    plt.obj
-}
+
+## -------------------------------- plot 4 ----------------------------
 
 #' @rdname plotutils
 #' @return ggplot list
@@ -515,301 +591,38 @@ plot_side_by_side <- function(data,
                               xlim=NULL,
                               ylim=NULL,
                               title=NULL,
+                              whichxvar = NULL,
+                              whichpalette = NULL,
+                              whichlinetype = NULL,
                               legend_labels = NULL){
-  x = get_x_var(data)
-  y = get_y_var(data)
-  if (is.null(xlab)) xlab = get_x_label(x)
-  if (is.null(ylab)) ylab = 'FLUORESCENCE'
+
+
+
   if (is.null(title)) title <- sprintf('%s vs %s', ylab, xlab)
-  plt.obj_gridstyle = invisible(plot_return_plot.obj(data = data, plt.obj = plt.obj))
-  plt.obj_superimpose = invisible(plot_superimpose_advanced(data = data,
-                                                            plt.obj = plt.obj,
-                                                            ylab = ylab,
-                                                            title = title,
-                                                            legend_labels = legend_labels))
-  if (class(plt.obj_gridstyle)[1] == "gg" && class(plt.obj_superimpose)[1] == "gg"){
-    plt <- gridExtra::grid.arrange(plt.obj_gridstyle, plt.obj_superimpose, ncol = 2)
-    print(plt)
-    plt
-  }
-  else if (class(plt.obj_gridstyle)[1] == "plotly" && class(plt.obj_superimpose)[1] == "plotly"){
-    plt <- plotly::subplot(plt.obj_gridstyle, plt.obj_superimpose, nrows = 1)
-    print(plt)
-    plt
-  }
-}
+  plt.obj_gridstyle = invisible(plot.fluorstar(data = data,
+                                                     plt.obj = plt.obj,
+                                                     whichxvar = whichxvar))
+  plt.obj_superimpose = invisible(plot_superimpose(data = data,
+                                                   plt.obj = plt.obj,
+                                                   legend_labels = legend_labels,
+                                                   whichxvar = whichxvar,
+                                                   whichpalette = whichpalette,
+                                                   whichlinetype = whichlinetype))
 
-#' @rdname plotutils
-#' @return ggplot list
-#' @note The most useless function here but learnt plotly a little.
-#' @keywords internal
-plotly_plot <- function(plate, title = NULL, ylab = NULL, xlab = NULL) {
-  data <- subset_or_not(plate)
-  xvar <- get_x_var(data)
-  yvar <- get_y_var(data)
-  if(is.null(title)) title <- sprintf('%s vs %s',y_var(plate),x_var_two_label(plate))
-  if(is.null(xlab)) xlab <- get_x_label(xvar)
-  if(is.null(ylab)) ylab <- params(plate, 'GENERAL', 'Y_VAR')
-
-  plt <- plotly::plot_ly(
-    data,
-    x = stats::as.formula(paste("~", xvar)),
-    y = stats::as.formula(paste("~", yvar)),
-                   type = 'scatter',
-                   mode = 'lines+markers',
-                   marker = list(opacity = 0.3, size = 5)
-    ) %>%
-      plotly::layout(
-        title = title,
-        xaxis = list(title = xlab),
-        yaxis = list(title = ylab)
-      )
+  suppressWarnings({
+  plt <- gridExtra::grid.arrange(plt.obj_gridstyle, plt.obj_superimpose, ncol = 2)
+  })
+  print(plt)
   plt
+
 }
 
-
-# ------------------------------ Plot Util normfluodbf 1.5.2 --------------------------
-#' @rdname plotutils
-#' @return ggplot list
-#' @keywords internal
-plot_dev_deprecated <- function(df,
-                                wells,
-                                x = NULL,
-                                well_colors = NULL,
-                                xlim=NULL,
-                                ylim=NULL,
-                                xlab=NULL,
-                                ylab=NULL,
-                                title=NULL){
-
-  if (is.null(x) && 'Time' %in% names(df) && 'Cycle_Number' %in% names(df)){
-    x <- "Cycle_Number"
-  }
-  else if (!is.null(x)){
-    x <- x
-  }
-  else {
-    x <- "Cycle_Number"
-  }
-
-  #palette <- c("#0000FF", "#8B0000", "#006400", "purple", "orange", "pink", "cyan", "brown", "gray", "black")
-  palette <- c("blue", "red", "green", "purple", "orange", "pink", "cyan", "brown", "gray", "black")
-  if(is.null(well_colors))
-    well_colors <- c(palette[1:3])
-  else
-    well_colors <- c(palette[1:length(palette)])
-
-  if(is.null(xlab))
-    xlab <- 'CYCLE NUMBER'
-
-  if(is.null(ylab))
-    ylab <- 'FLUORESCENCE'
-
-  if(is.null(title))
-    title <- 'FLUORESCENCE vs CYCLE_NUMBER'
-
-  num_wells <- length(wells)
-  if (num_wells > length(well_colors)) {
-    stop("Number of wells exceeds the available color palette.")
-  }
-
-  p <- ggplot2::ggplot(df, ggplot2::aes_string(x = x)) +
-    ggplot2::coord_cartesian(xlim = xlim, ylim = ylim) +
-    ggplot2::labs(title = title, x = xlab, y = ylab)
-
-  for (i in seq_along(wells)) {
-    p <- p + ggplot2::geom_point(ggplot2::aes_string(y = wells[i]), color = well_colors[i], size = 3, alpha = 0.7) +
-      ggplot2::geom_line(ggplot2::aes_string(y = wells[i]), color = well_colors[i], size = 0.8, alpha = 0.7)
-  }
-
-  legend_labels <- wells
-  names(well_colors) <- legend_labels
-
-  p <- p + ggplot2::scale_color_manual(name = 'wells', values = setNames(well_colors, wells))
-  p <- plotly::ggplotly(p)
-  return(p)
-}
+# -------------------------------- save plot ----------------------------
 
 #' @rdname plotutils
-#' @return ggplot list
+#' @return plot utils
 #' @keywords internal
-plot_dev <- function(df,
-                     wells,
-                     x = NULL,
-                     well_colors = NULL,
-                     xlim = NULL,
-                     ylim = NULL,
-                     xlab = NULL,
-                     ylab = NULL,
-                     title = NULL) {
-
-  if (is.null(x) && 'Time' %in% names(df) && 'Cycle_Number' %in% names(df)) {
-    x <- "Cycle_Number"
-  } else if (!is.null(x)) {
-    x <- x
-  } else {
-    x <- "Cycle_Number"
-  }
-
-  palette <- c("blue", "red", "green", "purple", "orange", "pink", "cyan", "brown", "gray", "black")
-  if (is.null(well_colors))
-    well_colors <- palette[1:length(wells)]
-
-  if (is.null(xlab))
-    xlab <- 'CYCLE NUMBER'
-
-  if (is.null(ylab))
-    ylab <- 'FLUORESCENCE'
-
-  if (is.null(title))
-    title <- 'FLUORESCENCE vs CYCLE NUMBER'
-
-  num_wells <- length(wells)
-  if (num_wells > length(well_colors)) {
-    stop("Number of wells exceeds the available color palette.")
-  }
-
-  # Create a combined data frame for ggplot
-  combined_df <- df %>%
-    tidyr::pivot_longer(cols = tidyr::all_of(wells), names_to = "Well", values_to = "Fluorescence")
-
-  p <- ggplot2::ggplot(combined_df, ggplot2::aes_string(x = x, y = "Fluorescence", color = "Well")) +
-    ggplot2::geom_point(size = 3, alpha = 0.7) +
-    ggplot2::geom_line(size = 0.8, alpha = 0.7) +
-    ggplot2::coord_cartesian(xlim = xlim, ylim = ylim) +
-    ggplot2::labs(title = title, x = xlab, y = ylab, color = 'Well') +
-    ggplot2::scale_color_manual(values = stats::setNames(well_colors, wells))
-
-  p <- plotly::ggplotly(p)
-  return(p)
-}
-
-#' @rdname plotutils
-#' @return ggplot list
-#' @keywords internal
-plot_dev_with_custom_legends <- function(df,
-                                         wells,
-                                         legend_labels = NULL,
-                                         x = NULL,
-                                         well_colors = NULL,
-                                         xlim = NULL,
-                                         ylim = NULL,
-                                         xlab = NULL,
-                                         ylab = NULL,
-                                         title = NULL) {
-
-  if (is.null(x) && 'Time' %in% names(df) && 'Cycle_Number' %in% names(df)) {
-    x <- "Cycle_Number"
-  } else if (!is.null(x)) {
-    x <- x
-  } else {
-    x <- "Cycle_Number"
-  }
-
-  palette <- c("blue", "red", "green", "purple", "orange", "pink", "cyan", "brown", "gray", "black")
-  if (is.null(well_colors)) {
-    well_colors <- palette[1:length(wells)]
-  }
-
-  if (is.null(xlab)) {
-    xlab <- 'CYCLE NUMBER'
-  }
-
-  if (is.null(ylab)) {
-    ylab <- 'FLUORESCENCE'
-  }
-
-  if (is.null(title)) {
-    title <- 'FLUORESCENCE vs CYCLE NUMBER'
-  }
-
-  num_wells <- length(wells)
-  if (num_wells > length(well_colors)) {
-    stop("Number of wells exceeds the available color palette.")
-  }
-
-  combined_df <- df %>%
-    tidyr::pivot_longer(cols = tidyr::all_of(wells), names_to = "Well", values_to = "Fluorescence")
-
-  if (is.null(legend_labels)) {
-    legend_labels <- wells
-  } else {
-    if (length(legend_labels) != length(wells)) {
-      stop("The length of legend_labels must match the length of wells.")
-    }
-  }
-
-  combined_df$Legend <- factor(combined_df$Well, levels = wells, labels = legend_labels)
-
-  p <- ggplot2::ggplot(combined_df, ggplot2::aes_string(x = x, y = "Fluorescence", color = "Legend")) +
-    ggplot2::geom_point(size = 3, alpha = 0.7) +
-    ggplot2::geom_line(size = 0.8, alpha = 0.7) +
-    ggplot2::coord_cartesian(xlim = xlim, ylim = ylim) +
-    ggplot2::labs(title = title, x = xlab, y = ylab, color = 'Legend') +
-    ggplot2::scale_color_manual(values = stats::setNames(well_colors, legend_labels))
-
-  p <- plotly::ggplotly(p)
-  return(p)
-}
-
-#----------------------------- Plot Handlers Continues ----------------------------- getNamespaceExports('ggplot2')
-
-#' Multiplot
-#' @param ... extra
-#' @param plotlist list
-#' @param file file
-#' @param cols cols
-#' @param layout layout
-#' @return grid plot
 #' @export
-multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
-
-  plots <- c(list(...), plotlist)
-
-  numPlots = length(plots)
-
-  if (is.null(layout)) {
-    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
-                     ncol = cols, nrow = ceiling(numPlots/cols))
-  }
-
-  if (numPlots==1) {
-    print(plots[[1]])
-
-  } else {
-    grid::grid.newpage()
-    grid::pushViewport(grid::viewport(layout = grid::grid.layout(nrow(layout), ncol(layout))))
-
-    for (i in 1:numPlots) {
-      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
-
-      print(plots[[i]], vp = grid::viewport(layout.pos.row = matchidx$row,
-                                            layout.pos.col = matchidx$col))
-    }
-  }
-}
-
-# ---------------------------------- General Grids --------------------------
-
-#' @rdname plotutils
-#' @return ggplot list
-#' @note Just simple grids with no functionality. No time to delve deeper but a good primer.
-#' @keywords internal
-plate_wells_grid <- function(num_wells=NULL){
-  if (num_wells == 96) {
-    gs <- lapply(1:96, function(ii)
-      grid::grobTree(grid::rectGrob(gp=grid::gpar(fill=ii, alpha=0.5)), grid::textGrob(ii)))
-    gridExtra::grid.arrange(grobs=gs, ncol=12,
-                            top="top label", bottom="bottom\nlabel",
-                            left="left label", right="right label")
-    grid::grid.rect(gp=grid::gpar(fill=NA))
-  }
-  else if (num_wells == 384){
-    gs <- lapply(1:384, function(ii)
-      grid::grobTree(grid::rectGrob(gp=grid::gpar(fill=ii, alpha=0.5)), grid::textGrob(ii)))
-    gridExtra::grid.arrange(grobs=gs, ncol=12,
-                            top=c(LETTERS[1:8]),
-                            left=c(1:12))
-    grid::grid.rect(gp=grid::gpar(fill=NA))
-  }
+save_plot <- function(name){
+  ggplot2::ggsave(name, width=9,height=6)
 }

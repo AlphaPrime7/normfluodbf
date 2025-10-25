@@ -35,13 +35,20 @@ subset.default = function(plate,wells,...){
 
   class(wells_subset_data) = c("normfluodbf_subset", class(wells_subset_data))
   plate[['subset_data']] <- wells_subset_data
+  if(is.null(plate[['subset_data']])) {
+    plate[['subset']] = FALSE
+  }  else {
+    plate[['subset']] = TRUE
+  }
   plate
 }
 
 #' @rdname subset
 #' @return plate
 #' @export
-subset.mod_normfluodbf_data = function(plate,wells,...){
+subset.mod_normfluodbf_data = function(plate,
+                                       wells,
+                                       ...){
   if (!missing(wells) && !is.null(wells) && all(nzchar(wells))) {
     wells %<>% paste(collapse = ",")
     wells %<>% toupper
@@ -53,6 +60,11 @@ subset.mod_normfluodbf_data = function(plate,wells,...){
 
   class(wells_subset_data) = c("normfluodbf_subset", class(wells_subset_data))
   plate[['subset_data']] <- wells_subset_data
+  if(is.null(plate[['subset_data']])) {
+    plate[['subset']] = FALSE
+  }  else {
+    plate[['subset']] = TRUE
+  }
   plate
 }
 
@@ -71,6 +83,11 @@ subset.normfluodbf_plate = function(plate,wells,...){
 
   class(wells_subset_data) = c("normfluodbf_subset", class(wells_subset_data))
   plate[['subset_data']] <- wells_subset_data
+  if(is.null(plate[['subset_data']])) {
+    plate[['subset']] = FALSE
+  }  else {
+    plate[['subset']] = TRUE
+  }
   plate
 }
 
@@ -89,6 +106,11 @@ subset.96well_plate = function(plate,wells,...){
 
   class(wells_subset_data) = c("normfluodbf_subset", class(wells_subset_data))
   plate[['subset_data']] <- wells_subset_data
+  if(is.null(plate[['subset_data']])) {
+    plate[['subset']] = FALSE
+  }  else {
+    plate[['subset']] = TRUE
+  }
   plate
 }
 
@@ -107,6 +129,11 @@ subset.384well_plate = function(plate,wells,...){
 
   class(wells_subset_data) = c("normfluodbf_subset", class(wells_subset_data))
   plate[['subset_data']] <- wells_subset_data
+  if(is.null(plate[['subset_data']])) {
+    plate[['subset']] = FALSE
+  }  else {
+    plate[['subset']] = TRUE
+  }
   plate
 }
 
@@ -125,6 +152,11 @@ subset.1536well_plate_t1 = function(plate,wells,...){
 
   class(wells_subset_data) = c("normfluodbf_subset", class(wells_subset_data))
   plate[['subset_data']] <- wells_subset_data
+  if(is.null(plate[['subset_data']])) {
+    plate[['subset']] = FALSE
+  }  else {
+    plate[['subset']] = TRUE
+  }
   plate
 }
 
@@ -143,6 +175,11 @@ subset.1536well_plate_t2 = function(plate,wells,...){
 
   class(wells_subset_data) = c("normfluodbf_subset", class(wells_subset_data))
   plate[['subset_data']] <- wells_subset_data
+  if(is.null(plate[['subset_data']])) {
+    plate[['subset']] = FALSE
+  }  else {
+    plate[['subset']] = TRUE
+  }
   plate
 }
 
@@ -151,6 +188,8 @@ subset.1536well_plate_t2 = function(plate,wells,...){
 #' @return plot object
 #' @keywords internal
 subset_or_not <- function(plate){
+  #&& plate[['subset']] == TRUE
+  data = NULL
   if(!is.null(plate[['subset_data']])){
     data = plate[['subset_data']]
     data
@@ -159,6 +198,7 @@ subset_or_not <- function(plate){
     data = plate[['plate_data']]
     data
   }
+  data
 }
 
 #' @rdname subset
@@ -167,6 +207,7 @@ subset_or_not <- function(plate){
 remove_subset_data <- function(plate){
   if(!is.null(plate[['subset_data']])){
     plate[['subset_data']] <- NULL
+    plate[['subset']] <- NULL
     plate
   } else {
     plate
