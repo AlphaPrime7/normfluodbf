@@ -8,19 +8,20 @@ capture_output <- function(f, ...) {
 }
 
 test_that("test normfluodbf filled wells plot", {
-  lipsum_214 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
+  lipsum_214 <- system.file("extdata",
+                            "dat_1.dat",
+                            package = "normfluodbf")
   plate = setup_plate(init_plate())
   plate <- plate %>%
-    upload_data(file = lipsum_214, tnp = 3, cycles = 40, rows_used = c('A','B','C'), norm_scale = 'raw') %>%
-    run_steps %>% subset('A1,B1,C1,C9') %>%
-    plot(whichplot = 1, legend_labels = c('beef_jerky','fatnose','yourmamasofat','youweird'))
+    upload_data(file = lipsum_214) %>%
+    run_steps %>%
+    subset('A1,B1,C1,C9') %>%
+    plot(whichplot = 1, whichxvar = 2)
 
   plt.obj = plate$fluostar_plot
 
   expect_false(is.null(plt.obj))
   expect_true(inherits(plate$fluostar_plot, c("ggplot", "gg", "ggplot2::ggplot")))
-  #expect_type(plate[["fluostar_plot"]], "object")
-  #expect_length(as.list(plt.obj), 12)
 })
 
 

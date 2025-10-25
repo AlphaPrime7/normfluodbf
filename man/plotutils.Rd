@@ -67,6 +67,7 @@ plot_canvas(
 plot_grid(data, plt.obj)
 
 plot_in_well(
+  plate,
   plt.obj,
   data,
   whichxvar = NULL,
@@ -75,9 +76,10 @@ plot_in_well(
   no_annotations = FALSE
 )
 
-\method{plot}{fluorstar}(data, plt.obj, whichxvar = NULL)
+\method{plot}{fluorstar}(plate, data, plt.obj, whichxvar = NULL)
 
 plot_superimpose(
+  plate,
   data,
   plt.obj,
   whichxvar = NULL,
@@ -118,6 +120,7 @@ plot_superimpose(
 plot_plate_layout(plate)
 
 plot_side_by_side(
+  plate,
   data,
   plt.obj,
   xlab = NULL,

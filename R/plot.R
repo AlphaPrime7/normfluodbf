@@ -57,7 +57,8 @@ plot.96well_plate = function(x,
   if (is.null(whichplot) || is.null(fluorstarplot) || fluorstarplot){
 
       plt.obj <- plot_grid(data, plt.obj)
-      plt.obj <- plot_in_well(plt.obj,
+      plt.obj <- plot_in_well(plate,
+                              plt.obj,
                               data,
                               whichxvar = whichxvar,
                               no_annotations = F)
@@ -72,7 +73,8 @@ plot.96well_plate = function(x,
 
   }
   else if (superimpose){
-    plot_superimpose(data = data,
+    plot_superimpose(plate,
+                     data = data,
                      plt.obj = plt.obj,
                      legend_labels = legend_labels,
                      whichxvar = whichxvar,
@@ -93,7 +95,8 @@ plot.96well_plate = function(x,
     invisible(plate)
   }
   else if (plot_side_by_side){
-    plt <- plot_side_by_side(data = data,
+    plt <- plot_side_by_side(plate,
+                             data = data,
                              plt.obj = plt.obj,
                              whichxvar = whichxvar,
                              whichpalette = whichpalette,
@@ -109,7 +112,8 @@ plot.96well_plate = function(x,
   }
   else {
       plt.obj <- plot_grid(data, plt.obj)
-      plt.obj <- plot_in_well(plt.obj,
+      plt.obj <- plot_in_well(plate,
+                              plt.obj,
                               data,
                               whichxvar = whichxvar,
                               no_annotations = F)

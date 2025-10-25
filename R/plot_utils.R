@@ -280,7 +280,8 @@ plot_grid <- function(data,
 #' @return ggplot list
 #' @keywords internal
 #' @note follows the grid plot
-plot_in_well = function(plt.obj,
+plot_in_well = function(plate,
+                        plt.obj,
                         data,
                         whichxvar = NULL,
                         Cycle_Number = 2 %in% whichxvar,
@@ -342,12 +343,14 @@ plot_in_well = function(plt.obj,
 #' @rdname plotutils
 #' @return ggplot list
 #' @keywords internal
-plot.fluorstar = function(data,
+plot.fluorstar = function(plate,
+                          data,
                           plt.obj,
                           whichxvar = NULL){
   plt.obj <- plot_grid(data = data,
                        plt.obj = plt.obj)
-  plt.obj = plot_in_well(plt.obj,
+  plt.obj = plot_in_well(plate,
+                         plt.obj,
                          data,
                          no_annotations = F,
                          whichxvar = whichxvar)
@@ -362,7 +365,8 @@ plot.fluorstar = function(data,
 #' @return ggplot list
 #' @note purely subordinate because of the plt.obj found in the plot function
 #' @keywords internal
-plot_superimpose <- function(data,
+plot_superimpose <- function(plate,
+                             data,
                              plt.obj,
                              whichxvar = NULL,
                              Cycle_Number = 2 %in% whichxvar,
@@ -584,7 +588,8 @@ plot_plate_layout <- function(plate){
 #' @rdname plotutils
 #' @return ggplot list
 #' @keywords internal
-plot_side_by_side <- function(data,
+plot_side_by_side <- function(plate,
+                              data,
                               plt.obj,
                               xlab = NULL,
                               ylab = NULL,
@@ -599,10 +604,12 @@ plot_side_by_side <- function(data,
 
 
   if (is.null(title)) title <- sprintf('%s vs %s', ylab, xlab)
-  plt.obj_gridstyle = invisible(plot.fluorstar(data = data,
-                                                     plt.obj = plt.obj,
-                                                     whichxvar = whichxvar))
-  plt.obj_superimpose = invisible(plot_superimpose(data = data,
+  plt.obj_gridstyle = invisible(plot.fluorstar(plate,
+                                               data = data,
+                                               plt.obj = plt.obj,
+                                               whichxvar = whichxvar))
+  plt.obj_superimpose = invisible(plot_superimpose(plate,
+                                                   data = data,
                                                    plt.obj = plt.obj,
                                                    legend_labels = legend_labels,
                                                    whichxvar = whichxvar,
