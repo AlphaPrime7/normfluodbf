@@ -485,6 +485,7 @@ plate <- plate %>%
   plot(whichplot = 2, legend_labels = c('beef_jerky','fatnose','yourmamasofat','youweird'))
 
 #plot plate layout- my favorite
+#x=c(unique(plate$plate_data[!is.na(plate$plate_data$fluor_values),]$well))
 lipsum_214 <- system.file("extdata", "dat_1.dat", package = "normfluodbf")
 plate = setup_plate(init_plate())
 plate <- plate %>%
