@@ -385,7 +385,7 @@ actual_cols_used <- function(dat){
   
   colnames(df) <- c(1:ncol(df))
   acu <- names(which(colSums(!is.na(df)) > 0)) #which(apply(df, 2, function(x) all(x != "-,"))); which(sapply(f1, function(col) !all(is.na(col))))
-  return(acu)
+  return(as.numeric(acu))
 }
 
 
