@@ -378,15 +378,13 @@ actual_cols_used <- function(dat){
   else {
     stop("Input 'dat' must be a data frame, a valid file path, or a matrix.")
   }
-
+  
   df <- clean_odddat_optimus(df)
   df <- df[ , !names(df) %in% c("Time", "Cycle_Number")]
   df <- as.data.frame(df)
-
-  #colnames(df) <- c(1:ncol(df))
-  #acu <- names(which(colSums(!is.na(df)) > 0))
-  acu <- ncol(df)
-  acu <- as.numeric(as.vector(seq(acu)))
+  
+  colnames(df) <- c(1:ncol(df))
+  acu <- names(which(colSums(!is.na(df)) > 0)) #which(apply(df, 2, function(x) all(x != "-,"))); which(sapply(f1, function(col) !all(is.na(col))))
   return(acu)
 }
 
